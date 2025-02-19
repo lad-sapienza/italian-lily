@@ -1,0 +1,70 @@
+---
+title: "People"
+date: "2023-10-01"
+slug: "datatable"
+description: ""
+menu_position: 2
+---
+
+import { DataTb } from "../../modules/scms";
+
+# Lista delle Persone
+
+<DataTb
+  source={{
+    dTable: "f_persone",
+  }}
+  striped={true}
+  columns={[
+    {
+      name: "Nome e Cognome",
+      sortable: true,
+      cell: item => (
+        <a
+          href={`../record/?query=${encodeURIComponent(
+            JSON.stringify({
+              dTable: "f_persone_f_luoghi",
+              fields: "*,f_persone_id.*,f_luoghi_id.*",
+              filter: { f_persone_id: `${item.id}` },
+            })
+          )}`}
+        >
+          {item.nome_e_cognome || "Non Disponibile"}
+        </a>
+      ),
+    },
+    {
+      name: "Also attested as",
+      cell: item => {
+        const pseudonimo = item.Pseudonimo ? item.Pseudonimo : null;
+        const cognomeNaturalizzato = item.cognome_naturalizzato_o_coniuge ? item.cognome_naturalizzato_o_coniuge : null;
+        if (pseudonimo && cognomeNaturalizzato) return `${cognomeNaturalizzato}, ${pseudonimo}`;
+        if (pseudonimo) return pseudonimo;
+        if (cognomeNaturalizzato) return cognomeNaturalizzato;
+        return "ND";
+      },
+    },
+    {
+      name: "Dates and places",
+      cell: item => {
+        const annoNascita = item.anno_nascita || "ND";
+        const luogoNascita = item.luogo_nascita || "ND";
+        const annoMorte = item.anno_morte || "ND";
+        const luogoMorte = item.luogo_morte || "ND";
+        return `${annoNascita} (${luogoNascita}) - ${annoMorte} (${luogoMorte})`;
+      },
+    },
+    {
+      name: "Gender",
+      cell: item => item.Genere || "ND",
+    },
+    {
+      name: "Profession",
+      cell: item => item.professione || "ND",
+    },
+    {
+      name: "Notes about",
+      cell: item => <div dangerouslySetInnerHTML={{ __html: item.note_sul_personaggio || "ND" }} />,
+    },
+  ]}
+/>

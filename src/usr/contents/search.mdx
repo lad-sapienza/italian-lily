@@ -1,0 +1,91 @@
+---
+title: "Search"
+date: "2023-10-01"
+slug: "search"
+description: ""
+---
+
+import { Search } from "../../modules/scms.js"
+import { Link } from "gatsby"
+
+
+# Easily build a search engine with custom templates to show results
+
+`<Search />` component connecting to the Directus default instance by using only the name of the Directus table
+
+
+<div className="row">
+  <div className="col-sm-4">
+```jsx
+<Search
+
+  source={{
+    dTable: "scms_ksa"
+  }}
+
+  fieldList={{
+    "Item_Label": "Label",
+    "Site_Name": "Site name",
+    "Site_Description": "Site description"
+  }}
+
+  resultItemTemplate = { item => {
+    return  <div className="card my-3" key={item.id}>
+      <div className="card-body">
+        <h5 className="card-title">{item.Item_Label} — {item.Site_Name}</h5>
+        <div className="card-text">
+        <div className="row">
+          <div className="col-3">
+            <img src={item.Thumbnail} className="card-img-top img-fluid" alt={item.Site_Name} style={{maxWidth: 200}} />
+          </div>
+          <div className="col-9">
+            {item.Site_Description}
+            <hr />
+            <a href={`../record/?tb=scms_ksa&id=${item.id}`} className="btn btn-primary">View</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  }}
+/>
+```
+  </div>
+  <div className="col-sm-8">
+    <Search
+      source={{
+        dTable: "scms_ksa"
+      }}
+      fieldList={{
+        "Item_Label": "Label",
+        "Site_Name": "Site name",
+        "Site_Description": "Site description"
+        }}
+      resultItemTemplate = { item => {
+        return  <div className="card my-3" key={item.id}>
+          <div className="card-body">
+            <h5 className="card-title">{item.Item_Label} — {item.Site_Name}</h5>
+            <div className="card-text">
+            <div className="row">
+              <div className="col-3">
+                <img src={item.Thumbnail} className="card-img-top img-fluid" alt={item.Site_Name} style={{maxWidth: 200}} />
+              </div>
+              <div className="col-9">
+                {item.Site_Description}
+                <hr />
+                <a href={`../record/?tb=scms_ksa&id=${item.id}`} className="btn btn-primary">View</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      }}
+    />
+
+Data from [Kahramanmaraş Survey](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) created by [Elizabeth Carter](http://opencontext.org/persons/3208923d-69d0-70e9-9cc1-23ad97770aec) and published on [OpenContext](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) add distributed with [CC BY 4.0 International](https://creativecommons.org/licenses/by/4.0) license.
+
+---
+
+  </div>
+</div>

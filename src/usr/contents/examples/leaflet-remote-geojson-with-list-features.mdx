@@ -1,0 +1,64 @@
+---
+title: "Leaflet: Adding a vector layer from a remote GeoJSON file"
+date: "2024-10-01"
+slug: "maps/examples/leaflet-remote-geojson-with-list-features"
+description: "Leaflet: Adding a vector layer from a remote GeoJSON file"
+---
+
+import {
+  MapLeaflet,
+  VectorLayer,
+  ListVisibleFeatures
+} from "../../../modules/scms.js"
+
+
+### Leaflet: Adding a vector layer from a remote GeoJSON file with experimental `ListVisibleFeatures`
+
+
+<div className="row mt-3 mb-5 border-top border-bottom py-3">
+  <div className="col-6">
+    <MapLeaflet
+      height="400px"
+      baseLayers={["OSM", "EsriSatellite"]}
+      fitToContent={true} >
+      
+      <ListVisibleFeatures elTemplate={ el => <li className="ms-3">{el.properties.name}</li> }/>
+
+      <VectorLayer
+        name="Iron Age Sites"
+        fitToContent={true}
+        checked={true}
+        source={{
+          path2data: "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_populated_places_simple.geojson"
+        }}
+        
+        popupTemplate="<p><strong>${name}</strong>"
+      />
+    </MapLeaflet>
+
+  </div>
+  <div className="col-6">
+    ```jsx
+    import {
+      MapLeaflet,
+      VectorLayer
+    } from "../../../modules/scms.js"
+
+    <MapLeaflet
+      height="400px"
+      baseLayers={["OSM", "EsriSatellite"]}
+      fitToContent={true} >
+      
+      <VectorLayer
+        name="Iron Age Sites"
+        fitToContent={true}
+        checked={true}
+        source={{
+          path2data: "https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_populated_places_simple.geojson"
+        }}
+        popupTemplate="<p><strong>${name}</strong>"
+      />
+    </MapLeaflet>
+    ```
+  </div>
+</div>

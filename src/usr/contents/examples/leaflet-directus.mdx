@@ -1,0 +1,62 @@
+---
+title: "Leaflet: Adding a vector layer from a Directus API"
+date: "2024-10-01"
+slug: "maps/examples/leaflet-directus"
+description: "Leaflet: Adding a vector layer from a Directus API"
+---
+
+import {
+  MapLeaflet,
+  VectorLayer,
+} from "../../../modules/scms.js"
+
+
+### Leaflet: Adding a vector layer from a Directus API
+
+<div className="row mt-3 mb-5 border-top border-bottom py-3">
+  <div className="col-6">
+    <MapLeaflet
+      height="400px"
+      center="43,13.32,11"
+      baseLayers={["OSM"]}>
+
+      <VectorLayer
+        name="All Sites"
+        source={{
+          dTable: "scms_ksa",
+          geoField: "geometry"
+        }}
+        checked={true}
+        fitToContent={true}
+        popupTemplate="<p><strong>${Item_Label}</strong>"
+      />
+    </MapLeaflet>
+    Data from [Kahramanmaraş Survey](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) created by [Elizabeth Carter](http://opencontext.org/persons/3208923d-69d0-70e9-9cc1-23ad97770aec) and published on [OpenContext](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) add distributed with [CC BY 4.0 International](https://creativecommons.org/licenses/by/4.0) license.
+  </div>
+  <div className="col-6">
+    ```jsx
+    import {
+      MapLeaflet,
+      VectorLayer,
+    } from "../../../modules/scms.js"
+
+    <MapLeaflet
+      height="400px"
+      center="43,13.32,11"
+      baseLayers={["OSM"]}>
+
+      <VectorLayer
+        name="All Sites"
+        source= {{
+          dTable: "scms_ksa",
+          geoField: "geometry"
+        }}
+        
+        checked={true}
+        fitToContent={true}
+        popupTemplate="<p><strong>${Item_Label}</strong>"
+      />
+    </MapLeaflet>
+    ```
+  </div>
+</div>

@@ -1,0 +1,91 @@
+---
+title: "Record Example"
+date: "2023-10-01"
+slug: "record"
+description: ""
+---
+
+import { Record, RecordContext } from "../../modules/record/record";
+import ArrowMapWithTimeBar from "../../modules/maps/leaflet/ArrowMapWithTimeBar";
+
+export const MDXLayout = ({ children }) => <>{children}</>;
+
+<Record
+  search={JSON.parse(new URLSearchParams(window.location.search).get("query"))}
+>
+  <RecordContext.Consumer>
+    {recordData => {
+      if (!recordData || recordData.length === 0) {
+        return <p>Nessun dato trovato per questa persona.</p>;
+      }
+
+      console.log("Dati recuperati:", recordData);
+
+      const persona = recordData[0]?.f_persone_id || {};
+      const markers = recordData.map(item => ({
+        lat: item.f_luoghi_id.coordinate.coordinates[1],
+        lng: item.f_luoghi_id.coordinate.coordinates[0],
+        popup: item.f_luoghi_id.toponimo_italiano || "Luogo sconosciuto",
+        prima_attestazione_anno: item.prima_attestazione_anno,
+        ultima_attestazione_anno: item.ultima_attestazione_anno,
+        residente: item.residente,
+        spostato_in_qualita_di: item.spostato_in_qualita_di,
+        note_sullo_spostamento: item.note_sullo_spostamento,
+        fonte: item.fonte,
+      }));
+
+      // Ordina i dati in base a prima_attestazione_anno
+      const sortedData = recordData.sort(
+        (a, b) =>
+          (a.prima_attestazione_anno || Infinity) - (b.prima_attestazione_anno || Infinity)
+      );
+
+      return (
+        <div style={{ display: "flex", flexDirection: "row" }}>
+          {/* Sezione della mappa */}
+          <div style={{ flex: 8, paddingRight: "16px" }}>
+            <ArrowMapWithTimeBar height="600px" baseLayers={["OSM"]} markers={markers} />
+          </div>
+
+          {/* Sezione tematica e info anagrafiche */}
+          <div style={{ flex: 4, paddingLeft: "16px", overflowY: "auto", maxHeight: "600px" }}>
+            <h1>{persona.nome_e_cognome || "Nome sconosciuto"}</h1>
+            <h2>{persona.Pseudonimo || "Pseudonimo sconosciuto"}</h2>
+            <p><strong>Professione:</strong> {persona.professione || "-"}</p>
+            <p><strong>Note:</strong> {persona.note_sul_personaggio || "Nessuna nota"}</p>
+
+            <div>
+              <h3>Spostamenti Registrati</h3>
+              {sortedData.map((spostamento, index) => (
+                <div
+                  key={index}
+                  style={{
+                    marginBottom: "16px",
+                    padding: "8px",
+                    border: "1px solid #ddd",
+                    borderRadius: "4px",
+                    backgroundColor: "#f9f9f9",
+                  }}
+                >
+                  <h4>Luogo: {spostamento.f_luoghi_id.toponimo_italiano || "N/A"}</h4>
+                  <p><strong>Spostato in qualità di:</strong> {spostamento.spostato_in_qualita_di || "N/A"}</p>
+                  <p>
+                    <strong>Periodo:</strong> {spostamento.prima_attestazione_anno || "?"} - {spostamento.ultima_attestazione_anno || "?"}
+                  </p>
+                  <p><strong>Residente:</strong> {spostamento.residente ? "Sì" : "No"}</p>
+                  {spostamento.note_sullo_spostamento && (
+                    <p>
+                      <strong>Note:</strong>{" "}
+                      <span dangerouslySetInnerHTML={{ __html: spostamento.note_sullo_spostamento }} />
+                    </p>
+                  )}
+                  {spostamento.fonte && <p><strong>Fonte:</strong> {spostamento.fonte}</p>}
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      );
+    }}
+  </RecordContext.Consumer>
+</Record>

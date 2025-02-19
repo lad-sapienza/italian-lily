@@ -1,0 +1,97 @@
+{
+  "name": "@lad-sapienza/scms",
+  "private": false,
+  "description": "A simple starter to get up and developing quickly with Gatsby 5 and Bootstrap 5",
+  "version": "4.6.0",
+  "author": {
+    "name": "Julian Bogdani",
+    "email": "julian.bogdani@uniroma1.it",
+    "url": "https://lad.uniroma1.it"
+  },
+  "contributors": [
+    {
+      "name": "Eleonora Iacopini",
+      "email": "eleonora.iacopini@uniroma1.it",
+      "url": "https://lad.uniroma1.it"
+    },
+    {
+      "name": "Erasmo Di Fonso",
+      "email": "erasmo.difonso@uniroma1.it",
+      "url": "https://lad.uniroma1.it"
+    }
+  ],
+  "dependencies": {
+    "@mdx-js/react": "^3.1.0",
+    "@viz-js/viz": "^3.11.0",
+    "ajv": "^8.12.0",
+    "ajv-keywords": "^5.1.0",
+    "babel-plugin-styled-components": "^2.1.4",
+    "bootstrap": "^5.3.3",
+    "chart.js": "^4.4.7",
+    "csvtojson": "^2.0.10",
+    "d3": "^7.9.0",
+    "gatsby": "^5.13.7",
+    "gatsby-plugin-image": "^3.13.1",
+    "gatsby-plugin-manifest": "^5.13.1",
+    "gatsby-plugin-mdx": "^5.13.1",
+    "gatsby-plugin-react-leaflet": "^4.0.3",
+    "gatsby-plugin-sass": "^6.13.1",
+    "gatsby-plugin-sharp": "^5.13.1",
+    "gatsby-plugin-styled-components": "^6.13.1",
+    "gatsby-remark-autolink-headers": "^6.13.1",
+    "gatsby-remark-prismjs": "^7.13.2",
+    "gatsby-source-filesystem": "^5.13.1",
+    "gatsby-transformer-sharp": "^5.13.1",
+    "geojson-bbox": "^0.0.1",
+    "leaflet": "^1.9.4",
+    "leaflet-polylinedecorator": "github:bbecquet/Leaflet.PolylineDecorator",
+    "leaflet.markercluster": "^1.5.3",
+    "maplibre-gl": "^4.7.1",
+    "papaparse": "^5.4.1",
+    "prismjs": "^1.29.0",
+    "rc-slider": "^11.1.7",
+    "react": "^18.3.1",
+    "react-bootstrap": "^2.10.5",
+    "react-bootstrap-icons": "^1.11.4",
+    "react-chartjs-2": "^5.2.0",
+    "react-data-table-component": "^7.6.2",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1",
+    "react-map-gl": "^7.1.7",
+    "react-router-dom": "^6.27.0",
+    "styled-components": "^6.1.13",
+    "viz.js": "^2.1.2"
+  },
+  "devDependencies": {
+    "prettier": "^3.3.3",
+    "sass": "^1.80.4"
+  },
+  "keywords": [
+    "gatsby",
+    "static site builder",
+    "research data publishing",
+    "datatable",
+    "leaflet",
+    "maplibre"
+  ],
+  "license": "0BSD",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,md,css}\"",
+    "start": "gatsby develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "upgrage-main": "command -v rsync >/dev/null && mkdir tmp && wget https://github.com/lab-archeologia-digitale/sCMS/archive/refs/heads/main.zip -O tmp/scms.zip && unzip tmp/scms.zip -d tmp/ && rsync -a  --exclude .cache --exclude .env.development --exclude .git --exclude .gitignore --exclude gatsby-config.js --exclude node_modules --exclude public --exclude README.md --exclude tmp --exclude src/usr --exclude static --delete tmp/sCMS-main/ . && rm -rf tmp",
+    "upgrage-dev": "command -v rsync >/dev/null && mkdir tmp && wget https://github.com/lab-archeologia-digitale/sCMS/archive/refs/heads/dev.zip -O tmp/scms.zip && unzip tmp/scms.zip -d tmp/ && rsync -a  --exclude .cache --exclude .env.development --exclude .git --exclude .gitignore --exclude gatsby-config.js --exclude node_modules --exclude public --exclude README.md --exclude tmp --exclude src/usr --exclude static --delete tmp/sCMS-dev/ . && rm -rf tmp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lad-sapienza/sCMS.git"
+  },
+  "bugs": {
+    "url": "https://github.com/lad-sapienza/sCMS/issues"
+  },
+  "homepage": "https://scms.lad-sapienza.it",
+  "main": "gatsby-browser.js"
+}

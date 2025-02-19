@@ -1,0 +1,85 @@
+---
+title: "MapLibre: Adding a vector layer from a local GeoJSON file"
+date: "2024-10-01"
+slug: "maps/examples/maplibre-local-geojson"
+description: "MapLibre: Adding a vector layer from a local GeoJSON file"
+---
+
+import { MapLibre, VectorLayerLibre } from "../../../modules/scms.js"
+
+### MapLibre: Adding a vector layer from a local GeoJSON file
+
+<div className="row mt-3 mb-5 border-top border-bottom py-3">
+  <div className="col-6">
+    <MapLibre 
+      center="37.00416,37.48551,9"
+      baseLayers={["EsriSatellite", "CAWM"]}
+    >
+      <VectorLayerLibre
+        name="Sites"
+        source={{
+          path2data: "/data/ksa.geojson"
+        }}
+        checked={true}
+        searchInFields={{
+          "Item_Label": "Label",
+          "Site_Name": "Site name",
+          "Site_Description": "Site description"
+        }}
+        style={{
+          id: "ksaSites",
+          type: "circle",
+          paint: {
+            "circle-radius": 4,
+            "circle-color": "#007cbf",
+            "circle-stroke-width": 1.5,
+            "circle-stroke-color": "#000000"
+          },
+        }}
+        popupTemplate="<h4>${Site_Name}</h4><p>${Site_Description}</p><small>${Item_Label}</small>"
+      />
+    
+    </MapLibre>
+    Data from [Kahramanmaraş Survey](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) created by [Elizabeth Carter](http://opencontext.org/persons/3208923d-69d0-70e9-9cc1-23ad97770aec) and published on [OpenContext](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) add distributed with [CC BY 4.0 International](https://creativecommons.org/licenses/by/4.0) license.
+
+  </div>
+  <div className="col-6">
+    ```jsx
+    import {
+      MapLibre,
+      VectorLayerLibre
+    } from "../../../modules/scms.js"
+
+    <MapLibre 
+      center="37.00416,37.48551,9"
+      baseLayers={["EsriSatellite", "CAWM"]}
+    >
+      <VectorLayerLibre
+        name="Sites"
+        source={{
+          path2data: "/data/ksa.geojson"
+        }}
+        checked={true}
+        searchInFields={{
+          "Item_Label": "Label",
+          "Site_Name": "Site name",
+          "Site_Description": "Site description"
+        }}
+        style={{
+          id: "ksaSites",
+          type: "circle",
+          paint: {
+            "circle-radius": 4,
+            "circle-color": "#007cbf",
+            "circle-stroke-width": 1.5,
+            "circle-stroke-color": "#000000"
+          },
+        }}
+        popupTemplate="<h4>${Site_Name}</h4><p>${Site_Description}</p><small>${Item_Label}</small>"
+      />
+     
+    </MapLibre>
+    ```
+
+  </div>
+</div>

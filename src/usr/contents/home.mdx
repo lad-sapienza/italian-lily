@@ -1,0 +1,58 @@
+---
+title: "Homepage"
+date: "2023-10-01"
+slug: "home"
+description: "Homepage project"
+---
+
+import { Link } from "gatsby";
+import "/home/erasmo/Dropbox/lavoro/Fuoriusciti e volumi/sCMS-main/src/usr/layout/hompage.css";
+import { StaticImage } from "gatsby-plugin-image";
+
+<div className="homepage-grid">
+  <a href="/maps" className="button">
+    <img 
+      src="https://www.meisterdrucke.it/kunstwerke/1260px/Jean_Jolivet_-_Geographic_map_of_France_by_Jean_Jolivet_%2816th_century%29_1570_Paris_BN_-_%28MeisterDrucke-1407434%29.jpg" 
+      alt="The Map" 
+      className="image crop"
+    />
+    <span>The Map</span>
+  </a>
+
+  <a href="/datatable" className="button">
+    <img 
+      src="https://imgs.search.brave.com/5tCVAC5_1FteF6ZCJ9jhzfvf3-jXiBppymq5-vGc_f8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8x/LzFjL0ZyYW5jZXNj/b19BbGJpenppLmpw/Zw" 
+      alt="The Protagonists" 
+      className="image crop"
+    />
+    <span>The Protagonists</span>
+  </a>
+
+  <a href="/credits" className="button">
+    <img 
+      src="https://upload.wikimedia.org/wikipedia/commons/a/ae/FlorenceCoA.svg" 
+      alt="Credits" 
+      className="image crop"
+    />
+    <span>Credits</span>
+  </a>
+
+  <a href="https://italianlily.digilab.uniroma1.it/" target="_blank" className="button">
+    <div className="iframe-container">
+      <iframe 
+        src="https://italianlily.digilab.uniroma1.it/" 
+        title="Italian Lily"
+        frameBorder="0"
+        scrolling="no"
+        className="iframe-preview"
+      ></iframe>
+    </div>
+    <span>Official Site</span>
+  </a>
+</div>
+
+
+
+
+
+

@@ -1,0 +1,41 @@
+---
+title: "Leaflet: shorthand syntax to add default raster basemaps"
+date: "2024-10-01"
+slug: "maps/examples/leaflet-all-shorthand-basemaps"
+description: "Leaflet: shorthand syntax to add default raster basemaps"
+---
+
+import {
+  MapLeaflet,
+  RasterLayer,
+} from "../../../modules/scms.js"
+
+
+### Leaflet: shorthand syntax to add default raster basemaps
+
+<div className="row mt-3 mb-5 border-top border-bottom py-3">
+  <div className="col-6">
+    <MapLeaflet 
+        height="400px" 
+        center="37.00416,37.48551,9"
+        baseLayers={["CAWM", "OSM", "EsriSatellite", "EsriStreets", "EsriTopo", "GoogleSatellite", "GoogleRoadmap", "GoogleTerrain", "GoogleAlteredRoadmap", "GoogleTerrainOnly", "GoogleHybrid", "CartoDb", "StamenTerrain", "OSMMapnick", "OSMCycle"]}
+        >
+      />
+    </MapLeaflet>
+  </div>
+  <div className="col-6">
+    ```jsx
+    import {
+      MapLeaflet,
+      RasterLayer,
+    } from "../../../modules/scms.js"
+
+    <MapLeaflet 
+        height="400px" 
+        center="37.00416,37.48551,9"
+        baseLayers={["OSM", "EsriSatellite", "EsriStreets", "EsriTopo", "GoogleSatellite", "GoogleRoadmap", "GoogleTerrain", "GoogleAlteredRoadmap", "GoogleTerrainOnly", "GoogleHybrid", "CartoDb", "StamenTerrain", "OSMMapnick", "OSMCycle"]}
+        >
+    </MapLeaflet>
+    ```
+  </div>
+</div>
