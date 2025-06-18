@@ -2,16 +2,53 @@ import React, { useState, useRef, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
-import { StaticImage } from "gatsby-plugin-image";
+import { withPrefix } from "gatsby"
 
-// Poi nel tuo codice:
-<StaticImage 
-  src="../images/icon_lily.svg" 
-  width={size * 0.7} 
-  height={size * 0.7}
-  alt="Icon"
-  as="image" // Questo potrebbe essere necessario per renderizzare come elemento <image>
-/>
+function createLilyIcon({ size, opacity, brightness, shadow, border }) {
+  const inner  = size * 0.7
+  const offset = (size - inner) / 2
+  // “image” perché la tua cartella è static/image/
+  const url    = withPrefix("/image/icon_lily.svg")
+
+  return L.divIcon({
+    html: `
+      <div style="
+        width: ${size}px;
+        height: ${size}px;
+        opacity: ${opacity};
+        transition: all 0.3s ease;
+        filter: ${brightness};
+        box-shadow: ${shadow};
+        border: ${border};
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.8);
+      ">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="${size}"
+          height="${size}"
+          viewBox="0 0 ${size} ${size}"
+        >
+          <image
+            href="${url}"
+            x="${offset}"
+            y="${offset}"
+            width="${inner}"
+            height="${inner}"
+            preserveAspectRatio="xMidYMid meet"
+          />
+        </svg>
+      </div>
+    `,
+    className:   "custom-div-icon",
+    iconSize:    [size, size],
+    iconAnchor:  [size/2, size/2],
+    popupAnchor: [0, -size/2],
+  })
+}
 
 const ArrowMapWithTimeBar = ({ height, baseLayers, markers }) => {
   // Extract valid years from markers
@@ -125,41 +162,16 @@ const ArrowMapWithTimeBar = ({ height, baseLayers, markers }) => {
   );
 
   const generateIcon = (marker) => {
-    const hasMostRecent = marker.movements.some(m => m.first === maxFilteredYear);
-    
-    const size = 36;
-    const opacity = hasMostRecent ? 1 : 0.8;
-    const brightness = hasMostRecent ? 'brightness(1)' : 'brightness(0.8)';
-    const shadow = hasMostRecent ? '0 0 12px rgba(93, 64, 55, 0.4)' : 'none';
-    const border = hasMostRecent ? '2px solid #5d4037' : '1px solid #9e9e9e';
+    const size       = 36
+    const hasRecent  = marker.movements.some(m => m.first === maxFilteredYear)
+    const opacity    = hasRecent ? 1 : 0.8
+    const brightness = hasRecent ? "brightness(1)" : "brightness(0.8)"
+    const shadow     = hasRecent ? "0 0 12px rgba(93,64,55,0.4)" : "none"
+    const border     = hasRecent ? "2px solid #5d4037"    : "1px solid #9e9e9e"
   
-    return L.divIcon({
-      html: `
-        <div style="
-          width: ${size}px;
-          height: ${size}px;
-          opacity: ${opacity};
-          transition: all 0.3s ease;
-          filter: ${brightness};
-          box-shadow: ${shadow};
-          border: ${border};
-          border-radius: 50%;
-          display: flex;
-          align-items: center;
-          justify-content: center;
-          background: rgba(255, 255, 255, 0.8);
-        ">
-          <svg viewBox="0 0 24 24" width="${size * 0.7}" height="${size * 0.7}">
-            <image href="/image/icon_lily.svg" width="${size * 0.7}" height="${size * 0.7}" />
-          </svg>
-        </div>
-      `,
-      className: "custom-div-icon",
-      iconSize: [size, size],
-      iconAnchor: [size / 2, size / 2],
-      popupAnchor: [0, -size / 2],
-    });
-  };
+    // Qui usi il nostro helper
+    return createLilyIcon({ size, opacity, brightness, shadow, border })
+  }
 
 // handler generici
 const handlePrevMovement = (markerId) => {
