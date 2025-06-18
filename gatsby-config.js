@@ -15,9 +15,9 @@ module.exports = {
   pathPrefix: '/', //process.env.NODE_ENV === "production" ? "/sCMS/" : "/",
   siteMetadata: {
     title: `Italian Lily`,
-    description: `S:CMS | Static site Content Managemt System is developend and maintained by LAD: Laboratorio di Archeologia Digitale alla Sapienza`,
-    author: `Julian Bogdani <julian.bogdani@uniroma1.it>`,
-    siteUrl: `https://italianlily.lad.it`,
+    description: `People and Books from Italy to France in the Sixteenth Century`,
+    author: `Erasmo di Fonso <erasmo.difonso@libero.it>`,
+    siteUrl: `https://italianlily.lad-sapienza.it`,
   },
   plugins: [
     `gatsby-plugin-image`,
