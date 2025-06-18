@@ -3,89 +3,369 @@ title: "Search"
 date: "2023-10-01"
 slug: "search"
 description: ""
+menu_position: 4
 ---
 
 import { Search } from "../../modules/scms.js"
-import { Link } from "gatsby"
+import { Row, Col, Card } from "react-bootstrap"
+import { useState, useEffect } from "react"
+import SearchTutorialMode from "../components/SearchTutorialMode"
 
+export default function SearchPage() {
+  const [showTutorial, setShowTutorial] = useState(false)
 
-# Easily build a search engine with custom templates to show results
+  // apri automaticamente il tutorial al caricamento
+  useEffect(() => {
+    setShowTutorial(true)
+  }, [])
 
-`<Search />` component connecting to the Directus default instance by using only the name of the Directus table
-
-
-<div className="row">
-  <div className="col-sm-4">
-```jsx
-<Search
-
-  source={{
-    dTable: "scms_ksa"
-  }}
-
-  fieldList={{
-    "Item_Label": "Label",
-    "Site_Name": "Site name",
-    "Site_Description": "Site description"
-  }}
-
-  resultItemTemplate = { item => {
-    return  <div className="card my-3" key={item.id}>
-      <div className="card-body">
-        <h5 className="card-title">{item.Item_Label} — {item.Site_Name}</h5>
-        <div className="card-text">
-        <div className="row">
-          <div className="col-3">
-            <img src={item.Thumbnail} className="card-img-top img-fluid" alt={item.Site_Name} style={{maxWidth: 200}} />
-          </div>
-          <div className="col-9">
-            {item.Site_Description}
-            <hr />
-            <a href={`../record/?tb=scms_ksa&id=${item.id}`} className="btn btn-primary">View</a>
-          </div>
+  return (
+    <>
+            {/* --- Warning banner --- */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "1rem 0",
+            padding: "0.75rem",
+            backgroundColor: "#fff4e5",
+            border: "1px solid #ffcc80",
+            borderRadius: "4px"
+          }}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="red"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <span style={{ marginLeft: "0.5rem", fontWeight: 500, color: "#856404" }}>
+            Dataset is currently under review; some data may be inaccurate or partially incorrect.
+          </span>
         </div>
-      </div>
-    </div>
-  </div>
-  
-  }}
-/>
-```
-  </div>
-  <div className="col-sm-8">
-    <Search
-      source={{
-        dTable: "scms_ksa"
-      }}
-      fieldList={{
-        "Item_Label": "Label",
-        "Site_Name": "Site name",
-        "Site_Description": "Site description"
-        }}
-      resultItemTemplate = { item => {
-        return  <div className="card my-3" key={item.id}>
-          <div className="card-body">
-            <h5 className="card-title">{item.Item_Label} — {item.Site_Name}</h5>
-            <div className="card-text">
-            <div className="row">
-              <div className="col-3">
-                <img src={item.Thumbnail} className="card-img-top img-fluid" alt={item.Site_Name} style={{maxWidth: 200}} />
+      <div style={{ position: "relative" }}>
+        {/* Icona “i” centrale e rossa */}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => setShowTutorial(true)}
+          onKeyDown={e => e.key === "Enter" && setShowTutorial(true)}
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 1001,
+            cursor: "pointer"
+          }}
+        >
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="red"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+        </div>
+
+        <div className="container-fluid py-4">
+          <div className="row justify-content-center">
+            <div className="col-lg-10 col-xl-8">
+
+              {/* Rimuoviamo qui l'introduzione statica e il box "Search Tips" */}
+
+              {/* COMPONENTE DI RICERCA */}
+              <Search
+                source={{
+                  dTable: "f_fonti",
+                  dQueryString:
+                    "fields=id,titolo_breve,titolo_esteso,lingua,argomento,anno_edizione,genere,luogo_di_conservazione,USTC_reference,link_digitalizzazione,personalita_coinvolte.tipo_di_rapporto,personalita_coinvolte.f_persone_id.id,personalita_coinvolte.f_persone_id.nome_e_cognome&limit=-1",
+                  filter:
+                    '{ "titolo_breve": { "_icontains": "" }, "lingua": { "_icontains": "" }, "argomento": { "_icontains": "" }, "sottogenere": { "_icontains": "" }, "personalita_coinvolte.nome_della_persona_riportato_sul_frontespizio": { "_icontains": "" } }'
+                }}
+                fieldList={{
+                  titolo_esteso: "Title",
+                  lingua: "Language",
+                  argomento: "Genre"
+                }}
+                resultItemTemplate={item => {
+                  // Raggruppa le persone per ruolo
+                  const groupedPeople = {}
+                  if (item.personalita_coinvolte && Array.isArray(item.personalita_coinvolte)) {
+                    item.personalita_coinvolte.forEach(person => {
+                      if (person.tipo_di_rapporto && Array.isArray(person.tipo_di_rapporto)) {
+                        person.tipo_di_rapporto.forEach(role => {
+                          if (!groupedPeople[role]) groupedPeople[role] = []
+                          groupedPeople[role].push({
+                            id: person.f_persone_id?.id || null,
+                            nome_e_cognome: person.f_persone_id?.nome_e_cognome || "Unnamed"
+                          })
+                        })
+                      }
+                    })
+                  }
+
+                  return (
+                    <div
+                      className="card mb-4 border-0 shadow-sm mx-auto"
+                      key={item.id}
+                      style={{ maxWidth: "900px" }}
+                    >
+                      <div className="row g-0">
+                        {item.thumbnail && (
+                          <div
+                            className="col-md-4 d-flex align-items-center p-3"
+                            style={{
+                              backgroundColor: "#f8f9fa",
+                              minHeight: "200px"
+                            }}
+                          >
+                            <img
+                              src={item.thumbnail}
+                              className="img-fluid mx-auto d-block"
+                              alt={item.titolo_breve}
+                              style={{
+                                maxHeight: "100%",
+                                maxWidth: "100%",
+                                objectFit: "contain"
+                              }}
+                            />
+                          </div>
+                        )}
+                        <div className={item.thumbnail ? "col-md-8" : "col-md-12"}>
+                          <div className="card-body p-4">
+                            <h3 className="h4 font-weight-bold mb-3 text-dark text-center">
+                              {item.titolo_breve}
+                            </h3>
+
+                            {/* Language & Year */}
+                            <div
+                              className="mb-4 p-3 rounded text-center"
+                              style={{
+                                backgroundColor: "rgba(139, 0, 0, 0.05)",
+                                border: "1px solid rgba(139, 0, 0, 0.1)"
+                              }}
+                            >
+                              <div className="d-flex flex-wrap justify-content-center align-items-center gap-3">
+                                {item.lingua && (
+                                  <div>
+                                    <span className="text-muted small me-1">Language:</span>
+                                    <span
+                                      className="fw-medium"
+                                      style={{ color: "#6e2c2f" }}
+                                    >
+                                      {item.lingua}
+                                    </span>
+                                  </div>
+                                )}
+                                {item.anno_edizione && (
+                                  <div>
+                                    <span className="text-muted small me-1">Year:</span>
+                                    <span
+                                      className="fw-medium"
+                                      style={{ color: "#6e2c2f" }}
+                                    >
+                                      {item.anno_edizione}
+                                    </span>
+                                  </div>
+                                )}
+                              </div>
+                            </div>
+
+                            <div className="row mb-3 text-center">
+                              <div className="col-md-6">
+                                {item.genere && (
+                                  <>
+                                    <h6 className="text-uppercase text-muted small mb-1">
+                                      Subject
+                                    </h6>
+                                    <p className="mb-3 small">{item.genere}</p>
+                                  </>
+                                )}
+                                {item.f_luoghi?.nome && (
+                                  <>
+                                    <h6 className="text-uppercase text-muted small mb-1">
+                                      Place of Printing
+                                    </h6>
+                                    <p className="small">{item.f_luoghi.nome}</p>
+                                  </>
+                                )}
+                              </div>
+                              <div className="col-md-6">
+                                {item.luogo_di_conservazione && (
+                                  <>
+                                    <h6 className="text-uppercase text-muted small mb-1">
+                                      Held at
+                                    </h6>
+                                    <p className="small">{item.luogo_di_conservazione}</p>
+                                  </>
+                                )}
+                              </div>
+                            </div>
+
+                            {/* People */}
+                            {Object.keys(groupedPeople).length > 0 && (
+                              <div className="mt-4 pt-3 border-top">
+                                <h2
+                                  className="h6 mb-3 text-center"
+                                  style={{
+                                    color: "#6e2c2f",
+                                    fontFamily: "'Georgia', serif",
+                                    fontWeight: "normal",
+                                    fontSize: "1.1rem"
+                                  }}
+                                >
+                                  People
+                                </h2>
+                                <Row className="g-4 justify-content-center">
+                                  {Object.entries(groupedPeople).map(
+                                    ([role, people]) => (
+                                      <Col key={role} md={6} lg={4}>
+                                        <div className="h-100">
+                                          <div
+                                            className="text-muted text-uppercase small mb-2 text-center"
+                                            style={{
+                                              letterSpacing: "1px",
+                                              color: "#b38a7f"
+                                            }}
+                                          >
+                                            {role}
+                                          </div>
+                                          <div className="d-flex flex-column gap-3">
+                                            {people.map((persona, idx) => (
+                                              <Card
+                                                key={idx}
+                                                className="border-0 shadow-sm h-100 mx-auto"
+                                                style={{
+                                                  backgroundColor: "#f8f2ee",
+                                                  borderLeft: "2px solid #b38a7f",
+                                                  maxWidth: "250px",
+                                                  fontSize: "0.85rem"
+                                                }}
+                                              >
+                                                <Card.Body className="py-2 px-2 text-center">
+                                                  <Card.Title
+                                                    className="mb-0"
+                                                    style={{ fontSize: "0.9rem" }}
+                                                  >
+                                                    <a
+                                                      href={`/persone/?tb=persone&id=${persona.id}`}
+                                                      className="text-decoration-none d-block"
+                                                      style={{ color: "#6e2c2f" }}
+                                                    >
+                                                      {persona.nome_e_cognome}
+                                                    </a>
+                                                  </Card.Title>
+                                                </Card.Body>
+                                              </Card>
+                                            ))}
+                                          </div>
+                                        </div>
+                                      </Col>
+                                    )
+                                  )}
+                                </Row>
+                              </div>
+                            )}
+
+                            {/* Action Buttons */}
+                            <div className="d-flex justify-content-center align-items-center border-top pt-3 mt-4 flex-wrap gap-3">
+                              {item.link_digitalizzazione && (
+                                <a
+                                  href={item.link_digitalizzazione}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="btn btn-sm px-4"
+                                  style={{
+                                    backgroundColor: "rgba(139, 0, 0, 0.1)",
+                                    color: "#6e2c2f",
+                                    borderColor: "rgba(139, 0, 0, 0.2)",
+                                    minWidth: "150px"
+                                  }}
+                                >
+                                  Digital Copy
+                                </a>
+                              )}
+                              {item.USTC_reference && (
+                                <a
+                                  href={`https://www.ustc.ac.uk/editions/${item.USTC_reference}`}
+                                  target="_blank"
+                                  rel="noopener noreferrer"
+                                  className="btn btn-sm px-4"
+                                  style={{
+                                    backgroundColor: "rgba(139, 0, 0, 0.3)",
+                                    color: "#6e2c2f",
+                                    borderColor: "rgba(139, 0, 0, 0.4)",
+                                    minWidth: "150px"
+                                  }}
+                                >
+                                  <i className="fas fa-external-link-alt me-2" />
+                                  USTC
+                                </a>
+                              )}
+                              <a
+                                href={`../book/?tb=f_fonti&id=${item.id}`}
+                                className="btn btn-sm px-4"
+                                style={{
+                                  backgroundColor: "#8B0000",
+                                  color: "white",
+                                  border: "none",
+                                  minWidth: "150px"
+                                }}
+                              >
+                                Full Details
+                              </a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  )
+                }}
+              />
+
+              {/* Footer Note */}
+              <div className="text-center mt-4 pt-3">
+                <div className="border-top pt-3">
+                  <small className="text-muted d-block mb-2">
+                    For questions or additional information, please contact the
+                    archive team.
+                  </small>
+                  <a
+                    href="#"
+                    className="btn btn-sm btn-outline-secondary"
+                  >
+                    Contact Us
+                  </a>
+                </div>
               </div>
-              <div className="col-9">
-                {item.Site_Description}
-                <hr />
-                <a href={`../record/?tb=scms_ksa&id=${item.id}`} className="btn btn-primary">View</a>
-              </div>
+
             </div>
           </div>
         </div>
       </div>
-      }}
-    />
 
-Data from [Kahramanmaraş Survey](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) created by [Elizabeth Carter](http://opencontext.org/persons/3208923d-69d0-70e9-9cc1-23ad97770aec) and published on [OpenContext](https://opencontext.org/projects/ca4f4719-f2a5-4119-99fa-b04573c8929a) add distributed with [CC BY 4.0 International](https://creativecommons.org/licenses/by/4.0) license.
-
----
-
-  </div>
-</div>
+      {/* Search Tutorial Modal */}
+      <SearchTutorialMode
+        show={showTutorial}
+        onClose={() => setShowTutorial(false)}
+      />
+    </>
+  )
+}

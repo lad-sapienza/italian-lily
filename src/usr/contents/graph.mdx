@@ -1,15 +1,475 @@
 ---
-title: "Graphs"
+title: "Historical Data Explorer"
 date: "2023-12-25"
 slug: "grafici"
-description: "Visualizzazione di grafici interattivi basati su dati Directus"
+description: "Advanced interactive data visualization dashboard"
 menu_position: 3
 ---
 
-import GraphContainer from '../../modules/graph/GraphContainer';
+import { useState, useEffect } from 'react';
+import BarChart from '../../modules/graph/BarChart';
+import LineChart from '../../modules/graph/LineChart';
+import getDataFromSource from '../../services/getDataFromSource';
 
-# Grafici Interattivi
+export default function GraphPage() {
+  // State management
+  const [chart1Data, setChart1Data] = useState({ labels: [], datasets: [] });
+  const [chart2Data, setChart2Data] = useState({ labels: [], datasets: [] });
+  const [filterValues, setFilterValues] = useState([]);
+  const [selectedFilters, setSelectedFilters] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const [viewMode, setViewMode] = useState('leakage');
+  const [timeRange, setTimeRange] = useState('all');
 
-Esplora i dati visualizzati attraverso i grafici qui sotto.
+  // Data fetching
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const data = await getDataFromSource({
+          dTable: 'f_persone_f_luoghi',
+          dEndPoint: process.env.GATSBY_DIRECTUS_API_URL,
+          dToken: process.env.GATSBY_DIRECTUS_API_TOKEN,
+          dQueryString: 'fields=*.*&limit=-1',
+        });
 
-<GraphContainer />
+        const uniqueProfessions = [...new Set(data
+          .map(item => item.f_persone_id?.professione)
+          .filter(Boolean)
+        )];
+
+        setFilterValues(uniqueProfessions);
+        
+        // Process data based on view mode
+        if (viewMode === 'leakage') {
+          processLeakageData(data);
+        } else {
+          // Placeholder for volume data processing
+          setChart1Data({ labels: [], datasets: [] });
+          setChart2Data({ labels: [], datasets: [] });
+        }
+
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    const processLeakageData = (data) => {
+      const occurrencesYear = {};
+      const occurrencesPlaces = {};
+
+      data.forEach(item => {
+        const year = item.prima_attestazione_anno;
+        const placeName = item.f_luoghi_id?.nome_localita || 'Unknown';
+        const profession = item.f_persone_id?.professione;
+
+        if (selectedFilters.length > 0 && !selectedFilters.includes(profession)) return;
+
+        if (year !== null) occurrencesYear[year] = (occurrencesYear[year] || 0) + 1;
+        if (placeName !== null) occurrencesPlaces[placeName] = (occurrencesPlaces[placeName] || 0) + 1;
+      });
+
+      const sortedPlaces = Object.entries(occurrencesPlaces)
+        .sort((a, b) => b[1] - a[1])
+        .reduce((acc, [key, value]) => {
+          acc.labels.push(key);
+          acc.data.push(value);
+          return acc;
+        }, { labels: [], data: [] });
+
+      setChart1Data({
+        labels: Object.keys(occurrencesYear).sort((a, b) => a - b),
+        datasets: [{
+          label: 'Years',
+          data: Object.values(occurrencesYear),
+          borderColor: 'rgba(75, 192, 192, 1)',
+          backgroundColor: 'rgba(75, 192, 192, 0.2)',
+        }],
+      });
+
+      setChart2Data({
+        labels: sortedPlaces.labels,
+        datasets: [{
+          label: 'Places',
+          data: sortedPlaces.data,
+          backgroundColor: 'rgba(153, 102, 255, 0.6)',
+          borderColor: 'rgba(153, 102, 255, 1)',
+        }],
+      });
+    };
+
+    fetchData();
+  }, [selectedFilters, viewMode]);
+
+  // Filter functions
+  const toggleFilter = (profession) => {
+    setSelectedFilters(prev => 
+      prev.includes(profession) 
+        ? prev.filter(p => p !== profession)
+        : [...prev, profession]
+    );
+  };
+
+  return (
+    <div className="dashboard-layout">
+      {/* Left Sidebar - Filters */}
+      <div className="filter-panel">
+        <div className="panel-header">
+          <div className="logo-container">
+            <svg className="logo-icon" viewBox="0 0 24 24">
+              <path d="M3 3h18v18H3V3zm16 16V5H5v14h14zM7 7h10v2H7V7zm0 4h10v2H7v-2zm0 4h7v2H7v-2z"/>
+            </svg>
+            <h2>DATA EXPLORER</h2>
+          </div>
+        </div>
+
+        <div className="view-switch">
+          <button 
+            className={`switch-btn ${viewMode === 'leakage' ? 'active' : ''}`}
+            onClick={() => setViewMode('leakage')}
+          >
+            <svg className="switch-icon" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"/>
+              <path d="M12 6c-3.31 0-6 2.69-6 6s2.69 6 6 6 6-2.69 6-6-2.69-6-6-6zm0 10c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4z"/>
+            </svg>
+            Exiles
+          </button>
+          <button 
+            className={`switch-btn ${viewMode === 'volumes' ? 'active' : ''}`}
+            onClick={() => setViewMode('volumes')}
+          >
+            <svg className="switch-icon" viewBox="0 0 24 24">
+              <path d="M3 17v2h6v-2H3zM3 5v2h10V5H3zm10 16v-2h8v-2h-8v-2h-2v6h2zM7 9v2H3v2h4v2h2V9H7zm14 4v-2H11v2h10zm-6-4h2V7h4V5h-4V3h-2v6z"/>
+            </svg>
+            Books
+          </button>
+        </div>
+
+        <div className="filter-section">
+          <h3 className="section-title">
+            <svg className="section-icon" viewBox="0 0 24 24">
+              <path d="M10 18h4v-2h-4v2zM3 6v2h18V6H3zm3 7h12v-2H6v2z"/>
+            </svg>
+            FILTER BY PROFESSION
+          </h3>
+          <div className="filter-buttons">
+            <button
+              className={`filter-btn ${selectedFilters.length === 0 ? 'active' : ''}`}
+              onClick={() => setSelectedFilters([])}
+            >
+              All
+            </button>
+            {filterValues.map(value => (
+              <button
+                key={value}
+                className={`filter-btn ${selectedFilters.includes(value) ? 'active' : ''}`}
+                onClick={() => toggleFilter(value)}
+              >
+                {value}
+              </button>
+            ))}
+          </div>
+        </div>
+      </div>
+
+      {/* Main Content Area */}
+      <div className="main-content">
+        <header className="content-header">
+          <h1>
+            {viewMode === 'leakage' ? 'Exiles' : 'Books'}
+            <span className="badge">{selectedFilters.length === 0 ? 'All professions' : selectedFilters.join(', ')}</span>
+          </h1>
+        </header>
+
+        {isLoading ? (
+          <div className="loading-state">
+            <div className="spinner"></div>
+            <p>Charging</p>
+          </div>
+        ) : viewMode === 'volumes' ? (
+          <div className="empty-state">
+            <svg className="empty-icon" viewBox="0 0 24 24">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/>
+            </svg>
+            <h3>Building</h3>
+            <p>This section is under construction</p>
+          </div>
+        ) : (
+          <div className="charts-grid">
+            <div className="chart-card">
+              <LineChart
+                labels={chart1Data.labels}
+                datasets={chart1Data.datasets}
+                title="Distribuzione Temporale"
+              />
+            </div>
+            <div className="chart-card">
+              <BarChart
+                labels={chart2Data.labels}
+                datasets={chart2Data.datasets}
+                title="Principali Località"
+              />
+            </div>
+          </div>
+        )}
+      </div>
+
+      {/* Global Styles */}
+      <style jsx>{`
+        .dashboard-layout {
+          display: flex;
+          min-height: 100vh;
+          font-family: 'Segoe UI', Roboto, sans-serif;
+        }
+
+        /* Filter Panel Styles */
+        .filter-panel {
+          width: 300px;
+          background: #1a2639;
+          color: white;
+          padding: 1.5rem;
+          display: flex;
+          flex-direction: column;
+        }
+
+        .panel-header {
+          margin-bottom: 2rem;
+        }
+
+        .logo-container {
+          display: flex;
+          align-items: center;
+          gap: 0.75rem;
+          margin-bottom: 2rem;
+        }
+
+        .logo-icon {
+          width: 24px;
+          height: 24px;
+          fill: #3b82f6;
+        }
+
+        .panel-header h2 {
+          font-size: 1.1rem;
+          font-weight: 600;
+          letter-spacing: 0.05em;
+          color: #e2e8f0;
+        }
+
+        /* View Switch Styles */
+        .view-switch {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.5rem;
+          margin-bottom: 2rem;
+          background: #0f172a;
+          padding: 0.5rem;
+          border-radius: 8px;
+        }
+
+        .switch-btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          gap: 0.5rem;
+          padding: 0.75rem;
+          border: none;
+          background: transparent;
+          color: #94a3b8;
+          font-weight: 500;
+          border-radius: 6px;
+          cursor: pointer;
+          transition: all 0.2s;
+        }
+
+        .switch-btn.active {
+          background: #3b82f6;
+          color: white;
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .switch-icon {
+          width: 18px;
+          height: 18px;
+          fill: currentColor;
+        }
+
+        /* Filter Section Styles */
+        .filter-section {
+          margin-bottom: 2rem;
+        }
+
+        .section-title {
+          display: flex;
+          align-items: center;
+          gap: 0.5rem;
+          font-size: 0.85rem;
+          text-transform: uppercase;
+          letter-spacing: 0.05em;
+          color: #94a3b8;
+          margin-bottom: 1rem;
+        }
+
+        .section-icon {
+          width: 16px;
+          height: 16px;
+          fill: #64748b;
+        }
+
+        .filter-buttons {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 0.5rem;
+        }
+
+        .filter-btn {
+          padding: 0.5rem;
+          background: #334155;
+          border: none;
+          border-radius: 4px;
+          color: #e2e8f0;
+          font-size: 0.85rem;
+          cursor: pointer;
+          transition: all 0.2s;
+          text-align: left;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+        }
+
+        .filter-btn:hover {
+          background: #475569;
+        }
+
+        .filter-btn.active {
+          background: #3b82f6;
+          color: white;
+          font-weight: 500;
+        }
+
+        .time-select {
+          width: 100%;
+          padding: 0.5rem;
+          background: #334155;
+          border: 1px solid #475569;
+          border-radius: 4px;
+          color: white;
+          font-size: 0.9rem;
+        }
+
+        /* Main Content Styles */
+        .main-content {
+          flex: 1;
+          padding: 2rem 3rem;
+          background: #f8fafc;
+        }
+
+        .content-header {
+          margin-bottom: 2rem;
+        }
+
+        .content-header h1 {
+          font-size: 1.8rem;
+          font-weight: 600;
+          color: #1e293b;
+          margin-bottom: 0.25rem;
+          display: flex;
+          align-items: center;
+          gap: 1rem;
+        }
+
+        .badge {
+          font-size: 0.9rem;
+          background: #e2e8f0;
+          color: #475569;
+          padding: 0.25rem 0.75rem;
+          border-radius: 999px;
+          font-weight: 500;
+        }
+
+        .time-range {
+          color: #64748b;
+          font-size: 0.95rem;
+        }
+
+        /* Charts Grid */
+        .charts-grid {
+          display: grid;
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+
+        .chart-card {
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+          padding: 1.5rem;
+        }
+
+        /* Loading State */
+        .loading-state {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          height: 50vh;
+          color: #64748b;
+        }
+
+        .spinner {
+          border: 4px solid #f1f5f9;
+          border-top: 4px solid #3b82f6;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          animation: spin 1s linear infinite;
+          margin-bottom: 1rem;
+        }
+
+        /* Empty State */
+        .empty-state {
+          text-align: center;
+          padding: 4rem 2rem;
+          background: white;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .empty-icon {
+          width: 48px;
+          height: 48px;
+          fill: #cbd5e1;
+          margin-bottom: 1rem;
+        }
+
+        .empty-state h3 {
+          font-size: 1.2rem;
+          color: #1e293b;
+          margin-bottom: 0.5rem;
+        }
+
+        .empty-state p {
+          color: #64748b;
+          font-size: 0.95rem;
+          max-width: 400px;
+          margin: 0 auto;
+        }
+
+        /* Animations */
+        @keyframes spin {
+          0% { transform: rotate(0deg); }
+          100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Layout */
+        @media (min-width: 1200px) {
+          .charts-grid {
+            grid-template-columns: 1fr 1fr;
+          }
+        }
+      `}</style>
+    </div>
+  );
+}

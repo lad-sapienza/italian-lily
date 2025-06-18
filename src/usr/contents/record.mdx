@@ -10,76 +10,134 @@ import ArrowMapWithTimeBar from "../../modules/maps/leaflet/ArrowMapWithTimeBar"
 
 export const MDXLayout = ({ children }) => <>{children}</>;
 
-<Record
-  search={JSON.parse(new URLSearchParams(window.location.search).get("query"))}
->
+<Record search={{ tb: "persone" }}>
   <RecordContext.Consumer>
     {recordData => {
-      if (!recordData || recordData.length === 0) {
+      if (!recordData || Object.keys(recordData).length === 0) {
         return <p>Nessun dato trovato per questa persona.</p>;
       }
 
-      console.log("Dati recuperati:", recordData);
+      const persona = recordData || {};
+      const spostamenti = recordData.luoghi_associati_alla_persona || [];
 
-      const persona = recordData[0]?.f_persone_id || {};
-      const markers = recordData.map(item => ({
-        lat: item.f_luoghi_id.coordinate.coordinates[1],
-        lng: item.f_luoghi_id.coordinate.coordinates[0],
-        popup: item.f_luoghi_id.toponimo_italiano || "Luogo sconosciuto",
-        prima_attestazione_anno: item.prima_attestazione_anno,
-        ultima_attestazione_anno: item.ultima_attestazione_anno,
-        residente: item.residente,
-        spostato_in_qualita_di: item.spostato_in_qualita_di,
-        note_sullo_spostamento: item.note_sullo_spostamento,
-        fonte: item.fonte,
-      }));
+      const markers = spostamenti
+        .filter(spostamento => spostamento.f_luoghi_id && spostamento.f_luoghi_id.coordinate)
+        .map(spostamento => ({
+          lat: spostamento.f_luoghi_id.coordinate.coordinates[1],
+          lng: spostamento.f_luoghi_id.coordinate.coordinates[0],
+          popup: spostamento.f_luoghi_id.nome_localita || "Luogo sconosciuto",
+          prima_attestazione_anno: spostamento.prima_attestazione_anno || null,
+          ultima_attestazione_anno: spostamento.ultima_attestazione_anno || null,
+          residente: spostamento.residente || false,
+          spostato_in_qualita_di: spostamento.spostato_in_qualita_di || "N/A",
+          note_sullo_spostamento: spostamento.note_sullo_spostamento || "",
+          fonte: spostamento.fonte || "",
+        }));
 
-      // Ordina i dati in base a prima_attestazione_anno
-      const sortedData = recordData.sort(
-        (a, b) =>
-          (a.prima_attestazione_anno || Infinity) - (b.prima_attestazione_anno || Infinity)
+      const sortedSpostamenti = [...spostamenti].sort(
+        (a, b) => (a.prima_attestazione_anno || Infinity) - (b.prima_attestazione_anno || Infinity)
       );
 
       return (
-        <div style={{ display: "flex", flexDirection: "row" }}>
-          {/* Sezione della mappa */}
+        <div style={{ display: "flex", flexDirection: "row", gap: "16px" }}>
           <div style={{ flex: 8, paddingRight: "16px" }}>
             <ArrowMapWithTimeBar height="600px" baseLayers={["OSM"]} markers={markers} />
           </div>
 
-          {/* Sezione tematica e info anagrafiche */}
-          <div style={{ flex: 4, paddingLeft: "16px", overflowY: "auto", maxHeight: "600px" }}>
-            <h1>{persona.nome_e_cognome || "Nome sconosciuto"}</h1>
-            <h2>{persona.Pseudonimo || "Pseudonimo sconosciuto"}</h2>
-            <p><strong>Professione:</strong> {persona.professione || "-"}</p>
-            <p><strong>Note:</strong> {persona.note_sul_personaggio || "Nessuna nota"}</p>
+          <div
+            style={{
+              flex: 4,
+              padding: "20px",
+              backgroundColor: "#f8f8f8",
+              border: "1px solid #ddd",
+              borderRadius: "10px",
+              boxShadow: "0 2px 5px rgba(0, 0, 0, 0.1)",
+              overflowY: "auto",
+              maxHeight: "600px",
+            }}
+          >
+            <div
+              style={{
+                backgroundColor: "#aa1a10",
+                padding: "16px",
+                borderRadius: "10px",
+                textAlign: "center",
+                marginBottom: "20px",
+                color: "#fff",
+                fontFamily: "'Arial', sans-serif",
+                width: "100%",
+              }}
+            >
+              <h1 style={{ marginBottom: "8px", fontSize: "22px", fontWeight: "bold" }}>
+                {persona.nome_e_cognome || "Nome sconosciuto"} -{" "}
+                <span style={{ fontWeight: "normal" }}>
+                  {persona.professione || "Senza professione"}
+                </span>
+              </h1>
+              {persona.Pseudonimo && (
+                <h2 style={{ fontSize: "16px", fontStyle: "italic" }}>
+                  (also mentioned as {persona.Pseudonimo})
+                </h2>
+              )}
+              {persona.note_sul_personaggio && (
+                <p style={{ marginTop: "12px" }}>
+                  <strong>Note:</strong>{" "}
+                  <span dangerouslySetInnerHTML={{ __html: persona.note_sul_personaggio }} />
+                </p>
+              )}
+            </div>
 
             <div>
-              <h3>Spostamenti Registrati</h3>
-              {sortedData.map((spostamento, index) => (
+              <h3 style={{ textAlign: "center", marginBottom: "16px" }}>Attested in:</h3>
+              {sortedSpostamenti.map((spostamento, index) => (
                 <div
                   key={index}
                   style={{
-                    marginBottom: "16px",
-                    padding: "8px",
-                    border: "1px solid #ddd",
-                    borderRadius: "4px",
+                    marginBottom: "24px",
+                    padding: "12px",
+                    borderRadius: "10px",
                     backgroundColor: "#f9f9f9",
+                    textAlign: "center",
+                    boxShadow: "0 2px 6px rgba(0, 0, 0, 0.15)",
+                    width: "100%",
+                    maxWidth: "500px",
                   }}
                 >
-                  <h4>Luogo: {spostamento.f_luoghi_id.toponimo_italiano || "N/A"}</h4>
-                  <p><strong>Spostato in qualità di:</strong> {spostamento.spostato_in_qualita_di || "N/A"}</p>
-                  <p>
-                    <strong>Periodo:</strong> {spostamento.prima_attestazione_anno || "?"} - {spostamento.ultima_attestazione_anno || "?"}
-                  </p>
-                  <p><strong>Residente:</strong> {spostamento.residente ? "Sì" : "No"}</p>
-                  {spostamento.note_sullo_spostamento && (
-                    <p>
-                      <strong>Note:</strong>{" "}
-                      <span dangerouslySetInnerHTML={{ __html: spostamento.note_sullo_spostamento }} />
+                  <h3 style={{
+                      fontSize: "18px",
+                      fontWeight: "bold",
+                      color: "#aa1a10",
+                      marginBottom: "10px"
+                  }}>
+                    {spostamento.f_luoghi_id.nome_localita}{" "}
+                    {spostamento.prima_attestazione_anno && (
+                      <>
+                        (
+                        {spostamento.prima_attestazione_anno}
+                        {spostamento.ultima_attestazione_anno ? ` - ${spostamento.ultima_attestazione_anno}` : ""}
+                        )
+                      </>
+                    )}
+                  </h3>
+
+                  {spostamento.spostato_in_qualita_di && (
+                    <p style={{ fontSize: "16px", fontWeight: "bold", color: "#333", marginBottom: "6px" }}>
+                      {spostamento.spostato_in_qualita_di}
                     </p>
                   )}
-                  {spostamento.fonte && <p><strong>Fonte:</strong> {spostamento.fonte}</p>}
+
+                  {spostamento.note_sullo_spostamento && (
+                    <div
+                      style={{
+                        fontSize: "14px",
+                        color: "#555",
+                        lineHeight: "1.4",
+                        maxWidth: "90%",
+                        margin: "0 auto",
+                      }}
+                      dangerouslySetInnerHTML={{ __html: spostamento.note_sullo_spostamento }}
+                    />
+                  )}
                 </div>
               ))}
             </div>

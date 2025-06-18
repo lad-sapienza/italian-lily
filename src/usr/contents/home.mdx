@@ -6,51 +6,237 @@ description: "Homepage project"
 ---
 
 import { Link } from "gatsby"
+import 'bootstrap/dist/css/bootstrap.min.css'
+import HomeLogic from "../components/home.js"
+import "../layout/homepage.css"
 
-import { StaticImage } from "gatsby-plugin-image"
-
-<div id="homepage">
-<div className="homepage-grid">
-  <a href="/maps" className="button">
-    <img 
-      src="https://www.meisterdrucke.it/kunstwerke/1260px/Jean_Jolivet_-_Geographic_map_of_France_by_Jean_Jolivet_%2816th_century%29_1570_Paris_BN_-_%28MeisterDrucke-1407434%29.jpg" 
-      alt="The Map" 
-      className="image crop"
-    />
-    <span>The Map</span>
-  </a>
-
-{" "}
-<a href="/datatable" className="button">
+<header className="w-100 text-center mb-4">
   <img
-    src="https://imgs.search.brave.com/5tCVAC5_1FteF6ZCJ9jhzfvf3-jXiBppymq5-vGc_f8/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91cGxv/YWQud2lraW1lZGlh/Lm9yZy93aWtpcGVk/aWEvY29tbW9ucy8x/LzFjL0ZyYW5jZXNj/b19BbGJpenppLmpw/Zw"
-    alt="The Protagonists"
-    className="image crop"
+    src="/image/banda_loghi.png"
+    alt="Banda loghi progetto"
+    className="img-fluid"
+    style={{ maxHeight: '110px', objectFit: 'contain' }}
   />
-  <span>The Protagonists</span>
-</a>
+</header>
 
-{" "}
-<a href="/credits" className="button">
-  <img
-    src="https://upload.wikimedia.org/wikipedia/commons/a/ae/FlorenceCoA.svg"
-    alt="Credits"
-    className="image crop"
-  />
-  <span>Credits</span>
-</a>
+<HomeLogic>
+  {(activeSection) => (
+    <div className="container my-5">
 
-  <a href="https://italianlily.digilab.uniroma1.it/" target="_blank" className="button">
-    <div className="iframe-container">
-      <iframe 
-        src="https://italianlily.digilab.uniroma1.it/" 
-        title="Italian Lily"
-        frameBorder="0"
-        scrolling="no"
-        className="iframe-preview"
-      ></iframe>
+      {/* Sezione descrittiva */}
+      <div className="row mb-5 g-4">
+        <div className="col-md-6 cursor-pointer" data-section="mapping">
+          <div
+            className="p-4 rounded-3 h-100"
+            style={{
+              backgroundColor: '#f5f0e6',
+              borderLeft: '4px solid #d4a5a5',
+              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+            }}
+          >
+            <h3 className="mb-3" style={{ color: '#5a3e3e' }}>
+              Mapping Florentine Expatriates
+            </h3>
+            <p className="mb-4">
+              This project traces the phenomenon of Florentine
+              expatriation in France during the Renaissance period, documenting
+              the migration patterns, social networks, and cultural exchanges of
+              Florentine communities abroad. Our research focuses on archival
+              records, correspondence, and commercial transactions to reconstruct
+              these historical movements with unprecedented detail.
+            </p>
+            <div className="ratio ratio-21x9">
+              <img
+                src="https://italianlily.digilab.uniroma1.it/wp-content/uploads/2024/09/Immagine-WhatsApp-2024-09-02-ore-17.25.04_be9749ff.jpg"
+                alt="Florentine expatriates"
+                className="rounded img-cover"
+              />
+            </div>
+          </div>
+        </div>
+
+        <div className="col-md-6 cursor-pointer" data-section="library">
+          <div
+            className="p-4 rounded-3 h-100"
+            style={{
+              backgroundColor: '#f9ecec',
+              borderLeft: '4px solid #d4a5a5',
+              boxShadow: '0 4px 6px rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+            }}
+          >
+            <h3 className="mb-3" style={{ color: '#5a3e3e' }}>
+              Database of Italian Historical and Legal Books in 16th  Century France 
+            </h3>
+            <p className="mb-4">
+We are presenting the first outcomes of the Prin Italian Lily project. Our aim is to bring to light the great influence of Italian culture, particularly legal and historical culture, in France, through the dissemination of works, ideas and people with very different roles and tasks.
+            </p>
+            <div className="ratio ratio-21x9">
+              <img
+                src="https://italianlily.digilab.uniroma1.it/wp-content/uploads/2024/03/Xilografia-sulla-stampa-1568-1.png"
+                alt="Historical printing"
+                className="rounded img-cover"
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* ---------- DIAGRAMMA ---------- */}
+      <div className="diagram-wrapper position-relative mb-5">
+        {/* Nodo centrale (PEOPLE) */}
+        <div className="people-node position-absolute top-50 start-50 translate-middle text-center">
+          <Link
+            to="/datatable"
+            className="btn rounded-pill z-2 p-3"
+            style={{
+              width: '220px',
+              fontSize: '1.2rem',
+              fontWeight: '500',
+              background: 'linear-gradient(to right, #f5f0e6, #f9ecec)',
+              color: '#5a3e3e',
+              border: '2px solid #d4a5a5',
+              boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
+              transition: 'all 0.3s ease',
+            }}
+          >
+            People
+          </Link>
+        </div>
+
+        {/* Bottoni (ordine invertito) */}
+        <div className="places-block text-center">
+          <Link
+            to="/map"
+            className="btn rounded-3 p-3"
+            style={{
+              width: '180px',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              backgroundColor: '#f5f0e6',
+              color: '#5a3e3e',
+              border: '2px solid #d4a5a5',
+              boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
+              transition: 'all 0.5s ease',
+            }}
+          >
+            Places
+          </Link>
+        </div>
+
+        <div className="books-block text-center">
+          <Link
+            to="/books"
+            className="btn rounded-3 p-3"
+            style={{
+              width: '180px',
+              fontSize: '1.1rem',
+              fontWeight: '500',
+              backgroundColor: '#f9ecec',
+              color: '#5a3e3e',
+              border: '2px solid #d4a5a5',
+              boxShadow: '4px 4px 0 rgba(0,0,0,0.1)',
+              transition: 'all 0.5s ease',
+            }}
+          >
+            Books
+          </Link>
+        </div>
+      </div>
+
+      {/* ---------- OTHER INSTRUMENTS ---------- */}
+      <div className="mt-5 pt-4 w-100 text-center position-relative">
+        <div
+          className="position-absolute top-0 start-50 translate-middle-x border-top border-2"
+          style={{
+            width: '80%',
+            borderColor: '#d4a5a5 !important',
+          }}
+        ></div>
+        <div
+          className="p-4 rounded-3"
+          style={{
+            backgroundColor: 'rgba(245, 240, 230, 0.3)',
+            border: '1px solid #e8d9d9',
+            boxShadow: 'inset 0 0 15px rgba(212, 165, 165, 0.1)',
+          }}
+        >
+          <h5
+            className="text-muted mb-4 position-relative"
+            style={{
+              display: 'inline-block',
+              backgroundColor: 'rgba(255, 255, 255, 0.8)',
+              padding: '0 20px',
+              color: '#5a3e3e !important',
+            }}
+          >
+            <span
+              className="position-absolute top-50 start-0 translate-middle-y border-top"
+              style={{ width: '50px', borderColor: '#d4a5a5 !important' }}
+            ></span>
+            Other Instruments
+            <span
+              className="position-absolute top-50 end-0 translate-middle-y border-top"
+              style={{ width: '50px', borderColor: '#d4a5a5 !important' }}
+            ></span>
+          </h5>
+          <div className="d-flex justify-content-center gap-4 flex-wrap">
+            <Link
+              to="/grafici"
+              className="btn btn-outline-secondary rounded-3 p-3 position-relative"
+              style={{
+                width: '160px',
+                fontSize: '1.1rem',
+                fontWeight: '500',
+                borderWidth: '2px',
+                borderColor: '#d4a5a5',
+                color: '#5a3e3e',
+                boxShadow: '4px 4px 0 rgba(0,0,0,0.05)',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Graphs
+            </Link>
+            <Link
+              to="/search"
+              className={`btn btn-outline-secondary rounded-3 p-3 position-relative search-btn ${
+                activeSection === 'mapping' ? 'd-none' : ''
+              }`}
+              style={{
+                width: '160px',
+                fontSize: '1.1rem',
+                fontWeight: '500',
+                borderWidth: '2px',
+                borderColor: '#d4a5a5',
+                color: '#5a3e3e',
+                boxShadow: '4px 4px 0 rgba(0,0,0,0.05)',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Search
+            </Link>
+            <a
+              href="https://italianlily.digilab.uniroma1.it/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="btn btn-outline-secondary rounded-3 p-3 position-relative"
+              style={{
+                width: '160px',
+                fontSize: '1.1rem',
+                fontWeight: '500',
+                borderWidth: '2px',
+                borderColor: '#d4a5a5',
+                color: '#5a3e3e',
+                boxShadow: '4px 4px 0 rgba(0,0,0,0.05)',
+                transition: 'all 0.3s ease',
+              }}
+            >
+              Website
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <span>Official Site</span>
-  </a>
-</div>
-</div>
+  )}
+</HomeLogic>

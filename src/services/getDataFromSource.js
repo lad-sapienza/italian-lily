@@ -47,6 +47,7 @@ const getDataFromSource = async source => {
     }
     if (id) {
       sourceUrl += `/${id}`
+      dQueryString = `fields=*.*.*`
     }
     sourceUrl += `?${dQueryString ? dQueryString : ""}`
 

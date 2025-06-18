@@ -1,7 +1,6 @@
 import * as React from "react"
 import { useStaticQuery, graphql } from "gatsby"
-
-import { Container } from "react-bootstrap"
+import { useLocation } from "@reach/router"
 
 import Navbar from "../../modules/autoNavbar"
 import Footer from "./footer"
@@ -12,25 +11,28 @@ const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
-        siteMetadata {
-          title
-        }
+        siteMetadata { title }
       }
     }
   `)
 
+  const location = useLocation()
+  // Rimuovo la slash finale, se c’è
+  const pathname = location.pathname.replace(/\/$/, "")
+  const isMapPage = pathname === "/map"
+
   return (
-    <>
-      <div className="container-fluid p-0">
-        <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
-        
-        <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-        <main>
-          <Container>{children}</Container>
-        </main>
-        <Footer />
-      </div>
-    </>
+    <div className="site-container d-flex flex-column min-vh-100">
+      <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
+      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
+
+      <main className="flex-grow-1 position-relative">
+        {children}
+      </main>
+
+      {/* Footer viene montato solo se non siamo su /map o /map/ */}
+      {!isMapPage && <Footer className="mt-auto" />}
+    </div>
   )
 }
 

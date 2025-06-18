@@ -1,0 +1,260 @@
+---
+title: "book2"
+date: "2023-10-01"
+slug: "book2"
+description: "Detailed bibliographic record (vertical layout)"
+---
+
+import { Record, RecordContext } from "../../modules/record/record"
+import { Accordion, Row, Col, Stack, Button } from "react-bootstrap"
+import { SwitchLayoutButton } from "../components/switcher"
+import { useState, useEffect } from "react"
+import BookRecordTutorialModal from "../components/BookRecordTutorialModal"
+
+export default function Book2Page() {
+  const [showTutorial, setShowTutorial] = useState(false)
+
+  // apri il tutorial automaticamente al primo caricamento
+  useEffect(() => {
+    setShowTutorial(true)
+  }, [])
+
+  return (
+    <>
+      <div style={{ position: "relative" }}>
+        {/* Icona “i” centrale e rossa */}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => setShowTutorial(true)}
+          onKeyDown={e => e.key === "Enter" && setShowTutorial(true)}
+          style={{
+            position: "absolute",
+            top: "-20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 1001,
+            cursor: "pointer"
+          }}
+        >
+          <svg
+            width="30"
+            height="30"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="red"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+        </div>
+
+        <Record search={{ tb: "libro" }}>
+          <RecordContext.Consumer>
+            {recordData => {
+              if (!recordData || Object.keys(recordData).length === 0) {
+                return (
+                  <div className="alert alert-warning mt-4">
+                    No record found for this book.
+                  </div>
+                )
+              }
+
+              const libro = recordData
+              const personalitaCoinvolte = libro.personalita_coinvolte || []
+
+              // Bug-fix: usa sempre acc[ruolo], non acc[rolo]
+              const groupedPeople = personalitaCoinvolte.reduce((acc, relazione) => {
+                const ruoli = relazione.tipo_di_rapporto || ['Other']
+                const persona = relazione.f_persone_id || {}
+                ruoli.forEach(ruolo => {
+                  if (!acc[ruolo]) acc[ruolo] = []
+                  acc[ruolo].push(persona)
+                })
+                return acc
+              }, {})
+
+              return (
+                <div className="container-md px-3 py-4">
+                  <div className="mb-4">
+                    <h1
+                      className="text-brown fs-2 fw-normal font-serif mb-3"
+                      dangerouslySetInnerHTML={{
+                        __html: libro.titolo_esteso || "Untitled"
+                      }}
+                    />
+                    <SwitchLayoutButton currentLayout="book2" />
+                  </div>
+
+                  <Row>
+                    {/* COLONNA SINISTRA */}
+                    <Col md={8}>
+                      <Accordion defaultActiveKey="0" className="mb-4">
+                        {/* Publication Details */}
+                        <Accordion.Item eventKey="0" className="border-0">
+                          <Accordion.Header className="px-0 py-2 bg-white">
+                            <h2 className="h5 mb-0 text-uppercase text-brown letter-spacing-1">
+                              Publication Details
+                            </h2>
+                          </Accordion.Header>
+                          <Accordion.Body className="px-0 py-2">
+                            <div className="bg-light-pink ps-3 border-start border-3 border-pink">
+                              {libro.genere && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Genre
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.genere}
+                                      {libro.sotto_genere && (
+                                        <span className="text-muted"> ({libro.sotto_genere})</span>
+                                      )}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+                              {libro.lingua && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Language
+                                    </Col>
+                                    <Col xs={12} md={9}>{libro.lingua}</Col>
+                                  </Row>
+                                </div>
+                              )}
+                            </div>
+                          </Accordion.Body>
+                        </Accordion.Item>
+
+                        {/* Physical Copy */}
+                        <Accordion.Item eventKey="1" className="border-0">
+                          <Accordion.Header className="px-0 py-2 bg-white">
+                            <h2 className="h5 mb-0 text-uppercase text-brown letter-spacing-1">
+                              Physical Copy
+                            </h2>
+                          </Accordion.Header>
+                          <Accordion.Body className="px-0 py-2">
+                            <div className="bg-light-pink ps-3 border-start border-3 border-pink">
+                              {libro.luogo_di_conservazione && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Holding Institution
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.biblioteca}, {libro.luogo_di_conservazione}
+                                      {libro.segnatura && (
+                                        <div className="text-muted small mt-1">{libro.segnatura}</div>
+                                      )}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+                              {libro.formato && (
+                                <div className="py-2">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Format
+                                    </Col>
+                                    <Col xs={12} md={9}>{libro.formato}</Col>
+                                  </Row>
+                                </div>
+                              )}
+                            </div>
+                          </Accordion.Body>
+                        </Accordion.Item>
+
+                        {/* People */}
+                        {Object.keys(groupedPeople).length > 0 && (
+                          <Accordion.Item eventKey="2" className="border-0">
+                            <Accordion.Header className="px-0 py-2 bg-white">
+                              <h2 className="h5 mb-0 text-uppercase text-brown letter-spacing-1">
+                                People
+                              </h2>
+                            </Accordion.Header>
+                            <Accordion.Body className="px-0 py-2">
+                              <div className="bg-light-pink ps-3 border-start border-3 border-pink">
+                                {Object.entries(groupedPeople).map(([role, people]) => (
+                                  <div key={role} className="mb-3">
+                                    <div className="text-uppercase small fw-500 text-muted mb-1">{role}</div>
+                                    <ul className="ps-3 mb-0">
+                                      {people.map((persona, idx) => (
+                                        <li key={idx}>{persona.nome_e_cognome || "Unnamed"}</li>
+                                      ))}
+                                    </ul>
+                                  </div>
+                                ))}
+                              </div>
+                            </Accordion.Body>
+                          </Accordion.Item>
+                        )}
+                      </Accordion>
+                    </Col>
+
+                    {/* COLONNA DESTRA */}
+                    <Col md={4}>
+                      {(libro.link_digitalizzazione || libro.link_al_catalogo || libro.USTC_reference) && (
+                        <Accordion defaultActiveKey="3" className="mb-4">
+                          <Accordion.Item eventKey="3" className="border-0">
+                            <Accordion.Header className="px-0 py-2 bg-white">
+                              <h2 className="h5 mb-0 text-uppercase text-brown letter-spacing-1">
+                                Digital Access
+                              </h2>
+                            </Accordion.Header>
+                            <Accordion.Body className="px-0 py-2">
+                              <Stack gap={2}>
+                                {libro.USTC_reference && (
+                                  <Button
+                                    href={`https://www.ustc.ac.uk/editions/${libro.USTC_reference}`}
+                                    target="_blank"
+                                    variant="outline-dark"
+                                    className="text-start border-pink text-brown"
+                                  >
+                                    <i className="fas fa-external-link-alt me-2"></i>USTC
+                                  </Button>
+                                )}
+                                {libro.link_digitalizzazione && (
+                                  <Button
+                                    href={libro.link_digitalizzazione}
+                                    target="_blank"
+                                    variant="outline-dark"
+                                    className="text-start border-pink text-brown"
+                                  >
+                                    <i className="fas fa-external-link-alt me-2"></i>Digital Copy
+                                  </Button>
+                                )}
+                                {libro.link_al_catalogo && (
+                                  <Button
+                                    href={libro.link_al_catalogo}
+                                    target="_blank"
+                                    variant="outline-dark"
+                                    className="text-start border-pink text-brown"
+                                  >
+                                    <i className="fas fa-book me-2"></i>Catalog Record
+                                  </Button>
+                                )}
+                              </Stack>
+                            </Accordion.Body>
+                          </Accordion.Item>
+                        </Accordion>
+                      )}
+                    </Col>
+                  </Row>
+                </div>
+              )
+            }}
+          </RecordContext.Consumer>
+        </Record>
+      </div>
+
+      {/* Tutorial Modal */}
+      <BookRecordTutorialModal show={showTutorial} onClose={() => setShowTutorial(false)} />
+    </>
+  )
+}

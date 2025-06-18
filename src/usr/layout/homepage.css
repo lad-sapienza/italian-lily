@@ -1,0 +1,252 @@
+/* Stili generali */
+.img-cover {
+  object-fit: cover;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+/* Stili per i pulsanti */
+.btn {
+  transition: all 0.3s ease !important;
+}
+
+.btn:hover {
+  transform: translate(-2px, -2px) !important;
+  box-shadow: 6px 6px 0 rgba(0,0,0,0.1) !important;
+}
+
+.btn:active {
+  transform: translate(1px, 1px) !important;
+  box-shadow: 2px 2px 0 rgba(0,0,0,0.1) !important;
+}
+
+.diagram-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 400px;
+  position: relative;
+  margin: 2rem 0; /* Spaziatura verticale */
+}
+
+/* Nodo centrale */
+.people-node {
+  position: relative;
+  z-index: 2;
+}
+
+/* Blocchi Books e Places */
+.books-block {
+  position: absolute;
+  top: 20%;
+  left: 20%;
+  width: 180px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.places-block {
+  position: absolute;
+  bottom: 20%;
+  right: 20%;
+  width: 180px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+/* Stili per le frecce */
+.arrow-img {
+  position: absolute;
+  width: 100px; /* Regola la dimensione */
+  height: auto;
+  z-index: 1;
+  opacity: 0.8;
+  transition: all 0.4s ease;
+}
+
+/* Posizionamento freccia Books → People */
+.arrow-books {
+  top: 30% !important;
+  left: 1000%;
+  transform: rotate(-10deg);
+}
+
+/* Posizionamento freccia Places → People */
+.arrow-places {
+  bottom: 10%;
+  right: 200%;
+  transform: rotate(50deg); /* 180° + 30° */
+}
+
+/* Versione mobile */
+@media (max-width: 767px) {
+  .diagram-wrapper {
+    height: 300px;
+  }
+  
+  .arrow-img {
+    width: 70px;
+  }
+  
+  .arrow-books {
+    top: 25%;
+    left: 5%;
+  }
+  
+  .arrow-places {
+    bottom: 25%;
+    right: 5%;
+  }
+  
+  .books-block, .places-block {
+    width: 140px;
+  }
+}
+
+/* Sezioni attive */
+.mapping-active .books-block,
+.mapping-active .arrow-places,
+.mapping-active [data-section="library"] {
+  opacity: 0.3;
+  filter: grayscale(80%);
+  pointer-events: none;
+}
+
+.library-active .places-block,
+.library-active .arrow-books,
+.library-active [data-section="mapping"] {
+  opacity: 0.3;
+  filter: grayscale(80%);
+  pointer-events: none;
+}
+
+/* Transizioni */
+[data-section] {
+  transition: all 0.4s ease;
+}
+
+/* Stili per la sezione "Other Instruments" */
+.instruments-divider {
+  position: relative;
+  margin: 3rem 0;
+}
+
+.instruments-divider::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  border-top: 2px solid #d4a5a5;
+  z-index: -1;
+}
+
+.instruments-title {
+  display: inline-block;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 0 20px;
+  color: #5a3e3e;
+  position: relative;
+}
+
+.instruments-title::before,
+.instruments-title::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 50px;
+  border-top: 1px solid #d4a5a5;
+}
+
+.instruments-title::before {
+  right: 100%;
+}
+
+.instruments-title::after {
+  left: 100%;
+}
+
+/* Responsività */
+@media (max-width: 767px) {
+  .diagram-wrapper {
+    height: 250px;
+  }
+  
+  .people-node .btn {
+    width: 160px !important;
+    font-size: 1rem !important;
+    padding: 0.75rem !important;
+  }
+  
+  .books-block, .places-block {
+    width: 140px !important;
+  }
+  
+  .books-block {
+    top: 100px;
+    left: 200px;
+  }
+  
+  .places-block {
+    bottom: 100px;
+    right: 100px;
+  }
+  
+  .arrow-img {
+    width: 60px;
+  }
+  
+  .arrow-books {
+    top: 200% !important;
+    left: 50% !important;
+  }
+  
+  .arrow-places {
+    top: 200%;
+    right: 50%;
+  }
+}
+
+@media (min-width: 768px) {
+  .diagram-wrapper {
+    height: 400px;
+  }
+  
+  .arrow-books {
+    top: 300%;
+    left: 20%;
+  }
+  
+  .arrow-places {
+    top: 30%;
+    right: 20%;
+  }
+}
+
+/* Effetti hover per le carte */
+[data-section] > div:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1) !important;
+}
+
+[data-section] > div {
+  transition: all 0.3s ease;
+}
+
+/* Pulsanti strumenti */
+.instruments-btn {
+  width: 160px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-width: 2px;
+  border-color: #d4a5a5;
+  color: #5a3e3e;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
+}
+
+.instruments-btn:hover {
+  background-color: #f5f0e6;
+}

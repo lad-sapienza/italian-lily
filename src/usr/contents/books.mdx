@@ -1,0 +1,753 @@
+---
+title: "Books"
+date: "2023-10-01"
+slug: "books"
+description: "Explore our collection of historical books"
+menu_position: 6
+---
+
+import { useState, useEffect } from "react"
+import { Row, Col, Button, Badge, Card, Stack, Form } from "react-bootstrap"
+import getDataFromSource from "../../services/getDataFromSource"
+import { Link } from "gatsby"
+import Slider from 'rc-slider'
+import 'rc-slider/assets/index.css'
+import { SwitchLayoutButton } from "../components/switcher"
+import BooksTutorialModal from "../components/BooksTutorialModal"
+
+# Historical Book Collection
+
+export default function BooksPage() {
+  const [showTour, setShowTour] = useState(true)
+  const [data, setData] = useState([])
+  const [selectedGenres, setSelectedGenres] = useState([])
+  const [selectedLanguages, setSelectedLanguages] = useState([])
+  const [selectedFormats, setSelectedFormats] = useState([])
+  const [selectedPlaces, setSelectedPlaces] = useState([])
+  const [hasParatext, setHasParatext] = useState(false)
+  const [hasPrivilege, setHasPrivilege] = useState(false)
+  const [hasDigitalCopy, setHasDigitalCopy] = useState(false)
+  const [yearRange, setYearRange] = useState([1500, 1599])
+  const [showFilters, setShowFilters] = useState(true)
+  const [currentPage, setCurrentPage] = useState(1)
+  const [itemsPerPage] = useState(5)
+
+  // Soft color palette
+  const colors = {
+    primary: '#a76d77',    // Soft wine red
+    secondary: '#e8d8da',  // Very light wine
+    light: '#f9f3f4',      // Ultra light background
+    dark: '#5c3944',       // Dark wine
+    text: '#4a4a4a',       // Soft black
+    accent: '#d4a5ad'      // Light wine accent
+  }
+
+  useEffect(() => {
+    const fetch = async () => {
+      const result = await getDataFromSource({
+        dTable: "f_fonti",
+        dQueryString: "fields=id,titolo_breve,titolo_esteso,anno_edizione,genere,lingua,formato,link_digitalizzazione,luogo_di_conservazione,biblioteca,segnatura,note_paratesti,note_sul_privilegio,associazione_luogo_di_stampa.nome_localita,personalita_coinvolte.tipo_di_rapporto,personalita_coinvolte.note_sul_rapporto_,personalita_coinvolte.f_persone_id.nome_e_cognome&limit=-1"
+      })
+      setData(result)
+    }
+    fetch()
+  }, [])
+
+  // Extract unique values for filters
+  const genres = [...new Set(data.map(item => item.genere))].filter(Boolean).sort()
+  const languages = [...new Set(data.map(item => item.lingua))].filter(Boolean).sort()
+  const formats = [...new Set(data.map(item => item.formato))].filter(Boolean).sort()
+  const places = [...new Set(data.map(item => item.associazione_luogo_di_stampa?.nome_localita))].filter(Boolean).sort()
+
+  // Get min/max years from data
+  const years = data.map(item => item.anno_edizione).filter(Boolean)
+  const minYear = Math.min(...years, 1500)
+  const maxYear = Math.max(...years, 1599)
+
+  // Toggle filters
+  const toggleFilter = (filterArray, setFilterArray, value) => {
+    setFilterArray(prev =>
+      prev.includes(value) ? prev.filter(v => v !== value) : [...prev, value]
+    )
+  }
+
+  const handleYearChange = (value) => {
+    setYearRange(value)
+  }
+
+  const resetFilters = () => {
+    setSelectedGenres([])
+    setSelectedLanguages([])
+    setSelectedFormats([])
+    setSelectedPlaces([])
+    setHasParatext(false)
+    setHasPrivilege(false)
+    setHasDigitalCopy(false)
+    setYearRange([minYear, maxYear])
+    setCurrentPage(1)
+  }
+
+  const filteredData = data.filter(item => {
+    const matchGenre = selectedGenres.length === 0 || selectedGenres.includes(item.genere)
+    const matchLanguage = selectedLanguages.length === 0 || selectedLanguages.includes(item.lingua)
+    const matchFormat = selectedFormats.length === 0 || selectedFormats.includes(item.formato)
+    const matchPlace = selectedPlaces.length === 0 || selectedPlaces.includes(item.associazione_luogo_di_stampa?.nome_localita)
+    const matchParatext = !hasParatext || item.note_paratesti
+    const matchPrivilege = !hasPrivilege || item.note_privilegio
+    const matchDigitalCopy = !hasDigitalCopy || item.link_digitalizzazione
+    const matchYear = !item.anno_edizione || 
+                     (item.anno_edizione >= yearRange[0] && item.anno_edizione <= yearRange[1])
+    
+    return matchGenre && matchLanguage && matchFormat && matchPlace && 
+           matchParatext && matchPrivilege && matchDigitalCopy && matchYear
+  })
+
+  // Pagination logic
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem)
+  const totalPages = Math.ceil(filteredData.length / itemsPerPage)
+
+  const paginate = (pageNumber) => setCurrentPage(pageNumber)
+
+  const goToPrevPage = () => {
+    if (currentPage > 1) {
+      setCurrentPage(currentPage - 1)
+    }
+  }
+
+  const goToNextPage = () => {
+    if (currentPage < totalPages) {
+      setCurrentPage(currentPage + 1)
+    }
+  }
+
+  const PaginationControls = () => {
+    const pageNumbers = []
+    const maxVisiblePages = 5
+    
+    if (totalPages <= maxVisiblePages) {
+      for (let i = 1; i <= totalPages; i++) {
+        pageNumbers.push(i)
+      }
+    } else {
+      const half = Math.floor(maxVisiblePages / 2)
+      let start = currentPage - half
+      let end = currentPage + half
+      
+      if (start < 1) {
+        start = 1
+        end = maxVisiblePages
+      } else if (end > totalPages) {
+        end = totalPages
+        start = totalPages - maxVisiblePages + 1
+      }
+      
+      if (start > 1) {
+        pageNumbers.push(1)
+        if (start > 2) {
+          pageNumbers.push('...')
+        }
+      }
+      
+      for (let i = start; i <= end; i++) {
+        pageNumbers.push(i)
+      }
+      
+      if (end < totalPages) {
+        if (end < totalPages - 1) {
+          pageNumbers.push('...')
+        }
+        pageNumbers.push(totalPages)
+      }
+    }
+
+    return (
+      <div className="d-flex justify-content-center align-items-center mt-4">
+        <nav aria-label="Page navigation">
+          <ul className="pagination mb-0">
+            <li className={`page-item ${currentPage === 1 ? 'disabled' : ''}`}>
+              <button 
+                className="page-link" 
+                onClick={goToPrevPage}
+                aria-label="Previous"
+                style={{
+                  color: colors.primary,
+                  borderColor: colors.secondary,
+                  ':hover': {
+                    backgroundColor: colors.light
+                  }
+                }}
+              >
+                <span aria-hidden="true">&laquo;</span>
+              </button>
+            </li>
+            
+            {pageNumbers.map((number, index) => (
+              <li 
+                key={index} 
+                className={`page-item ${number === currentPage ? 'active' : ''} ${number === '...' ? 'disabled' : ''}`}
+              >
+                {number === '...' ? (
+                  <span className="page-link">...</span>
+                ) : (
+                  <button 
+                    className="page-link" 
+                    onClick={() => paginate(number)}
+                    style={{
+                      color: number === currentPage ? 'white' : colors.primary,
+                      backgroundColor: number === currentPage ? colors.primary : 'transparent',
+                      borderColor: colors.secondary,
+                      ':hover': {
+                        backgroundColor: number === currentPage ? colors.primary : colors.light
+                      }
+                    }}
+                  >
+                    {number}
+                  </button>
+                )}
+              </li>
+            ))}
+            
+            <li className={`page-item ${currentPage === totalPages ? 'disabled' : ''}`}>
+              <button 
+                className="page-link" 
+                onClick={goToNextPage}
+                aria-label="Next"
+                style={{
+                  color: colors.primary,
+                  borderColor: colors.secondary,
+                  ':hover': {
+                    backgroundColor: colors.light
+                  }
+                }}
+              >
+                <span aria-hidden="true">&raquo;</span>
+              </button>
+            </li>
+          </ul>
+        </nav>
+        
+        <div className="ms-3" style={{ color: colors.text, fontSize: '0.9rem' }}>
+          Showing {indexOfFirstItem + 1}-{Math.min(indexOfLastItem, filteredData.length)} of {filteredData.length} items
+        </div>
+      </div>
+    )
+  }
+
+  return (
+    <>
+            {/* --- Warning banner --- */}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            margin: "1rem 0",
+            padding: "0.75rem",
+            backgroundColor: "#fff4e5",
+            border: "1px solid #ffcc80",
+            borderRadius: "4px"
+          }}
+        >
+          <svg
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="red"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          >
+            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+            <line x1="12" y1="9" x2="12" y2="13" />
+            <line x1="12" y1="17" x2="12.01" y2="17" />
+          </svg>
+          <span style={{ marginLeft: "0.5rem", fontWeight: 500, color: "#856404" }}>
+            Dataset is currently under review; some data may be inaccurate or partially incorrect.
+          </span>
+        </div>
+      <BooksTutorialModal show={showTour} onClose={() => setShowTour(false)} />
+      <Button
+        onClick={() => setShowTour(true)}
+        style={{
+          backgroundColor: "#a76d77",
+          color: "white",
+          borderRadius: "50%",
+          width: "36px",
+          height: "36px",
+          fontSize: "20px",
+          lineHeight: "1",
+          padding: "0",
+          border: "none",
+          boxShadow: "0 2px 6px rgba(0,0,0,0.2)",
+        }}
+        aria-label="Open tutorial"
+        title="Open tutorial"
+      >
+        i
+      </Button>
+
+      <Row className="mb-4">
+        <Col>
+          <Card style={{ 
+            backgroundColor: colors.light, 
+            border: 'none',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.08)'
+          }}>
+            <Card.Body className="text-center">
+              <Card.Text style={{ 
+                fontSize: '1.1rem',
+                color: colors.text,
+                lineHeight: '1.7'
+              }}>
+              </Card.Text>
+            </Card.Body>
+          </Card>
+        </Col>
+      </Row>
+
+      <Row className="mb-4">
+        <Col lg={3}>
+          <Card style={{ 
+            border: 'none',
+            boxShadow: '0 2px 12px rgba(0,0,0,0.08)'
+          }}>
+            <Card.Header 
+              style={{ 
+                backgroundColor: colors.primary, 
+                color: 'white',
+                cursor: 'pointer'
+              }}
+              onClick={() => setShowFilters(!showFilters)}
+            >
+              <div className="d-flex justify-content-between align-items-center">
+                <span>Filter Options</span>
+                <span>{showFilters ? '−' : '+'}</span>
+              </div>
+            </Card.Header>
+            
+            {showFilters && (
+              <Card.Body style={{ backgroundColor: colors.light }}>
+                <Stack gap={4}>
+                  <div>
+                    <h6 style={{ 
+                      color: colors.dark,
+                      marginBottom: '0.75rem',
+                      fontSize: '0.95rem'
+                    }}>
+                      By Genre
+                    </h6>
+                    <Stack gap={1}>
+                      {genres.map(genre => (
+                        <Form.Check
+                          key={genre}
+                          type="checkbox"
+                          id={`genre-${genre}`}
+                          label={`${genre}`}
+                          checked={selectedGenres.includes(genre)}
+                          onChange={() => toggleFilter(selectedGenres, setSelectedGenres, genre)}
+                        />
+                      ))}
+                    </Stack>
+                  </div>
+
+                  <div>
+                    <h6 style={{ 
+                      color: colors.dark,
+                      marginBottom: '0.75rem',
+                      fontSize: '0.95rem'
+                    }}>
+                      By Language
+                    </h6>
+                    <Stack gap={1}>
+                      {languages.map(lang => (
+                        <Form.Check
+                          key={lang}
+                          type="checkbox"
+                          id={`lang-${lang}`}
+                          label={`${lang}`}
+                          checked={selectedLanguages.includes(lang)}
+                          onChange={() => toggleFilter(selectedLanguages, setSelectedLanguages, lang)}
+                        />
+                      ))}
+                    </Stack>
+                  </div>
+
+                  <div>
+                    <h6 style={{ 
+                      color: colors.dark,
+                      marginBottom: '0.75rem',
+                      fontSize: '0.95rem'
+                    }}>
+                      By Format
+                    </h6>
+                    <Stack gap={1}>
+                      {formats.map(format => (
+                        <Form.Check
+                          key={format}
+                          type="checkbox"
+                          id={`format-${format}`}
+                          label={`${format}`}
+                          checked={selectedFormats.includes(format)}
+                          onChange={() => toggleFilter(selectedFormats, setSelectedFormats, format)}
+                        />
+                      ))}
+                    </Stack>
+                  </div>
+
+                  <div>
+                    <h6 style={{ 
+                      color: colors.dark,
+                      marginBottom: '0.75rem',
+                      fontSize: '0.95rem'
+                    }}>
+                      By Place of Printing
+                    </h6>
+                    <Stack gap={1}>
+                      {places.map(place => (
+                        <Form.Check
+                          key={place}
+                          type="checkbox"
+                          id={`place-${place}`}
+                          label={`${place}`}
+                          checked={selectedPlaces.includes(place)}
+                          onChange={() => toggleFilter(selectedPlaces, setSelectedPlaces, place)}
+                        />
+                      ))}
+                    </Stack>
+                  </div>
+
+                  <div>
+                    <h6 style={{ 
+                      color: colors.dark,
+                      marginBottom: '0.75rem',
+                      fontSize: '0.95rem'
+                    }}>
+                      Special Filters
+                    </h6>
+                    <Stack gap={1}>
+                      <Form.Check
+                        type="checkbox"
+                        id="has-paratext"
+                        label="Has Paratext"
+                        checked={hasParatext}
+                        onChange={() => setHasParatext(!hasParatext)}
+                      />
+                      <Form.Check
+                        type="checkbox"
+                        id="has-privilege"
+                        label="Has Privilege"
+                        checked={hasPrivilege}
+                        onChange={() => setHasPrivilege(!hasPrivilege)}
+                      />
+                      <Form.Check
+                        type="checkbox"
+                        id="has-digital-copy"
+                        label="Has Digital Copy"
+                        checked={hasDigitalCopy}
+                        onChange={() => setHasDigitalCopy(!hasDigitalCopy)}
+                      />
+                    </Stack>
+                  </div>
+
+                  <div>
+                    <h6 style={{ 
+                      color: colors.dark,
+                      marginBottom: '0.75rem',
+                      fontSize: '0.95rem'
+                    }}>
+                      Publication Year: {yearRange[0]} - {yearRange[1]}
+                    </h6>
+                    <Slider
+                      range
+                      min={minYear}
+                      max={maxYear}
+                      value={yearRange}
+                      onChange={handleYearChange}
+                      trackStyle={{ backgroundColor: colors.primary }}
+                      handleStyle={{ 
+                        borderColor: colors.primary,
+                        backgroundColor: 'white',
+                        opacity: 1
+                      }}
+                      railStyle={{ backgroundColor: colors.secondary }}
+                    />
+                    <div style={{ 
+                      display: 'flex', 
+                      justifyContent: 'space-between',
+                      marginTop: '5px',
+                      fontSize: '0.8rem',
+                      color: colors.text
+                    }}>
+                      <span>{minYear}</span>
+                      <span>{maxYear}</span>
+                    </div>
+                  </div>
+
+                  <Button 
+                    variant="outline-secondary"
+                    size="sm"
+                    onClick={resetFilters}
+                    style={{
+                      borderColor: colors.primary,
+                      color: colors.primary
+                    }}
+                  >
+                    Reset All Filters
+                  </Button>
+                </Stack>
+              </Card.Body>
+            )}
+          </Card>
+        </Col>
+
+        <Col lg={9}>
+          {filteredData.length === 0 ? (
+            <div className="text-center py-5" style={{ color: colors.text }}>
+              <h4>No books match your filters</h4>
+              <Button 
+                variant="outline-primary"
+                onClick={resetFilters}
+                style={{
+                  borderColor: colors.primary,
+                  color: colors.primary
+                }}
+              >
+                Reset Filters
+              </Button>
+            </div>
+          ) : (
+            <>
+              <Stack gap={4}>
+                {currentItems.map((item) => (
+                  <Card 
+                    key={item.id}
+                    style={{
+                      border: 'none',
+                      boxShadow: '0 2px 12px rgba(0,0,0,0.08)'
+                    }}
+                  >
+                    <Card.Body style={{ backgroundColor: 'white' }}>
+                      <h2 style={{
+                        marginBottom: '1.5rem',
+                        color: colors.dark,
+                        borderBottom: `1px solid ${colors.secondary}`,
+                        paddingBottom: '0.75rem',
+                        fontSize: '1.5rem'
+                      }}>
+                        <Link
+                          to={`/book/?tb=f_fonti&id=${item.id}`}
+                          style={{ 
+                            color: colors.dark,
+                            textDecoration: 'none',
+                            ':hover': {
+                              color: colors.primary
+                            }
+                          }}
+                        >
+                          {item.titolo_breve}
+                        </Link>
+                      </h2>
+
+                      <Row>
+                        <Col md={8}>
+                          {item.titolo_esteso && (
+                            <div 
+                              className="mb-4"
+                              style={{
+                                fontSize: '1.05rem',
+                                lineHeight: '1.7',
+                                color: colors.text
+                              }}
+                              dangerouslySetInnerHTML={{ __html: item.titolo_esteso }}
+                            />
+                          )}
+
+                          {item.personalita_coinvolte?.length > 0 && (
+                            <div className="mt-4">
+                              <h5 style={{ 
+                                color: colors.dark,
+                                marginBottom: '1rem'
+                              }}>
+                                People
+                              </h5>
+                              <div className="row g-3">
+                                {item.personalita_coinvolte.map(person => (
+                                  <div key={person.id} className="col-md-6">
+                                    <div style={{
+                                      backgroundColor: colors.light,
+                                      padding: '1rem',
+                                      borderRadius: '8px',
+                                      fontSize: '1rem',
+                                      borderLeft: `3px solid ${colors.primary}`
+                                    }}>
+                                      <div style={{ 
+                                        fontWeight: '500',
+                                        color: colors.dark,
+                                        marginBottom: '0.25rem'
+                                      }}>
+                                        {person.f_persone_id?.nome_e_cognome || 'Unnamed'}
+                                      </div>
+                                      
+                                      {person.tipo_di_rapporto?.length > 0 && (
+                                        <Badge 
+                                          bg="light" 
+                                          text="dark"
+                                          style={{
+                                            backgroundColor: colors.secondary,
+                                            color: colors.dark,
+                                            fontWeight: 'normal',
+                                            marginRight: '0.5rem',
+                                            marginBottom: '0.5rem'
+                                          }}
+                                        >
+                                          {person.tipo_di_rapporto.join(' • ')}
+                                        </Badge>
+                                      )}
+                                    </div>
+                                  </div>
+                                ))}
+                              </div>
+                            </div>
+                          )}
+                        </Col>
+
+                        <Col md={4}>
+                          <div style={{ 
+                            backgroundColor: colors.light,
+                            padding: '1.25rem',
+                            borderRadius: '8px',
+                            height: '100%'
+                          }}>
+                            <h6 style={{ 
+                              color: colors.dark,
+                              marginBottom: '1rem',
+                              fontSize: '1rem'
+                            }}>
+                              Publication Details
+                            </h6>
+                            
+                            <Stack gap={2} className="mb-3">
+                              {item.anno_edizione && (
+                                <div>
+                                  <div style={{
+                                    fontSize: '0.8rem',
+                                    color: colors.primary,
+                                    fontWeight: '500'
+                                  }}>
+                                    PUBLICATION YEAR
+                                  </div>
+                                  <div style={{ fontSize: '0.95rem' }}>
+                                    {item.anno_edizione}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {item.associazione_luogo_di_stampa?.nome_localita && (
+                                <div>
+                                  <div style={{
+                                    fontSize: '0.8rem',
+                                    color: colors.primary,
+                                    fontWeight: '500'
+                                  }}>
+                                    PLACE OF PRINTING
+                                  </div>
+                                  <div style={{ fontSize: '0.95rem' }}>
+                                    {item.associazione_luogo_di_stampa.nome_localita}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {item.formato && (
+                                <div>
+                                  <div style={{
+                                    fontSize: '0.8rem',
+                                    color: colors.primary,
+                                    fontWeight: '500'
+                                  }}>
+                                    FORMAT
+                                  </div>
+                                  <div style={{ fontSize: '0.95rem' }}>
+                                    {item.formato}
+                                  </div>
+                                </div>
+                              )}
+                              
+                              {item.lingua && (
+                                <div>
+                                  <div style={{
+                                    fontSize: '0.8rem',
+                                    color: colors.primary,
+                                    fontWeight: '500'
+                                  }}>
+                                    LANGUAGE
+                                  </div>
+                                  <div style={{ fontSize: '0.95rem' }}>
+                                    {item.lingua}
+                                  </div>
+                                </div>
+                              )}
+                            </Stack>
+
+                            {item.link_digitalizzazione && (
+                              <div className="d-grid mt-3">
+                                <a 
+                                  href={item.link_digitalizzazione} 
+                                  target="_blank" 
+                                  rel="noopener noreferrer"
+                                  className="btn btn-sm"
+                                  style={{ 
+                                    backgroundColor: colors.primary,
+                                    color: 'white',
+                                    ':hover': {
+                                      backgroundColor: colors.dark
+                                    }
+                                  }}
+                                >
+                                  View Digital Copy
+                                </a>
+                              </div>
+                            )}
+
+                            {item.luogo_di_conservazione && (
+                              <div className="mt-4 pt-3" style={{ 
+                                borderTop: `1px solid ${colors.secondary}`,
+                                fontSize: '0.9rem'
+                              }}>
+                                <div style={{
+                                  fontSize: '0.8rem',
+                                  color: colors.primary,
+                                  fontWeight: '500',
+                                  marginBottom: '0.25rem'
+                                }}>
+                                  LIBRARY HOLDING
+                                </div>
+                                <div style={{ marginBottom: '0.25rem' }}>
+                                  {item.biblioteca || ''}
+                                </div>
+                                <div style={{ 
+                                  color: colors.text,
+                                  fontSize: '0.85rem'
+                                }}>
+                                  {item.segnatura}
+                                </div>
+                              </div>
+                            )}
+                          </div>
+                        </Col>
+                      </Row>
+                    </Card.Body>
+                  </Card>
+                ))}
+              </Stack>
+              
+              <PaginationControls />
+            </>
+          )}
+        </Col>
+      </Row>
+    </>
+  )
+}

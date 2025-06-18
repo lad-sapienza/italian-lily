@@ -1,0 +1,204 @@
+---
+title: "book"
+date: "2023-10-01"
+slug: "book"
+description: "Detailed bibliographic record"
+---
+
+import { useState, useEffect } from "react"
+import { Record, RecordContext } from "../../modules/record/record"
+import { Row, Col, Card, Accordion, Stack } from "react-bootstrap"
+import { SwitchLayoutButton } from "../components/switcher"
+import BookRecordTutorialModal from "../components/BookRecordTutorialModal"
+
+export default function BookPage() {
+  const [showTutorial, setShowTutorial] = useState(false)
+
+  useEffect(() => {
+    setShowTutorial(true)
+  }, [])
+
+  return (
+    <>
+      <div style={{ position: "relative" }}>
+        {/* Central red info icon */}
+        <div
+          role="button"
+          tabIndex={0}
+          onClick={() => setShowTutorial(true)}
+          onKeyDown={e => (e.key === 'Enter' || e.key === ' ' ? setShowTutorial(true) : null)}
+          style={{
+            position: "absolute",
+            top: "20px",
+            left: "50%",
+            transform: "translateX(-50%)",
+            zIndex: 1000,
+            cursor: "pointer",
+            backgroundColor: "rgba(255,255,255,0.9)",
+            borderRadius: "50%",
+            width: "36px",
+            height: "36px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 2px 8px rgba(0,0,0,0.15)"
+          }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="red"
+            strokeWidth="2"
+          >
+            <circle cx="12" cy="12" r="10" />
+            <line x1="12" y1="16" x2="12" y2="12" />
+            <line x1="12" y1="8" x2="12.01" y2="8" />
+          </svg>
+        </div>
+
+        {/* Switch layout */}
+        <SwitchLayoutButton currentLayout="book" />
+
+        {/* Record content */}
+        <Record search={{ tb: "libro" }}>
+          <RecordContext.Consumer>
+            {recordData => {
+              if (!recordData || Object.keys(recordData).length === 0) {
+                return <div className="alert alert-warning mt-4">No record found for this book.</div>
+              }
+
+              const libro = recordData
+              const personalitaCoinvolte = libro.personalita_coinvolte || []
+
+              const groupedPeople = personalitaCoinvolte.reduce((acc, relazione) => {
+                const ruoli = relazione.tipo_di_rapporto || ['Other']
+                const persona = relazione.f_persone_id || {}
+                ruoli.forEach(ruolo => {
+                  if (!acc[ruolo]) acc[ruolo] = []
+                  acc[ruolo].push(persona)
+                })
+                return acc
+              }, {})
+
+              return (
+                <div className="book-record-container">
+                  {/* Header */}
+                  <div className="text-center py-5 mb-4" style={{ borderBottom: '1px solid #e0d6d0', backgroundColor: '#f8f2ee' }}>
+                    <div className="container">
+                      <h1 className="book-title" style={{ color: '#6e2c2f', fontFamily: "'Georgia', serif", fontWeight: 'normal', fontSize: '2.2rem', lineHeight: '1.3' }}>
+                        {libro.titolo_breve || 'Untitled'}
+                      </h1>
+                    </div>
+                  </div>
+
+                  {/* Extended title */}
+                  {libro.titolo_esteso && (
+                    <Row className="mb-4">
+                      <Col>
+                        <div className="p-3 mx-auto" style={{ maxWidth: '1600px', backgroundColor: '#f2ece8', fontSize: '1rem', lineHeight: '1.4', textAlign: 'left', fontFamily: "'Georgia', serif", borderRadius: '4px' }}>
+                          <div dangerouslySetInnerHTML={{ __html: libro.titolo_esteso }} />
+                        </div>
+                      </Col>
+                    </Row>
+                  )}
+
+                  <div className="container">
+                    <Row>
+                      {/* Left column */}
+                      <Col lg={8}>
+                        {/* Physical Copy */}
+                        <Card className="mb-4 border-0 rounded-0" style={{ borderLeft: '3px solid #b38a7f', backgroundColor: '#fcfaf9' }}>
+                          <Card.Body>
+                            <h3 className="fs-5 text-muted mb-3">Physical Copy</h3>
+                            <Row>
+                              {libro.luogo_di_conservazione && (
+                                <Col sm={6} className="mb-3">
+                                  <div className="text-muted small">Holding Institution</div>
+                                  <div>{libro.biblioteca}, {libro.luogo_di_conservazione}</div>
+                                  {libro.segnatura && <div className="text-muted small mt-1">{libro.segnatura}</div>}
+                                </Col>
+                              )}
+                              {libro.formato && (
+                                <Col sm={6} className="mb-3">
+                                  <div className="text-muted small">Format</div>
+                                  <div>{libro.formato}</div>
+                                </Col>
+                              )}
+                            </Row>
+                          </Card.Body>
+                        </Card>
+
+                        {/* People */}
+                        {Object.keys(groupedPeople).length > 0 && (
+                          <div className="mt-4">
+                            <h2 className="h4 mb-4" style={{ color: '#6e2c2f', fontFamily: "'Georgia', serif", fontWeight: 'normal' }}>People</h2>
+                            <Row className="g-4">
+                              {Object.entries(groupedPeople).map(([role, people]) => (
+                                <Col key={role} md={6} lg={4}>
+                                  <div className="h-100">
+                                    <div className="text-muted text-uppercase small mb-2" style={{ letterSpacing: '1px', color: '#b38a7f' }}>{role}</div>
+                                    <div className="d-flex flex-column gap-3">
+                                      {people.map((persona, idx) => (
+                                        <Card key={idx} className="border-0 shadow-sm h-100" style={{ backgroundColor: '#f8f2ee', borderLeft: '2px solid #b38a7f' }}>
+                                          <Card.Body className="py-3">
+                                            <Card.Title className="h6 mb-0" style={{ color: '#6e2c2f' }}>{persona.nome_e_cognome || 'Unnamed'}</Card.Title>
+                                          </Card.Body>
+                                        </Card>
+                                      ))}
+                                    </div>
+                                  </div>
+                                </Col>
+                              ))}
+                            </Row>
+                          </div>
+                        )}
+                      </Col>
+
+                      {/* Right column */}
+                      <Col lg={4}>
+                        <Card className="mb-4 border-0 rounded-0" style={{ borderLeft: '3px solid #b38a7f', backgroundColor: '#fcfaf9' }}>
+                          <Card.Body>
+                            {libro.genere && <> <h3 className="fs-5 text-muted mb-3">Genre</h3><div className="mb-4">{libro.genere}</div> </>}
+                            <h3 className="fs-5 text-muted mb-3">Publication Details</h3>
+                            <dl className="row">
+                              {libro.formato && <> <dt className="col-sm-5 text-muted small">Format</dt><dd className="col-sm-7">{libro.formato}</dd> </>}
+                              {libro.lingua && <> <dt className="col-sm-5 text-muted small">Language</dt><dd className="col-sm-7">{libro.lingua}</dd> </>}
+                              {libro.associazione_luogo_di_stampa && <> <dt className="col-sm-5 text-muted small">Place of Printing</dt><dd className="col-sm-7">{libro.nome_luogo_di_stampa_sul_frontespizio || libro.associazione_luogo_di_stampa.nome_localita}{libro.associazione_luogo_di_stampa.toponimo_italiano && <span className="text-muted ms-2">({libro.associazione_luogo_di_stampa.toponimo_italiano})</span>}</dd> </>}
+                              {libro.anno_frontespizio && <> <dt className="col-sm-5 text-muted small">Title Page Year</dt><dd className="col-sm-7">{libro.anno_frontespizio}</dd> </>}
+                              {libro.anno_colofone && <> <dt className="col-sm-5 text-muted small">Colophon Year</dt><dd className="col-sm-7">{libro.anno_colofone}</dd> </>}
+                              {libro.data_dedica && <> <dt className="col-sm-5 text-muted small">Dedication Date</dt><dd className="col-sm-7">{libro.data_dedica}</dd> </>}
+                              {libro.anno_edizione && <> <dt className="col-sm-5 text-muted small">Edition Year</dt><dd className="col-sm-7">{libro.anno_edizione}</dd> </>}
+                              {libro.editore && <> <dt className="col-sm-5 text-muted small">Publisher</dt><dd className="col-sm-7">{libro.editore}</dd> </>}
+                              {libro.isbn && <> <dt className="col-sm-5 text-muted small">ISBN</dt><dd className="col-sm-7 font-monospace">{libro.isbn}</dd> </>}
+                            </dl>
+
+                            {(libro.link_digitalizzazione || libro.link_al_catalogo || libro.USTC_reference) && (<>
+                              <hr className="my-4" style={{ borderColor: '#e0d6d0' }} />
+                              <h3 className="fs-5 text-muted mb-3">Digital Access</h3>
+                              <Stack gap={2}>
+                                {libro.USTC_reference && <a href={`https://www.ustc.ac.uk/editions/${libro.USTC_reference}`} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark w-100 text-start" style={{ borderColor: '#b38a7f', color: '#6e2c2f' }}><i className="fas fa-external-link-alt me-2" />USTC</a>}
+                                {libro.link_digitalizzazione && <a href={libro.link_digitalizzazione} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark w-100 text-start" style={{ borderColor: '#b38a7f', color: '#6e2c2f' }}><i className="fas fa-external-link-alt me-2" />Digital Copy</a>}
+                                {libro.link_al_catalogo && <a href={libro.link_al_catalogo} target="_blank" rel="noopener noreferrer" className="btn btn-outline-dark w-100 text-start" style={{ borderColor: '#b38a7f', color: '#6e2c2f' }}><i className="fas fa-book me-2" />Catalog Record</a>}
+                              </Stack>
+                            </>)}
+                          </Card.Body>
+                        </Card>
+                      </Col>
+                    </Row>
+                  </div>
+
+                  <style jsx>{` .book-title { max-width: 800px; margin-left: auto; margin-right: auto; } `}</style>
+                </div>
+              )
+            }}
+          </RecordContext.Consumer>
+        </Record>
+
+        {/* Tutorial Modal */}
+        <BookRecordTutorialModal show={showTutorial} onClose={() => setShowTutorial(false)} />
+      </div>
+    </>
+  )
+}

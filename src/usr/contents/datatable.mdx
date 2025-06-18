@@ -6,65 +6,181 @@ description: ""
 menu_position: 2
 ---
 
-import { DataTb } from "../../modules/scms";
+import { DataTb } from "../../modules/scms"
+import { Link } from "gatsby"
+import { MiniSchedina } from "../components/minischedina"
 
-# Lista delle Persone
+export default function PeoplePage() {
+  const formatName = name =>
+    name?.split(' ').map((part, i, arr) =>
+      i < arr.length - 1 ? <>{part}<br /></> : part
+    ) || "No Name"
 
-<DataTb
-  source={{
-    dTable: "f_persone",
-  }}
-  striped={true}
-  columns={[
-    {
-      name: "Nome e Cognome",
-      sortable: true,
-      cell: item => (
-        <a
-          href={`../record/?query=${encodeURIComponent(
-            JSON.stringify({
-              dTable: "f_persone_f_luoghi",
-              fields: "*,f_persone_id.*,f_luoghi_id.*",
-              filter: { f_persone_id: `${item.id}` },
-            })
-          )}`}
-        >
-          {item.nome_e_cognome || "Non Disponibile"}
-        </a>
-      ),
-    },
-    {
-      name: "Also attested as",
-      cell: item => {
-        const pseudonimo = item.Pseudonimo ? item.Pseudonimo : null;
-        const cognomeNaturalizzato = item.cognome_naturalizzato_o_coniuge ? item.cognome_naturalizzato_o_coniuge : null;
-        if (pseudonimo && cognomeNaturalizzato) return `${cognomeNaturalizzato}, ${pseudonimo}`;
-        if (pseudonimo) return pseudonimo;
-        if (cognomeNaturalizzato) return cognomeNaturalizzato;
-        return "ND";
-      },
-    },
-    {
-      name: "Dates and places",
-      cell: item => {
-        const annoNascita = item.anno_nascita || "ND";
-        const luogoNascita = item.luogo_nascita || "ND";
-        const annoMorte = item.anno_morte || "ND";
-        const luogoMorte = item.luogo_morte || "ND";
-        return `${annoNascita} (${luogoNascita}) - ${annoMorte} (${luogoMorte})`;
-      },
-    },
-    {
-      name: "Gender",
-      cell: item => item.Genere || "ND",
-    },
-    {
-      name: "Profession",
-      cell: item => item.professione || "ND",
-    },
-    {
-      name: "Notes about",
-      cell: item => <div dangerouslySetInnerHTML={{ __html: item.note_sul_personaggio || "ND" }} />,
-    },
-  ]}
-/>
+  const groupByLocation = (locations) => {
+    const grouped = {}
+    locations.forEach(loc => {
+      const place = loc.f_luoghi_id?.nome_localita
+      if (!place) return
+      const period = loc.prima_attestazione_anno && loc.ultima_attestazione_anno
+        ? `${loc.prima_attestazione_anno}-${loc.ultima_attestazione_anno}`
+        : loc.prima_attestazione_anno
+        ? `${loc.prima_attestazione_anno}`
+        : ""
+      if (!grouped[place]) grouped[place] = []
+      if (period) grouped[place].push(period)
+    })
+    return grouped
+  }
+
+  const splitLines = (arr, perLine = 4) => {
+    const lines = []
+    for (let i = 0; i < arr.length; i += perLine) {
+      lines.push(arr.slice(i, i + perLine))
+    }
+    return lines
+  }
+
+  const formatLifeDates = item => {
+    const birthYear = item.anno_nascita || 'ND'
+    const birthPlace = item.luogo_nascita || 'ND'
+    const deathYear = item.anno_morte || 'ND'
+    const deathPlace = item.luogo_morte || 'ND'
+    return `${birthYear} (${birthPlace}) - ${deathYear} (${deathPlace})`
+  }
+
+  return (
+    <div className="container-fluid mt-4">
+      <div className="text-center mb-5">
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Fleur_de_lis_of_Florence.svg" 
+          alt="Fleur de Lis" 
+          className="me-3" 
+          style={{ width: "40px" }} 
+        />
+        <h1 className="d-inline-block align-middle">Florentine Figures</h1>
+        <img 
+          src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Fleur_de_lis_of_Florence.svg" 
+          alt="Fleur de Lis" 
+          className="ms-3" 
+          style={{ width: "40px" }} 
+        />
+      </div>
+
+      <div className="row g-4">
+        {/* Exiles */}
+        <div className="col-lg-6">
+          <div className="card border-3 shadow-sm h-100" style={{ borderColor: '#e8d5b5', backgroundColor: 'transparent' }}>
+            <div className="card-header border-0">
+              <h3 className="card-title mb-0 text-dark">Exiles</h3>
+            </div>
+            <div className="card-body p-0">
+              <DataTb
+                source={{
+                  dTable: "f_persone",
+                  dQueryString: "fields=id,nome_e_cognome,Pseudonimo,cognome_naturalizzato_o_coniuge,professione,note_sul_personaggio,luoghi_associati_alla_persona.id,luoghi_associati_alla_persona.f_luoghi_id.nome_localita,luoghi_associati_alla_persona.prima_attestazione_anno,luoghi_associati_alla_persona.ultima_attestazione_anno&filter[progetto][_eq]=fuoriuscitismo&limit=-1"
+                }}
+                noHeader
+                noDataComponent={<div className="p-3">No exiles found</div>}
+                columns={[
+                  {
+                    name: "",
+                    cell: item => {
+                      const groupedLocations = groupByLocation(item.luoghi_associati_alla_persona || [])
+                      return (
+                        <div className="d-flex border-bottom" style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+                          <div className="p-3 d-flex flex-column border-end" style={{ flex: '0 0 33.33%', height: '100%', overflowY: 'auto' }}>
+                            <h4 className="mb-1" style={{ wordBreak: 'break-word' }}>
+                              <Link to={`/record/?tb=f_persone&id=${item.id}`} className="text-decoration-none text-dark">
+                                {formatName(item.nome_e_cognome)}
+                              </Link>
+                            </h4>
+                            <div className="mb-2">
+                              {item.Pseudonimo && <div className="small text-muted">Alias: {item.Pseudonimo}</div>}
+                              {item.cognome_naturalizzato_o_coniuge && <div className="small text-muted">Other Name: {item.cognome_naturalizzato_o_coniuge}</div>}
+                            </div>
+                            {item.professione && (
+                              <div className="mt-auto mb-2">
+                                {item.professione.split(';').map((prof, i) => (
+                                  <div key={i} className="badge d-block mb-1" style={{ backgroundColor: '#d9c7a7' }}>
+                                    {prof.trim()}
+                                  </div>
+                                ))}
+                              </div>
+                            )}
+                            {item.note_sul_personaggio && (
+                              <div className="small text-muted mt-1" dangerouslySetInnerHTML={{ __html: item.note_sul_personaggio }} />
+                            )}
+                          </div>
+                          <div className="p-3 d-flex flex-column" style={{ flex: '0 0 66.66%', height: '100%', overflowY: 'auto' }}>
+                            {Object.keys(groupedLocations).length > 0 ? (
+                              <>
+                                <h6 className="mb-2 text-muted small">Associated Locations</h6>
+                                <div className="d-flex flex-wrap gap-2">
+                                  {Object.entries(groupedLocations).map(([place, periods], idx) => (
+                                    <div key={idx} className="p-2 rounded border" style={{ minWidth: '150px', flex: '0 1 auto', borderColor: '#dee2e6' }}>
+                                      <div className="fw-semibold text-center mb-1">{place}</div>
+                                      {splitLines(periods).map((line, i) => (
+                                        <div key={i} className="small text-center">
+                                          {line.join('; ')}
+                                        </div>
+                                      ))}
+                                    </div>
+                                  ))}
+                                </div>
+                              </>
+                            ) : (
+                              <div className="text-muted small mt-auto">No associated locations</div>
+                            )}
+                          </div>
+                        </div>
+                      )
+                    }
+                  }
+                ]}
+                paginationPerPage={5}
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* Volumes */}
+        <div className="col-lg-6">
+          <div className="card border-3 shadow-sm h-100" style={{ borderColor: '#ebc7c7', backgroundColor: 'transparent' }}>
+            <div className="card-header border-0">
+              <h3 className="card-title mb-0 text-dark">Volumes</h3>
+            </div>
+            <div className="card-body p-0">
+              <DataTb
+                source={{
+                  dTable: "f_persone",
+                  dQueryString: "fields=id,nome_e_cognome,anno_nascita,luogo_nascita,anno_morte,luogo_morte,volumi_associati_alla_persona.id,volumi_associati_alla_persona.note_sul_rapporto_,volumi_associati_alla_persona.tipo_di_rapporto,volumi_associati_alla_persona.f_fonti_id.titolo_breve&filter[progetto][_eq]=volumi&limit=-1"
+                }}
+                noHeader
+                noDataComponent={<div className="p-3">No figures found</div>}
+                columns={[
+                  {
+                    name: "",
+                    cell: item => (
+                      <div className="d-flex border-bottom" style={{ width: '100%', height: '300px', overflow: 'hidden' }}>
+                        <div className="p-3 d-flex flex-column border-end" style={{ flex: '0 0 33.33%', height: '100%', overflowY: 'auto' }}>
+                          <h4 className="mb-1" style={{ wordBreak: 'break-word' }}>
+                            {formatName(item.nome_e_cognome)}
+                          </h4>
+                          <div className="mb-2 small text-muted">{formatLifeDates(item)}</div>
+                        </div>
+                        <div className="p-3 d-flex flex-column" style={{ flex: '0 0 66.66%', height: '100%', overflowY: 'auto' }}>
+                          <MiniSchedina items={item.volumi_associati_alla_persona} type="volume" />
+                        </div>
+                      </div>
+                    )
+                  }
+                ]}
+                paginationPerPage={5}
+              />
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}

@@ -4,57 +4,54 @@ import LineChart from './LineChart';
 import getDataFromSource from '../../services/getDataFromSource';
 
 const GraphContainer = () => {
-  const [chart1Data, setChart1Data] = useState(null);
-  const [chart2Data, setChart2Data] = useState(null);
+  const [chart1Data, setChart1Data] = useState({ labels: [], datasets: [] });
+  const [chart2Data, setChart2Data] = useState({ labels: [], datasets: [] });
   const [filterValues, setFilterValues] = useState([]);
-  const [selectedFilter, setSelectedFilter] = useState(null);
+  const [selectedFilters, setSelectedFilters] = useState([]); // Cambiato a un array
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Query per recuperare i dati principali
         const data = await getDataFromSource({
           dTable: 'f_persone_f_luoghi',
           dEndPoint: process.env.GATSBY_DIRECTUS_API_URL,
           dToken: process.env.GATSBY_DIRECTUS_API_TOKEN,
-          dQueryString:
-            'fields=prima_attestazione_anno,f_luoghi_id.nome_localita,spostato_in_qualita_di&limit=-1',
+          dQueryString: 'fields=*.*&limit=-1', // Recuperiamo i dati nidificati
         });
 
-        // Query per recuperare valori unici di 'spostato_in_qualita_di'
-        const uniqueValues = await getDataFromSource({
-          dTable: 'f_persone_f_luoghi',
-          dEndPoint: process.env.GATSBY_DIRECTUS_API_URL,
-          dToken: process.env.GATSBY_DIRECTUS_API_TOKEN,
-          dQueryString: 'fields=spostato_in_qualita_di&distinct=spostato_in_qualita_di',
-        });
+        // Estrarre tutte le professioni uniche da f_persone_id.professione
+        const uniqueProfessions = [...new Set(data
+          .map(item => item.f_persone_id?.professione)
+          .filter(Boolean)
+        )];
 
+        setFilterValues(uniqueProfessions);
+        
         const occurrencesYear = {};
         const occurrencesPlaces = {};
 
-        // Raggruppa i dati per anno e località
         data.forEach(item => {
           const year = item.prima_attestazione_anno;
           const placeName = item.f_luoghi_id?.nome_localita || 'Sconosciuto';
+          const profession = item.f_persone_id?.professione;
 
-          // Applica filtro per professione
-          if (selectedFilter && item.spostato_in_qualita_di !== selectedFilter) return;
+          // Se ci sono filtri attivi e la professione non è inclusa, escludiamo il dato
+          if (selectedFilters.length > 0 && !selectedFilters.includes(profession)) return;
 
-          // Raggruppa per anno
+          // Raggruppiamo per anno
           if (year !== null) {
             occurrencesYear[year] = (occurrencesYear[year] || 0) + 1;
           }
 
-          // Raggruppa per località
+          // Raggruppiamo per località
           if (placeName !== null) {
-            occurrencesPlaces[placeName] =
-              (occurrencesPlaces[placeName] || 0) + 1;
+            occurrencesPlaces[placeName] = (occurrencesPlaces[placeName] || 0) + 1;
           }
         });
 
-        // Ordina i dati per località in base al numero di attestazioni
+        // Ordiniamo i dati per località
         const sortedPlaces = Object.entries(occurrencesPlaces)
-          .sort((a, b) => b[1] - a[1]) // Ordina in ordine decrescente
+          .sort((a, b) => b[1] - a[1])
           .reduce(
             (acc, [key, value]) => {
               acc.labels.push(key);
@@ -64,11 +61,12 @@ const GraphContainer = () => {
             { labels: [], data: [] }
           );
 
+        // Impostiamo i dati nei grafici
         setChart1Data({
-          labels: Object.keys(occurrencesYear).sort((a, b) => a - b), // Ordina gli anni
+          labels: Object.keys(occurrencesYear).sort((a, b) => a - b),
           datasets: [
             {
-              label: 'Occorrenze per Anno',
+              label: 'Years',
               data: Object.values(occurrencesYear),
               borderColor: 'rgba(75, 192, 192, 1)',
               backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -80,7 +78,7 @@ const GraphContainer = () => {
           labels: sortedPlaces.labels,
           datasets: [
             {
-              label: 'Occorrenze per Località',
+              label: 'Places',
               data: sortedPlaces.data,
               backgroundColor: 'rgba(153, 102, 255, 0.6)',
               borderColor: 'rgba(153, 102, 255, 1)',
@@ -88,47 +86,89 @@ const GraphContainer = () => {
           ],
         });
 
-        setFilterValues([...new Set(uniqueValues.map(item => item.spostato_in_qualita_di))]);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
 
     fetchData();
-  }, [selectedFilter]);
+  }, [selectedFilters]); // Ricarica i dati ogni volta che i filtri cambiano
 
-  if (!chart1Data || !chart2Data) {
-    return <p>Loading...</p>;
-  }
+  // Funzione per selezionare/deselezionare una professione
+  const toggleFilter = (profession) => {
+    setSelectedFilters(prevFilters =>
+      prevFilters.includes(profession)
+        ? prevFilters.filter(p => p !== profession) // Rimuove se già selezionata
+        : [...prevFilters, profession] // Aggiunge se non selezionata
+    );
+  };
 
   return (
     <div>
-      <div>
-        <label htmlFor="filter">Spostato in Qualità di:</label>
-        <select
-          id="filter"
-          onChange={e => setSelectedFilter(e.target.value)}
-          value={selectedFilter || ''}
-        >
-          <option value="">Tutti</option>
+      {/* Contenitore per il filtro basato su PROFESSIONE */}
+      <div style={{
+        backgroundColor: 'rgba(10, 20, 50, 0.85)',
+        padding: '15px',
+        borderRadius: '10px',
+        marginBottom: '20px',
+        color: 'white',
+      }}>
+        <h3>Select your parameter:</h3>
+        <div style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginTop: '10px' }}>
+          <button
+            onClick={() => setSelectedFilters([])}
+            style={{
+              padding: '10px',
+              borderRadius: '5px',
+              backgroundColor: selectedFilters.length === 0 ? '#007bff' : 'white',
+              color: selectedFilters.length === 0 ? 'white' : '#007bff',
+              border: '2px solid #007bff',
+              cursor: 'pointer',
+            }}
+          >
+            All
+          </button>
           {filterValues.map(value => (
-            <option key={value} value={value}>
+            <button
+              key={value}
+              onClick={() => toggleFilter(value)}
+              style={{
+                padding: '10px',
+                borderRadius: '5px',
+                backgroundColor: selectedFilters.includes(value) ? '#007bff' : 'white',
+                color: selectedFilters.includes(value) ? 'white' : '#007bff',
+                border: '2px solid #007bff',
+                cursor: 'pointer',
+              }}
+            >
               {value}
-            </option>
+            </button>
           ))}
-        </select>
+        </div>
       </div>
 
-      <LineChart
-        labels={chart1Data.labels}
-        datasets={chart1Data.datasets}
-        title="Curva di Tendenza: Occorrenze per Anno"
-      />
-      <BarChart
-        labels={chart2Data.labels}
-        datasets={chart2Data.datasets}
-        title="Occorrenze per Località"
-      />
+      {/* Contenitore per i due grafici affiancati */}
+      <div style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        justifyContent: 'space-between',
+        gap: '20px',
+      }}>
+        <div style={{ flex: '1', minWidth: '400px' }}>
+          <LineChart
+            labels={chart1Data.labels}
+            datasets={chart1Data.datasets}
+            title="Curva di Tendenza: Occorrenze per Anno"
+          />
+        </div>
+        <div style={{ flex: '1', minWidth: '400px' }}>
+          <BarChart
+            labels={chart2Data.labels}
+            datasets={chart2Data.datasets}
+            title="Places"
+          />
+        </div>
+      </div>
     </div>
   );
 };

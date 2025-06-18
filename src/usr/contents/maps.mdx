@@ -1,11 +1,13 @@
 ---
 title: "WebGis"
 date: "2023-10-01"
-slug: "maps"
+slug: "map"
 description: "Esempio di mappa con filtro per anno"
 menu_position: 1
 ---
 
 import MapWithFilter from "../../modules/maps/leaflet/MapWithFilter.js";
 
-<MapWithFilter />
+<div className="map-fullscreen-wrapper">
+  <MapWithFilter fullscreen />
+</div>

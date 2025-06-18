@@ -1,111 +1,185 @@
-import * as React from "react"
-import { StaticImage } from "gatsby-plugin-image"
-import styled from "styled-components"
-import { Container } from "react-bootstrap"
+import * as React from "react";
+import { StaticImage } from "gatsby-plugin-image";
+import styled from "styled-components";
+import { Container, Row, Col } from "react-bootstrap";
+import { Github, Bug } from "react-bootstrap-icons";
 
 const FooterSection = () => {
   return (
     <Footer>
       <Container>
-        <div className="footer-content">
-          {/* Loghi cliccabili */}
-          <div className="logos">
-            <a href="https://www.unive.it/pag/13526" target="_blank" rel="noreferrer">
-              <StaticImage
-                src="../images/cafoscari.png"
-                width={120}
-                quality={90}
-                formats={["AUTO", "WEBP"]}
-                alt="Università Ca' Foscari"
-                className="logo"
-              />
-            </a>
-            <a href="https://www.unitn.it/" target="_blank" rel="noreferrer">
-              <StaticImage
-                src="../images/Trrento.png"
-                width={120}
-                quality={90}
-                formats={["AUTO", "WEBP"]}
-                alt="Università di Trento"
-                className="logo"
-              />
-            </a>
-            <a href="https://www.uniroma1.it/it/pagina-strutturale/home" target="_blank" rel="noreferrer">
-              <StaticImage
-                src="../images/Uniroma1.png"
-                width={120}
-                quality={90}
-                formats={["AUTO", "WEBP"]}
-                alt="Sapienza Università di Roma"
-                className="logo"
-              />
-            </a>
-          </div>
+        <Row className="py-4 align-items-center">
 
-          {/* Testo a destra */}
-          <div className="footer-text">
+          {/* Left Column - Title & Subtitle */}
+          <Col md={3} className="section-left text-md-start text-center mb-3 mb-md-0">
+            <Title>Italian Lily</Title>
+            <Subtitle>People and Books from Italy to France in the Sixteenth Century</Subtitle>
+          </Col>
+
+          {/* Center Column - Project Logos + Contact Box */}
+          <Col md={6} className="section-center text-center">
+            <div className="logos">
+              <a href="https://www.unive.it/pag/13526" target="_blank" rel="noreferrer">
+                <StaticImage
+                  src="../images/cafoscari.png"
+                  width={260}
+                  alt="Università Ca' Foscari"
+                  className="logo"
+                />
+              </a>
+              <a href="https://www.unitn.it/" target="_blank" rel="noreferrer">
+                <StaticImage
+                  src="../images/Trrento.png"
+                  width={260}
+                  alt="Università di Trento"
+                  className="logo"
+                />
+              </a>
+              <a href="https://www.uniroma1.it/it/pagina-strutturale/home" target="_blank" rel="noreferrer">
+                <StaticImage
+                  src="../images/Uniroma1.png"
+                  width={260}
+                  alt="Sapienza Università di Roma"
+                  className="logo"
+                />
+              </a>
+            </div>
+            <ContactBox>
+              <a href="https://italianlily.digilab.uniroma1.it/chi-siamo/" target="_blank" rel="noreferrer">
+                Contact Us
+              </a>
+            </ContactBox>
+          </Col>
+
+          {/* Right Column - LAD & Programmers */}
+          <Col md={3} className="section-right text-md-end text-center fs-6">
             <p>
-              <strong>People and Books from Italy to France in the Sixteenth Century</strong>
+              Build with: <strong>s:CMS</strong>, a digital framework by{' '}
+              <a href="https://lad.saras.uniroma1.it" target="_blank" rel="noreferrer">
+                LAD: Laboratorio di Archeologia Digitale
+              </a>
             </p>
-          </div>
-        </div>
+            <hr />
+            <div className="d-flex justify-content-md-end justify-content-center align-items-center">
+              <a
+                href="mailto:erasmo.difonso@libero.it"
+                title="Invia una mail a Erasmo di Fonso"
+                className="me-3 d-flex align-items-center"
+              >
+                {/* Use mixBlendMode to remove white background */}
+                <img
+                  src="/image/logo_erasmo.svg"
+                  width={40}
+                  alt="Erasmo di Fonso"
+                  className="me-2 icon"
+                  style={{ mixBlendMode: 'multiply' }}
+                />
+                Erasmo di Fonso
+              </a>
+              <a
+                href="https://github.com/lab-archeologia-digitale/sCMS"
+                target="_blank"
+                rel="noreferrer"
+                title="Codice sorgente"
+                className="me-2"
+              >
+                <Github />
+              </a>
+              <a
+                href="https://github.com/lab-archeologia-digitale/sCMS/issues"
+                target="_blank"
+                rel="noreferrer"
+                title="Segnala un problema"
+              >
+                <Bug />
+              </a>
+            </div>
+          </Col>
+
+        </Row>
       </Container>
     </Footer>
-  )
-}
+  );
+};
 
-// Stile aggiornato del footer
+// Styled Components
 const Footer = styled.footer`
-  background-color: #f7f1e3; /* Colore pergamena chiaro */
-  padding: 2rem 1rem; /* Footer leggermente più basso */
-  border-top: 0.5rem solid #d4a373;
+  background-color: #f8f4e9;
+  border-top: 4px solid #5a3921;
+  padding: 2rem 0;
+  color: #5a3921;
 
-  .footer-content {
-    display: flex;
-    justify-content: space-between; /* Loghi a sinistra, testo a destra */
-    align-items: center;
+  a {
+    color: #5a3921;
+    text-decoration: none;
+    transition: color 0.2s;
+
+    &:hover {
+      color: #8c6a56;
+      text-decoration: underline;
+    }
+  }
+
+  .section-left {
+    padding-right: 1.5rem;
+    border-right: 1px solid #d4a373;
+  }
+
+  .section-center {
+    padding: 0 1.5rem;
+    border-left: 1px solid #d4a373;
+    border-right: 1px solid #d4a373;
+  }
+
+  .section-right {
+    padding-left: 1.5rem;
   }
 
   .logos {
     display: flex;
-    gap: 1.5rem; /* Spaziatura tra i loghi */
+    gap: 3rem;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
   }
 
   .logo {
-    max-width: 120px; /* Dimensione dei loghi */
-    height: auto;
-    display: block;
-    transition: transform 0.3s ease; /* Effetto hover */
+    transition: transform 0.3s ease;
   }
 
   .logo:hover {
-    transform: scale(1.1); /* Leggero zoom al passaggio del mouse */
+    transform: scale(1.1);
   }
+`;
 
-  .footer-text {
-    font-size: 1.1rem;
-    font-style: italic;
-    color: #4a3f35;
-    text-align: right; /* Allineamento a destra */
-    max-width: 50%; /* Occupa massimo metà del footer */
+// Contact Box below logos
+const ContactBox = styled.div`
+  background-color: #e9dfcf;
+  padding: 0.75rem 1.5rem;
+  display: inline-block;
+  border-radius: 0.5rem;
+
+  a {
+    font-family: 'Lora', serif;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #5a3921;
   }
+`;
 
-  @media (max-width: 768px) {
-    .footer-content {
-      flex-direction: column; /* Layout in colonna su schermi piccoli */
-      align-items: center;
-      text-align: center;
-    }
+const Title = styled.h2`
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #3e2c1c;
+`;
 
-    .logos {
-      flex-wrap: wrap; /* Loghi disposti su più righe se necessario */
-      justify-content: center;
-    }
+const Subtitle = styled.p`
+  font-family: 'Lora', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: #5a3921;
+  margin: 0;
+`;
 
-    .footer-text {
-      max-width: 100%; /* Testo centrato su mobile */
-    }
-  }
-`
-
-export default FooterSection
+export default FooterSection;

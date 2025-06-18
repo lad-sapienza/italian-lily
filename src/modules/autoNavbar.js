@@ -1,7 +1,7 @@
 import * as React from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { withPrefix } from "gatsby"
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
 function AutoNavbar(props) {
@@ -23,72 +23,189 @@ function AutoNavbar(props) {
     }
   `)
   return (
-    <Menu>
-      <Navbar expand="lg" className="custom-navbar">
-        <Container>
-          <Navbar.Brand href={withPrefix(`/`)} className="navbar-brand">
-            {props.siteTitle}
-          </Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="me-auto">
-              {data.allMdx.nodes.map((menuItem, index) => (
-                <div className="containerLink" key={index}>
+    <>
+      <StyledMenu>
+        <Navbar expand="lg" variant="dark" className="floating-nav">
+          <Container>
+            <Navbar.Brand href={withPrefix(`/`)} className="brand">
+              {props.siteTitle}
+            </Navbar.Brand>
+            <Navbar.Toggle aria-controls="navbar" className="hamburger" />
+            <Navbar.Collapse id="navbar">
+              <Nav className="ms-auto">
+                {data.allMdx.nodes.map((menuItem, index) => (
                   <Nav.Link
+                    key={index}
                     href={withPrefix(`/${menuItem.frontmatter.slug}`)}
-                    className="nav-item my-2 nav-link-custom"
+                    className="nav-link"
                   >
-                    {menuItem.frontmatter.title}
+                    <span className="link-text">{menuItem.frontmatter.title}</span>
                   </Nav.Link>
-                </div>
-              ))}
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-    </Menu>
+                ))}
+              </Nav>
+            </Navbar.Collapse>
+          </Container>
+        </Navbar>
+      </StyledMenu>
+      <NavbarSpacer />
+    </>
   )
 }
 
-// Stile della navbar
-const Menu = styled.div`
-  .custom-navbar {
-    background-color: #aa1a10 !important; /* Colore rosso */
-    color: #ffffff; /* Testo bianco */
+const floatAnimation = keyframes`
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-5px); }
+  100% { transform: translateY(0px); }
+`
+
+const StyledMenu = styled.div`
+  .floating-nav {
+    background: linear-gradient(135deg, #e8c4c4 0%, #d8a5a5 100%);
+    border-radius: 0 0 30px 30px;
+    padding: 1.2rem 2rem;
+    box-shadow: 0 8px 32px rgba(181, 107, 107, 0.2);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    height: 80px;
+    animation: ${floatAnimation} 6s ease-in-out infinite;
+    position: sticky;
+    top: 0;
+    z-index: 1020;
+    
+    &:hover {
+      box-shadow: 0 12px 40px rgba(181, 107, 107, 0.3);
+      transform: translateY(-2px);
+    }
   }
 
-  .navbar-brand {
-    font-size: 1.5rem; /* Aumentato leggermente il font della scritta */
-    font-weight: bold;
-    color: #ffffff !important; /* Testo visibile sul rosso */
+  .brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #5c3d3d !important;
+    letter-spacing: 0.5px;
+    transition: all 0.4s ease;
+    position: relative;
+    padding-right: 1.5rem;
+    
+    &:hover {
+      color: #3d2a2a !important;
+    }
+
+    &::after {
+      content: '';
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 60%;
+      width: 2px;
+      background: rgba(92, 61, 61, 0.3);
+    }
   }
 
-  .navbar-brand:hover {
-    color: #f8d7da !important; /* Colore chiaro al passaggio del mouse */
-  }
-
-  .nav-item {
-    font-size: 1.1rem; /* Testo leggermente più grande per i link */
+  .nav-link {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1rem;
     font-weight: 500;
-    color: #ffffff !important; /* Testo bianco per i link */
-  }
+    color: #5c3d3d !important;
+    padding: 0.8rem 1.5rem !important;
+    margin: 0 0.3rem;
+    position: relative;
+    transition: all 0.4s ease;
+    border-radius: 20px;
+    overflow: hidden;
 
-  .nav-item:hover {
-    color: #f8d7da !important; /* Testo chiaro al passaggio del mouse */
-  }
-
-  .nav-link-custom {
-    transition: color 0.3s ease; /* Transizione fluida sul colore */
-  }
-
-  @media (max-width: 768px) {
-    .navbar-brand {
-      font-size: 1.2rem; /* Riduce il font su mobile */
+    .link-text {
+      position: relative;
+      z-index: 2;
     }
 
-    .nav-item {
-      font-size: 1rem; /* Riduce il font dei link su mobile */
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(135deg, rgba(210, 163, 163, 0.4) 0%, rgba(188, 143, 143, 0.2) 100%);
+      border-radius: 20px;
+      transform: scaleX(0);
+      transform-origin: right;
+      transition: transform 0.4s cubic-bezier(0.65, 0, 0.35, 1);
     }
+
+    &:hover {
+      color: #3d2a2a !important;
+      
+      &::before {
+        transform: scaleX(1);
+        transform-origin: left;
+      }
+    }
+  }
+
+  .hamburger {
+    border: none;
+    padding: 0.5rem;
+    
+    &:focus {
+      box-shadow: none;
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2892, 61, 61, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+  }
+
+  @media (max-width: 992px) {
+    .floating-nav {
+      border-radius: 0;
+      padding: 1rem;
+      height: auto;
+      animation: none;
+    }
+
+    .brand {
+      font-size: 1.6rem;
+      &::after {
+        display: none;
+      }
+    }
+
+    .nav-link {
+      padding: 0.8rem 1rem !important;
+      margin: 0.3rem 0;
+      text-align: center;
+    }
+
+    .navbar-collapse {
+      background: linear-gradient(135deg, #f0dada 0%, #e2c2c2 100%);
+      border-radius: 0 0 20px 20px;
+      margin: 0 -2rem;
+      padding: 0 2rem 1rem;
+      box-shadow: 0 8px 16px rgba(181, 107, 107, 0.15);
+    }
+  }
+
+  @media (max-width: 576px) {
+    .brand {
+      font-size: 1.4rem;
+    }
+
+    .nav-link {
+      font-size: 1rem;
+    }
+  }
+`
+
+const NavbarSpacer = styled.div`
+  height: 80px;
+  
+  @media (max-width: 992px) {
+    height: 70px;
   }
 `
 

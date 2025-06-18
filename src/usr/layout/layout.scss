@@ -80,3 +80,17 @@ $primary: #663399;
     }
   }
 }
+.site-container {
+  min-height: 100vh;
+}
+
+// Per la mappa fullscreen
+.map-fullscreen-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+}
+

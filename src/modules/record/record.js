@@ -1,84 +1,107 @@
-import React, { useEffect, useState } from "react";
-import PropTypes from "prop-types";
-import withLocation from "../../services/withLocation";
-import getDataFromSource from "../../services/getDataFromSource";
+import React, { useEffect, useState } from "react"
+import PropTypes from "prop-types"
+import withLocation from "../../services/withLocation"
+import getDataFromSource from "../../services/getDataFromSource"
 
 // Create a context for the record data
-export const RecordContext = React.createContext();
+export const RecordContext = React.createContext()
 
-const RecordNotWrapped = ({ search, children }) => {
-  const { query } = search; // Decodifica il parametro `query` dall'URL
-  const [recordData, setRecordData] = useState(null);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
+/**
+ * RecordNotWrapped component fetches and provides record data based on the search parameters.
+ * It handles loading and error states, and renders children once data is available.
+ *
+ * @param {Object} props - Component props
+ * @param {Object} props.search - Object containing search parameters
+ * @param {string} props.search.tb - Directus table name
+ * @param {string} props.search.endPoint - Directus endpoint
+ * @param {string} props.search.token - Directus token
+ * @param {string} props.search.id - Record ID
+ * @param {string} props.search.fields - Record fields to fetch
+ * @param {ReactNode} props.children - Child components to render
+ * @returns {JSX.Element} The rendered component
+ */
+const RecordNotWrapped = ({ search, children, fields = null }) => {
+  const { tb, endPoint, token, id } = search // Destructure search parameters
+  const [recordData, setRecordData] = useState([]) // State to hold fetched record data
+  const [loading, setLoading] = useState(false) // State to manage loading status
+  const [error, setError] = useState(null) // State to manage error messages
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        setLoading(true);
-
-        // Decodifica il parametro `query`
-        const queryObject = query ? JSON.parse(decodeURIComponent(query)) : null;
-
-        if (!queryObject || !queryObject.dTable || !queryObject.fields) {
-          throw new Error("Invalid query parameter. `dTable` and `fields` are required.");
-        }
-
-        // Recupera i dati usando `getDataFromSource`
         const data = await getDataFromSource({
-          dEndPoint: process.env.GATSBY_DIRECTUS_ENDPOINT,
-          dTable: queryObject.dTable,
-          dQueryString: `fields=${queryObject.fields}&filter=${encodeURIComponent(
-            JSON.stringify(queryObject.filter || {})
-          )}`,
+          dEndPoint: endPoint,
+          dTable: tb,
+          dQueryString : fields && `fields=${fields}`,
           transType: "json",
-        });
-
-        setRecordData(data); // Setta i dati recuperati
+          id: id,
+        })
+        setRecordData(data) // Set the fetched data to state
       } catch (err) {
-        setError(err); // Gestisce gli errori
+        setError(err) // Set error if fetching fails
       } finally {
-        setLoading(false);
+        setLoading(false) // Set loading to false after fetching
       }
-    };
+    }
 
-    fetchData(); // Esegue il fetch
-  }, [query]);
+    fetchData() // Call the fetch function
+  }, [endPoint, tb, token, id, fields]) // Dependencies for useEffect
 
   if (loading) {
-    return <div className="text-info">Loading...</div>;
+    return <div className="text-info">Loading...</div>
   }
 
   if (error) {
-    console.error(error);
+    console.error(error) // Log the error for debugging
     return (
       <div className="text-danger">
         {error.message}
         <br />
         More info in the console log
       </div>
-    );
+    )
   }
-
-  if (!recordData || recordData.length === 0) {
-    return <div className="text-warning">No result found</div>;
+  // Render no results found state
+  if (recordData.length === 0) {
+    return <div className="text-warning">No result found</div>
   }
 
   return (
     <RecordContext.Provider value={recordData}>
       {children}
     </RecordContext.Provider>
-  );
-};
+  )
+}
 
-const Record = withLocation(RecordNotWrapped);
+// Wrap the component with location context
+const Record = withLocation(RecordNotWrapped)
 
 Record.propTypes = {
   search: PropTypes.shape({
-    query: PropTypes.string.isRequired, // Expecting a `query` parameter
-  }).isRequired,
-  children: PropTypes.oneOfType([PropTypes.arrayOf(PropTypes.element), PropTypes.element])
-    .isRequired,
-};
-
-export { Record };
+    /**
+     * Directus table name
+     */
+    tb: PropTypes.string,
+    /**
+     * Directus endpoint, if env variable GATSBY_DIRECTUS_ENDPOINT is not available
+     */
+    endPoint: PropTypes.string,
+    /**
+     * Directus endpoint, if env variable GATSBY_DIRECTUS_TOKEN is not available
+     */
+    token: PropTypes.string,
+    /**
+     * Record id
+     */
+    id: PropTypes.string,
+    /**
+     * Record fields to fetch, following: https://docs.directus.io/reference/query.html#fields
+     */
+    fields: PropTypes.string,
+  }),
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.element),
+    PropTypes.element,
+  ]).isRequired,
+}
+export { Record }
