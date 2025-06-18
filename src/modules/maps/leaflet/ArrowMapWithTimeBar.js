@@ -2,6 +2,15 @@ import React, { useState, useRef, useCallback } from "react";
 import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
+import { StaticImage } from "gatsby-plugin-image";
+
+// Poi nel tuo codice:
+<StaticImage 
+  src="../images/icon_lily.svg"
+  alt="Icon"
+  as="image" // Questo potrebbe essere necessario per renderizzare come elemento <image>
+/>
+
 
 const ArrowMapWithTimeBar = ({ height, baseLayers, markers }) => {
   // Extract valid years from markers
@@ -140,7 +149,7 @@ const ArrowMapWithTimeBar = ({ height, baseLayers, markers }) => {
           background: rgba(255, 255, 255, 0.8);
         ">
           <svg viewBox="0 0 24 24" width="${size * 0.7}" height="${size * 0.7}">
-            <image href="/images/icon_lily.svg" width="${size * 0.7}" height="${size * 0.7}" />
+            <image href="/image/icon_lily.svg" width="${size * 0.7}" height="${size * 0.7}" />
           </svg>
         </div>
       `,

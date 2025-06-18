@@ -67,8 +67,8 @@ const FooterSection = () => {
                 className="me-3 d-flex align-items-center"
               >
                 {/* Use mixBlendMode to remove white background */}
-                <img
-                  src="/images/logo_erasmo.svg"
+                <StaticImage
+                  src="../images/logo_erasmo.svg"
                   width={40}
                   alt="Erasmo di Fonso"
                   className="me-2 icon"
