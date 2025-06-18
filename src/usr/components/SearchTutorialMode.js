@@ -24,7 +24,7 @@ const SearchTutorialMode = ({ show, onClose }) => {
   const steps = [
     {
       title: "Explore the data: learn how to use",
-      img: "/image/search_explanation_final.png",
+      img: "/images/search_explanation_final.png",
       layout: "img-only",    // just the image under the title
     },
     {
@@ -33,7 +33,7 @@ const SearchTutorialMode = ({ show, onClose }) => {
     },
     {
       title: "The Results",
-      img: "/image/explanation_card_output.png",
+      img: "/images/explanation_card_output.png",
       layout: "img-only",
     },
   ];

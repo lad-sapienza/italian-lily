@@ -59,13 +59,13 @@ const fieldsOverview = (
     {
       title: "Two Columns Record Page",
       content: null,
-      img: "/image/two_columns_view.png",
+      img: "/images/two_columns_view.png",
       layout: "img-only",
     },
     {
       title: "Vertical View Record Page",
       content: null,
-      img: "/image/vertical_view.png",
+      img: "/images/vertical_view.png",
       layout: "img-only",
     },
     {

@@ -140,7 +140,7 @@ const ArrowMapWithTimeBar = ({ height, baseLayers, markers }) => {
           background: rgba(255, 255, 255, 0.8);
         ">
           <svg viewBox="0 0 24 24" width="${size * 0.7}" height="${size * 0.7}">
-            <image href="/image/icon_lily.svg" width="${size * 0.7}" height="${size * 0.7}" />
+            <image href="/images/icon_lily.svg" width="${size * 0.7}" height="${size * 0.7}" />
           </svg>
         </div>
       `,

@@ -24,7 +24,7 @@ const TutorialModal = ({ show, onClose }) => {
       title: "Introduction",
       content:
         "Welcome to the WebGIS page. Here you can interactively explore historical movements directly on the map below.",
-      img: "/image/map.png",      // static, not expandable
+      img: "/images/map.png",      // static, not expandable
       layout: "top",
     },
     {
@@ -32,7 +32,7 @@ const TutorialModal = ({ show, onClose }) => {
       content:
         "Timeline — drag the time slider to select the year range you want to explore.\n" +
         "Dashboard — view aggregated data: a histogram for years and a pie chart for locations.",
-      img: "/image/map_explanation.png", // expandable
+      img: "/images/map_explanation.png", // expandable
       layout: "top",  // text above, image below
     },
     {

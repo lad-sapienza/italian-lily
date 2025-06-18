@@ -344,8 +344,8 @@ export default function MapWithFilter() {
             boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
             transition: "all 0.3s ease",
             backgroundImage: isPanelCollapsed 
-              ? "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%235a4a3a\"><path d=\"M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z\"/></svg>')"
-              : "url('data:image/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%235a4a3a\"><path d=\"M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z\"/></svg>')",
+              ? "url('data:images/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%235a4a3a\"><path d=\"M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z\"/></svg>')"
+              : "url('data:images/svg+xml;utf8,<svg xmlns=\"http://www.w3.org/2000/svg\" viewBox=\"0 0 24 24\" fill=\"%235a4a3a\"><path d=\"M8.59 16.59L13.17 12 8.59 7.41 10 6l6 6-6 6-1.41-1.41z\"/></svg>')",
             backgroundPosition: "center",
             backgroundRepeat: "no-repeat",
             backgroundSize: "24px"
