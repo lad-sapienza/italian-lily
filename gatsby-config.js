@@ -12,7 +12,7 @@ require("dotenv").config({
  */
 
 module.exports = {
-  pathPrefix: '/', //process.env.NODE_ENV === "production" ? "/sCMS/" : "/",
+  pathPrefix: '', //process.env.NODE_ENV === "production" ? "/sCMS/" : "/",
   siteMetadata: {
     title: `Italian Lily`,
     description: `People and Books from Italy to France in the Sixteenth Century`,
