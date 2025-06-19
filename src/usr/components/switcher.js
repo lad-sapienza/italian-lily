@@ -1,17 +1,23 @@
-import React from "react";
-import { useLocation } from "@reach/router";
+import React, { useState, useEffect } from "react"
+import { useLocation }     from "@reach/router"
 
 export const SwitchLayoutButton = ({ currentLayout }) => {
-  const location = useLocation();
+  const location = useLocation()
+  const [search, setSearch] = useState("")
 
-  const targetLayout = currentLayout === "book" ? "book2" : "book";
+  // Al mount, popolo lo state con la query string effettiva
+  useEffect(() => {
+    setSearch(location.search)
+  }, [location.search])
+
+  const targetLayout = currentLayout === "book" ? "book2" : "book"
   const buttonText =
     currentLayout === "book"
       ? "🔁 Switch to Vertical View"
-      : "🔁 Switch to Two-Column View";
+      : "🔁 Switch to Two-Column View"
 
-  const currentSearch = location.search; // es: ?id=150&tb=f_fonti
-  const href = `/${targetLayout}/${currentSearch}`;
+  // Uso lo state "search", che inizialmente è "" (server), poi diventa "?tb=…&id=…"
+  const href = `/${targetLayout}/${search}`
 
   return (
     <div className="text-end mb-4">
@@ -19,5 +25,5 @@ export const SwitchLayoutButton = ({ currentLayout }) => {
         {buttonText}
       </a>
     </div>
-  );
-};
+  )
+}
