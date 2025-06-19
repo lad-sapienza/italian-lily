@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { Accordion, Row, Col, Stack, Button } from "react-bootstrap";
-import { GatsbyImage, getImage, StaticImage, useStaticQuery, graphql } from "gatsby-plugin-image";
 
 /**
  * BookRecordTutorialModal
  * ------------------------------------------------------------
  * 3-step guided tour for the Book Record pages.
- * Images are served from /static/image (Gatsby → /public/static/…).
+ * Images are served from /static/image (Gatsby → /image/...).
  * ------------------------------------------------------------
  */
 const BookRecordTutorialModal = ({ show, onClose }) => {
@@ -19,83 +18,78 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
     return () => (document.body.style.overflow = "");
   }, [show]);
 
-  // --------------------------------------------------
-  // 1) Carico le immagini via GraphQL
-  // --------------------------------------------------
-  const data = useStaticQuery(graphql`
-    query TutorialImages {
-      twoColumns: file(relativePath: { eq: "images/two_columns_view.png" }) {
-        childImageSharp {
-          gatsbyImageData(width: 800, placeholder: BLURRED)
-        }
-      }
-      verticalView: file(relativePath: { eq: "images/vertical_view.png" }) {
-        childImageSharp {
-          gatsbyImageData(width: 800, placeholder: BLURRED)
-        }
-      }
-    }
-  `);
+/* Publication Details / People – static text */
+const fieldsOverview = (
+  <div style={{ lineHeight: 1.6, fontSize: 16, color: "#5c3944" }}>
+    <h4 style={{ marginTop: 0, color: "#a76d77" }}>Publication Details</h4>
+    <ul style={{ paddingLeft: 20 }}>
+      <li><strong>Publication Year</strong> — This field indicates the year in which a work is printed (the time frame ranges from 1500 to 1599).</li>
+      <li><strong>Place of Printing</strong> — This field indicates the place in France where a work is printed (the place name is given in French and, in brackets, the corresponding translation in Italian).</li>
+      <li><strong>Format</strong> — This field indicates the format in which a work is realized.</li>
+      <li><strong>Language</strong> — This field indicates the language in which a work is written.</li>
+      <li><strong>Digital Copy</strong> — This field contains the link to the digital copy consulted.</li>
+      <li><strong>Library Holding</strong> — This field indicates the institution where the physical copy consulted of a work is held.</li>
+    </ul>
 
-  // Body static text
-  const fieldsOverview = (
-    <div style={{ lineHeight: 1.6, fontSize: 16, color: "#5c3944" }}>
-      {/* … qui lasci tutto com’è … */}
-    </div>
-  );
-
-  // --------------------------------------------------
-  // 2) Configuro i passi, associando a ciascuno l’‘imageData’ se serve
-  // --------------------------------------------------
+    <h4 style={{ color: "#a76d77" }}>People</h4>
+    <p style={{ marginBottom: 10 }}>
+      Only roles present in an edition are displayed; missing roles are hidden. Possible
+      roles include:
+    </p>
+    <ul style={{ paddingLeft: 20 }}>
+      <li><strong>Author</strong> — This field indicates who wrote a work.</li>
+      <li><strong>Authority granting book privilege</strong> — This field indicates which authority granted a privilege associated to a work.</li>
+      <li><strong>Beneficiary of book privilege</strong> — This field indicates the beneficiary/s of the privilege associated to an edition.</li>
+      <li><strong>Book Licensing Authority</strong> — This field indicates which authority granted a licence associated to a work.</li>
+      <li><strong>Commentator</strong> — This field indicates the commentator/s of a work.</li>
+      <li><strong>Dedicatee</strong> — This field indicates to which individual/s a work is dedicated.</li>
+      <li><strong>Dedicator</strong> — This field indicates the author/s of the dedication or dedications in a work.</li>
+      <li><strong>Editor</strong> — This field indicates the scientific editor/s of a work.</li>
+      <li><strong>Bookseller</strong> — This field indicates the individual/s selling a work.</li>
+      <li><strong>Printer</strong> — This field indicates the printer/s of a work.</li>
+      <li><strong>Publisher</strong> — This field indicates the funding provider/s of a work.</li>
+      <li><strong>Translator</strong> — This field indicates the translator/s of a work.</li>
+      <li><strong>Other</strong> — This field indicates people involved in an edition without a specific role.</li>
+    </ul>
+  </div>
+);
+  
+  // Steps configuration
   const steps = [
     {
       title: "Two Columns Record Page",
+      content: null,
+      img: "/image/two_columns_view.png",
       layout: "img-only",
-      imageData: getImage(data.twoColumns),
-      imgAlt: "Vista a due colonne della scheda",
     },
     {
       title: "Vertical View Record Page",
+      content: null,
+      img: "/image/vertical_view.png",
       layout: "img-only",
-      imageData: getImage(data.verticalView),
-      imgAlt: "Vista verticale della scheda",
     },
     {
       title: "Fields Overview",
+      content: null,
+      img: null,
       layout: "text-only",
     },
   ];
 
   const nextStep = () =>
-    setCurrentStep((s) =>
-      s < steps.length - 1 ? s + 1 : (onClose(), s)
-    );
-  const prevStep = () =>
-    setCurrentStep((s) => (s > 0 ? s - 1 : s));
+    setCurrentStep((s) => (s < steps.length - 1 ? s + 1 : (onClose(), s)));
+  const prevStep = () => setCurrentStep((s) => (s > 0 ? s - 1 : s));
 
   if (!show) return null;
   const step = steps[currentStep];
 
-  // --------------------------------------------------
-  // 3) Helper per il rendering dell’immagine con GatsbyImage
-  // --------------------------------------------------
-  const renderGatsbyImg = (imageData, alt) => (
-    <GatsbyImage
-      image={imageData}
-      alt={alt}
-      style={{
-        cursor: "zoom-in",
-        borderRadius: 12,
-        maxWidth: "100%",
-        height: "auto",
-      }}
-      onClick={() => {
-        // GatsbyImage non espone direttamente la src: usa un <img> normale per l’overlay
-        const img = document.createElement("img");
-        img.src = imageData.images.fallback.src;
-        img.alt = alt;
-        setExpandedImg(img.src);
-      }}
+  // Render expandable image helper
+  const renderImg = (url, styleExtra = {}) => (
+    <img
+      src={url}
+      alt={`Step ${currentStep + 1}: ${step.title}`}
+      style={{ cursor: "zoom-in", borderRadius: 12, maxWidth: "100%", height: "auto", ...styleExtra }}
+      onClick={() => setExpandedImg(url)}
     />
   );
 
@@ -121,9 +115,7 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
           role="button"
           tabIndex={0}
           onClick={() => setExpandedImg(null)}
-          onKeyDown={(e) =>
-            e.key === "Escape" ? setExpandedImg(null) : null
-          }
+          onKeyDown={(e) => (e.key === "Escape" ? setExpandedImg(null) : null)}
           style={{
             position: "fixed",
             inset: 0,
@@ -176,14 +168,7 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
           <button
             aria-label="Close tutorial"
             onClick={onClose}
-            style={{
-              background: "none",
-              border: "none",
-              color: "white",
-              fontSize: 24,
-              lineHeight: 1,
-              cursor: "pointer",
-            }}
+            style={{ background: "none", border: "none", color: "white", fontSize: 24, lineHeight: 1, cursor: "pointer" }}
           >
             ×
           </button>
@@ -191,13 +176,7 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
 
         {/* Body */}
         <div style={{ flex: 1, overflowY: "auto", padding: 30 }}>
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              marginBottom: 24,
-            }}
-          >
+          <div style={{ display: "flex", alignItems: "center", marginBottom: 24 }}>
             <div
               style={{
                 width: 44,
@@ -215,10 +194,7 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
             >
               {currentStep + 1}
             </div>
-            <h3
-              id="record-tutorial-heading"
-              style={{ margin: 0, color: "#5c3944", fontSize: 22 }}
-            >
+            <h3 id="record-tutorial-heading" style={{ margin: 0, color: "#5c3944", fontSize: 22 }}>
               {step.title}
             </h3>
           </div>
@@ -226,7 +202,7 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
           {/* Layouts */}
           {step.layout === "img-only" && (
             <div style={{ display: "flex", justifyContent: "center" }}>
-              {renderGatsbyImg(step.imageData, step.imgAlt)}
+              {renderImg(step.img, { maxHeight: 400 })}
             </div>
           )}
 
@@ -258,10 +234,7 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
                   width: 12,
                   height: 12,
                   borderRadius: "50%",
-                  backgroundColor:
-                    idx === currentStep
-                      ? "#5c3944"
-                      : "rgba(90,74,58,0.35)",
+                  backgroundColor: idx === currentStep ? "#5c3944" : "rgba(90,74,58,0.35)",
                   cursor: "pointer",
                 }}
               />
