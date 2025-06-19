@@ -9,10 +9,12 @@ import { Link } from "gatsby"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import HomeLogic from "../components/home.js"
 import "../layout/homepage.css"
+import { StaticImage } from "gatsby-plugin-image";
+
 
 <header className="w-100 text-center mb-4">
-  <img
-    src="/images/banda_loghi.png"
+  <StaticImage
+    src="../images/banda_loghi.png"
     alt="Banda loghi progetto"
     className="img-fluid"
     style={{ maxHeight: '110px', objectFit: 'contain' }}
