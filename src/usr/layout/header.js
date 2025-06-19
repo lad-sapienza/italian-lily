@@ -13,7 +13,7 @@ const HeaderSection = ({ siteTitle }) => {
       onMouseLeave={() => setIsVisible(false)}
       className={isVisible ? "visible" : ""}
     >
-      <Container fluid="lg">
+      <Container fluid="lg" className="header-container">
         <Link to="/" className="logo-link">
           <StaticImage
             src="../images/Logo_ItalianLily-1-300x120.png"
@@ -24,6 +24,21 @@ const HeaderSection = ({ siteTitle }) => {
             className="logo"
           />
         </Link>
+        
+        <div className="divider"></div>
+        
+        <div className="center-image">
+            <StaticImage
+            src="../images/banda_loghi.png"
+            width={400}
+            quality={100}
+            formats={["AUTO", "WEBP", "AVIF"]}
+            alt="Partner logos"
+            className="logos-band"
+          />
+        </div>
+        
+        <div className="divider"></div>
       </Container>
     </StyledHeader>
   )
@@ -40,18 +55,22 @@ const StyledHeader = styled.header`
   left: 0;
   width: 100%;
   height: 120px; /* Altezza fissa */
-  background: linear-gradient(to bottom, #f7f1e3 80%, transparent 100%);
+    background: linear-gradient(
+    to bottom,
+    rgba(173, 216, 230, 0.2) 80%,  /* lightblue @20% opacity */
+    transparent 100%
+  );
   z-index: 80;
   transform: translateY(-90%);
   transition: transform 0.5s cubic-bezier(0.33, 1, 0.68, 1);
   border-radius: 0 0 40px 40px;
-  box-shadow: 0 8px 32px rgba(181, 107, 107, 0.1);
+  box-shadow: 0 8px 32px rgba(173, 216, 230, 0.1);
   backdrop-filter: blur(8px);
   display: flex;
   align-items: flex-end;
   padding-bottom: 20px;
   overflow: hidden;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(173, 216, 230, 0.3);
   border-top: none;
 
   /* Area sensibile al hover */
@@ -69,10 +88,17 @@ const StyledHeader = styled.header`
     animation: ${slideDown} 0.5s ease-out;
   }
 
+  .header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+  }
+
   .logo-link {
     display: block;
-    margin: 0 auto;
     transition: all 0.4s ease;
+    flex: 1;
   }
 
   .logo {
@@ -84,9 +110,38 @@ const StyledHeader = styled.header`
     filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.1));
   }
 
-  &.visible .logo {
-    transform: scale(1);
-    opacity: 1;
+  .divider {
+    height: 60px;
+    width: 1px;
+    background-color: rgba(0, 0, 0, 0.1);
+    margin: 0 20px;
+  }
+
+  .center-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+
+  .logos-band {
+    width: 400px;
+    height: auto;
+    opacity: 0.9;
+    transition: all 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+    transform: scale(0.95);
+  }
+
+  &.visible {
+    .logo, .logos-band {
+      transform: scale(1);
+      opacity: 1;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .logos-band {
+      width: 300px;
+    }
   }
 
   @media (max-width: 992px) {
@@ -98,6 +153,27 @@ const StyledHeader = styled.header`
       width: 220px;
       transform: scale(1) !important;
       opacity: 1 !important;
+    }
+
+    .logos-band {
+      width: 250px;
+      transform: scale(1) !important;
+      opacity: 1 !important;
+    }
+
+    .divider {
+      height: 40px;
+      margin: 0 10px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .logos-band {
+      display: none;
+    }
+    
+    .divider {
+      display: none;
     }
   }
 
