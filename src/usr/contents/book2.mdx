@@ -103,35 +103,128 @@ export default function Book2Page() {
                           </Accordion.Header>
                           <Accordion.Body className="px-0 py-2">
                             <div className="bg-light-pink ps-3 border-start border-3 border-pink">
-                              {libro.genere && (
+                              
+                              {/* Format */}
+                              {libro.formato && (
                                 <div className="py-2 border-bottom border-light-gray">
                                   <Row>
                                     <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
-                                      Genre
+                                      Format
                                     </Col>
                                     <Col xs={12} md={9}>
-                                      {libro.genere}
-                                      {libro.sotto_genere && (
-                                        <span className="text-muted"> ({libro.sotto_genere})</span>
-                                      )}
+                                      {libro.formato}
                                     </Col>
                                   </Row>
                                 </div>
                               )}
+
+                              {/* Language */}
                               {libro.lingua && (
                                 <div className="py-2 border-bottom border-light-gray">
                                   <Row>
                                     <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
                                       Language
                                     </Col>
-                                    <Col xs={12} md={9}>{libro.lingua}</Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.lingua}
+                                    </Col>
                                   </Row>
                                 </div>
                               )}
+
+                              {/* Place of Printing */}
+                              {libro.associazione_luogo_di_stampa && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Place of Printing
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.nome_luogo_di_stampa_sul_frontespizio 
+                                        || libro.associazione_luogo_di_stampa.nome_localita}
+                                      {libro.associazione_luogo_di_stampa.toponimo_italiano && (
+                                        <span className="text-muted ms-2">
+                                          ({libro.associazione_luogo_di_stampa.toponimo_italiano})
+                                        </span>
+                                      )}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+
+                              {/* Title Page Year */}
+                              {libro.anno_frontespizio && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Title Page Year
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.anno_frontespizio}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+
+                              {/* Colophon Year */}
+                              {libro.anno_colofone && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Colophon Year
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.anno_colofone}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+
+                              {/* Dedication Date */}
+                              {libro.data_dedica && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Dedication Date
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.data_dedica}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+
+                              {/* Publisher */}
+                              {libro.editore && (
+                                <div className="py-2 border-bottom border-light-gray">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      Publisher
+                                    </Col>
+                                    <Col xs={12} md={9}>
+                                      {libro.editore}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+
+                              {/* ISBN */}
+                              {libro.isbn && (
+                                <div className="py-2">
+                                  <Row>
+                                    <Col xs={12} md={3} className="text-muted small text-uppercase fw-500">
+                                      ISBN
+                                    </Col>
+                                    <Col xs={12} md={9} className="font-monospace">
+                                      {libro.isbn}
+                                    </Col>
+                                  </Row>
+                                </div>
+                              )}
+
                             </div>
                           </Accordion.Body>
-                        </Accordion.Item>
-
+                        </Accordion.Item> 
                         {/* Physical Copy */}
                         <Accordion.Item eventKey="1" className="border-0">
                           <Accordion.Header className="px-0 py-2 bg-white">
