@@ -21,22 +21,56 @@ const BookRecordTutorialModal = ({ show, onClose }) => {
 /* Publication Details / People – static text */
 const fieldsOverview = (
   <div style={{ lineHeight: 1.6, fontSize: 16, color: "#5c3944" }}>
-    <h4 style={{ marginTop: 0, color: "#a76d77" }}>Publication Details</h4>
-    <ul style={{ paddingLeft: 20 }}>
-      <li><strong>Publication Year</strong> — This field indicates the year in which a work is printed (the time frame ranges from 1500 to 1599).</li>
-      <li><strong>Place of Printing</strong> — This field indicates the place in France where a work is printed (the place name is given in French and, in brackets, the corresponding translation in Italian).</li>
-      <li><strong>Format</strong> — This field indicates the format in which a work is realized.</li>
-      <li><strong>Language</strong> — This field indicates the language in which a work is written.</li>
-      <li><strong>Digital Copy</strong> — This field contains the link to the digital copy consulted.</li>
-      <li><strong>Library Holding</strong> — This field indicates the institution where the physical copy consulted of a work is held.</li>
+
+    {/* TITLES */}
+    <h4 style={{ marginTop: 0, color: "#a76d77" }}>Titles</h4>
+    <ul style={{ paddingLeft: 20, marginBottom: 20 }}>
+      <li>
+        <strong>Short Title</strong> — This field contains the first words of the title of a work as they appear on the Title Page.
+      </li>
+      <li>
+        <strong>Full Title</strong> — This field shows the complete title of a work as it appears on the Title Page.
+      </li>
     </ul>
 
+    {/* PUBLICATION DETAILS */}
+    <h4 style={{ marginTop: 0, color: "#a76d77" }}>Publication Details</h4>
+    <ul style={{ paddingLeft: 20, marginBottom: 20 }}>
+      <li>
+        <strong>Publication Year</strong> — This field indicates the year in which a work is printed (the time frame ranges from 1500 to 1599).
+      </li>
+      <li>
+        <strong>Place of Printing</strong> — This field indicates the place in France where a work is printed (the place name is given in French and, in brackets, the corresponding translation in Italian).
+      </li>
+      <li>
+        <strong>Format</strong> — This field indicates the format in which a work is realized.
+      </li>
+      <li>
+        <strong>Language</strong> — This field indicates the language in which a work is written.
+      </li>
+      <li>
+        <strong>Digital Copy</strong> — This field contains the link to the digital copy consulted.
+      </li>
+    </ul>
+
+    {/* PHYSICAL COPY */}
+    <h4 style={{ marginTop: 0, color: "#a76d77" }}>Physical Copy</h4>
+    <ul style={{ paddingLeft: 20, marginBottom: 20 }}>
+      <li>
+        <strong>Holding Institution</strong> — This field shows the institution where a work is physically stored specifying its physical location, also adding details about the signature.
+      </li>
+      <li>
+        <strong>Format</strong> — This field indicates the format in which a work is realized.
+      </li>
+    </ul>
+
+    {/* PEOPLE */}
     <h4 style={{ color: "#a76d77" }}>People</h4>
     <p style={{ marginBottom: 10 }}>
       Only roles present in an edition are displayed; missing roles are hidden. Possible
       roles include:
     </p>
-    <ul style={{ paddingLeft: 20 }}>
+    <ul style={{ paddingLeft: 20, marginBottom: 20 }}>
       <li><strong>Author</strong> — This field indicates who wrote a work.</li>
       <li><strong>Authority granting book privilege</strong> — This field indicates which authority granted a privilege associated to a work.</li>
       <li><strong>Beneficiary of book privilege</strong> — This field indicates the beneficiary/s of the privilege associated to an edition.</li>
@@ -51,6 +85,21 @@ const fieldsOverview = (
       <li><strong>Translator</strong> — This field indicates the translator/s of a work.</li>
       <li><strong>Other</strong> — This field indicates people involved in an edition without a specific role.</li>
     </ul>
+
+    {/* LINKS */}
+    <h4 style={{ marginTop: 0, color: "#a76d77" }}>Links</h4>
+    <ul style={{ paddingLeft: 20 }}>
+      <li>
+        <strong>USTC</strong> — This field contains the link to the corresponding USTC record.
+      </li>
+      <li>
+        <strong>Digital Copy</strong> — This field contains the link to the digital copy consulted.
+      </li>
+      <li>
+        <strong>Catalog Record</strong> — This field contains the link to the online page of the library catalogue where a work can be found.
+      </li>
+    </ul>
+
   </div>
 );
   

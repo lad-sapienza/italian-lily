@@ -24,7 +24,7 @@ const SearchTutorialMode = ({ show, onClose }) => {
   const steps = [
     {
       title: "Explore the data: learn how to use",
-      img: "/images/search_explanation_final.png",
+      img: "/image/search_explanation_final.png",
       layout: "img-only",    // just the image under the title
     },
     {
@@ -33,7 +33,7 @@ const SearchTutorialMode = ({ show, onClose }) => {
     },
     {
       title: "The Results",
-      img: "/images/explanation_card_output.png",
+      img: "/image/explanation_card_output.png",
       layout: "img-only",
     },
   ];
@@ -82,7 +82,7 @@ const SearchTutorialMode = ({ show, onClose }) => {
           <br />• <em>OR</em> means any one of the criteria may be met.
         </li>
         <li>
-          <strong>Case-insensitive</strong> — letter-case differences are ignored (so “Art” and “art” are treated the same).
+          <strong>Case-insensitive</strong> — letter-case differences are ignored (so "Art" and "art" are treated the same).
         </li>
       </ul>
     </div>

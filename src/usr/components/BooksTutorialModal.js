@@ -26,13 +26,13 @@ const BooksTutorialModal = ({ show, onClose }) => {
       title: "Welcome",
       content:
         "This page allows you to explore editions printed in France between 1500 and 1599. Use the filters on the left to narrow results and click any title to view full details. This brief tour explains the interface.",
-      img: "/images/presentation.png", // small preview, expandable
+      img: "/image/presentation.png", // small preview, expandable
       layout: "top", // img below text (default)
     },
     {
       title: "Result Card Illustration",
       content: "", // image only
-      img: "/images/explanation_card.png",
+      img: "/image/explanation_card.png",
       layout: "img-only", // large image centred
     },
     {
@@ -45,7 +45,7 @@ const BooksTutorialModal = ({ show, onClose }) => {
       title: "Filter Dashboard",
       content:
         "The left-hand panel lets you filter results based on:\n• Genre — specifies the type of content.\n• Language — shows the language of the edition.\n• Format — indicates the bibliographic format.\n• Place of Printing — restricts by printing location.\n• Toggles — Has Paratext, Has Privilege, Has Digital Copy.\n• Year Range — drag the slider to focus on a specific period.",
-      img: "/images/dashboard.png",
+      img: "/image/dashboard.png",
       layout: "side", // image left, text right
     },
   ];
@@ -83,7 +83,6 @@ const publicationDetails = (
       <li><strong>Format</strong> — This field indicates the format in which a work is realized.</li>
       <li><strong>Language</strong> — This field indicates the language in which a work is written.</li>
       <li><strong>Digital Copy</strong> — This field contains the link to the digital copy consulted.</li>
-      <li><strong>Library Holding</strong> — This field indicates the institution where the physical copy consulted of a work is held.</li>
     </ul>
 
     <h4 style={{ color: "#a76d77" }}>People</h4>
