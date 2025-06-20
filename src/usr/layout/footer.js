@@ -10,9 +10,16 @@ const FooterSection = () => {
       <Container>
         <Row className="py-4 align-items-center">
 
-          {/* Left Column - Title & Subtitle */}
+          {/* Left Column - Logo & Subtitle */}
           <Col md={3} className="section-left text-md-start text-center mb-3 mb-md-0">
-            <Title>Italian Lily</Title>
+            <StaticImage
+              src="../images/Logo_ItalianLily-1-300x120.png"
+              width={260}
+              quality={100}
+              formats={["AUTO", "WEBP", "AVIF"]}
+              alt="Italian Lily"
+              className="logo italian-lily-logo"
+            />
             <Subtitle>People and Books from Italy to France in the Sixteenth Century</Subtitle>
           </Col>
 
@@ -66,7 +73,6 @@ const FooterSection = () => {
                 title="Invia una mail a Erasmo di Fonso"
                 className="me-3 d-flex align-items-center"
               >
-                {/* Use mixBlendMode to remove white background */}
                 <StaticImage
                   src="../images/logo_erasmo.svg"
                   width={40}
@@ -125,6 +131,12 @@ const Footer = styled.footer`
     border-right: 1px solid #d4a373;
   }
 
+  .italian-lily-logo {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 0.5rem;
+  }
+
   .section-center {
     padding: 0 1.5rem;
     border-left: 1px solid #d4a373;
@@ -158,6 +170,7 @@ const ContactBox = styled.div`
   padding: 0.75rem 1.5rem;
   display: inline-block;
   border-radius: 0.5rem;
+  margin-top: 0.5rem;
 
   a {
     font-family: 'Lora', serif;
@@ -165,13 +178,6 @@ const ContactBox = styled.div`
     font-weight: bold;
     color: #5a3921;
   }
-`;
-
-const Title = styled.h2`
-  font-family: 'Playfair Display', serif;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #3e2c1c;
 `;
 
 const Subtitle = styled.p`

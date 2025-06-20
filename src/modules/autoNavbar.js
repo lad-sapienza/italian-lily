@@ -1,6 +1,7 @@
 import * as React from "react"
 import { Container, Nav, Navbar } from "react-bootstrap"
 import { withPrefix } from "gatsby"
+import { StaticImage } from "gatsby-plugin-image"
 import styled, { keyframes } from "styled-components"
 import { useStaticQuery, graphql } from "gatsby"
 
@@ -28,7 +29,14 @@ function AutoNavbar(props) {
         <Navbar expand="lg" variant="dark" className="floating-nav">
           <Container>
             <Navbar.Brand href={withPrefix(`/`)} className="brand">
-              {props.siteTitle}
+              <StaticImage
+                src="../usr/images/Logo_ItalianLily-1-300x120.png"
+                width={120}
+                quality={100}
+                formats={["AUTO", "WEBP", "AVIF"]}
+                alt={props.siteTitle}
+                className="nav-logo"
+              />
             </Navbar.Brand>
             <Navbar.Toggle aria-controls="navbar" className="hamburger" />
             <Navbar.Collapse id="navbar">
@@ -81,29 +89,15 @@ const StyledMenu = styled.div`
   }
 
   .brand {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
-    font-weight: 700;
-    color: #5c3d3d !important;
-    letter-spacing: 0.5px;
-    transition: all 0.4s ease;
-    position: relative;
-    padding-right: 1.5rem;
-    
-    &:hover {
-      color: #3d2a2a !important;
-    }
+    display: flex;
+    align-items: center;
+    // adjust padding/margin if necessary
+  }
 
-    &::after {
-      content: '';
-      position: absolute;
-      right: 0;
-      top: 50%;
-      transform: translateY(-50%);
-      height: 60%;
-      width: 2px;
-      background: rgba(92, 61, 61, 0.3);
-    }
+  .nav-logo {
+    height: auto;
+    max-height: 60px;
+    // adjust max-height to fit navbar height
   }
 
   .nav-link {
@@ -173,6 +167,10 @@ const StyledMenu = styled.div`
       &::after {
         display: none;
       }
+    }
+
+    .nav-logo {
+      max-height: 50px;
     }
 
     .nav-link {
