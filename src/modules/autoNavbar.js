@@ -81,7 +81,7 @@ const StyledMenu = styled.div`
     position: sticky;
     top: 0;
     z-index: 1020;
-    
+
     &:hover {
       box-shadow: 0 12px 40px rgba(181, 107, 107, 0.3);
       transform: translateY(-2px);
@@ -91,13 +91,11 @@ const StyledMenu = styled.div`
   .brand {
     display: flex;
     align-items: center;
-    // adjust padding/margin if necessary
   }
 
   .nav-logo {
     height: auto;
     max-height: 60px;
-    // adjust max-height to fit navbar height
   }
 
   .nav-link {
@@ -124,7 +122,11 @@ const StyledMenu = styled.div`
       left: 0;
       width: 100%;
       height: 100%;
-      background: linear-gradient(135deg, rgba(210, 163, 163, 0.4) 0%, rgba(188, 143, 143, 0.2) 100%);
+      background: linear-gradient(
+        135deg,
+        rgba(210, 163, 163, 0.4) 0%,
+        rgba(188, 143, 143, 0.2) 100%
+      );
       border-radius: 20px;
       transform: scaleX(0);
       transform-origin: right;
@@ -133,7 +135,7 @@ const StyledMenu = styled.div`
 
     &:hover {
       color: #3d2a2a !important;
-      
+
       &::before {
         transform: scaleX(1);
         transform-origin: left;
@@ -144,13 +146,13 @@ const StyledMenu = styled.div`
   .hamburger {
     border: none;
     padding: 0.5rem;
-    
+
     &:focus {
       box-shadow: none;
     }
 
     .navbar-toggler-icon {
-      background-image: url("data:images/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2892, 61, 61, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(92, 61, 61, 0.8)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
     }
   }
 
@@ -164,6 +166,7 @@ const StyledMenu = styled.div`
 
     .brand {
       font-size: 1.6rem;
+
       &::after {
         display: none;
       }
@@ -177,14 +180,6 @@ const StyledMenu = styled.div`
       padding: 0.8rem 1rem !important;
       margin: 0.3rem 0;
       text-align: center;
-    }
-
-    .navbar-collapse {
-      background: linear-gradient(135deg, #f0dada 0%, #e2c2c2 100%);
-      border-radius: 0 0 20px 20px;
-      margin: 0 -2rem;
-      padding: 0 2rem 1rem;
-      box-shadow: 0 8px 16px rgba(181, 107, 107, 0.15);
     }
   }
 
@@ -201,7 +196,7 @@ const StyledMenu = styled.div`
 
 const NavbarSpacer = styled.div`
   height: 80px;
-  
+
   @media (max-width: 992px) {
     height: 70px;
   }
