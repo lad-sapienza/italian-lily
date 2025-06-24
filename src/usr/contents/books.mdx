@@ -93,7 +93,7 @@ export default function BooksPage() {
     const matchFormat = selectedFormats.length === 0 || selectedFormats.includes(item.formato)
     const matchPlace = selectedPlaces.length === 0 || selectedPlaces.includes(item.associazione_luogo_di_stampa?.nome_localita)
     const matchParatext = !hasParatext || item.note_paratesti
-    const matchPrivilege = !hasPrivilege || item.note_privilegio
+    const matchPrivilege = !hasPrivilege || item.note_sul_privilegio
     const matchDigitalCopy = !hasDigitalCopy || item.link_digitalizzazione
     const matchYear = !item.anno_edizione || 
                      (item.anno_edizione >= yearRange[0] && item.anno_edizione <= yearRange[1])
