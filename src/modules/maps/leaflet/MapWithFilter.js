@@ -15,8 +15,8 @@ export default function MapWithFilter() {
   const [histogramData, setHistogramData] = useState({ years: [], counts: [] });
   const [cityData, setCityData] = useState({ labels: [], values: [] });
   const [filteredPersons, setFilteredPersons] = useState([]);
-  const [isPanelCollapsed, setIsPanelCollapsed] = useState(false);
-  const [showHelp, setShowHelp] = useState(false);
+  const [isPanelCollapsed, setIsPanelCollapsed] = useState(true);
+  const [showHelp, setShowHelp] = useState(true);
   
   const mapContainerRef = useRef(null);
 
@@ -124,34 +124,44 @@ export default function MapWithFilter() {
         fontFamily: "'Georgia', serif"
       }}
     >
-      {/* Pulsante informazioni */}
+      {/* Pulsante informazioni - Modificato lo z-index per renderlo visibile */}
       <div 
         style={{
-          position: "absolute",
-          top: "20px",
+          position: "fixed",
+          top: "120px", // Modificato da top: "20px" a bottom: "100px"
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: 1001,
+          zIndex: 1002,
           cursor: "pointer",
           backgroundColor: "rgba(255,255,255,0.9)",
           borderRadius: "50%",
-          width: "40px",
-          height: "40px",
+          width: "44px", // Aumentato da 40px
+          height: "44px", // Aumentato da 40px
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          border: "none",
-          boxShadow: "0 2px 10px rgba(0,0,0,0.2)"
+          border: "2px solid #5a4a3a", // Aggiunto bordo
+          boxShadow: "0 4px 12px rgba(0,0,0,0.3)", // Ombra più marcata
+          transition: "all 0.3s ease",
+          ':hover': {
+            transform: "translateX(-50%) scale(1.1)"
+          }
         }}
         onClick={() => setShowHelp(true)}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.backgroundColor = "rgba(210, 195, 160, 0.9)";
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.backgroundColor = "rgba(255,255,255,0.9)";
+        }}
       >
         <svg 
-          width="24" 
-          height="24" 
+          width="26" // Aumentato da 24
+          height="26" // Aumentato da 24
           viewBox="0 0 24 24" 
           fill="none" 
           stroke="#5a4a3a" 
-          strokeWidth="2"
+          strokeWidth="2.5" // Aumentato da 2
         >
           <circle cx="12" cy="12" r="10"></circle>
           <line x1="12" y1="16" x2="12" y2="12"></line>
@@ -159,7 +169,7 @@ export default function MapWithFilter() {
         </svg>
       </div>
 
-      {/* Tutorial Modal */}
+      {/* Tutorial Modal - Ora si apre automaticamente */}
       <TutorialModal 
         show={showHelp} 
         onClose={() => setShowHelp(false)} 
@@ -170,7 +180,7 @@ export default function MapWithFilter() {
         <MapLeaflet 
           height="100%" 
           center="48.8566,2.3522,5" 
-          baseLayers={["OSM"]}
+          baseLayers={["CartoDb"]}
           style={{
             filter: "sepia(0.3) brightness(0.9) contrast(1.1)",
             borderRight: "1px solid #d4c9a8"
@@ -206,13 +216,14 @@ export default function MapWithFilter() {
         <div style={{
           position: "absolute",
           bottom: "20px",
-          left: "50%",
+          left: isPanelCollapsed ? "50%" : "calc(50% - 175px)",
           transform: "translateX(-50%)",
-          width: "70%",
+          width: isPanelCollapsed ? "70%" : "calc(70% - 175px)",
           padding: "10px 15px",
           backgroundColor: "transparent",
           border: "none",
-          zIndex: 1000
+          zIndex: 1000,
+          transition: "all 0.3s ease"
         }}>
           <div style={{
             display: "flex",
