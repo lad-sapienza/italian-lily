@@ -17,21 +17,19 @@ const Layout = ({ children }) => {
   `)
 
   const location = useLocation()
-  // Rimuovo la slash finale, se c’è
   const pathname = location.pathname.replace(/\/$/, "")
   const isMapPage = pathname === "/map"
 
   return (
-    <div className="site-container d-flex flex-column min-vh-100">
+    <div className="d-flex flex-column min-vh-100">
       <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
       <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-
-      <main className="flex-grow-1 position-relative">
+      
+      <main className="flex-grow-1">
         {children}
       </main>
 
-      {/* Footer viene montato solo se non siamo su /map o /map/ */}
-      {!isMapPage && <Footer className="mt-auto" />}
+      {!isMapPage && <Footer />}
     </div>
   )
 }

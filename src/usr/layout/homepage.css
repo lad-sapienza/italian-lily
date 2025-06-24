@@ -80,28 +80,47 @@
   transform: rotate(50deg); /* 180° + 30° */
 }
 
-/* Versione mobile */
+/* Versione mobile generale */
 @media (max-width: 767px) {
   .diagram-wrapper {
+    /* imposta altezza minima per evitare overflow */
     height: 300px;
   }
-  
+
   .arrow-img {
     width: 70px;
   }
-  
+
   .arrow-books {
     top: 25%;
     left: 5%;
   }
-  
+
   .arrow-places {
     bottom: 25%;
     right: 5%;
   }
-  
-  .books-block, .places-block {
+
+  .books-block,
+  .places-block {
     width: 140px;
+  }
+
+  /* —— NUOVE REGOLE PER STACK VERTICALE —— */
+  .diagram-wrapper {
+    position: static !important;
+    height: auto !important;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .diagram-wrapper > .people-node,
+  .diagram-wrapper > .books-block,
+  .diagram-wrapper > .places-block {
+    position: static !important;
+    transform: none !important;
+    margin: 0 0 1rem;
+    width: auto;
   }
 }
 
@@ -168,57 +187,59 @@
   left: 100%;
 }
 
-/* Responsività */
+/* Responsività su breakpoint intermedi */
 @media (max-width: 767px) {
   .diagram-wrapper {
     height: 250px;
   }
-  
+
   .people-node .btn {
     width: 160px !important;
     font-size: 1rem !important;
     padding: 0.75rem !important;
   }
-  
-  .books-block, .places-block {
+
+  .books-block,
+  .places-block {
     width: 140px !important;
   }
-  
+
   .books-block {
     top: 100px;
     left: 200px;
   }
-  
+
   .places-block {
     bottom: 100px;
     right: 100px;
   }
-  
+
   .arrow-img {
     width: 60px;
   }
-  
+
   .arrow-books {
     top: 200% !important;
     left: 50% !important;
   }
-  
+
   .arrow-places {
     top: 200%;
     right: 50%;
   }
 }
 
+/* Desktop-specific adjustments */
 @media (min-width: 768px) {
   .diagram-wrapper {
     height: 400px;
   }
-  
+
   .arrow-books {
     top: 300%;
     left: 20%;
   }
-  
+
   .arrow-places {
     top: 30%;
     right: 20%;
