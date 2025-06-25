@@ -54,11 +54,11 @@ const DataTb = ({ source, columns, ...props }) => {
 
   // Filter the data based on the search text
   const filteredData = data.filter(item =>
-    Object.values(item).some(value =>
-      value && value.toString().toLowerCase().includes(searchText.toLowerCase())
-    )
+    JSON.stringify(item)
+      .toLowerCase()
+      .includes(searchText.toLowerCase())
   );
-
+  
   // Render loading or error states
   if (isLoading) {
     return <div>Loading...</div>; // Show loading message

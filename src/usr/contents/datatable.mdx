@@ -65,7 +65,7 @@ export default function PeoplePage() {
               dQueryString: [
                 "fields=id,nome_e_cognome,Pseudonimo,cognome_naturalizzato_o_coniuge,professione,note_sul_personaggio,",
                 "luoghi_associati_alla_persona.id,luoghi_associati_alla_persona.f_luoghi_id.nome_localita,",
-                "luoghi_associati_alla_persona.prima_attestazione_anno,luoghi_associati_alla_persona.ultima_attestazione_anno",
+                "luoghi_associati_alla_persona.prima_attestazione_anno,luoghi_associati_alla_persona.ultima_attestazione_anno,luoghi_associati_alla_persona.spostato_in_qualita_di",
                 "&filter[progetto][_eq]=fuoriuscitismo&limit=-1"
               ].join("")
             }}
