@@ -14,7 +14,7 @@ export const MDXLayout = ({ children }) => <>{children}</>;
   <RecordContext.Consumer>
     {recordData => {
       if (!recordData || Object.keys(recordData).length === 0) {
-        return <p>Nessun dato trovato per questa persona.</p>;
+        return <p>No data.</p>;
       }
 
       const persona = recordData || {};
@@ -37,6 +37,19 @@ export const MDXLayout = ({ children }) => <>{children}</>;
       const sortedSpostamenti = [...spostamenti].sort(
         (a, b) => (a.prima_attestazione_anno || Infinity) - (b.prima_attestazione_anno || Infinity)
       );
+
+      // Funzione per formattare la data in gg/mm/aa
+      const formatDate = (dateString) => {
+        if (!dateString) return null;
+        const date = new Date(dateString);
+        if (isNaN(date.getTime())) return null;
+        
+        const day = date.getDate().toString().padStart(2, '0');
+        const month = (date.getMonth() + 1).toString().padStart(2, '0');
+        const year = date.getFullYear().toString().slice(-2);
+        
+        return `${day}/${month}/${year}`;
+      };
 
       return (
         <div style={{ display: "flex", flexDirection: "row", gap: "16px" }}>
@@ -89,57 +102,75 @@ export const MDXLayout = ({ children }) => <>{children}</>;
 
             <div>
               <h3 style={{ textAlign: "center", marginBottom: "16px" }}>Attested in:</h3>
-              {sortedSpostamenti.map((spostamento, index) => (
-                <div
-                  key={index}
-                  style={{
-                    marginBottom: "24px",
-                    padding: "12px",
-                    borderRadius: "10px",
-                    backgroundColor: "#f9f9f9",
-                    textAlign: "center",
-                    boxShadow: "0 2px 6px rgba(0, 0, 0, 0.15)",
-                    width: "100%",
-                    maxWidth: "500px",
-                  }}
-                >
-                  <h3 style={{
-                      fontSize: "18px",
-                      fontWeight: "bold",
-                      color: "#aa1a10",
-                      marginBottom: "10px"
-                  }}>
-                    {spostamento.f_luoghi_id.nome_localita}{" "}
-                    {spostamento.prima_attestazione_anno && (
-                      <>
-                        (
-                        {spostamento.prima_attestazione_anno}
-                        {spostamento.ultima_attestazione_anno ? ` - ${spostamento.ultima_attestazione_anno}` : ""}
-                        )
-                      </>
-                    )}
-                  </h3>
+              {sortedSpostamenti.map((spostamento, index) => {
+                const primaData = formatDate(spostamento.prima_attestazione_data);
+                const ultimaData = formatDate(spostamento.ultima_attestazione_data);
+                const showDates = primaData || ultimaData;
+                
+                return (
+                  <div
+                    key={index}
+                    style={{
+                      marginBottom: "24px",
+                      padding: "12px",
+                      borderRadius: "10px",
+                      backgroundColor: "#f9f9f9",
+                      textAlign: "center",
+                      boxShadow: "0 2px 6px rgba(0, 0, 0, 0.15)",
+                      width: "100%",
+                      maxWidth: "500px",
+                    }}
+                  >
+                    <h3 style={{
+                        fontSize: "18px",
+                        fontWeight: "bold",
+                        color: "#aa1a10",
+                        marginBottom: "10px"
+                    }}>
+                      {spostamento.f_luoghi_id.nome_localita}{" "}
+                      {spostamento.prima_attestazione_anno && (
+                        <>
+                          (
+                          {spostamento.prima_attestazione_anno}
+                          {spostamento.ultima_attestazione_anno ? ` - ${spostamento.ultima_attestazione_anno}` : ""}
+                          )
+                        </>
+                      )}
+                    </h3>
 
-                  {spostamento.spostato_in_qualita_di && (
-                    <p style={{ fontSize: "16px", fontWeight: "bold", color: "#333", marginBottom: "6px" }}>
-                      {spostamento.spostato_in_qualita_di}
-                    </p>
-                  )}
-
-                  {spostamento.note_sullo_spostamento && (
-                    <div
-                      style={{
+                    {showDates && (
+                      <div style={{ 
+                        marginBottom: "8px",
                         fontSize: "14px",
-                        color: "#555",
-                        lineHeight: "1.4",
-                        maxWidth: "90%",
-                        margin: "0 auto",
-                      }}
-                      dangerouslySetInnerHTML={{ __html: spostamento.note_sullo_spostamento }}
-                    />
-                  )}
-                </div>
-              ))}
+                        color: "#666"
+                      }}>
+                        {primaData ? `Arrival date: ${primaData}` : "Arrival date: N.D."}
+                        <br />
+                        {ultimaData ? `Departure date: ${ultimaData}` : "Departure date: N.D."}
+                      </div>
+                    )}
+
+                    {spostamento.spostato_in_qualita_di && (
+                      <p style={{ fontSize: "16px", fontWeight: "bold", color: "#333", marginBottom: "6px" }}>
+                        {spostamento.spostato_in_qualita_di}
+                      </p>
+                    )}
+
+                    {spostamento.note_sullo_spostamento && (
+                      <div
+                        style={{
+                          fontSize: "14px",
+                          color: "#555",
+                          lineHeight: "1.4",
+                          maxWidth: "90%",
+                          margin: "0 auto",
+                        }}
+                        dangerouslySetInnerHTML={{ __html: spostamento.note_sullo_spostamento }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
             </div>
           </div>
         </div>
