@@ -299,7 +299,7 @@ const handleNextMovement = (markerId, maxIndex) => {
                   </div>
 
                   <div style={{ marginBottom: "8px" }}>
-                    <strong>Capacity:</strong> {currentMovement.capacity}
+                    <strong>Moved as:</strong> {currentMovement.capacity}
                   </div>
 
                   {currentMovement.movement_notes && (
