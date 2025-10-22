@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import { Link } from "gatsby"            // ⬅️ aggiunto
 
 export const MiniSchedina = ({ items, type }) => {
   const [index, setIndex] = useState(0)
@@ -7,9 +8,11 @@ export const MiniSchedina = ({ items, type }) => {
   }
 
   const current = items[index]
-
   const next = () => setIndex((prev) => (prev + 1) % items.length)
   const prev = () => setIndex((prev) => (prev - 1 + items.length) % items.length)
+
+  // id della fonte (può essere oggetto o id “nudo”)
+  const fonteId = current?.f_fonti_id?.id ?? current?.f_fonti_id
 
   return (
     <div>
@@ -27,7 +30,19 @@ export const MiniSchedina = ({ items, type }) => {
             </>
           ) : (
             <>
-              <div className="fw-semibold">{current.f_fonti_id?.titolo_breve}</div>
+              <div className="fw-semibold">
+                {fonteId ? (
+                  <Link
+                    to={`/book/?tb=f_fonti&id=${fonteId}`}
+                    className="text-decoration-none"
+                  >
+                    {current.f_fonti_id?.titolo_breve || "Untitled"}
+                  </Link>
+                ) : (
+                  current.f_fonti_id?.titolo_breve || "Untitled"
+                )}
+              </div>
+
               {current.f_fonti_id?.titolo_esteso && (
                 <div
                   className="small text-muted"

@@ -51,6 +51,10 @@ export default function SearchPage() {
           <span style={{ marginLeft: "0.5rem", fontWeight: 500, color: "#856404" }}>
             Dataset is currently under review; some data may be inaccurate or partially incorrect.
           </span>
+          <span style={{ marginLeft: "0.5rem", fontWeight: 500, color: "#856404" }}>
+            We are currently working on the simple search tool. Keep in mind that this tool could
+            give partial response.
+          </span>
         </div>
       <div style={{ position: "relative" }}>
         {/* Icona “i” centrale e rossa */}
@@ -91,18 +95,16 @@ export default function SearchPage() {
               {/* Rimuoviamo qui l'introduzione statica e il box "Search Tips" */}
 
               {/* COMPONENTE DI RICERCA */}
-              <Search
-                source={{
-                  dTable: "f_fonti",
-                  dQueryString:
-                    "fields=id,titolo_breve,titolo_esteso,lingua,argomento,anno_edizione,genere,luogo_di_conservazione,USTC_reference,link_digitalizzazione,personalita_coinvolte.tipo_di_rapporto,personalita_coinvolte.f_persone_id.id,personalita_coinvolte.f_persone_id.nome_e_cognome&limit=-1",
-                  filter:
-                    '{ "titolo_breve": { "_icontains": "" }, "lingua": { "_icontains": "" }, "argomento": { "_icontains": "" }, "sottogenere": { "_icontains": "" }, "personalita_coinvolte.nome_della_persona_riportato_sul_frontespizio": { "_icontains": "" } }'
-                }}
+            <Search
+              source={{
+                dTable: "f_fonti",
+                dQueryString:
+                  "fields=id,titolo_breve,titolo_esteso,lingua,argomento,anno_edizione,genere,luogo_di_conservazione,USTC_reference,link_digitalizzazione,personalita_coinvolte.tipo_di_rapporto,personalita_coinvolte.f_persone_id.id,personalita_coinvolte.f_persone_id.nome_e_cognome&limit=-1",
+              }}
                 fieldList={{
                   titolo_esteso: "Title",
                   lingua: "Language",
-                  argomento: "Genre"
+                  genere: "Genre"
                 }}
                 resultItemTemplate={item => {
                   // Raggruppa le persone per ruolo
@@ -193,7 +195,7 @@ export default function SearchPage() {
                                 {item.genere && (
                                   <>
                                     <h6 className="text-uppercase text-muted small mb-1">
-                                      Subject
+                                      Genre
                                     </h6>
                                     <p className="mb-3 small">{item.genere}</p>
                                   </>

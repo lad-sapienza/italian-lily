@@ -146,7 +146,9 @@ export default function PeoplePage() {
               dQueryString: [
                 "fields=id,nome_e_cognome,anno_nascita,luogo_nascita,anno_morte,luogo_morte,",
                 "volumi_associati_alla_persona.id,volumi_associati_alla_persona.note_sul_rapporto_,",
-                "volumi_associati_alla_persona.tipo_di_rapporto,volumi_associati_alla_persona.f_fonti_id.titolo_breve",
+                "volumi_associati_alla_persona.tipo_di_rapporto,",
+                "volumi_associati_alla_persona.f_fonti_id.id,",
+                "volumi_associati_alla_persona.f_fonti_id.titolo_breve",
                 "&filter[progetto][_eq]=volumi&limit=-1"
               ].join("")
             }}
