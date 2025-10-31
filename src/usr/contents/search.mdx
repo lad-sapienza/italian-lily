@@ -14,48 +14,45 @@ import SearchTutorialMode from "../components/SearchTutorialMode"
 export default function SearchPage() {
   const [showTutorial, setShowTutorial] = useState(false)
 
-  // apri automaticamente il tutorial al caricamento
+  // apri automaticamente il tutorial al caricamento (qui disattivato)
   useEffect(() => {
     setShowTutorial(false)
   }, [])
 
   return (
     <>
-            {/* --- Warning banner --- */}
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            margin: "1rem 0",
-            padding: "0.75rem",
-            backgroundColor: "#fff4e5",
-            border: "1px solid #ffcc80",
-            borderRadius: "4px"
-          }}
+      {/* --- Warning banner --- */}
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "1rem 0",
+          padding: "0.75rem",
+          backgroundColor: "#fff4e5",
+          border: "1px solid #ffcc80",
+          borderRadius: "4px"
+        }}
+      >
+        <svg
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="red"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="red"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
-            <line x1="12" y1="9" x2="12" y2="13" />
-            <line x1="12" y1="17" x2="12.01" y2="17" />
-          </svg>
-          <span style={{ marginLeft: "0.5rem", fontWeight: 500, color: "#856404" }}>
-            Dataset is currently under review; some data may be inaccurate or partially incorrect.
-          </span>
-          <span style={{ marginLeft: "0.5rem", fontWeight: 500, color: "#856404" }}>
-            We are currently working on the simple search tool. Keep in mind that this tool could
-            give partial response.
-          </span>
-        </div>
+          <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z" />
+          <line x1="12" y1="9" x2="12" y2="13" />
+          <line x1="12" y1="17" x2="12.01" y2="17" />
+        </svg>
+        <span style={{ marginLeft: "0.5rem", fontWeight: 500, color: "#856404" }}>
+          Dataset is currently under review; some data may be inaccurate or partially incorrect.
+        </span>
+      </div>
+
       <div style={{ position: "relative" }}>
         {/* Icona “i” centrale e rossa */}
         <div
@@ -92,19 +89,27 @@ export default function SearchPage() {
           <div className="row justify-content-center">
             <div className="col-lg-10 col-xl-8">
 
-              {/* Rimuoviamo qui l'introduzione statica e il box "Search Tips" */}
-
               {/* COMPONENTE DI RICERCA */}
-            <Search
-              source={{
-                dTable: "f_fonti",
-                dQueryString:
-                  "fields=id,titolo_breve,titolo_esteso,lingua,argomento,anno_edizione,genere,luogo_di_conservazione,USTC_reference,link_digitalizzazione,personalita_coinvolte.tipo_di_rapporto,personalita_coinvolte.f_persone_id.id,personalita_coinvolte.f_persone_id.nome_e_cognome&limit=-1",
-              }}
+              <Search
+                source={{
+                  dTable: "f_fonti",
+                  dQueryString:
+                    "fields=id,titolo_breve,titolo_esteso,lingua,argomento,anno_edizione,genere,luogo_di_conservazione,USTC_reference,link_digitalizzazione,personalita_coinvolte.tipo_di_rapporto,personalita_coinvolte.f_persone_id.id,personalita_coinvolte.f_persone_id.nome_e_cognome,personalita_coinvolte.f_persone_id.cognome_naturalizzato_o_coniuge,personalita_coinvolte.f_persone_id.Pseudonimo,personalita_coinvolte.f_persone_id.other_attested_names&limit=-1",
+                }}
                 fieldList={{
                   titolo_esteso: "Title",
                   lingua: "Language",
-                  genere: "Genre"
+                  genere: "Genre",
+                  people: "People"  // alias nel menu a tendina
+                }}
+                // mappa dei campi virtuali: "people" punta a 4 campi reali
+                virtualFields={{
+                  people: [
+                    "personalita_coinvolte.f_persone_id.nome_e_cognome",
+                    "personalita_coinvolte.f_persone_id.cognome_naturalizzato_o_coniuge",
+                    "personalita_coinvolte.f_persone_id.Pseudonimo",
+                    "personalita_coinvolte.f_persone_id.other_attested_names",
+                  ]
                 }}
                 resultItemTemplate={item => {
                   // Raggruppa le persone per ruolo
@@ -222,30 +227,29 @@ export default function SearchPage() {
                             </div>
 
                             {/* People */}
-                            {Object.keys(groupedPeople).length > 0 && (
-                              <div className="mt-4 pt-3 border-top">
-                                <h2
-                                  className="h6 mb-3 text-center"
-                                  style={{
-                                    color: "#6e2c2f",
-                                    fontFamily: "'Georgia', serif",
-                                    fontWeight: "normal",
-                                    fontSize: "1.1rem"
-                                  }}
-                                >
-                                  People
-                                </h2>
-                                <Row className="g-4 justify-content-center">
-                                  {Object.entries(groupedPeople).map(
-                                    ([role, people]) => (
+                            {(() => {
+                              const keys = Object.keys(groupedPeople)
+                              if (keys.length === 0) return null
+                              return (
+                                <div className="mt-4 pt-3 border-top">
+                                  <h2
+                                    className="h6 mb-3 text-center"
+                                    style={{
+                                      color: "#6e2c2f",
+                                      fontFamily: "'Georgia', serif",
+                                      fontWeight: "normal",
+                                      fontSize: "1.1rem"
+                                    }}
+                                  >
+                                    People
+                                  </h2>
+                                  <Row className="g-4 justify-content-center">
+                                    {Object.entries(groupedPeople).map(([role, people]) => (
                                       <Col key={role} md={6} lg={4}>
                                         <div className="h-100">
                                           <div
                                             className="text-muted text-uppercase small mb-2 text-center"
-                                            style={{
-                                              letterSpacing: "1px",
-                                              color: "#b38a7f"
-                                            }}
+                                            style={{ letterSpacing: "1px", color: "#b38a7f" }}
                                           >
                                             {role}
                                           </div>
@@ -262,10 +266,7 @@ export default function SearchPage() {
                                                 }}
                                               >
                                                 <Card.Body className="py-2 px-2 text-center">
-                                                  <Card.Title
-                                                    className="mb-0"
-                                                    style={{ fontSize: "0.9rem" }}
-                                                  >
+                                                  <Card.Title className="mb-0" style={{ fontSize: "0.9rem" }}>
                                                     <a
                                                       href={`/persone/?tb=persone&id=${persona.id}`}
                                                       className="text-decoration-none d-block"
@@ -280,11 +281,11 @@ export default function SearchPage() {
                                           </div>
                                         </div>
                                       </Col>
-                                    )
-                                  )}
-                                </Row>
-                              </div>
-                            )}
+                                    ))}
+                                  </Row>
+                                </div>
+                              )
+                            })()}
 
                             {/* Action Buttons */}
                             <div className="d-flex justify-content-center align-items-center border-top pt-3 mt-4 flex-wrap gap-3">
@@ -346,13 +347,9 @@ export default function SearchPage() {
               <div className="text-center mt-4 pt-3">
                 <div className="border-top pt-3">
                   <small className="text-muted d-block mb-2">
-                    For questions or additional information, please contact the
-                    archive team.
+                    For questions or additional information, please contact the archive team.
                   </small>
-                  <a
-                    href="#"
-                    className="btn btn-sm btn-outline-secondary"
-                  >
+                  <a href="#" className="btn btn-sm btn-outline-secondary">
                     Contact Us
                   </a>
                 </div>

@@ -144,7 +144,7 @@ export default function PeoplePage() {
             source={{
               dTable: "f_persone",
               dQueryString: [
-                "fields=id,nome_e_cognome,anno_nascita,luogo_nascita,anno_morte,luogo_morte,",
+                "fields=id,nome_e_cognome,cognome_naturalizzato_o_coniuge,other_attested_names,anno_nascita,luogo_nascita,anno_morte,luogo_morte,",
                 "volumi_associati_alla_persona.id,volumi_associati_alla_persona.note_sul_rapporto_,",
                 "volumi_associati_alla_persona.tipo_di_rapporto,",
                 "volumi_associati_alla_persona.f_fonti_id.id,",
@@ -162,8 +162,30 @@ export default function PeoplePage() {
                     <h4 className="mb-1" style={{ wordBreak: 'break-word' }}>
                       {formatName(item.nome_e_cognome)}
                     </h4>
+
+                    <div className="d-flex flex-wrap gap-1 mb-2">
+                      {[item.cognome_naturalizzato_o_coniuge, ...(item.other_attested_names ? item.other_attested_names.split(',') : [])]
+                        .filter(Boolean)
+                        .map((name, idx) => (
+                          <span
+                            key={idx}
+                            className="badge rounded-pill"
+                            style={{
+                              backgroundColor: '#f5f5f5',
+                              border: '1px solid #ccc',
+                              color: '#333',
+                              fontSize: '0.75rem',
+                              padding: '0.35em 0.6em',
+                            }}
+                          >
+                            {name.trim()}
+                          </span>
+                        ))}
+                    </div>
+
                     <div className="mb-2 small text-muted">{formatLifeDates(item)}</div>
                   </div>
+
                   <div className="p-3 d-flex flex-column" style={{ flex: '0 0 66.66%', height: '100%', overflowY: 'auto' }}>
                     <MiniSchedina items={item.volumi_associati_alla_persona} type="volume" />
                   </div>

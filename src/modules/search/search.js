@@ -16,6 +16,60 @@ import sourcePropTypes from "../../services/sourcePropTypes"
 import { defaultOperatorsProptypes } from "./defaultOperators"
 import fieldsPropTypes from "../../services/fieldsPropTypes"
 
+/**
+ * Deep clone helper (safe for plain objects)
+ */
+const deepClone = obj => JSON.parse(JSON.stringify(obj || {}))
+
+/**
+ * Espande le chiavi "virtuali" nel filtro Directus:
+ * - se trova { people: { _icontains: "x" } } lo sostituisce con
+ *   { _or: [ { path1: { _icontains: "x" } }, { path2: { _icontains: "x" } }, ... ] }
+ * - funziona ricorsivamente su qualunque profondità e non modifica gli altri campi.
+ */
+const pathToNestedFilter = (path, ops) =>
+  path.split(".").reverse().reduce((acc, key) => ({ [key]: acc }), JSON.parse(JSON.stringify(ops)));
+function expandVirtualFieldsInFilter(filterObj, virtualFieldsMap = {}) {
+  if (!filterObj || typeof filterObj !== "object") return filterObj
+
+  // se è un array, processa ogni elemento
+  if (Array.isArray(filterObj)) {
+    return filterObj.map(node => expandVirtualFieldsInFilter(node, virtualFieldsMap))
+  }
+
+  // è un oggetto
+  const out = {}
+  let pendingOr = [] // raccoglie eventuali _or generati da chiavi virtuali a questo livello
+
+  for (const [key, val] of Object.entries(filterObj)) {
+    if (virtualFieldsMap[key]) {
+      // Caso 1: l'oggetto è del tipo { people: { _icontains: "x", ... } }
+      // Convertiamo in un blocco _or mantenendo tutti gli operatori presenti in "val"
+      const ops = (val && typeof val === "object") ? val : {}
+      const realFields = virtualFieldsMap[key]
+
+      const orChunk = realFields.map(path => pathToNestedFilter(path, ops))
+      pendingOr = pendingOr.concat(orChunk)
+      // NON copiamo la chiave virtuale dentro 'out'
+    } else {
+      // Ricorsione standard
+      out[key] = expandVirtualFieldsInFilter(val, virtualFieldsMap)
+    }
+  }
+
+  // Se abbiamo generato clausole OR a questo livello:
+  if (pendingOr.length > 0) {
+    // Se esiste già un _or, uniamoli
+    if (Array.isArray(out._or)) {
+      out._or = out._or.concat(pendingOr)
+    } else {
+      out._or = pendingOr
+    }
+  }
+
+  return out
+}
+
 const Search = ({
   source,
   resultItemTemplate,
@@ -28,6 +82,19 @@ const Search = ({
   fieldList,
   operators,
   connector,
+  /**
+   * Mappa di alias → array di campi reali (Directus path)
+   * Esempio:
+   * {
+   *   people: [
+   *     "personalita_coinvolte.f_persone_id.nome_e_cognome",
+   *     "personalita_coinvolte.f_persone_id.cognome_naturalizzato_o_coniuge",
+   *     "personalita_coinvolte.f_persone_id.Pseudonimo",
+   *     "personalita_coinvolte.f_persone_id.other_attested_names",
+   *   ]
+   * }
+   */
+  virtualFields = {},
 }) => {
   const [searchResults, setSearchResults] = useState([])
   const [error, setError] = useState(null)
@@ -41,7 +108,14 @@ const Search = ({
 
   const processData = async (conn, inputs) => {
     try {
-      const filter = JSON.stringify(plain2directus(conn, inputs))
+      // 1) filtro "grezzo" da plain2directus (usa la struttura restituita da SearchUI)
+      const rawFilterObj = plain2directus(conn, inputs)
+
+      // 2) espansione campi virtuali (es. people -> _or su 4 campi)
+      const expandedFilterObj = expandVirtualFieldsInFilter(rawFilterObj, virtualFields)
+
+      // 3) stringify per Directus
+      const filter = JSON.stringify(expandedFilterObj)
 
       const newSource = createNewSource(source, filter)
 
@@ -59,10 +133,11 @@ const Search = ({
       setError("Error in querying remote data")
     }
   }
-  const createNewSource = (source, filter) => {
-    const newSource = structuredClone(source)
+
+  const createNewSource = (src, filter) => {
+    const newSource = structuredClone(src)
     newSource.transType = "json"
-    newSource.dQueryString = `${source.dQueryString ? `${newSource.dQueryString}&` : ""}filter=${filter}`
+    newSource.dQueryString = `${src.dQueryString ? `${newSource.dQueryString}&` : ""}filter=${filter}`
     return newSource
   }
 
@@ -132,6 +207,12 @@ Search.propTypes = {
     _and: PropTypes.string,
     _or: PropTypes.string,
   }),
+
+  /**
+   * Mappa alias → array di campi reali per la ricerca multi-campo.
+   * Non impatta l'UI; serve solo per trasformare il filtro prima della chiamata a Directus.
+   */
+  virtualFields: PropTypes.objectOf(PropTypes.arrayOf(PropTypes.string)),
 }
 
 export { Search }
