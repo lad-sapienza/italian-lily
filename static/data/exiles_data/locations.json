@@ -1,0 +1,1082 @@
+[
+	{
+		"id": 1,
+		"nome_localita": "Paris",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": "Parigi",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.347475903167066,
+				48.858487164750244
+			]
+		}
+	},
+	{
+		"id": 110,
+		"nome_localita": "Aix-en-provence",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": "Acqui di Provenza",
+		"toponimo_storico": "Asais",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.448443666578584,
+				43.529038994780194
+			]
+		}
+	},
+	{
+		"id": 111,
+		"nome_localita": "Amiens",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.295620100333565,
+				49.89830005191138
+			]
+		}
+	},
+	{
+		"id": 112,
+		"nome_localita": "Anet",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.437953514786358,
+				48.85755109466638
+			]
+		}
+	},
+	{
+		"id": 113,
+		"nome_localita": "Angoulême",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Angolemme",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				0.156726028518563,
+				45.649821954564004
+			]
+		}
+	},
+	{
+		"id": 114,
+		"nome_localita": "Antibes",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Antibo",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				7.119639382434116,
+				43.570596002082766
+			]
+		}
+	},
+	{
+		"id": 115,
+		"nome_localita": "Auxonne",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.387990228146293,
+				47.19375832448091
+			]
+		}
+	},
+	{
+		"id": 116,
+		"nome_localita": "Avignon",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": "Avignone",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.811257462302706,
+				43.949459545137245
+			]
+		}
+	},
+	{
+		"id": 117,
+		"nome_localita": "Bazas",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				-0.215675122958487,
+				44.43237569328247
+			]
+		}
+	},
+	{
+		"id": 118,
+		"nome_localita": "Blois",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Blès",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.331288031833765,
+				47.59746748862656
+			]
+		}
+	},
+	{
+		"id": 119,
+		"nome_localita": "Cambrai",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.232600201599098,
+				50.178382913539394
+			]
+		}
+	},
+	{
+		"id": 120,
+		"nome_localita": "Chateaubriant",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				-1.376973947146439,
+				47.71854382716725
+			]
+		}
+	},
+	{
+		"id": 121,
+		"nome_localita": "Compiègne",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.821497284192134,
+				49.42180565987147
+			]
+		}
+	},
+	{
+		"id": 122,
+		"nome_localita": "Fontainebleau",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Fontemblo",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.706123052284937,
+				48.407513265365765
+			]
+		}
+	},
+	{
+		"id": 123,
+		"nome_localita": "Lambesc",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Lambisco",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.262357871834325,
+				43.6540972844752
+			]
+		}
+	},
+	{
+		"id": 124,
+		"nome_localita": "Lyon",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": "Lione",
+		"toponimo_storico": "Lione",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.825975529094194,
+				45.76304448091307
+			]
+		}
+	},
+	{
+		"id": 125,
+		"nome_localita": "Macon",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.82882904177066,
+				46.30587439301641
+			]
+		}
+	},
+	{
+		"id": 126,
+		"nome_localita": "Marseille",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": "Marsiglia",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.385438751454757,
+				43.307595464363345
+			]
+		}
+	},
+	{
+		"id": 127,
+		"nome_localita": "Montbrison",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Monbrissone",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.065260531060659,
+				45.60735337640483
+			]
+		}
+	},
+	{
+		"id": 128,
+		"nome_localita": "Normandie",
+		"tipo_di_localita": "region",
+		"toponimo_italiano": "Normandia",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				0.057856624586549,
+				49.152617815405875
+			]
+		}
+	},
+	{
+		"id": 129,
+		"nome_localita": "Orgon",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Orgone",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.039476784591443,
+				43.7908864157117
+			]
+		}
+	},
+	{
+		"id": 130,
+		"nome_localita": "Oullins ",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": null
+	},
+	{
+		"id": 131,
+		"nome_localita": "Saint-Chef ",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.367962171938075,
+				45.63411292750325
+			]
+		}
+	},
+	{
+		"id": 132,
+		"nome_localita": "Saint-Rambert",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Saint-Rambert-en-Forez",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.241173059570599,
+				45.49833727829312
+			]
+		}
+	},
+	{
+		"id": 133,
+		"nome_localita": "Semblançay",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				0.579457324713616,
+				47.49872830392522
+			]
+		}
+	},
+	{
+		"id": 134,
+		"nome_localita": "Toulon",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": "Tolone",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.934991543132639,
+				43.12687964212532
+			]
+		}
+	},
+	{
+		"id": 135,
+		"nome_localita": "Valence",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": "Valenza",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.891074468749622,
+				44.93319598095093
+			]
+		}
+	},
+	{
+		"id": 137,
+		"nome_localita": "Aigues-Mortes",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Acque Morte",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.193277988956737,
+				43.56862996120219
+			]
+		}
+	},
+	{
+		"id": 138,
+		"nome_localita": "Amboise",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				0.979134624658315,
+				47.40989074591107
+			]
+		}
+	},
+	{
+		"id": 140,
+		"nome_localita": "Calais",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.852559609329432,
+				50.953463515068705
+			]
+		}
+	},
+	{
+		"id": 142,
+		"nome_localita": "Dijon",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": "Digione",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.034591350529695,
+				47.31693114028502
+			]
+		}
+	},
+	{
+		"id": 144,
+		"nome_localita": "La Ferté-Milon",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.125692333624386,
+				49.17797633715156
+			]
+		}
+	},
+	{
+		"id": 145,
+		"nome_localita": "Nice",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": "Nizza",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				7.266775449832977,
+				43.701087345563366
+			]
+		}
+	},
+	{
+		"id": 146,
+		"nome_localita": "Montargis",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Montargasso",
+		"coordinate": null
+	},
+	{
+		"id": 147,
+		"nome_localita": "Noyon",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.999690505935746,
+				49.580321903513095
+			]
+		}
+	},
+	{
+		"id": 148,
+		"nome_localita": "Metz",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				6.175062537230332,
+				49.12089417547125
+			]
+		}
+	},
+	{
+		"id": 149,
+		"nome_localita": "Orlèans",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.907902985742453,
+				47.90194764536167
+			]
+		}
+	},
+	{
+		"id": 150,
+		"nome_localita": "Reims",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Rensa",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.02948641287324,
+				49.25824031037874
+			]
+		}
+	},
+	{
+		"id": 151,
+		"nome_localita": "Thionville",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				6.168028967856202,
+				49.35791697263352
+			]
+		}
+	},
+	{
+		"id": 153,
+		"nome_localita": "Villers-Cotterêts",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.092104609589171,
+				49.2551824263322
+			]
+		}
+	},
+	{
+		"id": 159,
+		"nome_localita": "Carpentras",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Carpentrasso",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.04776765528112,
+				44.054949670773595
+			]
+		}
+	},
+	{
+		"id": 160,
+		"nome_localita": "Poissy",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.042265237256117,
+				48.92856723638508
+			]
+		}
+	},
+	{
+		"id": 161,
+		"nome_localita": "Moulins",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Monluello",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.333597686507432,
+				46.5652675114539
+			]
+		}
+	},
+	{
+		"id": 162,
+		"nome_localita": "Béziers",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.220610522515926,
+				43.34557131315876
+			]
+		}
+	},
+	{
+		"id": 163,
+		"nome_localita": "Albi",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.14759932779512,
+				43.92585316922876
+			]
+		}
+	},
+	{
+		"id": 164,
+		"nome_localita": "Auriol",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.635411843214626,
+				43.36903694561377
+			]
+		}
+	},
+	{
+		"id": 165,
+		"nome_localita": "Montpellier",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Montpoliere",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.883274687679148,
+				43.61274375329637
+			]
+		}
+	},
+	{
+		"id": 167,
+		"nome_localita": "Sisteron",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": "Sisterone",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.944473895047963,
+				44.195380180116274
+			]
+		}
+	},
+	{
+		"id": 168,
+		"nome_localita": "Sarlat-la-Canéda",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Sarlat",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.216586267435446,
+				44.88757660122488
+			]
+		}
+	},
+	{
+		"id": 169,
+		"nome_localita": "Tours",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				0.690795628122658,
+				47.389605531042974
+			]
+		}
+	},
+	{
+		"id": 170,
+		"nome_localita": "Narbonne",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": "Narbona",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.00400809808167,
+				43.184790970103705
+			]
+		}
+	},
+	{
+		"id": 171,
+		"nome_localita": "Saint-Papoul",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.036459075090732,
+				43.330670680272476
+			]
+		}
+	},
+	{
+		"id": 172,
+		"nome_localita": "Saint-Rambert-en-Bugey",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.439202739144292,
+				45.94921857688831
+			]
+		}
+	},
+	{
+		"id": 173,
+		"nome_localita": "Chambéry",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.93172624531698,
+				45.5681405932975
+			]
+		}
+	},
+	{
+		"id": 174,
+		"nome_localita": "Toulouse",
+		"tipo_di_localita": null,
+		"toponimo_italiano": "Tolosa",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.431563648244463,
+				43.61035035123962
+			]
+		}
+	},
+	{
+		"id": 175,
+		"nome_localita": "Falvy",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.958557045593096,
+				49.82350100355035
+			]
+		}
+	},
+	{
+		"id": 176,
+		"nome_localita": "Chauny",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.22070560196309,
+				49.6153210219631
+			]
+		}
+	},
+	{
+		"id": 177,
+		"nome_localita": "Poitiers",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				0.34843785270769,
+				46.57992997952209
+			]
+		}
+	},
+	{
+		"id": 178,
+		"nome_localita": "Nimes",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.361596377993266,
+				43.8366112430632
+			]
+		}
+	},
+	{
+		"id": 179,
+		"nome_localita": "Rouen",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.096263760216175,
+				49.43612266448093
+			]
+		}
+	},
+	{
+		"id": 180,
+		"nome_localita": "Dieppe",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.081895506256075,
+				49.92331667590557
+			]
+		}
+	},
+	{
+		"id": 181,
+		"nome_localita": "Rambouillet",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.833456921078437,
+				48.64546330074222
+			]
+		}
+	},
+	{
+		"id": 182,
+		"nome_localita": "Saintes",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Santes",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				-0.634644537172335,
+				45.74584782508896
+			]
+		}
+	},
+	{
+		"id": 183,
+		"nome_localita": "Lorraine",
+		"tipo_di_localita": "region",
+		"toponimo_italiano": "Lorena",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				5.825667043292924,
+				48.90081540744529
+			]
+		}
+	},
+	{
+		"id": 184,
+		"nome_localita": "Bretagne",
+		"tipo_di_localita": "region",
+		"toponimo_italiano": "Bretagna",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				-2.665954337561715,
+				48.16558903250842
+			]
+		}
+	},
+	{
+		"id": 185,
+		"nome_localita": "Le Havre",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				0.113763959173895,
+				49.49778234355523
+			]
+		}
+	},
+	{
+		"id": 186,
+		"nome_localita": "Rohan",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				-2.753032259090901,
+				48.06863649222035
+			]
+		}
+	},
+	{
+		"id": 187,
+		"nome_localita": "Melun",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.660103391183981,
+				48.53946102350247
+			]
+		}
+	},
+	{
+		"id": 188,
+		"nome_localita": "Charleville-Mézières",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Mézierés",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.720327243167674,
+				49.76825837198484
+			]
+		}
+	},
+	{
+		"id": 189,
+		"nome_localita": "Gaillon",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": "Gaglione",
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.334808871649358,
+				49.16017108845827
+			]
+		}
+	},
+	{
+		"id": 190,
+		"nome_localita": "Limoges",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				1.26306087775481,
+				45.83512420855675
+			]
+		}
+	},
+	{
+		"id": 191,
+		"nome_localita": "Bourbon-Lancy",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Bourbonlancy",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.772448289493269,
+				46.62082122961675
+			]
+		}
+	},
+	{
+		"id": 192,
+		"nome_localita": "Saint-Maur-des-Fossés",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": null,
+		"toponimo_storico": "Saint Maur",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.48603187111101,
+				48.80335891733884
+			]
+		}
+	},
+	{
+		"id": 193,
+		"nome_localita": "Allier",
+		"tipo_di_localita": "Region",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.042173970867765,
+				46.63519491439311
+			]
+		}
+	},
+	{
+		"id": 194,
+		"nome_localita": "La Pacaudière",
+		"tipo_di_localita": "village",
+		"toponimo_italiano": null,
+		"toponimo_storico": "La Paocodcera",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				3.864947488903056,
+				46.17503145850637
+			]
+		}
+	},
+	{
+		"id": 195,
+		"nome_localita": "Saint-Germain-en-Laye",
+		"tipo_di_localita": "town",
+		"toponimo_italiano": "San Germano",
+		"toponimo_storico": "Saint Germaine",
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				2.095067696968101,
+				48.89663007791546
+			]
+		}
+	},
+	{
+		"id": 196,
+		"nome_localita": "La Rochelle",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				-1.151946486852466,
+				46.15827446347291
+			]
+		}
+	},
+	{
+		"id": 197,
+		"nome_localita": "Tournon-sur-Rhône",
+		"tipo_di_localita": "city",
+		"toponimo_italiano": null,
+		"toponimo_storico": null,
+		"coordinate": {
+			"type": "Point",
+			"coordinates": [
+				4.832596981870068,
+				45.0674923666584
+			]
+		}
+	}
+]

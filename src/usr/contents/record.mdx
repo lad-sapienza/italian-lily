@@ -156,18 +156,34 @@ export const MDXLayout = ({ children }) => <>{children}</>;
                       </p>
                     )}
 
-                    {spostamento.note_sullo_spostamento && (
-                      <div
-                        style={{
-                          fontSize: "14px",
-                          color: "#555",
-                          lineHeight: "1.4",
-                          maxWidth: "90%",
-                          margin: "0 auto",
-                        }}
-                        dangerouslySetInnerHTML={{ __html: spostamento.note_sullo_spostamento }}
-                      />
-                    )}
+                {spostamento.note_sullo_spostamento && (
+                  <div
+                    style={{
+                      fontSize: "14px",
+                      color: "#555",
+                      lineHeight: "1.4",
+                      maxWidth: "90%",
+                      margin: "0 auto",
+                    }}
+                    dangerouslySetInnerHTML={{ __html: spostamento.note_sullo_spostamento }}
+                  />
+                )}
+
+                  {spostamento.fonte && (
+                    <div
+                      style={{
+                        backgroundColor: "#f8f9fa",
+                        borderLeft: "4px solid #ccc",
+                        padding: "10px 15px",
+                        marginTop: "10px",
+                        fontFamily: "monospace",
+                        fontSize: "13px",
+                        color: "#444",
+                        whiteSpace: "pre-wrap",
+                      }}
+                      dangerouslySetInnerHTML={{ __html: spostamento.fonte }}
+                    />
+                  )}
                   </div>
                 );
               })}

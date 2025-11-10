@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 /**
- * TutorialModal – v2
+ * TutorialModal – v3
  * ------------------------------------------------------------
- * 3-step guided tour for the WebGIS page.
+ * 4-step guided tour for the WebGIS page.
  * Images are served from /static/image → /image/...
  * ------------------------------------------------------------
  */
@@ -39,6 +39,17 @@ const TutorialModal = ({ show, onClose }) => {
       title: "Additional Note",
       content:
         "The start and end dates may sometimes be hypothetical, based on deductions from historical written sources.",
+      img: null,
+      layout: "text-only",
+    },
+    {
+      title: "Download & Export",
+      content:
+        "Use the “Download” button at the top-left of the map to export data.\n\n" +
+        "• Format — choose CSV, JSON, or GeoJSON.\n" +
+        "• Scope — choose between Visible extent (current map view + timeline filter) or All data shown on the map (timeline filter only).\n" +
+        "• The exported archive includes a README text file describing all columns.\n\n" +
+        "Tip: to export only what you are seeing, first set the time range, then pan/zoom the map to the area of interest before choosing “Visible extent”.\n\n",
       img: null,
       layout: "text-only",
     },

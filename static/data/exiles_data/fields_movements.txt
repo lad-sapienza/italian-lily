@@ -1,0 +1,27 @@
+person_full_name — Full name of the person who moved.
+person_pseudonym — Eventual known pseudonym(s) or alias of the person.
+person_naturalized_or_spousal_surname —  Naturalized or adopted or spouse’s surname, when known.
+
+place_name — name of the locality/city.
+place_historic_toponym — Eventual Historical toponym for the locality.
+
+earliest_attested_day* — Day (1–31) of the earliest attested presence in this locality, if known.
+earliest_attested_month* — Month (1–12) of the earliest attested presence in this locality, if known.
+earliest_attested_year* — Year of the earliest attested presence in this locality.
+latest_attested_day* — Day (1–31) of the latest attested presence in this locality, if known.
+latest_attested_month* — Month (1–12) of the latest attested presence in this locality, if known.
+latest_attested_year* — Year of the latest attested presence in this locality, if known.
+
+hypothesized — True if the movement/presence is inferred, based on deductions from historical written sources. See notes for further details.
+Role — Specific role/reason in which the person is reported (e.g., envoy, ).
+resident — True if the person can be considered as a resident in the city.
+source — Bibliographic or archival source for the record.
+movement_notes — Free-text notes about the attested presence/movement.
+
+----- Further Notes
+
+* These fieldsmark the dated documentary bounds of a single, contiguous stay in the locality. 
+They do NOT represent actual arrival/departure dates. 
+A stay begins “at least from” its earliest attested date and ends “at least until” its latest attested date (if any). 
+Multiple records for the same person and locality are split into distinct movements when the stays are discontinuous; they are merged when evidence indicates continuity. 
+If the latest attested date is missing, the end of the stay is open (no later attestation available for that stint).

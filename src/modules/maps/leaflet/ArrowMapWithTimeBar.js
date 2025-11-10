@@ -128,6 +128,7 @@ const ArrowMapWithTimeBar = ({ height, baseLayers, markers }) => {
       resident: marker.residente || false,
       capacity: marker.spostato_in_qualita_di || "N/A",
       movement_notes: marker.note_sullo_spostamento || "",
+      note: marker.fonte || "",
     };
 
     if (existingMarker) {
@@ -310,6 +311,22 @@ const handleNextMovement = (markerId, maxIndex) => {
                         color: "#555"
                       }}
                       dangerouslySetInnerHTML={{ __html: currentMovement.movement_notes }}
+                    />
+                  )}
+
+                  {currentMovement.fonte && (
+                    <div
+                      style={{
+                        backgroundColor: "#f8f9fa",
+                        borderLeft: "4px solid #ccc",
+                        padding: "10px 15px",
+                        marginTop: "10px",
+                        fontFamily: "monospace",
+                        fontSize: "13px",
+                        color: "#444",
+                        whiteSpace: "pre-wrap",
+                      }}
+                      dangerouslySetInnerHTML={{ __html: currentMovement.fonte }}
                     />
                   )}
 

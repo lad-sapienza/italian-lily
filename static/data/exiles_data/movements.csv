@@ -1,0 +1,686 @@
+id,person_id,place_id,earliest_attested_day,earliest_attested_year,earliest_attested_month,latest_attested_day,latest_attested_year,latest_attested_month,role,hypothesized,resident,source,movement_notes
+1428,372,1,,1598,,,1599,,Ambassador,false,false,"<p>Canestrini, Lettere di Giovanni Bandini al Cardinal Pietro Aldobrandini, pp. 409-460</p>",<p>He moved to Paris as ambassador of the Cardinal Pietro Aldobrandini</p>
+1233,154,159,1597-06-21,1597,6,1600-09-09,1600,9,Bishop,false,false,"<p>DBI, ad vocem.</p>","<p>1597: He arrived in his episcopal see.</p>
+<p>1600: He went to Rome.</p>"
+1012,72,124,,1596,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, p. 107</p>",<p>He was one of the last merchants of the Florentine nation to still have business in Lyon.</p>
+1128,75,124,,1596,,,,,Merchant,false,true,"Picot, Les italiens en France, p. 107",<p>He was one of the last merchants of the Florentine nation to still have business in Lyon.</p>
+1261,72,124,,1593,,,1595,,Merchant,true,true,,
+1441,368,170,,1593,,,,,Military leader,false,false,"<p>DBI, Bandini Pierantonio</p>
+<p>Dubost, La France italienne, pp. 64 e 491</p>",<p>Death</p>
+1279,75,124,,1593,,,1595,,,true,true,,
+1127,75,124,,1592,11,,,,Banker,false,true,"Picot, Les italiens en France, p. 107 e 123",<p>He was the manager of the Capponi's company.</p>
+1011,72,124,,1592,11,,,,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 107 e 123.</p>",<p>He had business with Niccol&ograve; Capponi.</p>
+1422,365,1,,1589,,,1597,,Merchant,false,true,"<p>1589-1596: DBI, Bandini Pierantonio - 1597: Dubost, La France italienne, pp. 434, 491</p>","<p>Due to his debts with the Duke of Epemon, he was confined to prison. He was released in 1596, after seven years in prison. He died in 1597</p>"
+1637,153,1,,1589,,,1590,,Scholar,true,true,,
+1343,293,124,,1588,,,,,Merchant,false,true,"<p>Focarile, I Mannelli di Firenze (phd thesis), p. 76.</p>",<p>Mannelli's bank failure.</p>
+1294,173,164,,1588,7,,,,Clergyman,false,true,"<p>DBI, ad vocem.</p>",<p>He died in the castle of Auriol.</p>
+1083,79,1,,1588,,,,,Lady-in-waiting to Catherine de' Medici,false,true,"Dubost, La France italienne, p. 195 e 412",<p>She lived in Paris.</p>
+1489,465,124,,1588,,,,,Consul of the Florentine Nation in Lyon,false,true,"<p>Charpin Feugerolles, Les Florentines &agrave; Lyon, pp. 32-37.</p>",<p>He was Consul of the Florentine nation in Lyon.</p>
+1326,86,1,1588-02-25,1588,2,,,,Courtesan,false,true,"<p>DBI, Ad vocem.</p>",<p>He sent a letter to Lorenzo Giacomini.</p>
+1633,153,1,1588-02-08,1588,2,,,,Scholar,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 85</p>",<p>Ugolino Martelli sent a letter to him.</p>
+1528,552,177,,1587,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 95-96</p>",<p>Death.</p>
+1414,345,124,1586-06-02,1586,6,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 465</p>",<p>Bill of exchange sent from Piero Giovannini of Florence to Zenobi Giovannini in Lyon</p>
+1526,551,177,,1586,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 95-96</p>",<p>Death.</p>
+1344,293,124,,1586,,,1587,,Merchant,true,true,,
+1278,75,124,,1585,,,1591,,,true,true,,
+1493,467,124,,1585,,,,,Consul of the Florentine Nation in Lyon,false,true,"<p>Charpin Feugerolles, Les florentines &agrave; Lyon, p. 178</p>",<p>He was Consul of the Florentine nation in Lyon.</p>
+1423,366,124,,1585,,,,,Banker,false,false,"<p>DBI, Bandini Pierantonio</p>",<p>His bank branch in France has failed</p>
+1427,365,1,1585-10-14,1585,10,,,,Merchant,false,true,"<p>Dubost, La France italienne, p. 232, 434</p>",<p>He made a business with the trade of salt. In the same year (1585) he's appointed Gentleman of the King's bedchamber.</p>
+1345,295,124,,1585,,,,,Marriage,false,true,"<p>Focarile, I Mannelli di Firenze (phd thesis), p. 77.</p>",<p>She married Francesco di Niccol&ograve; Mannelli.</p>
+1341,293,124,,1585,,,,,Merchant,false,true,"<p>Focarile, I Mannelli di Firenze, (phd thesis), p. 77.</p>",<p>He married Cassandra Capponi.</p>
+1126,75,124,,1584,,,,,Merchant,false,true,"Picot, Les italiens en France, p. 107",<p>He had business in Lyon.</p>
+969,86,1,,1584,,,,,Courtesan,false,true,"DBI, ad vocem",<p>He permanently moved to Paris.</p>
+1321,79,1,,1584,,,1587,,Lady-in-waiting to Catherine de' Medici,true,true,,
+1507,293,124,,1584,,,,,Merchant,true,true,,
+1426,365,1,,1583,,,1584,,Merchant,true,true,,
+1410,342,124,1583-03-26,1583,3,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 459</p>",<p>Bill of exchange sent from Giulio Benci in Florence to Pier Antonio Bandini and Alfonso Strozzi</p>
+1010,72,124,1583-03-26,1583,3,,1584,,Merchant,false,true,"<p>26-3-1583: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 459 - 1584: Picot, Les italiens en France, p. 107</p>",<p>26-3-1583: Bill of exchange in favor of Luigi and Francesco Capponi - 1584: He had business with Francesco Spina e Niccol&ograve; Spina.</p>
+1413,344,124,1583-09-26,1583,9,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 461</p>",<p>Bill of exchange sent from Averardo and Antonio Salviati to Bartolomeo Galilei</p>
+1411,321,124,1583-03-26,1583,3,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 459</p>",<p>Bill of exchange sent to Pier Antonio Bandini and Alfonso Strozzi in favor of Luigi and Francesco Capponi</p>
+1409,325,124,1583-03-26,1583,3,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 459</p>","<p>Bill of exchange sent from Giulio Benci in Florence to Pier Antonio Bandini and Alfonso Strozzi in Lyon, in favor of Luigi and Francesco Capponi.</p>"
+1412,343,124,1583-09-17,1583,9,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 460</p>",<p>Bill of exchange in favor of Jacopo Martelli.</p>
+1632,153,1,,1582,10,,1587,2,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 82-85</p>",<p>He sent letters to Pinelli.</p>
+1238,293,124,,1582,6,,1583,6,Consul of the Florentine Nation in Lyon,false,true,"<p>Picot, Les iteliens &nbsp;en France, p. 96.</p>",<p>He was elected consul of the Florentine Nation.</p>
+1048,95,124,,1582,,,,,Merchant,false,false,"<p>Dubost, La France italienne, p. 222.</p>",<p>He had business with Raffaello Martelli and Lucrezia Cavalcanti.</p>
+1151,112,1,,1582,,,,,Merchant,false,false,"Campitelli, Lucrezia Del Bene, p. 92","<p>He had business in Lyon with Lucrezia Cavalcanti, Girolamo Gondi and Sebastiano Rametti (torinese).</p>"
+1421,365,1,,1582,,,,,Merchant,false,true,"<p>DBI, Bandini Pierantonio</p>",<p>He had business with his aunt Lucrezia Cavalcanti (Del Bene) and Raffaello Martelli</p>
+1416,350,124,1582-08-14,1582,8,1583-09-26,1583,9,Merchant,false,true,"<p>14-8-1582: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 453 - 26-3-1583: Ivi, num. 459 - 17-09-1583: Ivi, num. 460 - 26-9-1583: Ivi, num. 461</p>",<p>14-8-1582: Bill of exchange of Antonio and Averardo Salviati - 26-3-1583: Bill of exchange in favor of Antonio and Averardo Salviati - 17-09-1583: Bill of exchange of Antonio and Averardo Salviati- 26-09-1583: Bill of exchange of Antonio and Averardo Salviati</p>
+1405,329,124,1582-08-14,1582,8,1583-09-26,1583,9,Merchant,false,true,"<p>14-8-1582: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 453 - 26-3-1583: Ivi, num. 459 - 17-9-1583: Ivi, num. 460 - 26-9-1583: Ivi, num. 461</p>","<p>14-8-1582: Bill of exchange sent from Antonio and Averardo Salvati to Giovanni Iacopo Casole and Carlo Marocco in Naples, in favor of Camillo Rucellai in Lyon - 26-3-1583: Bill of exchange in favor of Antonio and Averardo Salviati - 17-9-1583: Bill of exchange sent from Averardo and Antonio Salviati - 26-9-1583: Bill of exchange sent from Averardo and Antonio Salviati.</p>"
+1630,153,122,,1582,3,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 82</p>",<p>He sent a letter to Pinelli. He was with the Franch court.</p>
+1406,340,124,1582-08-14,1582,8,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 453</p>",<p>Bill of exchange sent from Antonio Salviati in favor of Camillo Rucellai in Lyon</p>
+1631,153,192,,1582,9,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 82</p>",<p>He sent a letter to Pinelli. He was with the French court.</p>
+1625,153,118,1581-03-16,1581,3,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 79</p>",<p>He sent a letter to Pinelli. He was with the Court.</p>
+1628,153,192,,1581,7,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 79</p>",<p>He sent a letter to Pinelli.</p>
+1144,111,124,,1581,,,,,Merchant,false,true,"Picot, les italiens en France, p. 96","<p>In Lyon Lorenzo Condio dedicated his ""Medicina filosofica contro la peste"" to Piero Mannelli.</p>"
+1082,79,1,1581-07-30,1581,7,,1583,,Lady-in-waiting to Catherine de' Medici,false,true,"<p>1581: Calderini De Marchi, Jacopo Corbinelli, p. 80</p>
+<p>1582: Campitelli, Lucrezia Del Bene, p. 92&nbsp;</p>
+<p>1583: Dubost, La France italienne, p. 195</p>","<p>1581: She was mentioned in a letter of Jacopo Corbinelli.</p>
+<p>1582: She had business with Raffaello Martelli,Mario Bandini (her nephew), Girolamo Gondi and the Turinese Sebastiano Rametti.</p>
+<p>1583: She was godmother of Jacopo Corbinelli's son.</p>"
+1629,153,1,1581-07-30,1581,7,,1582,2,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 80-82</p>",<p>He sent letters to Pinelli.</p>
+1624,153,1,1581-01-11,1581,1,,,,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 79</p>",<p>He sent a letter to Pinelli.</p>
+1627,153,1,1581-06-01,1581,6,,,,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 79</p>",<p>He sent a letter to Pinelli.</p>
+1626,153,1,1581-04-15,1581,4,,,,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 79</p>",<p>He sent a letter to Pinelli.</p>
+1425,326,124,,1580,,,1600,,Merchant,false,true,"<p>Dubost, La France italienne, p. 139</p>",<p>He lived in Paris in the large house of Del Bene family in rue de Tournon&nbsp;</p>
+1320,79,1,,1580,,,,,Lady-in-waiting to Catherine de' Medici,true,true,,
+1617,573,190,,1580,,,,,Soldier,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 70</p>",<p>He was killed by Florentine killers.</p>
+1623,153,118,1580-12-06,1580,12,1580-12-15,1580,12,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 78, 256-257.</p>",<p>He sent letters to Pinelli.</p>
+1622,153,191,,1580,9,1580-11-18,1580,11,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 76-77</p>",<p>He sent letters to Pinelli.</p>
+996,63,124,,1579,,,,,Post Master,false,false,"<p>Charpin Feugerolles, Les florentins &agrave; Lyon, p. 192</p>",<p>Post Master of the Florentine community of Lyon.</p>
+1620,153,124,1579-11-11,1579,11,,1580,5,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 75</p>",<p>He sent letters to Pinelli. He was in Lyon with the Queen Caterina de' Medici.</p>
+1619,153,1,,1579,3,,1579,10,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 73-74</p>",<p>He sent letters to Pinelli.</p>
+1610,566,1,1578-02-02,1578,2,,,,Soldier,false,false,"<p>N&eacute;gociations diplomatiques de la France avec la Toscane, vol 4, p. 138</p>",<p>He was mentioned in a letter of Sinolfo Saracini to the Gran-Duke Francesco I.</p>
+1618,566,1,,1578,11,,,,Soldier,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 71</p>",<p>He was mentioned in a letter of Jacopo Corbinelli.</p>
+1616,572,1,1578-02-06,1578,2,,,,Clergyman,false,false,"<p>N&eacute;gociations diplomatiques de la France avec la Toscane, vol. 4 p. 143</p>","<p>He was mentioned as ""a poco devoto servitore di Vostra Altezza"" in a letter of Sinolfo Saracini to the Grand Duke Francesco I.</p>"
+1615,571,1,1578-02-02,1578,2,,,,Military leader,false,false,"<p>N&eacute;gociations diplomatiques de la France avec la Toscane, p. 139</p>",<p>He was mentioned in a letter of Sinolfo Saracini to the Grand Duke Francesco I.</p>
+1614,570,1,1578-02-02,1578,2,,,,Exile,false,false,"<p>N&eacute;gociations diplomatiques de la France avec la Toscane, p. 139</p>",<p>He was mentioned in a letter of Sinolfo Saracini to the Grand Duke Francesco I.</p>
+1613,569,1,1578-02-02,1578,2,,,,Military leader,false,false,"<p>N&eacute;gociations diplomatiques de la France avec la Toscane, p. 138</p>",<p>He was mentioned in a letter of Sinolfo Saracini to the Grand Duke Francesco I.</p>
+1612,568,1,1578-02-02,1578,2,,,,Military leader,false,false,"<p>N&eacute;gociations diplomatiques de la France avec la Toscane, p. 138</p>",<p>He was mentioned in a letter of Sinolfo Saracini to the Grand Duke Francesco I.</p>
+1611,567,1,1578-02-02,1578,2,,,,Soldier,false,false,"<p>N&eacute;gociations diplomatiques de la France avec la Toscane, p. 138</p>",<p>He was mentioned in a letter of Sinolfo Saracini to the Grand Duke Francesco I.</p>
+1232,154,124,,1578,,,,,Scholar,false,false,"<p>Picot, Les italiens en France, p. 108.</p>","<p>Paolo Mini dedicated his<em> Aggiunta a la sua Apologia, ovvero Difesa de i Fiorentini</em> to Orazio Capponi.</p>"
+1494,468,124,,1578,6,,1579,6,Consul of the Florentine Nation in Lyon,false,true,"<p>Charpin Feugerolles, Les florentines &agrave; Lyon, p. 192</p>",<p>He was Consul of the Florentine nation in Lyon.</p>
+1424,326,124,,1578,,,1580,6,Merchant,false,true,"<p>Dubost, La France italienne, p. 222 - 1579: Charpin Feugerolles: Les florentines &agrave; Lyon, p. 142</p>",<p>He lived in Lyon and had business with Lucrezia Cavalcanti-Del Bene (who was in Paris) and Luigi Sertini. From a 6-1579 to 6-1580: He was Consul of the Florentine nation in Lyon.</p>
+1122,125,124,,1578,,,,,Merchant,false,false,"Dubost, La France italienne, p. 222",<p>He had business in Lyon with Lucrezia Del Bene.</p>
+1081,79,1,,1578,,,1579,,Lady-in-waiting to Catherine de' Medici,false,true,"<p>1578: Calderini De Marchi, Jacopo Corbinelli, p. 69</p>
+<p>1579: Campitelli, Lucrezia Del Bene, p. 92</p>","<p>1578: She was mentioned in letters of Jacopo Corbinelli.</p>
+<p>1579- She extended his house in Paris.</p>"
+1608,153,1,1577-01-01,1577,1,,,,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 66</p>",<p>He sent a letter to Pinelli.</p>
+1248,156,1,,1577,,,1578,11,Courtesan,false,true,"<p>DBI, ad vocem.</p>",<p>He was guarded by the agents of the Grand-Duke Francesco I de' Medici. He died on 22 November 1578.</p>
+1609,153,1,,1577,4,,1579,1,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 66-73</p>",<p>He sent letters to Pinelli.</p>
+1638,574,1,,1577,12,,,,Exile,false,false,"<p>DBI, Corbinelli Jacopo.</p>",<p>He was killed by agents of the Duke Cosimo I de' Medici.</p>
+1292,173,163,,1577,,,,,Archbishop,false,true,"<p>DBI, ad vocem.</p>",<p>He became Archbishop of Albi.</p>
+1293,173,164,,1576,,,,,Clergyman,false,true,"<p>DBI, ad vocem.</p>",<p>He resides in the castle of Auriol.</p>
+1404,329,124,1576-09-15,1576,9,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 449</p>",<p>Bill of exchange of Antonio Salviati to the heirs of Benedetto Buonvisi</p>
+1415,350,124,1576-09-15,1576,9,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 449</p>",<p>Bill of exchange of Averardo and Antonio Salviati</p>
+1527,552,177,,1576,,,1577,,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 95-96</p>",<p>1576: He was named Mayor - 1577: He hosted King Henry III.</p>
+1607,153,1,,1575,3,,1576,7,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 65-66 - 7-1576: BAM, B 9 inf., &nbsp;c. 173</p>",<p>He sent letters to Pinelli.</p>
+1605,86,135,,1575,1,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, parte 2 cap. 5</p>",<p>He was with the King and his court.</p>
+1604,153,135,,1575,1,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 63</p>",<p>He was with the King and his Court.</p>
+1606,153,124,1575-02-05,1575,2,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 63</p>","<p>He sent a letter to Pinelli. He was named ""Lecteur du Roi"".</p>"
+1024,55,1,2024-07-29,1575,7,,,,Clergyman,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 158",<p>He wrote a letter from Paris to Vincenzo Borghini.</p>
+1503,64,124,,1575,4,,,,Merchant,false,true,"<p>ASF, CS, Serie V, 1090, inserto 2, cc. non numerate.</p>",<p>Financial record of his business in Lyon.</p>
+1291,173,110,,1574,,,,,Archbishop,false,true,"<p>DBI, ad vocem.</p>",<p>He became Archbishop of Aix.</p>
+1460,382,1,,1574,,,,,,false,true,"<p>DBI, Gondi Guidobaldo</p>",<p>Death</p>
+1602,153,124,,1574,10,,1574,11,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 61-62</p>",<p>He sent letters to Pinelli. He has been in Poland.</p>
+1603,153,116,1574-12-15,1574,12,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 62</p>",<p>He sent a letter to Pinelli.</p>
+1070,107,1,,1574,,,1578,,Queen's lady,false,true,"<p>BNF, Fran&ccedil;ais 7856, c. 1133.</p>",<p><em>Fille d'honneur de&nbsp;</em>Caterina de' Medici.</p>
+1277,125,124,,1574,,,1577,,Merchant,true,true,,
+1074,73,124,,1573,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, p. 107 and Doucet, La banque Capponi &agrave; Lyon, p. 6</p>",<p>He helped most deprived persons in Lyon during famine. Death.</p>
+1435,373,1,1572-06-24,1572,6,,1578,1,Nuncio,false,true,"<p>DBI, ad vocem</p>",<p>He moved to France as nuncio</p>
+1601,153,1,,1572,3,1573-10-24,1573,10,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 55-58 - BAM: B 9. inf. cc. 148-176</p>",<p>He sent letters to Pinelli.</p>
+1600,121,1,,1572,3,,,,Courtesan,false,false,"<p>Calderini De Marchi, p. 55</p>",<p>He was mentioned in a letter of Jacopo Corbinelli.</p>
+1121,125,124,,1572,9,,1573,3,Merchant,false,true,"<p>&nbsp;Dubost, La France italienne, p. 228.</p>",<p>He lent money to the French monarchy and had business with Lucrezia Del Bene.</p>
+968,86,1,,1571,,,,,Courtesan,false,true,"<p>DBI, ad vocem</p>","<p>He was named ""lector"" of the King Henri III and member of the Academie du Palais.</p>"
+1408,341,116,1571-12-14,1571,12,,,,Clergyman,false,false,"<p>DBI, ad vocem</p>",<p>Death</p>
+1598,153,118,,1571,8,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 55</p>",<p>He sent a letter to Pinelli.</p>
+1599,153,1,,1571,9,,,,Courtesan,false,true,"<p>BAM, B 9 inf., c. 146r</p>",<p>He sent a letter to Pinelli.</p>
+1434,373,1,,1571,11,,1572,1,Nuncio,false,false,"<p>DBI, ad vocem</p>",<p>He moved to France as extraordinary nuncio</p>
+1433,373,1,,1571,3,,1571,6,Nuncio,false,false,"<p>DBI, ad vocem</p>",<p>He moved to France as extraordinary nuncio</p>
+1076,108,118,,1571,9,,,,Courtesan,false,false,"<p>Picot, les italiens en France, p. 96.</p>",<p>Death.</p>
+1276,125,124,,1571,,,,,,true,true,,
+1252,158,149,,1571,8,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 55.</p>",<p>He reached Jacopo Corbinelli and the French Court.</p>
+1240,108,1,1571-04-25,1571,4,,,,Courtesan,false,false,"<p>ASMo, Archivio Segreto Estense, Casa e Stato, Carteggio tra principi estensi, b.162</p>","<p>His name appears in a letter of Cardinal Luigi d'Este to the Duke Alfonso II d'Este: ""Luca Mannelli Fiorentino [...] mi pare che sia sempre stato reputato per uno dei capi principali dei ribelli del Duca di Fiorenza"".</p>"
+1143,111,124,,1571,,,,,Merchant,false,true,"Picot, les italiens en France, p. 96",<p>He had business in Lyon.</p>
+1594,153,1,,1570,9,1570-11-09,1570,11,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 51</p>",<p>He sent letters to Vincenzo Pinelli.</p>
+1120,125,124,,1570,,,,,Merchant,false,false,"Dubost, La France italienne, p. 229",<p>He had business in Lyon with Del Bene family.</p>
+1250,158,1,,1570,,,1571,,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 53.</p>","<p>He lived with Jacopo Corbinelli and Andrea Rinieri, attending the French Court.</p>"
+1595,153,188,1570-11-26,1570,11,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 51-52</p>",<p>He took part at the marriage of the King Charles IX.</p>
+1009,72,124,,1570,,,,,Consul of the Florentine Nation in Lyon,false,true,"<p>Picot, Les italiens en France, p. 107.</p>",<p>He had business in Lyon and he's appointed Consul of the Florentine Nation in Lyon</p>
+1596,153,1,1570-12-05,1570,12,1571-08-06,1571,8,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 52-54 - &nbsp;(6-8-1571) BAM: B 9 inf., c. 144r</p>",<p>He sent letters to Pinelli.</p>
+1597,153,189,1570-07-09,1570,7,,,,Courtesan,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 50</p>","<p>In a letter to Pinelli (10 July), Corbinelli wrote that he has just arrived in Paris from Gaillon.</p>"
+1523,550,1,,1570,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 94-95</p>",<p>He had business in Paris.</p>
+1593,153,124,1570-07-28,1570,7,,,,Scholar,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 51</p>",<p>He sent a letter to Pinelli.</p>
+1251,121,1,,1570,,,1571,,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 53.</p>","<p>He lived in Paris with Jacopo Corbinelli and Luigi Rinieri, attending the French Court.</p>"
+1339,157,124,1570-07-28,1570,7,,,,Merchant,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 40.</p>",<p>He sent a letter to Vincenzo Pinelli.</p>
+1290,173,126,,1570,,,,,Clergyman,false,true,"<p>DBI, ad vocem.</p>",<p>He obtained the abbey of Saint-Victor.</p>
+1402,327,124,1569-03-01,1569,3,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 437</p>","<p>Bill of exchange sent from Giovanni Francesco Cavalcanti from Florence to Bernardo Barbigi, Domenico Barbigi and Niccol&ograve; Dell'Ancisa in Lyon in favor of Pier Antonio Bandini</p>"
+1482,153,1,1569-03-30,1569,3,,1569,7,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 44-47.</p>",<p>He sent letters to Vincenzo Pinelli. In July he moved to England.</p>
+1340,157,124,,1569,,,,,Merchant,true,false,,
+1483,439,124,,1569,3,,,,Merchant,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 44</p>",<p>He was mentioned in letters of Jacopo Corbinelli. Pierantonio Bandini accused Corbinelli of having diverted his son Francesco from business to devote himself to literature.&nbsp;</p>
+1592,153,1,1569-10-16,1569,10,1570-07-10,1570,7,Courtesan,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 47-51</p>",<p>He was named tutor of Duke of Alen&ccedil;on. He sent letters to Pinelli.</p>
+1525,551,177,,1569,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 95-96</p>","<p>During the wars of religion, he helped defending the city.</p>"
+955,70,124,,1569,,,,,Banker,false,true,"<p>Picot, Les italiens en France, p. 107.</p>",<p>He had business in Lyon.</p>
+1403,328,124,1569-03-01,1569,3,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 437</p>","<p>Bill of exchange sent from Giovanni Francesco Cavalcanti to Bernardo Barbigi, Domenico Barbigi and Niccol&ograve; Dell'Ancisa in Lyon in favor of Pier Antonio Bandini</p>"
+1639,440,194,,1569,6,,,,Exile,false,false,"<p>BAM, B 9 inf., cc. 95r-99r</p>",<p>He was killed by agents of the Duke Cosimo I de' Medici.</p>
+1401,326,124,1569-03-01,1569,3,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 437</p>","<p>Bill of exchange sent from Giovanni Francesco Cavalcanti of Florence to Bernardo Barbigi, Domenico Barbigi and Niccol&ograve; Dell'Ancisa in Lyon in favor of Pier Antonio Bandini</p>"
+1400,325,124,1569-03-01,1569,3,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 437</p>","<p>Bill of exchange from Giovanni Francesco Cavalcanti of Florence to Domenico Barbigi, Bernardo Barbigi and Niccol&ograve; Dell'Ancisa in Lyon in favor of Pier Antonio Bandini</p>"
+1481,153,124,1569-03-14,1569,3,,,,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 43</p>",<p>He sent a letter to Scipione d'Affitti.</p>
+1080,79,1,,1568,,,1569,,Lady-in-waiting to Catherine de' Medici,false,true,"<p>1568: Dubost, La France italienne, p. 138</p>
+<p>1569: Calderini De Marchi, Jacopo Corbinelli, pp. 41-42.</p>","<p>1568: She bought a house in Paris.</p>
+<p>1569: She was mentioned in letters of Jacopo Corbinelli.</p>"
+1247,153,161,,1568,11,,,,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 41.</p>","<p>In a letter to Vincenzo Pinelli, he wrote about his journey from Lyon to Paris, saying he stayed in Moulins for a few days.</p>"
+1431,341,110,1568-02-06,1568,2,,,,Clergyman,false,false,"<p>Cheney, Catholic Hierarchy, ad vocem</p>",<p>He was appointed Archbishop of Aix</p>
+1253,158,124,,1568,6,,1568,10,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 40.</p>",<p>He was mentioned in letters of Jacopo Corbinelli.</p>
+1246,153,124,1568-06-27,1568,6,1568-10-26,1568,10,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 40-41.</p>",<p>He sent letters to Vincenzo Pinelli.</p>
+1243,147,1,1568-09-11,1568,9,,,,Merchant,false,false,"<p>BNF, Italien 1726, cc. 268r-269v.</p>",<p>His name appears in a letter of Giovanni Correr to the Doge of Venice.</p>
+1480,153,1,1568-11-12,1568,11,1569-01-25,1569,1,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 42-43.</p>",<p>He sent letters to Vincenzo Pinelli.</p>
+1249,157,124,,1568,,,,,Merchant,false,true,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 40.</p>",<p>1568: He appears in a letter of Jacopo Corbinelli.</p>
+1636,156,193,,1568,11,,,,Military leader,false,false,"<p>BAM, B 9 inf., c. 7r</p>",<p>He was engaged in the siege of a castle near Moulins. He was mentioned in a letter of Jacopo Corbinelli.</p>
+1635,440,193,,1568,11,,,,Soldier,false,false,"<p>BAM, B 9 inf., c. 7r</p>",<p>He was engaged in the siege of a castle near Moulins. He was mentioned in a letter of his brother Jacopo.</p>
+1245,153,1,1568-01-05,1568,1,,1568,4,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 38-39.</p>",<p>He sent letters from Paris to Vincenzo Pinelli and Francesco Bandini.</p>
+1254,158,161,,1568,11,,,,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 41.</p>","<p>In his journey from Lyon to Paris with Jacopo Corbinelli, he stayed in Moulins for a few days.</p>"
+1317,80,1,1567-05-04,1567,5,,,,,false,false,"<p>Campitelli, Un diplomatico in esilio, p. 258.</p>",<p>He was mentioned in letters of Catherine de Medici and the King Charles IX to the Duke of Florence Cosimo I de' Medici.</p>
+1324,153,124,,1566,3,1566-09-30,1566,9,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 34-37.</p>",<p>He sent letters to Vincenzo Pinelli.</p>
+1634,440,1,,1566,1,,,,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 33</p>",<p>He was mentioned in a letter of his brother Jacopo.</p>
+1323,153,1,,1566,2,,,,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, pp. 32-33.</p>","<p>In a letter to Vincenzo Pinelli (10-2-1566), Corbinelli told that he was going to move to Paris.</p>"
+1229,153,124,1566-02-10,1566,2,,,,Exile,false,false,"<p>Calderini De Marchi, Jacopo Corbinelli, p. 32.</p>",<p>He sent a letter to Vincenzo Pinelli.</p>
+1316,80,1,1565-12-15,1565,12,1566-03-27,1566,3,Agent of the Duke Ottavio Farnese,false,false,"<p>ASPr: Epistolario Scelto, Cavalcanti Giovanni 12, Lettere 2-4.</p>",<p>He sent letters to the Duke of Parma Ottavio Farnese.</p>
+1322,153,1,,1565,,,,,Exile,true,false,,
+1257,70,124,,1565,,,1568,,,true,true,,
+1075,108,124,1564-06-29,1564,6,,,,Merchant,false,false,"<p>ASPr: Epistolario Scelto, Cavalcanti Giovanni 12, Lettera 5.</p>",<p>1564: He was mentioned in a letter of Giovanni Cavalcanti.</p>
+1529,553,177,,1564,,,,,Clergyman,false,true,"<p>Picot, Les italiens en France, pp. 95-96</p>",<p>He was a canon of ST. Hilary in Poitiers.</p>
+1513,108,1,,1564,5,,,,Merchant,false,false,"<p>ASPr, Epistolario Scelto, Cavalcanti Giovanni 12, Lettera 5</p>",<p>We know that he was in Paris from a letter of Giovanni Cavalcanti (June 1564).</p>
+954,70,124,,1564,,,,,Banker,false,true,"Picot, Les italiens en France, p. 107",<p>He had business in Lyon.</p>
+1399,325,124,1564-04-12,1564,4,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 428</p>",<p>Bill of exchange sent from Vincenzo Sani of Florence to Pier Antonio Bandini in Lyon against Filippo Salviati</p>
+1079,79,130,,1564,7,,,,,false,true,"<p>Jouan, Voyage du Roi Charles IX en France (1865), p. 288.</p>",<p>She gave hospitality to the Queen Catherine de' Medici and his son the King Charles IX.</p>
+1398,324,124,1564-04-12,1564,4,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 428</p>",<p>Bill of exchange sent from Vincenzo Sani in Florence to Pier Antonio Bandini in Lyon against Filippo Salviati</p>
+1242,147,1,1563-08-29,1563,8,1563-12-03,1563,12,Merchant,false,false,"<p>ASMo, Archivio Segreto Estense, Cancelleria Sez. Estero, Carteggio di oratori, agenti e corrispondenti fuori d'Italia, Francia, busta 38</p>",<p>His name appears in letters of the ambassador Giulio Alvarotti to the Duke Alfonso II d'Este. Gondi gives financial advices to Alvarotti.</p>
+952,85,1,,1563,,,,,Merchant,false,false,"Picot, les italiens en France, p. 90",<p>Death.</p>
+1312,67,1,,1563,,,,,,false,true,"<p>DBI, ad vocem.</p>",<p>Death.</p>
+1027,80,124,1563-04-25,1563,4,1564-07-29,1564,7,,false,false,"<p>25-4-1563: Campitelli, un diplomatico in esilio, p. 258-</p>
+<p>29-7-1564: ASPr: Epistolario Scelto, Cavalcanti Giovanni, 12, lettera 5.</p>","<p>He sent letters from Lyon.</p>
+<p>25-4-1563: He sent a letter from Rome to the Duke Ottavio Farnese, telling him that he was going to move to France after the death of his brother-in-law Albizzo Del Bene.</p>
+<p>29-7-1564: He sent a letter to Cardinal Alessandro Farnese.</p>"
+1318,79,124,1563-04-25,1563,4,1564-07-29,1564,7,,false,true,"<p>ASPr, Epistolario Scelto, Cavalcanti Giovanni 12.</p>",<p>She was mentioned in letters of his brother Giovanni Cavalcanti.</p>
+967,86,1,,1562,,,,,Courtesan,false,false,"DBI, ad vocem",<p>In Paris he was entrusted by the Queen Caterina de' Medici with a diplomatic mission to Cosimo I de' Medici duke of Florence.</p>
+1476,429,173,,1562,,,,,Merchant,false,false,"<p>DBI, ad vocem</p>",<p>He was hosted by the Duke of Savoy.</p>
+1477,429,124,1562-08-02,1562,8,1564-05-24,1564,5,Scholar,false,true,"<p>DBI, ad vocem</p>",<p>He sent letters to Alfonso Cambi e Francesco Giuntini.</p>
+1432,373,171,,1562,,,,,Clergyman,false,false,"<p>DBI, ad vocem</p>",<p>He was appointed Bishop of Saint-Papoul</p>
+1241,147,160,1561-12-31,1561,12,,,,Maître d'hôtel of the King,false,false,"<p>ASMo, Archivio Segreto Estense, Cancelleria Sez. Estero, Carteggio di oratori, agenti e corrispondenti fuori d'Italia, Francia, b. 36.</p>",<p>His name appears in a letter of Giulio Alvarotti and Alessandro Fiaschi to the Duke Alfonso II d'Este.</p>
+1430,341,163,1561-05-09,1561,5,,,,Clergyman,false,false,"<p>Cheney, Catholic Hierarchy, ad vocem</p>",<p>He was appointed administrator of Albi</p>
+1475,429,172,,1561,,,,,Merchant,false,false,"<p>DBI, ad vocem</p>",<p>He was hosted by the Duke of Savoy</p>
+1289,173,162,,1561,,,,,Bishop,false,true,"<p>DBI, ad vocem.</p>",<p>He became Bishop of B&eacute;ziers with the approval of the Pope Pio IV and Cosimo I de' Medici.</p>
+1397,316,124,1560-11-14,1560,11,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 423</p>",<p>Giovanni Mannelli from Naples appointed his brother Filippo as his Prosecutor in Lyon</p>
+1023,55,125,,1560,5,,,,Clergyman,false,,"De La Rochette, Histoire des éveques de Macon, 2 voll., ad vocem",<p>Bishop of Macon.</p>
+1228,152,124,1560-12-10,1560,12,,,,Agent of the Cardinal François de Tournon,false,false,"<p>Gaetano Milanesi, Alcune lettere di Donato Giannotti nuovamente trovate, p. 46.</p>",<p>He moved to Lyon with the Cardinal Fran&ccedil;ois de Tournon.</p>
+1457,94,1,1560-09-10,1560,9,,,,Merchant,false,true,"<p>DBI, ad vocem</p>",<p>Death</p>
+1641,564,195,1560-01-22,1560,1,,,,Piero Strozzi's widow,false,false,"<p>Dall'Aglio, Cordoglio e speranza</p>",<p>She sent a letter to Roberto Strozzi.</p>
+1163,126,124,,1560,7,,,,Merchant,false,true,"Picot, les italiens en France, p. 101",<p>He had claims against the King.</p>
+1511,108,124,,1559,,,,,Merchant,false,true,"<p>Focarile, I Mannelli di Firenze, pp. 87-88</p>",<p>He commissioned Giorgio Vasari four paintings to decorate his residence in Lyon.</p>
+1524,551,177,,1559,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 95-96</p>",<p>He was alderman of Poitiers</p>
+1210,150,151,1558-06-20,1558,6,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, pp. 281-282",<p>He died at the siege of Thionville</p>
+1288,173,151,,1558,6,,,,Soldier,false,false,"<p>DBI, ad vocem.</p>",<p>He took part in the siege fo Thionville with Piero Strozzi.</p>
+1301,111,124,1558-08-22,1558,8,,1559,6,Consul of the Florentine Nation in Lyon,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 418</p>",<p>He appointed prosecutor in Florence his brother Filippo Mannelli (8-1558). He was Consul of the Florentine Nation in Lyon (from 6-1558 to 6-1559)</p>
+1512,108,1,1558-02-28,1558,2,,,,Merchant,false,false,"<p>ASF, CS, Serie III, 96, c. 186</p>",<p>He sent a letter to Roberto Strozzi.</p>
+1516,486,178,,1558,,,,,Clergyman,false,true,"<p>Picot, Les italiens en France, pp. 95-96.</p>",<p>He was named Bishop of Nimes.</p>
+1446,395,1,1558-05-12,1558,5,,,,,false,false,"<p>Simonetta, Caterina de' Medici, p. 283</p>",<p>Catherine de' Medici gave her a dowry of 50000 lire</p>
+1141,76,124,,1558,,,1560,6,Merchant,false,true,"1558: Picot, les italiens en France, p.106
+-1559: Picot, Les italiens en France, p. 107","<p>1558- He had business with Tommaso Rinuccini, Lorenzo Capponi and Albizzo Del Bene -from 6-1559 to 6-1560: Consul of the Florentine nation in Lyon.</p>"
+1447,396,1,1558-10-04,1558,10,1559-01-13,1559,1,Courtesan,false,false,"<p>Simonetta, Caterina de' Medici, pp. 283-284</p>",<p>10-1558: He was mentioned in a letter of Giovambattista Gondi - 1-1559: He sent a letter to his uncle Roberto Strozzi</p>
+1448,396,151,1558-06-29,1558,6,,,,Courtesan,false,false,"<p>Simonetta, Caterina de' Medici, p. 283</p>",<p>He was mentioned in a letter of Giovanbattista Gondi&nbsp;</p>
+1396,323,124,1558-08-22,1558,8,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 418</p>",<p>Raffaello Doni from Lyon appointed his brother Jacopo as his Prosecutor in Florence</p>
+966,86,1,,1558,,,,,Courtesan,false,false,"DBI, ad vocem",<p>He obtained from the King the Abbey of Belleville.</p>
+1640,55,150,1558-07-31,1558,7,,,,Agent of the Florentine exiles,false,false,"<p>Dall'Aglio, Cordoglio e speranza. In margine a due documenti su Caterina de' Medici, Piero Strozzi e la nazione fiorentina di Lione.</p>",<p>He sent a letter to the Florentine Nation in Lyon.</p>
+1158,120,124,,1558,,,,,Merchant,false,true,"Picot, les italiens en France, p.106","<p>He had business with Albizzo Del Bene, Piero and Lorenzo Capponi.</p>"
+1178,145,151,1558-06-25,1558,6,,,,Agent of the Strozzi family,false,false,"<p>Simonetta, Caterina de' Medici, pp. 281-283</p>",<p>He sent a letter to Roberto Strozzi.</p>
+1188,147,1,1558-06-29,1558,6,1558-10-04,1558,10,Agent of Roberto Strozzi,false,false,"<p>Simonetta, Caterina de' Medici, p. 284; Dall'Aglio, Cordoglio e speranza.</p>",<p>He sent a letters to Roberto Strozzi</p>
+1073,73,124,,1558,,,,,Merchant,false,true,"<p>Picot, Les italiens en France, p. 106.</p>","<p>He had business with Piero Capponi, Albizzo Del Bene and Tommaso Rinuccini.</p>"
+1642,145,153,1558-06-29,1558,6,,,,Agent of the Strozzi family,false,false,"<p>Dall'Aglio, Cordoglio e speranza</p>",<p>He sent a letter to Roberto Strozzi.</p>
+1209,150,140,,1558,1,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 280",<p>He was mentioned in a letter of Odet de Selve</p>
+1458,94,1,,1557,,,1559,,Merchant,true,true,,
+1072,73,124,,1557,,,,,,true,true,,
+1420,305,1,,1557,,,1561,,Courtesan,false,false,"<p>DBI, ad vocem</p>","<p>He's appointed ""Almoner"" of the Queen</p>"
+1502,64,124,,1557,8,,1558,5,Merchant,false,true,"<p>1557: ASF, CS, Serie V, 1090, inserto 2, cc. non numerate - 1558: BNF (Paris), Fran&ccedil;ais 20537, c. 90r.</p>",<p>1557: He was mentioned in a contract between Palla Strozzi and Niccol&ograve; Biffoli - 1558: He sent a letter to Fran&ccedil;ois de Guise.</p>
+1346,111,124,,1557,,,,,Merchant,true,true,,
+1394,321,124,1556-12-22,1556,12,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 414</p>",<p>Luigi Capponi and Bernardo Pandolfi are witnesses of a notarial deed.</p>
+1393,320,124,1556-12-22,1556,12,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, nu. 414</p>",<p>Notarial deed in Lyon between Alessandro Pitti and the Salviati Bank</p>
+1142,111,124,,1556,,,,,Merchant,false,true,"Dubost, La France italienne, p. 218",<p>He had business in Lyon with other Florentine merchants.</p>
+1541,555,124,,1556,8,1556-09-05,1556,9,Agent of the Florentine exiles,false,false,"<p>DBI, ad vocem; DBI, Carafa Carlo</p>",<p>He was in Lyon with Cardinal Carlo Carafa.</p>
+1540,555,122,1556-06-16,1556,6,1556-08-11,1556,8,Agent of the Florentine exiles,false,false,"<p>DBI, ad vocem; DBI, Carafa Carlo</p>",<p>He went to France with the nephew of Pope Paul IV.</p>
+1445,394,126,1556-04-08,1556,4,,,,Military leader,false,false,"<p>Simonetta, Caterina de' Medici, p. 273</p>",<p>He sent a letter to Piero Strozzi</p>
+1456,94,1,,1556,,,,,Merchant,false,true,"<p>DBI, ad vocem</p>",<p>He bought a huge palace in Paris</p>
+1022,55,117,,1556,4,,,,Clergyman,false,false,"Biron, Dictionnaire d'Histoire et de Géographie ecclésiastiques, vol. 7, ad vocem",<p>Bishop of Bazas.</p>
+1208,150,1,,1556,6,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 274",He accompanied cardinal Carafa in France
+1515,486,1,,1556,,,,,Clergyman,false,false,"<p>Picot, Les italiens en France, pp. 95-96.</p>",<p>He was named bishop of Lod&egrave;ve.</p>
+948,85,124,1556-08-07,1556,8,1559-07-19,1559,7,Banker,false,true,"<p>1556: ASP, Carteggio Farnesiano e Borbonico Estero, Roma, Busta 439.20, fasc. I, cc. 15r-16v - 1557: Doucet, Le grand parti de Lyon, pp. 473-513- 5-1537: BNP, Fran&ccedil;ais, 20537, c. 98r - 8-1557: BNP, Fran&ccedil;ais, 20520, cc. 77r-v - 1558: Picot, Les Italiens en France, p. 106 - 1559: ASP, Epistolario Scelto, Cavalcanti Giovanni, n. 5.</p>","<p>1556: He was mentioned in a letter of Paolo Toscano to Cardinal Alessandro Farnese - 1557: Del Bene sold the Guadagni Bank (which he preside over) to the Capponi family - 5-1557: He sent a letter to Cardinal Charles de Guise - 8-1557: He sent letters to Cardinal Fran&ccedil;ois de Tournon and Cardinal Charles de Guise - 1558: He had business with Tommaso Rinuccini, Piero and Lorenzo Capponi - 1559: He was mentioned in a letter of Giovani Cavalcanti.</p>"
+1231,56,138,1556-04-18,1556,4,,,,Courtesan,false,false,"<p>Bramanti, Luigi Alamanni, p. 11</p>",<p>Death.</p>
+1395,322,124,1556-12-22,1556,12,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 414</p>",<p>Luigi Capponi and Bernardo Pandolfi are witnesses in Lyon of a notarial deed</p>
+1206,150,153,,1555,10,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 269",He was convoked by the King
+1211,151,122,1555-03-22,1555,3,,,,Agent of the Strozzi family,false,false,"<p>Simonetta, Caterina de' Medici, pp. 263-264</p>",He sent a letter to Piero Strozzi
+1119,56,112,1555-12-05,1555,12,,,,Courtesan,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 186.</p>",<p>Alamanni wrote a letter to Alessandro Farnese.</p>
+1390,111,124,,1555,,,,,Merchant,true,true,,
+1205,150,134,1555-07-05,1555,7,1555-07-30,1555,7,Military leader,false,false,"Simonetta, Caterina de' Medici, pp. 268-269",He sent a letter to Montmorency (5/7); He sent a letter to Caterina de' Medici (30/7)
+1300,178,124,,1555,,,1562,10,Merchant,false,false,"<p>Orlandi, Affaires et petite vanit&eacute;, pp. 341-357.</p>",<p>He has been trading for seven years in the textile and food sectors. He had also business affaires with Gondi and Capponi. He wrote letters from Lyon.</p>
+1207,150,126,,1555,11,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 269",<p>He received licence to go to Italy</p>
+1455,94,130,,1555,,,,,Merchant,false,,"<p>Picot, Les italiens en France, p. 90</p>",<p>He sold to Albizzo Del Bene the castle of Perron</p>
+947,85,130,,1555,,,,,Merchant,false,false,"Picot, les italiens en France, p. 90",<p>Del Bene bought the Castle of Perron from Guidobaldo Antonio Gondi.</p>
+1509,108,124,,1554,,,,,Merchant,false,true,"<p>Focarile, I Mannelli di Firenze, p. 36 - Simoncelli, La Repubblica fiorentina in esilio, pp. 114, 171</p>","<p>He was banished from Florence by the Duke Cosimo I - In may and June 1554, he was mentioned in letters of ambassadors (from Niccol&ograve; da Lorena to the Duke Cosimo I and from the nuncio in France Sebastiano Gualtiero to cardinal Innocenzo Del Monte)</p>"
+1391,316,124,1554-04-07,1554,4,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 412 - 1554: Focarile, I Mannelli di Firenze, p. 36</p>",<p>Piero Mannelli appointed his brother Filippo as his executor. In this year he was banished from Florence by the Duke Cosimo I.</p>
+1474,429,124,,1554,,1560-06-06,1560,6,Scholar,false,true,"<p>DBI, ad vocem</p>",<p>He collaborated with the typographer Rouille. He studied and annotated Dante's works. He published some of his works. 6-1560: He was mentioned in a letter of Giovanni Andrea Dell'Anguillara.</p>
+1313,274,124,,1554,,,,,Marriage,false,true,"<p>Picot, Les italiens en France, p. 107.</p>",<p>She married Lorenzo Capponi.</p>
+1118,56,1,1554-09-30,1554,9,,,,Courtesan,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 184-185.</p>",<p>Alamanni wrote a letter to Ercole Gonzaga.</p>
+1388,111,124,1554-04-07,1554,4,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 412</p>",<p>Piero Mannelli appointed his brother Filippo as his executor</p>
+1285,76,124,,1554,,,1557,,,true,true,,
+1389,111,124,,1553,,,,,Merchant,true,true,,
+1510,108,124,,1553,,,,,Merchant,true,true,,
+1204,150,144,,1553,10,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 246",<p>He was mentioned in a letter of Claudio Tolomei (sienese ambassador)</p>
+1140,76,124,,1553,,,,,Merchant,false,true,"Picot, Les italiens en France, p. 107",<p>He had business in Lyon.</p>
+1392,316,124,,1552,,,1553,,Merchant,true,true,,
+1203,150,148,,1552,11,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 245",<p>He was mentioned in a letter of Claudio Tolomei (sienese ambassador)</p>
+1227,152,124,1552-09-28,1552,9,,,,Agent of the Cardinal François de Tournon,false,false,"<p>Soldini, Les R&eacute;publiques de Donato Giannotti (phd thesis), p. 368</p>",<p>He moved to Lyon with Cardinal Fran&ccedil;ois de Tournon.</p>
+1071,73,124,,1552,6,,1556,6,Merchant,false,true,"<p>1552-1553: Orlandi, Le Grand Parti - 1553-1554: Picot, Les italiens en France, pp. 106-107 - 1555-1556: Doucet, La banque Capponi &agrave; Lyon, p. 6.</p>",<p>from 6-1552 to 6-1553: He was Consul of the Florentine nation in Lyon - 1553: He became a naturalized French - 1554: He married Elena Guadagni - from 6-1555 to 6-1556: He was Consul of the Florentine nation in Lyon.</p>
+1237,56,153,1552-09-06,1552,9,,,,Courtesan,false,false,"<p>Bramanti, Luigi Alamanni, p. 182.</p>",<p>He wrote a letter (unknown addressees).</p>
+1387,317,124,1552-05-16,1552,5,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 409</p>",<p>Piero Mannelli appointed his brother Ippolito as his Prosecutor.</p>
+1386,111,124,1552-05-06,1552,5,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 409</p>",<p>Piero Mannelli appointed his brother Ippolito as his Prosecutor</p>
+1468,428,124,1552-09-08,1552,9,,,,Merchant,false,true,"<p>Orlandi, Le Grand Parti</p>",<p>He signed an act in Lyon with the French notary Claude Marchant</p>
+1461,94,118,,1551,,,,,Family reasons,false,false,"<p>DBI, Gondi Maria</p>",<p>He was in Blois to attend to the wedding of his daughter Maria with the count Nicolas Grillet</p>
+1192,149,118,,1551,2,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 232",<p>He was mentioned in a letter from Luigi Capponi (Florentine ambassador).</p>
+1021,155,124,,1551,,,,,Scholar,false,true,"Picot, les italiens en France, p. 96","<p>In Lyon Guillaume Roville (librarian) dedicated his edition of the ""Rime"" of Petrarca to Giovanni Mannelli</p>
+<p>&nbsp;</p>"
+1202,150,124,,1551,5,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 233",<p>He sent a letter to the French King Henri II</p>
+1496,108,124,,1551,6,,1552,6,Consul of the Florentine Nation in Lyon,false,true,"<p>ASF, CS, Serie V, inserto 2.</p>","<p>in the role of Consul of the Florentine nation in Lyon, he sign a note with Palla Strozzi and Giovan Francesco Bini (22-4-1552).</p>"
+1116,56,114,1551-07-23,1551,7,,,,Ambassador,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 181","<p>After his mission to Genoa as ambassador of Fran&ccedil;ois I, Alamanni wrote a letter to the Doge of Genoa.</p>"
+1193,149,126,1551-09-04,1551,9,,,,Military leader,false,false,"<p>Simonetta, Caterina de' Medici, p. 236</p>",<p>He sent a letter to Catherine de' Medici</p>
+1385,315,124,1551-12-30,1551,12,,,,merchandising,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 408</p>",<p>Gigli had a debt to Girolamo Panicati and Filippo Mannelli</p>
+1442,379,126,,1551,8,,,,Military leader,false,false,"<p>Simonetta, Caterina de' Medici, p. 236.</p>",<p>He was mentioned in a letter of Leone Strozzi to Catherine de' Medici. Corso conspired against Leone Strozzi who killed him.</p>
+1463,382,118,,1551,,,,,Family reasons,false,false,"<p>DBI, Gondi Maria</p>",<p>She was in Blois to attend to the wedding of her daughter Maria with the count Nicolas Grillet</p>
+1384,316,124,1551-12-30,1551,12,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, 408</p>",<p>Girolamo Panicati appointed Filippo Mannelli as his Prosecutor in Lyon</p>
+1115,56,1,1550-06-30,1550,6,,,,Master of the House of the Queen Caterina de' Medici,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 175-178.</p>",<p>He wrote a letter to Benedetto Varchi.</p>
+1485,462,124,,1550,,,1570,,Post Master,false,true,"<p>Picot, Les italiens, p. 98.</p>",<p>Post Master of the Florentine community in Lyon.</p>
+1501,64,124,,1550,,,1553,7,Merchant,false,true,"<p>ASF, CS, Serie V, 1090, inserto 2, cc. non numerate.</p>","<p>Documents, letters and financial records of his business in Lyon.</p>"
+1069,127,124,,1550,,,,,Merchant,false,true,"Picot, Les italiens en France, p. 116",<p>Death.</p>
+1497,108,124,,1550,6,,1551,6,,true,true,,
+1517,487,1,,1550,,,,,Courtesan,false,true,"<p>Histoire et dictionnaire des guerres de religion, p. 882.</p>","<p>He was ""panetier"" of Henry II. He died in 1554 when he was at the service of Piero Strozzi in Italy.</p>"
+945,85,124,,1550,1,,1555,,Banker,false,true,"François, Albisse Del Bene, p. 337","<p>Del Bene became the Superintendent of french finances in Italy, Germany and other countries. In 1555 he created the Grand Parti of Lyon.</p>"
+1137,110,124,,1549,,,,,Merchant,false,true,"Picot, les italiens en France, p. 96",<p>He had business in Lyon.</p>
+1419,305,1,,1549,,,,,Clergyman,false,false,"<p>DBI, ad vocem</p>",<p>The diocese of Saint-Papoul is assigned to him. He moved to Paris.</p>
+1479,108,124,,1549,6,,1550,6,Consul of the Florentine Nation in Lyon,false,true,"<p>Biblioteca Estense Universitaria (BEUMo), Autografoteca Campori, Ridolfi Luca Antonio, Fasc. II, c. 42v</p>",<p>He was appointed Consul of the Florentine Nation in Lyon.</p>
+995,101,124,,1549,,,,,Banker,false,false,"Picot, les italiens en France, p. 96",<p>He had business in Lyon.</p>
+1590,564,187,,1548,1,,,,Wife of Piero Strozzi,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 146</p>","<p>She left Venice for France, with her husband Piero Strozzi.</p>"
+1443,381,1,,1548,,,,,Agent of the Medici family,false,false,"<p>Simonetta, Caterina de' Medici, pp. 220, 232</p>","<p>Friend of the Strozzi family, he became a secret agent working for the Medici family</p>"
+1282,110,124,,1548,,,,,,true,true,,
+1591,150,187,1548-01-18,1548,1,,,,Military leader,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 146</p>",<p>He was mentioned in a letter of Giulio Alvarotti.</p>
+1191,149,126,,1548,3,,,,Military leader,false,false,"Dall'Aglio, L'assassino del duca, p. 259",He sent a letter to his brother Piero
+1531,553,124,,1548,,,,,Artist,false,true,"<p>Calafati, Entre Florence et la France, p. 13</p>",<p>He worked in the house of Cardinal Fran&ccedil;ois de Tournon.</p>
+1589,565,186,,1548,10,,,,Soldier,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 133</p>",<p>He stayed at the bedside of Francesco de' Pazzi.</p>
+1588,561,186,,1548,10,,,,Military leader,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 133</p>",<p>Death.</p>
+1587,564,1,,1548,10,,,,Wife of Piero Strozzi,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 133</p>",<p>She sent a letter to Clemenza Martelli.</p>
+1478,85,124,,1548,,,,,Merchant,false,true,"<p>DBI, Ridolfi Lucantonio</p>",<p>He welcomed the King Henri II in Lyon with Lucantonio Ridolfi</p>
+1473,429,124,,1548,,,1551,,Merchant,false,true,"<p>DBI, ad vocem</p>",<p>He was scholar and merchant. 1548: He welcomed the King Henry II in Lyon with Albizzo Del Bene - from 6-1548 to 6-1549: He was appointed Consul of the Florentine Nation in Lyon - 1550-1551: He collaborated with the French typographer Rouille</p>
+1439,376,124,,1548,,,,,Musician,false,true,"<p>DBI, Aiolli Francesco</p>",<p>He was the organist at Notre-Dame-de Confort after the death of Francesco Aiolli</p>
+1508,155,124,,1548,,,1550,,Scholar,true,true,,
+1543,150,181,,1547,3,,1547,4,Military leader,false,false,"<p>DBI, ad vocem</p>",<p>He went to France for the funeral of the King Fran&ccedil;ois I.</p>
+1200,150,147,,1547,8,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 203",<p>He was mentioned in a letter of Giovan Battista Ricasoli (Florentine ambassador)</p>
+1201,150,122,,1547,9,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 206",He sent a letter to his brother Roberto
+1429,341,162,1547-12-07,1547,12,,,,Clergyman,false,false,"<p>Cheaney, Catholic Hierarchy, ad vocem</p>",<p>He was appointed Bishop of B&eacute;ziers</p>
+1544,150,1,,1547,5,,1547,6,Military leader,false,false,"<p>DBI, ad vocem</p>",<p>He was in France for the funeral of the King Fran&ccedil;ois I.</p>
+1504,155,124,1547-11-11,1547,11,,,,Scholar,false,true,"<p>Lo Re, Lucantonio Ridolfi tra Firenze e Lione, p. 102</p>",<p>He was mentioned in a letter of his friend Lucantonio Ridolfi sent to Benedetto Varchi.</p>
+1059,67,1,,1547,,,,,,false,true,DBI ad vocem,<p>He sold a house in Paris to Piero Strozzi.</p>
+1542,555,150,,1547,7,,,,Merchant,false,false,"<p>DBI, ad vocem.</p>","<p>He attended the coronation of Henri II and was named ""chevalier de Roi"".</p>"
+1545,555,1,,1547,5,,1547,6,Merchant,false,false,"<p>DBI, ad vocem</p>",<p>He was in France with his brother Piero for the funeral of the King Fran&ccedil;ois I.</p>
+1199,150,150,,1547,7,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, pp. 198-199","<p>He was mentioned in a letter of Giovan Battista Ricasoli (Florentine ambassador). He attended the coronation of King Henri II and was named ""chevalier de Saint-Michel"".</p>"
+965,86,1,,1547,,,,,Courtesan,false,false,"DBI, ad vocem",<p>He was named valet de chambre of Henri II.</p>
+1584,173,1,1547-12-12,1547,12,,,,Soldier,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 144</p>",<p>He sent a letter to Roberto Strozzi.</p>
+1533,85,124,1546-09-24,1546,9,,,,Merchant,false,true,"<p>BNF, Mal. VIII, 1447, cc. 33r-34r.</p>",<p>Niccol&ograve; Martelli sent a letter to him.</p>
+1136,110,124,,1546,6,,1547,6,Consul of the Florentine Nation in Lyon,false,true,"Picot, les italiens en France, p. 96",<p>He was appointed Consul of the Florentine Nation in Lyon.</p>
+1197,150,138,,1545,3,,1545,4,Military leader,false,false,"Smonetta, Caterina de' Medici, pp. 176-177",<p>He was mentioned in letters of Bernardo de' Medici (Florentine ambassador)</p>
+1576,150,185,,1545,7,,,,Military leader,false,false,"<p>Correspondance des nonces en France Capodiferro, Dandino et Guidiccione, p. 365</p>",<p>He was mentioned in a letter of Guidiccione.</p>
+1471,429,124,1545-07-07,1545,7,,,,Scholar,false,false,"<p>DBI, ad vocem</p>",<p>He was mentioned in a letter of Battista Alamanni.</p>
+992,81,124,,1545,7,,,,,false,false,"DBI, ad vocem",<p>He stopped in Lyon during his journey to Italy. He was mentioned in a letter of Battista Alamanni to Benedetto Varchi.</p>
+1224,58,124,,1545,,,,,Banker,false,true,"<p>DBI, ad vocem.&nbsp;</p>",<p>He was force to pay a tax of 1200 livers tournois.</p>
+1196,150,146,,1545,2,,,,Military leader,false,false,"<p>Simonetta, Caterina de' Medici, p. 175</p>",<p>He was mentioned in a letter of Bernardo de' Medici (Florentine ambassador)</p>
+1575,150,184,,1545,6,,,,Military leader,false,false,"<p>Correspondance des nonces en France Capodiferro, Dandino et Guidiccione, p. 365</p>",<p>He was mentioned in a letter of Guidiccione.</p>
+1585,562,1,,1545,2,,,,Soldier,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 303</p>",<p>He was mentioned in a letter of Lorenzino de' Medici. Nobili had just arrived in Venice from France.</p>
+1514,485,177,,1545,,,,,Soldier,false,true,"<p>Dubost, La France italienne, annexe 1 - Simoncelli, La Repubblica fiorentina in esilio, p. 114.</p>",<p>He lived in Poitiers with his family. Then he entered the service of Leone Strozzi (May 1554).</p>
+1311,67,1,,1545,,,,,Courtesan,false,true,"<p>DBI, ad vocem.</p>",<p>He wrote a letter to Benvenuto Cellini on behalf of the King Fran&ccedil;ois I.</p>
+1472,55,124,1545-07-07,1545,7,,,,Scholar,false,true,"<p>DBI, ad vocem</p>",<p>He sent a letter to Varchi.</p>
+1198,150,121,,1545,11,,,,Military leader,false,false,"Simonetta, Caterina de' Medici, p. 181",He sent a letter to Luigi Del Riccio
+1465,94,1,,1545,,,,,Merchant,false,true,"<p>Histoire et dictionnaire des guerres de religion, p. 943</p>",<p>He moved to Paris</p>
+1466,382,1,,1545,,,,,Family reasons,false,true,"<p>Histoire et dictionnaire des guerres de religion, p. 943</p>",<p>She moved to Paris with her husband Guidobaldo Antonio Gondi</p>
+1484,461,126,,1545,,,,,Military leader,false,false,"<p>Picot, Les italiens, p. 96.</p>",<p>Captain of two galleys.</p>
+1574,174,1,1544-07-17,1544,7,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, pp. 301-302</p>",<p>He sent a letter to Roberto Strozzi.</p>
+1190,149,1,,1544,10,,1544,11,Military leader,false,false,"<p>10-1544: DBI, ad vocem - 11-1544: Simonetta, Caterina de' Medici, p. 170</p>",<p>10-1544:He returned in France - 11-1554:He sent a letter to Migliore Covoni</p>
+1114,56,114,1544-05-08,1544,5,,,,Ambassador,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 173","<p>During his trip to Genoa, Alamanni, ambassador fo the King Fran&ccedil;ois I, wrote a letter to the Doge of Genoa.</p>"
+1581,558,1,1544-07-13,1544,7,,,,Merchant,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 111</p>",<p>He sent a letter to Roberto Strozzi.</p>
+1195,150,122,,1544,12,1545-01-09,1545,1,Military leader,false,false,"<p>1544: Simonetta, Caterina de' Medici, p. 170; 1545: Dall'Aglio, L'assassino del duca, p. 302</p>",<p>1544: He was mentioned in a letter of Bernardo de' Medici (Florentine ambassador). 1545: He sent a letter to his brother Roberto Strozzi.</p>
+1256,85,124,,1544,,,1545,,Merchant,true,true,,
+1498,121,124,,1544,6,,1545,6,Consul of the Florentine Nation in Lyon,false,true,"<p>ASF, CS, Serie V, 1090, inserto 2</p>","<p>As Consul of the Florentine nation in Lyon, he sign a note with Palla Strozzi and Giovan Francesco Bini.</p>"
+1577,560,124,1544-11-18,1544,11,,,,Merchant,false,true,"<p>Dall'Aglio, L'assassino del duca, p. 166</p>",<p>He was mentioned in a letter of Giulio Alvarotti sent to the Duke Ercole II d'Este.</p>
+1113,56,1,1543-11-05,1543,11,,,,Courtesan,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 172",<p>He wrote a letter to the Duke of Ferrara Ercole II d'Este.</p>
+1573,174,1,1543-07-26,1543,7,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, pp. 299-301</p>",<p>He sent a letter to Roberto Strozzi.</p>
+1347,149,145,,1543,8,,,,Military leader,false,false,"<p>DBI, ad vocem.</p>",<p>He took part at the siege of Nice.</p>
+1383,313,124,1543-06-04,1543,6,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 401</p>",<p>Pierre Dorlin (notary) ratified an act of Ludovico Serristori who was living in Lyon.</p>
+1565,559,124,1542-10-07,1542,10,,,,Agent of the Strozzi family,false,true,"<p>Dall'Aglio, L'assassino del duca, p. 99.</p>",<p>He sent a letter to Piero Strozzi.</p>
+1274,127,124,,1542,,,1551,,Merchant,true,true,,
+1281,110,124,,1542,,,1546,,,true,true,,
+1566,174,124,1542-10-07,1542,10,1542-10-09,1542,10,Agent of the Florentine exiles,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 99</p>",<p>He was mentioned in letters of Giovanni Lanfredini and Cornelio Bandini.</p>
+1572,174,165,1542-11-09,1542,11,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 99</p>",<p>He was mentioned in a letter of Pier Francesco Riccio.</p>
+1564,558,124,1542-10-09,1542,10,,,,Agent of the Strozzi family,false,true,"<p>Dall'Aglio, L'assassino del duca, p. 99</p>",<p>He sent a letter to Piero Strozzi</p>
+1571,174,126,,1542,10,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 99</p>","<p>He was mentioned in a letter of Antonio Beghini, agent of the Duke Cosimo I.</p>"
+1570,150,165,1542-11-09,1542,11,,,,Military leader,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 99</p>",<p>He was mentioned in a letter of Pier Francesco Riccio.</p>
+1569,150,126,,1542,10,,,,Military leader,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 99</p>","<p>He was mentioned in a letter of Antonio Beghini, agent of Cosimo I.</p>"
+1563,174,183,,1542,7,,,,Agent of the Florentine exiles,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 97.</p>",<p>He was mentioned in letters of Diego Hurtado de Mendoza. He met the King who was in Lorraine.</p>
+1532,554,124,,1542,,,1547,,Artist,true,true,,
+1518,88,1,,1542,,,1543,,Merchant,false,false,"<p>Guidi Bruscoli, Benvenuto Olivieri, p. 299.</p>",<p>He lived in Paris and had business with Benvenuto Olivieri who was in Italy.</p>
+1470,429,124,1542-01-01,1542,1,1543-06-24,1543,6,Scholar,false,true,"<p>DBI, ad vocem</p>",<p>He translated from latin to vulgar works of Plutarco and Boccaccio.</p>
+1444,382,1,,1542,,,,,Courtesan,false,true,"<p>Simonetta, Caterina de' Medici, p. 158</p>",<p>She lived at the court of Catherine de' Medici</p>
+1333,91,168,,1541,12,,,,Clergyman,false,false,"<p>DBI, ad vocem.</p>",<p>He spent some time in his diocese of Sarlat.</p>
+1558,149,1,1541-12-28,1541,12,,,,Military leader,false,false,"<p>ASF, Mediceo del Principato, 1170, n. 11</p>",<p>He was mentioned in a letter of Marco Bracci. He was at the court of the King Fran&ccedil;ois I.</p>
+1026,69,124,,1541,5,,,,,false,false,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Buonguglielmi and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1015,57,124,,1541,5,,,,Merchant,false,true,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Albizzi and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1145,117,124,,1541,5,,,,Merchant,false,false,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Orlandini and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1159,126,124,,1541,,,1543,,Merchant,false,true,"Picot, les italiens en France, p. 101","<p>1541: He published Tacitus' works with notes of Emilio Ferretti - 1542: He was naturalized as French by the King. With Albizzo Del Bene, he received the custody of Tommaso Guadagni's sons - 1543: The King gave him (and Albizzo Del Bene) the monopoly to import alum into France for ten years.</p>"
+1583,563,124,,1541,3,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, pp. 116-117</p>",<p>He was mentioned in a letter of Menichino Buonanni to Cosimo I.</p>
+1557,150,1,1541-12-28,1541,12,,,,Military leader,false,false,"<p>ASF, Mediceo del Principato, 1170, n. 11</p>",<p>He was mentioned in a letter of Marco Bracci. He was at the court of the King Fran&ccedil;ois I.</p>
+1559,341,1,1541-12-28,1541,12,,,,Exile,false,false,"<p>ASF, Mediceo del Principato 1170, n. 11</p>",<p>He was mentioned in a letter of Marco Bracci. He was at the court of the King Fran&ccedil;ois I.</p>
+998,71,124,,1541,5,,,,Merchant,false,false,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Capponi and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious from Italy.</p>
+1582,562,124,,1541,3,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 116</p>",<p>He was mentioned in a letter of Menichino Buonanni to Cosimo I.</p>
+1013,82,124,,1541,4,,,,Agent of the Strozzi family,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 170",<p>He was mentioned in a letter of Luigi Alamanni.</p>
+1031,64,124,1541-10-10,1541,10,,1548,5,Merchant,false,true,"<p>8-1541: ASF, Mediceo del Principato, 351, c. 548r - 10-1541 / 6-1542: ASF, CS, Serie III, 96, cc. 101, 108, 132 - 1-1542 / 5-1548: ASF, CS, Serie V, 1090, inserto 2, cc. non numerate.</p>","<p>1541-1542: He sent letters from Lyon toPiero Strozzi, Roberto Strozzi and Luigi Del Riccio in Venice - 1542-1548: Letters, documents and financial records of his business in Lyon.</p>"
+1580,174,182,1541-07-16,1541,7,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 298</p>",<p>He sent a letter to Captain Cecchino di Sandro Lattanzi.</p>
+1578,560,124,,1541,5,,1541,6,Merchant,false,true,"<p>Dall'Aglio, L'assassino del duca, p. 166</p>",<p>He denounced a conspiracy against Lorenzino de' Medici.</p>
+1155,97,124,,1541,5,,,,Merchant,false,false,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Gualterotti and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1138,130,124,,1541,5,,,,Merchant,false,true,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Strozzi and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+956,100,124,,1541,5,,,,Postmaster,false,false,"<p>Charpin Feurgerolles, Les florentins &agrave; Lyon, p. 182.</p>",<p>Mancini and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1025,77,124,,1541,5,,,,Merchant,false,false,"<p>Charpin Feurgerolles, Les florentins &agrave; Lyon, p. 182.</p>",<p>Carnesecchi and other merchants in Lyon sign a deal with the community of the friars of Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1530,554,124,,1541,,,,,Artist,false,true,"<p>Calafati, Entre Florence et la France, p. 13</p>",<p>He worked in the house of Cardinal Fran&ccedil;ois de Tournon.</p>
+1560,305,1,1541-12-28,1541,12,,,,Military leader,false,false,"<p>ASF, Mediceo del Principato 1170, n. 11</p>",<p>He was mentioned in a letter of Marco Bracci. He was at the court of the King Fran&ccedil;ois I.</p>
+1556,174,124,1541-10-10,1541,10,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 90</p>",<p>He was mentioned in a letter of Giovan Francesco Bini.</p>
+1562,174,1,1541-12-28,1541,12,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 90</p>",<p>He was mentioned in a letter of Marco Bracci. He was at the court of the King Fran&ccedil;ois I.</p>
+1135,110,124,,1541,5,,,,Merchant,false,true,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Mannelli and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1561,173,1,1541-12-28,1541,12,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 90</p>",<p>He was mentioned in a letter of Marco Bracci. He was at the court of the King Fran&ccedil;ois I.</p>
+1521,64,180,,1541,3,,,,Merchant,false,false,"<p>Guidi Bruscoli, Benvenuto Olivieri, p. 213</p>",<p>He trade alum sent by Olivieri from Italy.</p>
+1520,64,179,,1541,2,,,,Merchant,false,false,"<p>Guidi Bruscoli, Benvenuto Olivieri, p. 213</p>",<p>He trade alum sent by Olivieri from Italy.</p>
+957,121,124,,1541,5,,,,Merchant,false,false,"Charpin Feurgerolles, Les florentins à Lyon, p. 182",<p>Rinieri and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy.</p>
+1112,56,124,1541-04-02,1541,4,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 170",<p>He wrote to his son-in-law Raffaello Corsini about money.</p>
+1555,174,182,1540-03-20,1540,3,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, pp. 87-88</p>",<p>He was in the household of Giuliano Soderini. He was mentioned in a letter of Bernardino Duretti.</p>
+944,85,124,,1540,,,1543,8,Banker,false,true,"<p>1540: Campitelli, Lucrezia Del Bene, p. 87; 1-5-1541: Charpin Feurgerolles, Les florentins &agrave; Lyon, p. 182; 1542: Picot, les italiens en France, p. 81; 6-8-1543: Picot, les italiens en France, p. 101</p>",<p>1540: Del Bene married Lucrezia Cavalcanti; 1-5-1541: Del Bene and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy; 1542: Del Bene received the custody of Tommaso Guadagni's sons; 6-8-1543: The King gave him the monopoly to import alum into France for ten years.</p>
+1150,83,124,,1540,5,1543-11-05,1543,11,Merchant,false,true,"5-1540: Hauvette, Un exilé florentin à la Cour de France au XVIe siècle. Luigi Alamanni, pp. 114-115
+-1-5-1541: Charpin Feurgerolles, Les florentins à Lyon, p. 182
+-2-4-1541: Bramanti, Lettere di Luigi Alamanni, p. 170
+-13-1-1543: Picot, Les italiens en France, p. 120
+-5-11-1543: Bramanti, Lettere di Luigi Alamanni, p. 172",<p>5-1540- He married Costanza Alamanni -1-5-1541-Corsini and other merchants in Lyon sign a deal with the community of the friars at Notre-Dame-de-Confort to give hospitality to religious coming from Italy -2-4-1541- Luigi Alamanni sent a letter to Corsini -13-1-1543- He sent a letter to Jean du Bellay -5-11-1543-He was mentioned in a letter of Luigi Alamanni.</p>
+1332,91,168,,1540,12,,,,Clergyman,false,false,"<p>DBI, ad vocem.</p>",<p>He spent some time in his diocese of Sarlat.</p>
+1006,90,116,,1540,,,1552,7,Scholar,false,true,"Picot, les italiens en France, p. 278",<p>He became Professor of law at the University of Avignon until his death (1552).</p>
+1519,64,110,,1540,,,,,Merchant,false,false,"<p>Guidi Bruscoli, Benvenuto Olivieri, pp. 214-215.</p>",<p>He trade alum sent by Benvenuto Olivieri from Italy.</p>
+1000,54,124,,1540,,,,,Wife of Raffaello Corsini,false,true,"<p>Hauvette, Un exil&eacute; florentin &agrave; la Cour de France au XVIe si&egrave;cle. Luigi Alamanni, pp. 114-115.</p>",<p>She married the Florentine merchant Raffaello Corsini.</p>
+1111,56,122,1540-12-15,1540,12,,,,Courtesan,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 168-169.</p>",<p>He wrote a letter to Benedetto Varchi.</p>
+1058,67,122,,1540,,,,,Courtesan,false,false,"<p>DBI, ad vocem.</p>",<p>He introduced Benvenuto Cellini to the King Fran&ccedil;ois I.</p>
+1078,79,124,,1540,,,,,Marriage,false,true,"Campitelli, Lucrezia Del Bene, p. 87",<p>She married Albizzo Del Bene and moved to Lyon.</p>
+1068,127,124,,1540,6,,1541,6,Consul of the Florentine Nation in Lyon,false,true,"<p>Charpin Feurgerolles, Les florentins &agrave; Lyon, p. 182.</p>",<p>He was appointed Consul of the Florentine Nation in Lyon.</p>
+1110,56,124,,1540,5,,,,,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 166-167.</p>",<p>Alamanni wrote a letter to Vittoria Colonna. He had just returned in France from Italy.</p>
+991,81,1,,1540,,,1545,,Artist,false,false,"DBI, ad vocem",<p>He was in the service of the King Fran&ccedil;ois I.</p>
+990,81,122,,1540,9,,,,Artist,false,false,"DBI, ad vocem",<p>He followed the French Court in Fontainebleau.</p>
+977,78,111,1540-02-03,1540,2,,,,Exile,false,false,"<p>Campitelli, Un diplomatico in esilio, p. 151.</p>",<p>He was mentioned in a letter of the nuncio in France Filiberto Ferrero.</p>
+1331,91,168,,1539,6,,,,Clergyman,false,false,"<p>DBI, ad vocem.</p>",<p>He spent some time in his diocese of Sarlat.</p>
+1554,67,1,,1539,5,,,,Treasurer,false,true,"<p>Dall'Aglio, L'assassino del duca, p. 335</p>",<p>He was mentioned in a letter of Bernardino Duretti.</p>
+1553,174,1,,1539,5,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 335</p>",<p>He was mentioned in a letter of Bernardino Duretti. Lorenzino was probably in Paris with Buonaccorsi.</p>
+1552,174,182,1539-01-02,1539,1,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in a letter of Bernardino Duretti.</p>
+1376,310,124,1539-02-17,1539,2,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, 389</p>",<p>Tosinghi protested against Averardo and Piero Salviati.</p>
+1380,312,124,1539-02-17,1539,2,1540-02-19,1540,2,Merchant,false,true,"<p>2-1539: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 389-390 - 17-5-1539: Ivi, num. 391 - 17-2-1540: Ivi, num. 394&nbsp;</p>","<p>2-1539: Giovan Battista Tosinghi protested against Averardo and Piero Salviati. Raffaello Conversini (Pistoian) protested against Averardo and Piero Salviati - 17-5-1539: Domenico Fornano from Casole ordered Averardo and Piero Salviati to take money, as a protest against Agostino della Pergola - Jacopo del Montanello ordered Quintilio Mazzoni to give money to Averardo and Piero Salviati.</p>"
+1379,311,124,1539-02-17,1539,2,1540-02-19,1540,2,Merchant,false,true,"<p>2-1529: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 389-390 - 17-5-1539: Ivi, num. 391 - 2-1540: Ivi, num. 394</p>",<p>2-1539: Giovan Battista Tosinghi protested against Averardo and Piero Salviati. Raffaello Conversini (Pistoian) protested against Averardo and Piero Salviati - 17-5-1539: Domenico Tornano from Casole ordered Averardo and Piero Salviati to take money as protest against Agostino della Pergola - 19-2-1540: Jacopo del Montanello ordered Quintilio Mazzoni to give money to Averardo and Piero Salviati in Lyon.</p>
+1500,481,124,1539-05-30,1539,5,,,,Courier,false,false,"<p>ASF, CS, serie V, 1090, inserto 2</p>",<p>He was mentioned in a letter of Giovan Francesco Bini.</p>
+1298,56,110,,1539,5,,,,,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 335.</p>",<p>Alamanni is mentioned in a letter of Bernardo Duretti.</p>
+1550,557,145,1538-05-28,1538,5,,,,Merchant,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in a letter of Innocenzo Cibo</p>
+1297,174,1,1538-11-20,1538,11,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 333.</p>",<p>He was in the household of Giuliano Buonaccorsi.</p>
+1495,321,124,,1538,6,,1539,6,Consul of the Florentine Nation in Lyon,false,true,"<p>ASF, CS, Serie V, 1090, inserto 2</p>",<p>Palla Strozzi sent a letter to Luigi Capponi as Consul of the Florentine nation in Lyon (30-05-1539).</p>
+1534,85,124,,1538,,,1539,,Merchant,true,true,,
+1536,,165,1538-01-14,1538,1,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 76</p>",<p>He was mentioned in a letter of Maria Soderini to Benedetto Varchi.</p>
+1226,58,124,,1538,,,,,Banker,false,true,"<p>DBI, ad vocem.</p>",<p>He advanced 30300 livres tournois to the King Fran&ccedil;ois I.</p>
+1537,174,124,1538-01-29,1538,1,1538-02-10,1538,2,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 77</p>",<p>1-1538: He sent a letter to Piero Strozzi; 2-1538: He was mentioned in a letter of Giuliano de' Medici to Piero Strozzi.</p>
+1539,555,137,,1538,7,,,,Family reasons,false,false,"<p>DBI, ad vocem.</p>",<p>He met Charles V to negotiate the release of his father Filippo.</p>
+1005,90,145,,1538,,,,,Scholar,false,false,"Bayle, Dictionnaire historique et critique, vol. 6 p. 443",<p>He took part in the peace negotiations between the King Fran&ccedil;ois I and the Emperor Charles V.</p>
+1551,556,145,1538-05-28,1538,5,,,,Merchant,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in a letter o Innocenzo Cibo.</p>
+1547,150,145,1538-05-28,1538,5,1538-06-14,1538,6,Military leader,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in letters of Innocenzo Cibo and Bernardino Duretti</p>
+1296,174,110,1538-07-20,1538,7,1538-08-09,1538,8,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 76 e 80</p>",<p>He was in the household of Giuliano Buonaccorsi. He was mentioned in letters of Bernardino Duretti.</p>
+1299,56,165,1538-01-14,1538,1,,,,,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 76.</p>",<p>Alamanni is mentioned in a letter&nbsp;of Maria Soderini to Benedetto Varchi.</p>
+1134,91,145,,1538,3,,,,Clergyman,false,false,"<p>DBI, ad vocem.</p>","<p>Following the Pope Paul III, he took part in the peace negotiations between the King Fran&ccedil;ois I and the Emperor Charles V.</p>"
+1548,305,145,1538-05-28,1538,5,,,,Agent of the Florentine exiles,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in a letter of Innocenzo Cibo.</p>
+1549,56,145,1538-05-28,1538,5,1538-06-14,1538,6,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in letters of Innocenzo Cibo and Bernardino Duretti.</p>
+1579,561,145,1538-05-28,1538,5,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in a letter of Innocenzo Cibo.</p>
+1546,174,145,1538-05-28,1538,5,1538-06-14,1538,6,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 79</p>",<p>He was mentioned in letters of Innocenzo Cibo and Bernardino Duretti.</p>
+1194,150,137,,1538,7,,,,Military leader,false,false,"Niccolini, Filippo Strozzi, pp. 311-312",He sent a letter to Benevenuto Olivieri
+1030,64,124,,1538,,1539-05-30,1539,5,,false,true,"<p>1538-39: DBI, ad vocem - 30-5-1539: ASF, CS, serie V, 1090, inserto 2</p>",<p>1538-39: He had business in Lyon with Palla Strozzi - 30-5-1539: He sent a letter to Federico Strozzi.</p>
+1538,174,165,,1537,12,,,,Exile,false,false,"<p>Dall'Aglio, L'assassino del duca, p. 78</p>",<p>He was mentioned in a letter of Giuliano de' Medici to Piero Strozzi.</p>
+1273,127,124,,1537,,,1540,,Merchant,true,true,,
+1295,174,124,1537-09-21,1537,9,,1537,10,Agent of the Florentine exiles,false,false,"<p>Dall'Aglio, L'assassino del duca, pp. 73-74.</p>",<p>He went to France as agent of the Florentine exiles.</p>
+1189,148,1,1537-01-19,1537,1,1537-01-21,1537,1,Agent of the Florentine exiles,false,false,"Simonetta, Caterina de' Medici, pp. 122-123",<p>19-1-1537: He asks Montmorency for money for Florentine exiles - 21-1-1537: He sent a letter to Filippo Strozzi.</p>
+1107,56,124,1537-02-23,1537,2,1537-02-25,1537,2,Agent of the Florentine exiles,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 153-155.</p>",<p>Alamanni wrote letters to Filippo Strozzi. He proposed himself as a mediator of the Florentine exiles in France.</p>
+1108,56,1,1537-07-15,1537,7,1537-08-10,1537,8,Courtesan,false,false,"<p>15-7-1537: ASF, CS, I, 100, c. 28r -19-7-1537: ASF, CS, I, 100, c. 30r -21-7-1537: ASF, CS, I, 100, c. 31r -28-7-1537: ASF, CS, I, 100, c. 34r -1-8-1537: Bramanti, Lettere di Luigi Alamanni, p. 156 -10-8-1537: ASF, CS, I, 100, c. 39r.</p>","<p>In letters of Bartolomeo Cavalcanti, ambassador of the Florentine exiles in France, Alamanni is mentioned as an agent at the Court of Fran&ccedil;ois I in Paris. Alamanni wrote a letter to Pietro Aretino (1 August 1537).</p>"
+1314,78,124,1537-03-02,1537,3,,,,Ambassador,false,false,"<p>Campitelli, Un diplomatico in esilio, p. 97.</p>",<p>He stopped in Lyon during his trip to the French court.</p>
+1315,78,124,1537-08-02,1537,8,1537-10-06,1537,10,Ambassador,false,false,"<p>Campitelli, Un diplomatico in esilio, pp. 110-112.</p>","<p>He met the King Fran&ccedil;ois I in Lyon. He corresponded with Cardinal Giovanni Salviati.</p>
+<p>2-8-1537: He received a letter from Cardinal Salviati - 6-10-1537: He sent a letter to Cardinal Salviati.</p>"
+1407,341,1,,1537,,,,,Exile,false,false,"<p>DBI, ad vocem.</p>",<p>He moved to France</p>
+1417,305,124,,1537,9,,1537,10,Agent of the Florentine exiles,false,false,"<p>Campitelli, Un diplomatico in esilio, pp. 111-113</p>",<p>Bernardo Salviati moved to France to help Bartolomeo Cavalcanti in the negotiations with the King Fran&ccedil;ois I.</p>
+1109,56,124,,1537,10,,,,Courtesan,false,false,"ASF, CS, I, 100, cc. 14v-15v",<p>Alamanni is mentioned in a letter of the Cardinal Salviati to Bartolomeo Cavalcanti.</p>
+1454,94,124,,1537,,,1539,,Merchant,false,true,"<p>DBI, ad vocem</p>",<p>1537-38: He was appointed alderman of Lyon - 1539: He was appointed Treasure of the Archbishopric of Lyon</p>
+1469,429,124,1537-12-05,1537,12,,1538,,Merchant,false,true,"<p>DBI, ad vocem</p>",<p>He sent a letter to Niccolini. He was Head of family business in Lyon</p>
+1492,466,124,,1537,6,,1538,6,Consul of the Florentine Nation in Lyon,false,true,"<p>Charpin Feugerolles, Les Florentines &agrave; Lyon, pp. 118-128.</p>",<p>He was Consul of the Florentine nation in Lyon.</p>
+1057,67,1,,1537,1,,,,Courtesan,false,true,"Simoncelli, Fuoriuscitismo, p. 227",<p>He sent a letter to Filippo Strozzi</p>
+1004,90,1,,1537,,,,,Scholar,false,false,"Picot, les italiens en France, p. 276",<p>He was naturalized as a French in recognition of his service by the King Fran&ccedil;ois I.</p>
+1567,558,124,,1537,1,,1537,8,Agent of the Strozzi family,false,true,"<p>Campitelli, Un diplomatico in esilio, pp. 94-95 e 106</p>",<p>He had business in Lyon and was an agent of the Florentine exiles.</p>
+1568,,124,,1537,1,,1537,8,Agent of the Strozzi family,false,true,"<p>Campitelli, Un diplomatico in esilio, pp. 94-95</p>",<p>He had business in Lyon and was an agent of the Florentine exiles.</p>
+989,81,1,,1537,,,,,Artist,false,false,"DBI, ad vocem",<p>He moved to France at the pleasure of the King Fran&ccedil;ois I.</p>
+974,78,121,1537-03-09,1537,3,,,,Ambassador,false,false,"Campitelli, Un diplomatico in esilio, p. 97",<p>He went to the French Court in Compi&egrave;gne.</p>
+976,78,1,1537-05-19,1537,5,1537-07-14,1537,7,Ambassador,false,false,"<p>Campitelli, Un diplomatico in esilio, pp. 101-105.</p>",<p>He went to Paris to meet the King Fran&ccedil;ois I (Cavalcanti is mentioned in a letter of an agent of Cardinal Salviati) and sent letters to Filippo Strozzi and Cardinal Salviati.</p>
+975,78,111,1537-03-13,1537,3,1537-03-17,1537,3,Ambassador,false,false,"<p>Campitelli, Un diplomatico in esilio, p. 97.</p>",<p>He followed the King Fran&ccedil;ois I and his court in Amiens.</p>
+973,78,124,1537-03-26,1537,3,1537-05-11,1537,5,Ambassador,false,false,"<p>Campitelli, Un diplomatico in esilio, pp. 97-101.</p>","<p>During his diplomatic mission he stayed in Lyon and sent letters to Filippo Strozzi and Cardinals Salviati, Ridolfi and Gaddi. Luigi Alamanni was at the French court.</p>"
+1003,90,124,1536-06-10,1536,6,,,,Agent of Filippo Strozzi,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 141",<p>He was mentioned in a letter of Luigi Alamanni.</p>
+1101,56,131,1536-04-15,1536,4,,,,Prosecutor of the Florentine exiles,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 135-137.</p>",<p>He wrote a letter to Filippo Strozzi.</p>
+1104,56,124,1536-06-10,1536,6,1536-07-28,1536,7,Prosecutor of the Florentine exiles,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 141-146",<p>He wrote letters to Filippo Strozzi.</p>
+1102,56,127,1536-05-07,1536,5,,,,Prosecutor of the Florentine exiles,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 138",<p>He wrote a letter to Filippo Strozzi. Alamanni proposed himself as a mediator for the Florentine exiles in France.</p>
+1225,58,124,,1536,,,,,Banker,false,true,"<p>DBI, ad vocem.</p>",<p>He advanced 22500 livres tournois to the King Fran&ccedil;ois I.</p>
+1266,64,124,,1536,,,1537,,,true,true,,
+1125,74,124,,1536,7,,1537,10,Agent of Filippo Strozzi,false,false,"Simoncelli, Fuoriuscitismo, ad vocem",<p>He had business in Lyon.</p>
+1106,56,116,1536-09-17,1536,9,1536-11-27,1536,11,Prosecutor of the Florentine exiles,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 149-152</p>",<p>He wrote letters to Filippo Strozzi.</p>
+1103,56,132,1536-05-21,1536,5,,,,Prosecutor of the Florentine exiles,false,false,"Bramanti, Lettere di Luigi Alamanni, p.139",<p>He wrote a letter to Filippo Strozzi.</p>
+1105,56,135,1536-08-11,1536,8,,,,Prosecutor of the Florentine exiles,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 147-148.</p>",<p>He wrote a letter to Filippo Strozzi.</p>
+1067,127,124,,1536,1,,,,Merchant,false,true,"Picot, Les italiens en France, p. 115",<p>He was naturalized as French by the King.</p>
+1535,85,124,,1535,,,1537,,Merchant,false,true,"<p>1535: BNP, Fran&ccedil;ais 2961, cc. 104r-v - 1536-1537: Picot, Les italiens en France, p. 81</p>",<p>1535: Del Bene and other merchants in Lyon sent a letter to the King Fran&ccedil;ois I - 1536: He had the salt trade monopoly in the Rhone area - 1537: Del Bene and Guadagni family became business partners.</p>
+1029,64,175,1535-06-24,1535,6,,,,Agent of Filippo Strozzi,false,false,"<p>Baroni, La nunziatura in Francia di Rodolfo Pio (1535-1537), pp. 198-199</p>","<p>He was mentioned in a letter of the nuncio Rodolfo Pio to Ambrogio Recalcati, as agent of Filippo Strozzi at the French court.</p>"
+1499,64,176,1535-07-14,1535,7,,,,Agent of Filippo Strozzi,false,false,"<p>Baroni, La nunziatura in Francia di Rodolfo Pio, pp. 198-199.</p>",<p>He was mentioned in a letter of the nuncio Rodolfo Pio to Ambrogio Recalcati.</p>
+1187,129,1,,1534,7,,,,Merchant,false,false,"Niccolini, Filippo Strozzi, pp. 191-193",He sent a letter to Francesco Vettori
+1462,94,124,,1534,,,1536,,Merchant,true,true,,
+1272,127,124,,1534,,,1535,,Merchant,true,true,,
+1378,311,124,1534-02-12,1534,2,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 383</p>",<p>Martino di Saux Chambord appointed Averardo and Piero Salviati as Prosecutors.</p>
+1377,312,124,1534-02-12,1534,2,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXVI, num. 383</p>",<p>Martino Saux Chambord appointed as Prosecutors Averardo and Piero Salviati</p>
+1330,91,168,,1533,12,,,,Clergyman,false,false,"<p>DBI, ad vocem.</p>",<p>He obtained the diocese of Sarlat by the King Fran&ccedil;ois I.</p>
+1077,79,126,,1533,10,,,,Lady-in-waiting to Catherine de' Medici,false,false,"Campitelli, Lucrezia Del Bene, p. 86",<p>She moved to France to became Lady-in-waiting to Catherine de' Medici.</p>
+1066,127,124,1533-10-16,1533,10,1533-11-14,1533,11,Merchant,false,true,"<p>Picot, Les italiens en France, p. 115.</p>",<p>16-10-1533- He received money from the King to buy beads for Catherine de' Medici -14-11-1533- He received money from the King.</p>
+1436,374,126,,1533,9,,,,Lady-in-waiting to Catherine de' Medici,false,false,"<p>DBI, ad vocem</p>",<p>She took part at the marriage of Catherine de' Medici</p>
+1133,91,126,,1533,10,,,,Clergyman,false,false,"<p>DBI, ad vocem.</p>",<p>He took part at the marriage between Catherine de' Medici and Henri de Valois.</p>
+1418,305,126,,1533,9,,,,Captain of the Roman ships,false,false,"<p>DBI, ad vocem</p>",<p>He accompanied the Pope Clemente VII to Marseille at the weeding of Catherine de' Medici</p>
+1265,64,124,,1533,,,1534,,Merchant,true,true,,
+1235,96,116,1533-05-29,1533,5,,,,Merchant,false,false,"<p>Picot, Les italiens en France, p. 80.</p>",<p>Death.</p>
+1002,90,1,,1533,6,,,,Scholar,false,false,"Picot, les italiens en France, p. 276",<p>He was appointed Legal Advisor at the Parlement of Paris by the King Fran&ccedil;ois I.</p>
+1184,129,126,,1533,10,,,,Family reasons,false,false,"Simonetta, Caterina de' Medici, p. 87",<p>He attended the wedding between Catherine de' Medici and Henri de Valois</p>
+1186,129,142,,1533,12,,,,Merchant,false,false,"Simonetta, Caterina de' Medici, p. 91",He sent a letter to Benvenuto Olivieri
+1185,129,124,,1533,12,,,,Merchant,false,false,"Simonetta, Caterina de' Medici, pp. 90-91",He sent a letter to Benvenuto Olivieri
+1183,129,145,,1533,9,,,,Family reasons,false,false,"Simonetta, Caterina de' Medici, p. 84",<p>He accompanied Catherine de' Medici in France.</p>
+1262,57,124,,1533,,,1540,,Merchant,true,true,,<p>He had commercial and business interests in Lyon.</p>
+964,86,1,,1533,6,,,,Exile,false,false,"<p>Picot, les italiens en France, p. 89.</p>",<p>He arrived in France and married Costanza Buonaccorsi.</p>
+972,78,126,,1533,10,,,,,false,false,"<p>Campitelli, Un diplomatico in esilio, p. 81.</p>","<p>Following Cardinal Giovanni Salviati, he attended the marriage of Catherine de' Medici and Henry de Valois.</p>"
+1325,287,1,,1533,,,,,Marriage,false,false,"<p>DBI, Del Bene Bartolomeo.</p>",<p>She married Bartolomeo Del Bene.</p>
+1098,56,120,1532-06-22,1532,6,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p.133",<p>He was with the King Fran&ccedil;ois I and wrote a letter to Francesco degli Albizzi.</p>
+1453,94,124,,1532,,,1533,,Merchant,false,true,"<p>DBI, ad vocem</p>","<p>1532: He was appointed ""receveur ordinaire du domaine"" of the King in Lyon - 1533: He was appointed Master of the house of the King.</p>"
+1459,382,124,,1532,,,1536,,Scholar,false,true,"<p>DBI, Gondi Guidobaldo</p>",<p>She hosted in her house a literary circle</p>
+1099,56,113,1532-07-25,1532,7,,,,Ambassador,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 133",<p>Alamanni replaced Baldassare Carducci (sick) as Florentine ambassador to the King of France.</p>
+1014,57,124,1532-06-22,1532,6,,,,Merchant,false,true,"Bramanti, Lettere di Luigi Alamanni, p. 133",<p>Luigi Alamanni sent a letter to Albizzi who was in Lyon.</p>
+1028,64,124,1532-03-21,1532,3,,,,Merchant,false,false,"<p>ASF, CS, serie III, 116, cc. 109-110</p>",<p>He became associated in Lyon with Filippo Strozzi and Neri Capponi.</p>
+1148,128,124,,1532,8,,1533,11,Merchant,false,true,"<p>Picot, Les italiens en France, pp. 115-116.</p>",<p>He received money from the King.</p>
+1100,56,110,,1532,,,1535,,Exile,false,true,"Bramanti, Lettere di Luigi Alamanni, p. 133",<p>Restricted to Provence for three years by Alessandro de' Medici.</p>
+1149,128,124,,1531,,,,,Merchant,true,true,,
+1310,67,1,,1530,,,1532,,Courtesan,false,true,"<p>DBI, ad vocem.</p>","<p>1530: Buondelmonti persuaded the King Fran&ccedil;ois I to help Florence during the siege.</p>
+<p>1531: He paid the rent of a house in Paris for the Florentine painter Giovan Battista di Jacopo Gasparre, known as Rosso Fiorentino.</p>
+<p>1532: The painter Antonio di Bernardo Mini gave him a painting for the King Fran&ccedil;ois I.</p>"
+1438,375,124,,1530,,,,,Musician,false,true,"<p>DBI, ad vocem</p>",<p>He was the organist at Saint-Dizier in Lyon</p>
+1147,128,124,1530-05-06,1530,5,,,,Merchant,false,true,"<p>Picot, Les italiens en France, p. 116.</p>",<p>He sent a letter to Anne de Montmorency.</p>
+970,78,124,1529-07-04,1529,7,,,,Secretary of the Florentine ambassador,false,false,"Campitelli, Un diplomatico in esilio, pp. 50-51",<p>He stopped in Lyon during his diplomatic mission in France.</p>
+971,78,119,1529-07-11,1529,7,1529-09-15,1529,9,Secretary of the Florentine ambassador,false,false,"Campitelli, Un diplomatico in esilio, pp. 51-55","<p>During his diplomatic mission he sent letters to Florence and he was mentioned in letters of the Florentine ambassador Baldassarre Carducci.</p>
+<p>11-7-1529: He was mentioned in a letter of Baldassarre Carducci- 15-9-1529: He sent a letter to Florence.</p>"
+994,59,124,,1529,6,,1530,6,Consul of the Florentin Nation in Lyon,false,true,"<p>ASF, Dieci di Libert&agrave; e Pace, Legazioni e Commissarie, 48, c. 138v e 98, c. 137v.</p>","<p>As consul, he had the task of finding money for the Republic of Florence during the siege.</p>"
+1182,129,124,,1528,9,,1529,4,Merchant,false,false,"<p>1528: Niccolini, Filippo Strozzi, pp 179-180 - 1529: &nbsp;Elam, Art in the service of Liberty, pp. 98-102 (1529)</p>",<p>Maria Salviati asks Filippo Strozzi for money (9/1528); Filippo Strozzi received letters from his son Piero (11/3/1529) and his brother Lorenzo (4/4/1529).</p>
+1437,53,124,,1528,,,1540,,Musician,false,true,"<p>DBI, ad vocem</p>",<p>Organist at Notre-Dame-de-Confort.</p>
+1154,58,124,,1528,,1530-04-25,1530,4,Banker,false,true,"<p>1528-1529: DBI, ad vocem; 25-4-1530: Bramanti, Lettere di Luigi Alamanni, p. 122.</p>",<p>1528: He had tax contracts in Lyon - 1529: Albizzi is mentioned in a letter from Suriano (Venetian ambassador) - 25-4-1530: Albizzi is mentioned in a letter from Luigi Alamanni.</p>
+1132,91,1,,1528,,,,,Clergyman,false,false,"Picot, les italiens en France, p. 45",<p>He spent some time at the French court.</p>
+1303,258,116,,1528,,,,,Scholar,false,false,"<p>Tomasi, Appunti sulle satire di Luigi Alamanni, p. 37.</p>","<p>He created a codex of the ""Salmi"" of Luigi Alamanni.</p>"
+1522,88,1,,1527,,,,,Banker,false,true,"<p>Picot, Les italiens en France, pp. 95-96</p>",<p>He moved to Paris.</p>
+1223,58,1,1527-02-14,1527,2,1527-05-14,1527,5,Prisoner,false,false,"<p>DBI, ad vocem.</p>",<p>Albizzi was arrested for embezzlement with J. de Baulne de Semblan&ccedil;ay.</p>
+1258,59,124,,1527,,,1529,,,true,true,,
+1283,128,124,,1527,,,1529,,Merchant,true,true,,
+1306,65,124,,1527,,,,,Merchant,false,false,"<p>DBI, ad vocem.</p>",<p>He sent a letter probably to the Gonfalonier Niccol&ograve; Capponi.</p>
+1146,128,124,1526-10-01,1526,10,1526-12-22,1526,12,Merchant,false,true,"1-10-1526: Picot, Les italiens en France, p. 116
+22-12-1526: Picot, Les italiens en France, p. 116",<p>1-10-1526: He received money from the King to give hospitality to the French ambassador Jean de Calvimont who was going to the Emperor Charles V - 22-12-1526: King Fran&ccedil;ois I returned to Spina the borrowed &nbsp;money for war in Italy.</p>
+1001,90,135,,1526,,,,,Scholar,false,false,"Picot, les italiens en France, p. 276",<p>Professor of law at the University of Valence.&nbsp;</p>
+1097,56,124,1526-01-01,1526,1,,,,,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 101.</p>",<p>He wrote a letter to Bernardo Altoviti.</p>
+993,59,124,1526-01-01,1526,1,,,,Merchant,false,true,"Bramanti, Lettere di Luigi Alamanni, p. 101",<p>Luigi Alamanni sent a letter to him.</p>
+1095,56,110,1525-01-04,1525,1,,,,Agent of the Florentine exiles,false,false,"Bramanti, Lettere di Luigi Alamanni, p.94",<p>He wrote a letter to Battista Della Palla.</p>
+1096,56,134,1525-05-18,1525,5,1525-08-15,1525,8,Courtesan,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 96-100","<p>Alamanni accompanied Marguerite of&nbsp;Angoul&ecirc;me in his trip to Spain to free her brother, the king Fran&ccedil;ois I.</p>"
+1044,93,110,1525-01-04,1525,1,,,,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 95.</p>",<p>He was mentioned in a letter of Luigi Alamanni. Girolami was at the French court.</p>
+1329,89,110,1525-05-18,1525,5,1525-08-15,1525,8,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 96-100.</p>",<p>Luigi Alamanni sent letters to him.</p>
+1374,127,124,1525-06-02,1525,6,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXII, num 376</p>","<p>Spina, in name of the Salviati Bank, protested against Giovanni Francesco Bini.</p>"
+1334,291,1,,1525,11,,,,Merchant,false,false,"<p>DBI, Girolami Giovanni.</p>",<p>He was naturalized as a French by the King.</p>
+1375,64,124,1525-06-02,1525,6,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 376</p>","<p>Leonardo Spina, in name of the Salviati Bank, protested against Giovan Francesco Bini</p>"
+1045,93,1,,1525,11,,,,Courtesan,false,false,"<p>DBI, ad vocem.</p>",<p>He was naturalized as a French by the King.</p>
+1174,68,110,1525-01-04,1525,1,1525-08-15,1525,8,,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 94-100.</p>","<p>4-1-1525: He sent a letter to Battista Della Palla.</p>
+<p>18-5-1525 and 15-8-1525: Luigi Alamanni sent letters to him.</p>"
+1171,68,123,1524-03-02,1524,3,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 68","<p>With Luigi Alamanni, he sent a letter to Battista Della Palla.</p>"
+1093,56,110,1524-04-10,1524,4,1524-08-25,1524,8,,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 71-77.</p>","<p>Hosted by Giuliano Buonaccorsi, Alamanni wrote letters with Zanobi Buondelmonti to Battista Della Palla.</p>"
+1089,56,116,,1524,1,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 65","<p>In a letter to Battista Della Palla of 20 January 1524, Alamanni wrote that a few days before he had been in Avignon.</p>"
+1091,56,126,,1524,1,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 65","<p>In a letter to Battista Della Palla of 20 January 1524, Alamanni wrote that he was moving to Marseille.</p>"
+1092,56,123,1524-03-02,1524,3,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 68",<p>Alamanni wrote a letter to Battista Della Palla regarding the political situation.</p>
+1094,56,124,1524-08-25,1524,8,1524-10-08,1524,10,,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 76-90","<p>He wrote letters to Battista Della Palla. Alamanni was a respected member of the ""Natione fiorentina"" in Lyon.</p>"
+1090,56,129,1524-01-20,1524,1,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 64",<p>He wrote a letter to Battista Della Palla.</p>
+1042,93,118,1524-04-10,1524,4,1524-05-22,1524,5,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 71-75",<p>He was mentioned in letters of Luigi Alamanni. Girolami was at the French court.</p>
+1043,93,116,1524-09-19,1524,9,,,,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 81",<p>He was mentioned in a letter of Luigi Alamanni. Girolami was at the French court.</p>
+1039,93,129,1524-01-20,1524,1,,,,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 64",<p>He was mentioned in a letter of Luigi Alamanni.</p>
+1041,93,123,1524-03-02,1524,3,,,,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 68",<p>He was mentioned in letters of Luigi Alamanni.</p>
+1040,93,126,1524-01-21,1524,1,,,,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 65",<p>He was mentioned in a letter of Luigi Alamanni.</p>
+1055,67,118,1524-01-20,1524,1,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 64",<p>Luigi Alamanni sent him a letter.</p>
+1328,89,167,1524-10-08,1524,10,,,,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 88.</p>",<p>Luigi Alamanni sent a letter to him. The King and his court were moving to Italy.</p>
+1327,89,118,1524-01-20,1524,1,,,,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 64.</p>",<p>Luigi Alamanni sent a letter to him.</p>
+985,89,118,1524-04-10,1524,4,1524-05-22,1524,5,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 71-75.</p>","<p>Luigi Alamanni sent letters to Della Palla, asking for news from the French court.</p>"
+1176,92,124,1534-10-04,1524,10,1525-01-04,1525,1,Merchant,false,false,"4-10-1524: Bramanti, Lettere di Luigi Alamanni, p. 86
+-4-1-1525: Bramanti, Lettere di Luigi Alamanni, p. 95",<p>He was mentioned in letters of Luigi Alamanni.</p>
+1172,68,110,1524-04-10,1524,4,1524-05-22,1524,8,,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 71-75",<p>Guest of Giuliano Bonaccorsi in Aix.</p>
+1173,68,124,1524-08-25,1524,8,1524-10-08,1524,10,,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 76-90","<p>With Luigi Alamanni, he sent letters to Battista Della Palla.</p>"
+1169,68,129,1524-01-20,1524,1,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 64","<p>With Luigi Alamanni, he sent a letter to Battista Della Palla.</p>"
+1170,68,126,,1524,1,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 65","<p>In a letter to Battista Della Palla (20/01), Buondelmonti said that he was about to go to Marseille.</p>"
+1302,198,145,1524-11-12,1524,11,,,,Agent of the Florentine exiles,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 93</p>",<p>He appears in a letter of Luigi Alamanni to Battista Della Palla. He sent letters to Luigi Alamanni and Piero Soderini.</p>
+1056,67,110,1524-04-10,1524,4,1525-05-18,1525,5,,false,true,"10-4-1524: Bramanti, Lettere di Luigi Alamanni, p. 71
+- dal 4-1-1525 al  18-5-1525: Bramanti, Lettere di Luigi Alamanni, pp. 95-96","<p>10-4-1524: He gave hospitality to Luigi Alamanni and Zanobi Buondelmonti at his residence in Aix&nbsp;-</p>
+<p>4-1-1525 - 18-5-1525: He was mentioned in letters of Luigi Alamanni.</p>"
+961,66,1,1524-10-08,1524,10,,,,Exile,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 89",<p>He was mentioned in a letter of Luigi Alamanni.</p>
+1168,68,116,,1524,1,,,,,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 65.</p>","<p>In a letter to Della Palla (20/01), Buondelmonti said that he has been in Avignon in the previous days.</p>"
+988,89,110,1524-10-02,1524,10,1524-10-04,1524,10,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 85-87&nbsp;</p>",<p>Luigi Alamanni sent letters to Della Palla.</p>
+987,89,116,1524-08-25,1524,8,1524-09-23,1524,9,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 76-84",<p>Luigi Alamanni sent a letter to Della Palla. The King and his court moved to Avignon with the army.</p>
+986,89,1,1524-03-03,1524,3,,,,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 68",<p>Luigi Alamanni sent a letter to him.</p>
+1286,58,124,,1524,,,1527,,Merchant,true,true,,
+1371,306,124,1523-12-02,1523,12,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 374</p>",<p>Bill of exchange sent from Girolamo and Domenico Boccianti to Giovan Battista Salviati.</p>
+983,89,122,1523-07-28,1523,7,,,,Agent of the Florentine anti-Medici faction,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 52",<p>Luigi Alamanni sent a letter to him. The King and his court were moving to Lyon.</p>
+984,89,124,1523-08-23,1523,8,1523-11-11,1523,11,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 56-63.</p>",<p>Luigi Alamanni sent letters to Della Palla.</p>
+960,66,124,1523-07-28,1523,7,1523-08-19,1523,8,Exile,false,false,"<p>28-7-1523: Bramanti, Lettere di Luigi Alamanni, p. 53 -19-8-1523: Bramanti, Lettere di Luigi Alamanni, p. 56.</p>",<p>28-7-1523-19-8-1523: He was mentioned in letters of Luigi Alamanni.</p>
+1053,67,128,,1523,5,,,,,false,true,"Hauvette, Un exilé florentin à la Cour de France au XVIe siècle. Luigi Alamanni, p. 44",<p>He was mentioned in letters of Luigi Alamanni.</p>
+1085,56,115,,1523,1,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 51","<p>In his trip to Paris, he made a stop in Auxonne where he met Battista Della Palla.</p>"
+1451,94,124,,1523,,,,,Merchant,false,true,"<p>DBI, ad vocem</p>",<p>Gondi and Roberto Albizzi made a loan to the city of Lyon</p>
+1087,56,128,,1523,5,,,,,false,false,"Hauvette, Un exilé florentin à la Cour de France au XVIe siècle. Luigi Alamanni, p. 44",<p>He went to Normandie with Giuliano Buonaccorsi.</p>
+1167,68,124,1523-07-28,1523,7,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 52",<p>With Luigi Alamanni he sent a letter to Battista Della Palla&nbsp;</p>
+1166,68,128,,1523,5,,,,,false,false,"Hauvette, Un exilé florentin à la Cour de France au XVIe siècle. Luigi Alamanni, p. 44",<p>He went in Normandia with Giuliano Buonaccorsi and Luigi Alamanni.</p>
+1165,68,1,,1523,2,,,,,false,false,"Hauvette, Un exilé florentin à la Cour de France au XVIe siècle. Luigi Alamanni, p. 44",<p>He was at the Court in Paris.</p>
+1372,309,124,1523-12-02,1523,12,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 374</p>",<p>Bill of exchange sent from Girolamo and Domenico Boccianti to Giovan Battista Salviati</p>
+1036,93,124,1523-01-12,1523,1,1523-11-02,1523,11,Agent of the Soderini family,false,false,"<p>12-1-1523: Bramanti, Lettere di Luigi Alamanni, p. 51 - 3-1523: DBI, ad vocem - 19-8-1523 e 2-11-1523: Bramanti, Lettere di Luigi Alamanni, pp. 58-62.</p>",<p>12-1-1523: He was mentioned in a letter of Luigi Alamanni - 3-1523: Letters to him written by Francesco Soderini were discovered. - 19-8 e 2-11-1523: He was mentioned in letters of Luigi Alamanni.</p>
+1086,56,1,,1523,2,,,,,false,false,"Hauvette, Un exilé florentin à la Cour de France au XVIe siècle. Luigi Alamanni, p. 44","<p>He moved to Paris, to the French Court.</p>"
+1054,67,124,,1523,11,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, pp. 61-62",<p>He was mentioned in letters of Luigi Alamanni.</p>
+959,66,1,1523-01-06,1523,1,,,,Exile,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 49",<p>He stayed at the Court. He was mentioned in a letter of Luigi Alamanni.</p>
+1088,56,124,1523-07-28,1523,7,,,,,false,false,"Bramanti, Lettere di Luigi Alamanni, p. 52",<p>Alamanni wrote a letter to Battista Della Palla.</p>
+1373,308,124,1523-12-02,1523,12,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 374</p>",<p>Bill of exchange sent from Girolamo and Domenico Boccianti to Giovan Battista Salviati</p>
+1139,65,124,,1522,,1523-07-28,1523,7,Merchant,false,true,"<p>1522: DBI, ad vocem - 1523: Bramanti, Lettere di Luigi Alamanni, p. 53.</p>",<p>1522: He sent a letter to Francesco Del Nero - 1523: He is mentioned in a letter of Luigi Alamannni.</p>
+1035,93,124,,1522,9,,,,Merchant,false,false,"<p>DBI, ad vocem.</p>",<p>He was leaving for Italy.</p>
+1084,56,124,1522-08-20,1522,8,1523-01-12,1523,1,,false,false,"<p>20, 21 and 22-8-1522: Bramanti, Lettere di Luigi Alamanni, pp. 39-42</p>
+<p>From 21-12-1522 to 12-1-1523: Bramanti, Lettere di Luigi Alamanni, pp. 45-51</p>","<p>Alamanni wrote letters to Battista Della Palla. After the involvement in an anti-Medici conspiracy (1522), he escaped from Florence and found refuge in Lyon.</p>"
+1452,94,124,,1522,,,,,Merchant,true,true,,
+1309,67,1,,1522,,,,,Courtesan,false,true,"<p>DBI, ad vocem.</p>",<p>He became notary and royal secretary.</p>
+982,89,1,1522-08-21,1522,8,1523-01-12,1523,1,Agent of the Florentine anti-Medici faction,false,false,"21 e 22-8-1522: Bramanti, Lettere di Luigi Alamanni, p. 40
+-12-9-1522: Bramanti, Lettere di Luigi Alamanni, p. 43
+- dal 21-12-1522 al  12-1-1523: Bramanti, Lettere di Luigi Alamanni, pp. 45-51",<p>Luigi Alamanni sent letters to Della Palla.</p>
+980,89,142,,1522,3,,,,Agent of the Florentine anti-Medici faction,false,false,"<p>DBI, ad vocem.</p>",<p>He moved to France to seek help for the Florentine anti-Medici faction.</p>
+1164,68,124,1522-08-20,1522,8,1523-01-12,1523,1,Exile,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, pp. 39-42 e pp. 45-51</p>",<p>He sent letters from France with Luigi Alamanni.</p>
+981,89,124,1522-07-21,1522,7,,,,Agent of the Florentine anti-Medici faction,false,false,"<p>Bramanti, Lettere di Luigi Alamanni, p. 36.</p>",<p>Luigi Alamanni sent a letter to Della Palla who was at the French court.</p>
+1052,67,1,,1522,12,,,,Courtesan,false,true,"Bramanti, Lettere di Luigi Alamanni, p. 47",<p>He was mentioned in a letter of Luigi Alamanni.</p>
+1008,53,124,,1522,8,,,,Musician,false,true,"<p>D'Accone, Francesco Layolle, pp. 410-411.</p>",<p>He was the organist at Notre-Dame-de Confort (known also as the Italian Church of Lyon).</p>
+1287,92,124,,1522,,,1523,,,true,true,,
+1020,116,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Nobili and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1156,115,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Roberto Nasi and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+997,60,124,1521-07-15,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Antinori and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1175,92,124,,1521,7,,,,Merchant,false,true,"Picot, les italiens en France, p. 76",<p>Ginori and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1019,119,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Pitti and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+943,85,124,,1521,7,,,,Banker,false,true,"Picot, les italiens en France, p. 76",<p>Del Bene and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1123,61,124,1521-07-15,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Antinori with other merchants of Lyon sent a supplication to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1177,113,124,,1521,7,,,,Merchant,false,true,"Picot, les italiens en France, p. 76",<p>Martini and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1131,87,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Del Bene and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1051,67,110,,1521,9,,,,Treasurer,false,false,"<p>DBI, ad vocem.</p>",<p>He became Treasurer in Provence.</p>
+1181,129,124,,1521,7,,,,Merchant,false,false,"Picot, Les italiens en France, p. 76",<p>Filippo Strozzi and other merchants in Lyon &nbsp;sent a petition to the King Fran&ccedil;ois I and Robertet (treasurer)</p>
+1368,127,124,1521-01-12,1521,1,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 367</p>",<p>Leonardo Spina and Domenico Naldini were appointed Governors of the Salviati Bank in Lyon.</p>
+1369,303,124,1521-01-12,1521,1,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 367</p>",<p>Leonardo Spina and Domenico Naldini were appointed Governors of the Salviati Bank in Lyon.</p>
+1153,58,124,1521-07-15,1521,7,1523-11-11,1523,11,Merchant,false,true,"<p>15-7-1521: Picot, les italiens en France, p. 76 - 1522: Hauvette, Un exil&eacute; florentin &agrave; la Cour de France au XVIe si&egrave;cle. Luigi Alamanni, p. 44 - from 28-7-1523 to 11-11-1523 : Bramanti, Lettere di Luigi Alamanni, pp. 55-63.</p>",<p>15-7-1521- Albizzi and other merchants in Lyon sent a supplication to the King Fran&ccedil;ois I and the treasurer Robertet - 1522 - Consul of the Florentine Nation in Lyon - from 28-7-1523 to 11-11-1523- Albizzi is mentioned in letters of Luigi Alamanni.</p>
+978,118,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Panciatichi and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1157,96,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Guadagni and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (Treasurer).</p>
+942,122,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Salviati and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (treasurer)</p>
+1061,62,124,1521-07-15,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Bartolini and other merchants of Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+999,84,124,,1521,7,,,,Merchant,false,true,"Picot, les italiens en France, p. 76",<p>Dei and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1063,106,124,,1521,7,,,,Merchant,false,true,"Picot, les italiens en France, p. 76",<p>Mannelli and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (Treasurer).</p>
+958,124,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Sertini and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (Treasurer).</p>
+953,98,124,,1521,7,,,,Merchant,false,false,"<p>Picot, les italiens en France, p. 76</p>",<p>Infangati and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (treasurer).</p>
+963,99,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Lottini and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (Treasurer).</p>
+979,123,124,,1521,7,,,,Merchant,false,false,"<p>Picot, les italiens en France, p. 76</p>",<p>Bartolomeo Salviati and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (Treasurer).</p>
+1060,114,124,,1521,7,,,,Merchant,false,false,"Picot, les italiens en France, p. 76",<p>Guglielmo Nasi and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and the Treasurer Robertet.</p>
+1506,483,124,,1521,,,,,Merchant,false,true,"<p>Charpin Feugerolles, Les florentines &agrave; Lyon, pp. 133-135</p>",<p>Mannelli and other Florentine merchants in Lyon sent a petition to the King Fran&ccedil;ois Her and Robertet (Treasurer).</p>
+1017,102,124,,1521,7,,,,Merchant,false,true,"Picot, les italiens en France, p. 76",<p>Mannelli and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (Treasurer).</p>
+962,94,124,,1520,,,1521,7,Merchant,false,true,"<p>1520: DBI, ad vocem - 1521:Picot, les italiens en France, p. 76.</p>",<p>1520: He bought the Lordship of Perron near Lyon - 1521:Antonio Gondi and other merchants in Lyon sent a petition to the King Fran&ccedil;ois I and Robertet (Treasurer).</p>
+1065,127,124,,1520,,,,,Merchant,false,true,"Picot, Les italiens en France, p. 115",<p>He sent letters to Averaro Salviati and Giovan Battista Bracci.</p>
+1370,303,124,,1519,,,1520,,Merchant,true,true,,
+1270,127,124,,1519,,,,,Merchant,true,true,,
+1179,129,138,,1518,5,,,,Family reasons,false,false,"Bardi, Filippo Strozzi da nuovi documenti, pp. 18-19",<p>He attended the wedding between Lorenzo di Piero de' Medici and Madeleine de la Tour d'Auvergne</p>
+1050,67,133,,1518,,,,,Commis of Semblançay,false,false,"<p>DBI, ad vocem.</p>",<p>Head of the financial administration in Semblan&ccedil;ay.</p>
+1180,129,118,,1518,6,,,,Family reasons,false,false,"Bardi, Filippo Strozzi da nuovi documenti, pp. 18-19",He accompanied Lorenzo di Piero de' Medici in France
+1367,307,124,1518-12-07,1518,12,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, 363</p>","<p>Domenico Naldini and Leonardo Spina gave money to Carlo Marucelli, Prosecutor of the Salviati Bank</p>"
+1268,102,124,,1518,,,1520,,Merchant,true,true,,
+1365,303,124,1518-11-18,1518,11,1518-12-07,1518,12,Merchant,false,true,"<p>11-1518: SNSPi, Archivio Salviati, Il Diplomatico, filze 1, XXII, num. 361 - 12-1518: Ivi, num. 363</p>","<p>11-1518: With the approval of the King, Domenico Naldini is appointed as Prosecutor of Jacopo di Giovanni Salviati - 12-1518: He gave money to Francesco Marucelli</p>"
+1152,88,124,,1518,,,,,,false,true,"Dubost, La France italienne, p. 246 e annexe 1",<p>He moved to Lyon where he bought the land of Espine.</p>
+1064,127,124,1518-09-04,1518,9,1518-12-07,1518,12,Merchant,false,true,"<p>4-9-1518: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 360 - 11-1518: Picot, Les italiens en France, p. 115 - 7-12-1518: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 363</p>",<p>4-9-1518: Jacopo Salviati appointed Leonardo Spina as his Prosecutor in Lyon - 11-1518: He received money from the King to buy weapons for the French Army - 7-12-1518: He gave money to Carlo Marucelli.</p>
+1363,302,124,1518-11-17,1518,11,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXII, num. 360</p>","<p>With the approval of the King Fran&ccedil;ois I, Jacopo di Giovanni Salviati appointed Leonardo Spina and Francesco Naldini as his Prosecutors.</p>"
+1305,65,124,,1517,,,,,Merchant,false,true,"<p>DBI, ad vocem.</p>",<p>He was taxed as one of the richest merchants of Lyon.</p>
+1356,127,124,,1517,,,,,Merchant,true,true,,
+1046,102,124,,1517,,,,,Merchant,false,true,"Picot, les italiens en France, p. 96",<p>He had business in Lyon.</p>
+1307,64,124,,1517,,,,,Merchant,false,true,"<p>DBI, Bini Piero.</p>",<p>He went to Lyon to help his brother Piero in his commercial activities.</p>
+1338,292,123,,1517,11,,,,Secretary,false,false,"<p>DBI, ad vocem.</p>",<p>He helped his brother Giovanni as Governor of Lambesc and Orgon.</p>
+1362,306,124,1517-02-09,1517,2,1518-09-07,1518,9,Merchant,false,true,"<p>9-2-1517: SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 346 - 16-2-1518: Ivi, num 347 - 22-4-1518: Ivi, num. 349, 350 e 351 - 10, 15-7, 7-8 e 7-9-1518: Ivi, num. 352, 353, 354, 355</p>",<p>1517: Bill of exchange sent from Giovan Battista Salviati in Lyon to Girolamo Frescobaldi in London - 16-2-1518: Bill of exchange sent to Giovan Battista Salviati - 22-4-1518: Bills of exchange sent from Giovan Battista Salviati in Lyon to Girolamo Frescobaldi in London - da 10-7-1518 a 7-9-1518: Bills of exchange sent to Giovan Battista Salviati</p>
+1337,93,123,,1517,11,,,,Governor of Lambesc and Orgon,false,false,"<p>DBI, ad vocem.</p>",<p>He was appointed Governor of Lambesc and Orgon by the Duchesse Filippa of Gelderland.</p>
+1308,67,1,,1516,,,,,,false,true,"<p>DBI, ad vocem</p>",<p>He married a French woman.</p>
+1366,303,124,,1516,,,1517,,Merchant,true,true,,
+1360,304,124,1516-10-26,1516,10,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 344</p>","<p>Jacopo Salviati appointed Francesco Salviati, Bernardo Salviati and Leonardo Spina as Prosecutors of his business in Lyon</p>"
+1130,87,1,,1516,4,,,,Maître d'hôtel of the King,false,true,"<p>Picot, Les italiens en France, p. 88</p>",<p>He was confirmed in his position at the French court by the new King Fran&ccedil;ois I.</p>
+1449,382,124,1516-01-20,1516,1,,,,Marriage,false,true,"<p>DBI, Gondi Guidobaldo detto Antonio</p>",<p>She married Gondi Guidobaldo or Antonio.</p>
+1450,94,124,1516-01-20,1516,1,,,,Merchant,false,true,"<p>DBI, ad vocem</p>",<p>He married Marie Catherine de Pierrevive</p>
+1269,106,124,,1516,,,1520,,,true,true,,
+1361,305,124,1516-10-26,1516,10,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze 1, XXII, num. 344</p>","<p>Jacopo Salviati appointed Francesco Salviati, Bernardo Salviati and Leonardo Spina as Prosecutors of his business in Lyon</p>"
+1264,102,124,,1516,,,,,,true,true,,
+1364,302,124,,1516,,,1517,,Merchant,true,true,,
+1359,300,124,1516-10-26,1516,10,,,,Merchant,false,false,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXII, num. 344</p>","<p>Jacopo Salviati appointed Francesco Salviati, Bernardo Salviati and Leonardo Spina as Prosecutors of his business in Lyon.</p>"
+1357,303,124,1515-06-20,1515,6,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXVI, num. 339</p>",<p>Naldini named Leonardo Spina as his Prosecutor in Lyon.</p>
+1355,127,124,1515-06-20,1515,6,1516-10-26,1516,10,Merchant,false,true,"<p>1515: SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXVI, num. 336 - 1516: ivi, XXII, num. 344</p>",<p>1515: Leonardo Spina is appointed as Prosecutor in Lyon of Domenico and Francesco Naldini - 1516: Leonardo Spina is appointed as Prosecutor in Lyon of Jacopo Salviati.</p>
+1062,106,124,,1515,,,,,Merchant,false,true,"Picot, les italiens en France, p. 96",<p>He had business in Lyon</p>
+1016,102,124,,1515,,,,,Merchant,false,true,"Picot, les italiens en France, p. 96",<p>He had business in Lyon</p>
+1358,302,124,1515-06-20,1515,6,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXVI, num. 339</p>",<p>Francesco Naldini and his brother Domenico named Leonardo Spina as their Prosecutor in Lyon.</p>
+1491,466,124,,1515,,,,,Merchant,false,true,"<p>Charpin Feugerolles, Les Florentines &agrave; Lyon, pp. 118-128</p>",<p>He moved to Lyon.</p>
+1234,96,124,1513-07-07,1513,7,,,,Merchant,false,true,"<p>Charpin Feugerolles, Les florentins &agrave; Lyon, p. 88.</p>",<p>He bought artillery for the city of Lyon.&nbsp;</p>
+1488,464,124,,1512,,,,,Consul of the Florentine Nation in Lyon,false,true,"<p>Charpin Feugerolles, Les Florentins &agrave; Lyon, p. 18.</p>",<p>He was Consul of the Florentine nation in Lyon.</p>
+1354,301,124,1511-11-29,1511,11,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXII, num. 330</p>",<p>Bill of exchange sent to Paolo Sauli (Genoese) in favor of Jacopo Salviati.</p>
+1350,96,124,,1511,,,1512,,Merchant,true,true,,
+1304,65,124,,1510,,,,,Lieutenant of the Florentine Nation of Lyon,false,true,"<p>DBI, ad vocem.</p>",<p>He sent a letter to Niccol&ograve; Machiavelli.</p>
+1352,299,124,1510-08-30,1510,8,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXII, num. 325</p>",<p>Bill of exchange sent to Carlo Capponi in favour of Jacopo Salviati.</p>
+1336,93,169,1510-09-22,1510,9,,,,Agent of the Soderini family,false,false,"<p>DBI, ad vocem.</p>",<p>He moved to Tours to took part at the meeting of the Gallican Church.</p>
+1335,93,118,1510-09-01,1510,9,,,,Agent of the Soderini family,false,false,"<p>DBI, ad vocem.</p>","<p>He came back to Blois to meet the King, after a trip to Florence.</p>"
+1034,93,118,,1510,6,1510-08-03,1510,8,Agent of the Soderini family,false,false,"<p>DBI, ad vocem.</p>","<p>He moved to France as an agent of the Soderini family, working with Machiavelli.</p>"
+1351,298,124,1510-05-28,1510,5,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXVI, num. 324</p>",<p>Bill of exchange of Tommaso Guadagni in favour of Piero Del Bene.</p>
+1349,96,124,1510-05-28,1510,5,1510-11-28,1510,11,Merchant,false,true,"<p>5-1510: SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXVI, num.324 - 11-1510: Ivi, Filze I, XXII, num. 327.</p>",<p>5-1510: Bill of exchange sent to Tommaso Guadagni in favor of Piero Del Bene - 11-1510: Bill of exchange sent to Tommaso Guadagni in favor of Jacopo Salviati.</p>
+1353,300,124,1510-08-30,1510,8,1510-11-28,1510,11,Merchant,false,true,"<p>8-1510: SNSPi, Archivio Salviati, Il Diplomatico, Filze I, XXII, num. 325 - 11-1510: Ivi, num. 327</p>",<p>8-1510: Bill of exchange sent to Carlo Capponi in favor of Jacopo Salviati - 11-1510: Bill of exchange sent to Tommaso Guadagni in favor of Jacopo Salviati.</p>
+1348,297,124,1508-08-13,1508,8,,,,Merchant,false,true,"<p>SNSPi, Archivio Salviati, filze I, XXVI, num. 315.</p>","<p>Dei appointed Francesco Davanzati, Salvatore Billi e Bartolomeo Giorgi as Prosecutors of his business in Florence.</p>"
+1049,67,1,,1507,,,,,,false,true,"<p>DBI, ad vocem.</p>",<p>He moved to Paris.</p>
+1487,463,124,,1506,,,,,Consul of the Florentine Nation in Lyon,false,true,"<p>Calafati, Entre Florence et la France,p. 6</p>",<p>He was Consul of the Florentine nation in Lyon.</p>
+1464,94,124,,1505,,,,,Merchant,false,true,"<p>Histoire et dictionnaire des guerres de religion, p. 943</p>",<p>He moved to Lyon</p>
+1490,96,124,,1505,,,,,Consul of the Florentine Nation in Lyon,false,true,"<p>Charpin Feugerolles, Les Florentines &agrave; Lyon, pp. 85-118</p>",<p>He was Consul of the Florentine nation in Lyon.</p>
+1129,87,1,,1503,6,,1505,,Maître d'hôtel of the King,false,false,"<p>1503: Picot, les italiens en France, p. 88 - 1505: Dubost, La France italienne, annexe 1</p>",<p>He was at the French court.</p>
+1221,58,124,,1502,,,,,Merchant,false,true,"<p>DBI, ad vocem.</p>","<p>He attended at the promulgation of the Statutes of the ""Natione fiorentina"" in Lyon.</p>"
+1486,87,124,,1501,,,,,Consul of the Florentine Nation in Lyon,false,true,"<p>ASF, Consoli del Mare 9, c. 88.</p>",<p>He had business in Lyon and was named Consul of the Florentine nation in Lyon.</p>
+1505,482,124,,1500,,,1505,,Merchant,false,true,"<p>Charpin Feugerolles, Les florentines &agrave; Lyon, p. 133</p>",<p>He had business in Lyon.</p>
