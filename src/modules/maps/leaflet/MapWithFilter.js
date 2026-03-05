@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef, useCallback, useMemo } from "react";
-import { MapLeaflet, VectorLayer } from "../../scms.js";
+import { MapLeaflet } from "../../scms.js";
 import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 import { Bar, Doughnut } from "react-chartjs-2";
@@ -10,6 +10,11 @@ import { Button, Modal, Form, Spinner } from "react-bootstrap";
 import L from "leaflet";
 import { useMap, useMapEvents } from "react-leaflet";
 import TutorialModal from "../../../usr/components/TutorialModal";
+
+// ✅ markercluster (serve ora che non usiamo VectorLayer)
+import "leaflet.markercluster/dist/leaflet.markercluster";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 
 /* =========================
    Utils
@@ -50,7 +55,7 @@ const ensureJSZip = async () => {
 };
 
 /* =========================
-   Switch custom (sempre visibile)
+   Switch custom (sidebar extent)
    ========================= */
 const ExtentSwitch = ({ checked, onChange, label = "Filter sidebar by extent" }) => {
   return (
@@ -121,7 +126,7 @@ const MapBoundsWatcher = ({ onChange }) => {
 };
 
 /* =========================
-   Modal di download
+   Modal download
    ========================= */
 const DownloadModal = ({
   show,
@@ -172,82 +177,268 @@ const DownloadModal = ({
           <Form.Group className="mb-3">
             <Form.Label>Format</Form.Label>
             <div>
-              <Form.Check
-                inline
-                type="radio"
-                label="CSV"
-                name="fmt"
-                id="fmt-csv"
-                checked={format === "csv"}
-                onChange={() => setFormat("csv")}
-              />
-              <Form.Check
-                inline
-                type="radio"
-                label="JSON"
-                name="fmt"
-                id="fmt-json"
-                checked={format === "json"}
-                onChange={() => setFormat("json")}
-              />
-              <Form.Check
-                inline
-                type="radio"
-                label="GeoJSON"
-                name="fmt"
-                id="fmt-geojson"
-                checked={format === "geojson"}
-                onChange={() => setFormat("geojson")}
-              />
+              <Form.Check inline type="radio" label="CSV" name="fmt" id="fmt-csv"
+                checked={format === "csv"} onChange={() => setFormat("csv")} />
+              <Form.Check inline type="radio" label="JSON" name="fmt" id="fmt-json"
+                checked={format === "json"} onChange={() => setFormat("json")} />
+              <Form.Check inline type="radio" label="GeoJSON" name="fmt" id="fmt-geojson"
+                checked={format === "geojson"} onChange={() => setFormat("geojson")} />
             </div>
           </Form.Group>
 
           <Form.Group>
             <Form.Label>Ambito</Form.Label>
             <div>
-              <Form.Check
-                inline
-                type="radio"
-                label="All movements (current extent)"
-                name="scope"
-                id="scope-visible"
-                checked={scope === "visible"}
-                onChange={() => setScope("visible")}
-              />
-              <Form.Check
-                inline
-                type="radio"
-                label="Data shown on map"
-                name="scope"
-                id="scope-all"
-                checked={scope === "all"}
-                onChange={() => setScope("all")}
-              />
+              <Form.Check inline type="radio" label="All movements (current extent)"
+                name="scope" id="scope-visible" checked={scope === "visible"}
+                onChange={() => setScope("visible")} />
+              <Form.Check inline type="radio" label="Data shown on map"
+                name="scope" id="scope-all" checked={scope === "all"}
+                onChange={() => setScope("all")} />
             </div>
           </Form.Group>
         </Form>
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="outline-secondary" onClick={onClose}>
-          Annulla
-        </Button>
-        <Button
-          variant="primary"
-          style={{ backgroundColor: "#8B0000", border: "none" }}
-          onClick={() => onDownload({ format, scope })}
-          disabled={downloading}
-        >
-          {downloading ? (
-            <>
-              <Spinner size="sm" animation="border" className="me-2" /> Preparazione…
-            </>
-          ) : (
-            "Scarica"
-          )}
+        <Button variant="outline-secondary" onClick={onClose}>Annulla</Button>
+        <Button variant="primary" style={{ backgroundColor: "#8B0000", border: "none" }}
+          onClick={() => onDownload({ format, scope })} disabled={downloading}>
+          {downloading ? (<><Spinner size="sm" animation="border" className="me-2" /> Preparazione…</>) : ("Scarica")}
         </Button>
       </Modal.Footer>
     </Modal>
   );
+};
+
+/* =========================
+   Modal dettagli luogo/cluster
+   ========================= */
+const PlaceClusterModal = ({ show, onClose, places = [] }) => {
+  const isMulti = places.length > 1;
+
+  const yearsChip = (label) => (
+    <span
+      key={label}
+      style={{
+        display: "inline-block",
+        padding: "2px 8px",
+        borderRadius: 999,
+        fontSize: 12,
+        margin: "2px 6px 2px 0",
+        background: "rgba(139, 69, 19, 0.10)",
+        border: "1px solid rgba(139, 69, 19, 0.20)",
+        color: "#5a4a3a",
+        whiteSpace: "nowrap",
+      }}
+    >
+      {label}
+    </span>
+  );
+
+  const renderPlace = (p) => {
+    return (
+      <div
+        style={{
+          border: "1px solid #d4c9a8",
+          borderRadius: 10,
+          padding: 12,
+          background: "rgba(255,255,255,0.55)",
+        }}
+      >
+        <div style={{ display: "flex", justifyContent: "space-between", gap: 10, alignItems: "flex-start" }}>
+          <div>
+            <div style={{ fontSize: 18, color: "#5a4a3a", fontStyle: "italic" }}>{p.placeName}</div>
+            <div style={{ color: "#7a6b5a", fontSize: 13, marginTop: 2 }}>
+              Total movements: <strong>{p.totalMovements}</strong> — People: <strong>{p.peopleCount}</strong>
+            </div>
+          </div>
+          <div style={{ color: "#7a6b5a", fontSize: 12, textAlign: "right" }}>
+            {p.yearLabels?.length ? (
+              <>
+                <div><strong>Years</strong></div>
+                <div style={{ marginTop: 4 }}>
+                  {p.yearLabels.slice(0, 12).map((y) => yearsChip(y))}
+                  {p.yearLabels.length > 12 ? <span style={{ fontSize: 12, color: "#7a6b5a" }}>…</span> : null}
+                </div>
+              </>
+            ) : (
+              <span>Years: —</span>
+            )}
+          </div>
+        </div>
+
+        <div style={{ marginTop: 12 }}>
+          {p.persons.map((per) => (
+            <div
+              key={per.key}
+              style={{
+                borderTop: "1px dashed #d4c9a8",
+                paddingTop: 10,
+                marginTop: 10,
+              }}
+            >
+              <div style={{ display: "flex", justifyContent: "space-between", gap: 10, alignItems: "center" }}>
+                <Link
+                  to={per.id != null ? `/record/?tb=f_persone&id=${per.id}` : "#"}
+                  style={{
+                    textDecoration: "none",
+                    color: "#5a4a3a",
+                    fontWeight: "bold",
+                    fontStyle: "italic",
+                    pointerEvents: per.id != null ? "auto" : "none",
+                    opacity: per.id != null ? 1 : 0.7,
+                  }}
+                >
+                  {per.name}
+                </Link>
+                <span
+                  style={{
+                    backgroundColor: "rgba(0,128,0,0.10)",
+                    border: "1px solid rgba(0,128,0,0.18)",
+                    color: "#006400",
+                    padding: "2px 8px",
+                    borderRadius: 999,
+                    fontSize: 12,
+                    whiteSpace: "nowrap",
+                  }}
+                >
+                  {per.count} movements
+                </span>
+              </div>
+
+              {per.yearLabels?.length ? (
+                <div style={{ marginTop: 6 }}>
+                  {per.yearLabels.slice(0, 18).map((y) => yearsChip(y))}
+                  {per.yearLabels.length > 18 ? <span style={{ fontSize: 12, color: "#7a6b5a" }}>…</span> : null}
+                </div>
+              ) : (
+                <div style={{ marginTop: 6, fontSize: 12, color: "#7a6b5a" }}>Years: —</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <Modal show={show} onHide={onClose} size="lg" centered scrollable>
+      <Modal.Header closeButton>
+        <Modal.Title>
+          {isMulti ? `Cluster details (${places.length} places)` : (places[0]?.placeName || "Details")}
+        </Modal.Title>
+      </Modal.Header>
+
+      <Modal.Body style={{ background: "#f5f2e9" }}>
+        {places.length === 0 ? (
+          <div style={{ color: "#7a6b5a" }}>Nessun dato disponibile per questo cluster.</div>
+        ) : isMulti ? (
+          <div style={{ display: "grid", gap: 12 }}>
+            {places.map((p) => (
+              <details key={p.placeName} open style={{ borderRadius: 10 }}>
+                <summary
+                  style={{
+                    cursor: "pointer",
+                    padding: "8px 10px",
+                    border: "1px solid #d4c9a8",
+                    borderRadius: 10,
+                    background: "rgba(210,195,160,0.20)",
+                    color: "#5a4a3a",
+                    fontStyle: "italic",
+                  }}
+                >
+                  {p.placeName} — {p.totalMovements} movements
+                </summary>
+                <div style={{ marginTop: 10 }}>{renderPlace(p)}</div>
+              </details>
+            ))}
+          </div>
+        ) : (
+          renderPlace(places[0])
+        )}
+      </Modal.Body>
+
+      <Modal.Footer>
+        <Button variant="outline-secondary" onClick={onClose}>Chiudi</Button>
+      </Modal.Footer>
+    </Modal>
+  );
+};
+
+/* =========================
+   Layer cluster custom (solo in questo file)
+   ========================= */
+const MovementsClusterLayer = ({ rows, getMarkerStyle, getClusterIcon, onOpenPlaces }) => {
+  const map = useMap();
+
+  useEffect(() => {
+    if (!map) return;
+    if (!rows || rows.length === 0) return;
+    if (!L.markerClusterGroup) return;
+
+    const group = L.markerClusterGroup({
+      chunkedLoading: true,
+      showCoverageOnHover: false,
+
+      // ✅ disattiva comportamento default
+      zoomToBoundsOnClick: false,
+      spiderfyOnMaxZoom: false,
+      spiderfyOnEveryZoom: false,
+
+      maxClusterRadius: 40,
+      iconCreateFunction: getClusterIcon,
+    });
+
+    // click sul cluster => modal
+    group.on("clusterclick", (e) => {
+      try {
+        if (e?.originalEvent) {
+          e.originalEvent.preventDefault();
+          e.originalEvent.stopPropagation();
+        }
+        const markers = e.layer?.getAllChildMarkers?.() || [];
+        const placeNames = Array.from(
+          new Set(markers.map((m) => m?.options?.__placeName).filter(Boolean))
+        );
+        if (placeNames.length) onOpenPlaces(placeNames);
+      } catch (err) {
+        console.warn("Cluster click error:", err);
+      }
+    });
+
+    // marker singolo => modal (stesso comportamento)
+    rows.forEach((r) => {
+      const placeName = r?.f_luoghi_id?.nome_localita || "Unknown place";
+      const coords = r?.f_luoghi_id?.coordinate?.coordinates;
+      if (!coords) return;
+      const [lng, lat] = coords;
+
+      const marker = L.circleMarker([lat, lng], getMarkerStyle(placeName));
+      marker.options.__placeName = placeName;
+
+      marker.on("click", (ev) => {
+        if (ev?.originalEvent) {
+          ev.originalEvent.preventDefault?.();
+          ev.originalEvent.stopPropagation?.();
+        }
+        onOpenPlaces([placeName]);
+      });
+
+      group.addLayer(marker);
+    });
+
+    map.addLayer(group);
+
+    return () => {
+      try {
+        map.removeLayer(group);
+      } catch {
+        // ignore
+      }
+    };
+  }, [map, rows, getMarkerStyle, getClusterIcon, onOpenPlaces]);
+
+  return null;
 };
 
 /* =========================
@@ -256,21 +447,29 @@ const DownloadModal = ({
 export default function MapWithFilter() {
   const [yearRange, setYearRange] = useState([1500, 1600]);
   const [histogramData, setHistogramData] = useState({ years: [], counts: [] });
-  const [filteredPersons, setFilteredPersons] = useState([]);
+
+  // dati grezzi per mappa+modal (uno per movement)
   const [rawFilteredData, setRawFilteredData] = useState([]);
+
+  // sidebar
+  const [filteredPersons, setFilteredPersons] = useState([]);
   const [isPanelCollapsed, setIsPanelCollapsed] = useState(true);
   const [showHelp, setShowHelp] = useState(false);
-
-  // ✅ Switch: default ON
   const [sidebarFollowsExtent, setSidebarFollowsExtent] = useState(true);
 
+  // download
   const [showDownload, setShowDownload] = useState(false);
   const [totalCount, setTotalCount] = useState(null);
   const [visibleCount, setVisibleCount] = useState(0);
   const [downloading, setDownloading] = useState(false);
 
+  // bounds
   const [mapBounds, setMapBounds] = useState(null);
   const mapContainerRef = useRef(null);
+
+  // modal cluster
+  const [showPlaceModal, setShowPlaceModal] = useState(false);
+  const [placeModalData, setPlaceModalData] = useState([]);
 
   const buildQuery = useCallback(() => {
     let query = `
@@ -296,11 +495,12 @@ export default function MapWithFilter() {
       color: "#ffffff",
       weight: 1,
       opacity: 0.8,
-      fillOpacity: 0.6,
+      fillOpacity: 0.4,
       radius,
     };
   };
 
+  // === fetch dati (unica fetch per mappa + sidebar + modal) ===
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -319,16 +519,17 @@ export default function MapWithFilter() {
 
         setRawFilteredData(filtered);
 
+        // histogram
         const yearCounts = {};
         filtered.forEach((item) => {
           const year = item.prima_attestazione_anno;
           if (year) yearCounts[year] = (yearCounts[year] || 0) + 1;
         });
-
         const years = Array.from({ length: 101 }, (_, i) => 1500 + i);
         const counts = years.map((y) => yearCounts[y] || 0);
         setHistogramData({ years, counts });
 
+        // sidebar persons list
         setFilteredPersons(
           filtered.map((item) => ({
             name: item.f_persone_id?.nome_e_cognome,
@@ -336,9 +537,8 @@ export default function MapWithFilter() {
             yearStart: item.prima_attestazione_anno,
             yearEnd: item.ultima_attestazione_anno,
             isHypothetical: item.ipotizzato,
-            isNullEnd: !item.ultima_attestazione_anno,
             id: item.f_persone_id?.id,
-            coord: item.f_luoghi_id?.coordinate?.coordinates || null, // [lng, lat]
+            coord: item.f_luoghi_id?.coordinate?.coordinates || null,
           }))
         );
       } catch (error) {
@@ -348,7 +548,7 @@ export default function MapWithFilter() {
     fetchData();
   }, [buildQuery, yearRange]);
 
-  // Conteggio movimenti nel viewport (usato per download e per info “In view”)
+  // === conteggio movimenti nel viewport ===
   useEffect(() => {
     const count = rawFilteredData.reduce((acc, item) => {
       const coords = item?.f_luoghi_id?.coordinate?.coordinates;
@@ -360,7 +560,7 @@ export default function MapWithFilter() {
     setVisibleCount(count);
   }, [mapBounds, rawFilteredData]);
 
-  // ✅ Dataset sidebar: extent ON -> filtra per bounds, OFF -> mostra tutto (sempre filtrato per anno)
+  // === sidebar dataset: extent ON/OFF ===
   const sidebarMovements = useMemo(() => {
     const base = filteredPersons.filter((p) => !!p.coord);
     if (!sidebarFollowsExtent) return base;
@@ -394,6 +594,147 @@ export default function MapWithFilter() {
     };
   }, [sidebarMovements]);
 
+  // === indice per modal: place -> persons -> years ===
+  const placeIndex = useMemo(() => {
+    const idx = {};
+
+    const addYearLabel = (obj, label, startYear) => {
+      if (!label) return;
+      obj._years = obj._years || new Map();
+      const key = `${startYear ?? 999999}:${label}`;
+      if (!obj._years.has(key)) obj._years.set(key, label);
+    };
+
+    rawFilteredData.forEach((r) => {
+      const placeName = r?.f_luoghi_id?.nome_localita || "Unknown place";
+      if (!idx[placeName]) {
+        idx[placeName] = {
+          placeName,
+          totalMovements: 0,
+          personsMap: {},
+          _years: new Map(),
+        };
+      }
+
+      idx[placeName].totalMovements += 1;
+
+      const y0 = r?.prima_attestazione_anno ?? null;
+      const y1 = r?.ultima_attestazione_anno ?? null;
+      const label = y0 && y1 && y1 !== y0 ? `${y0}–${y1}` : (y0 ? String(y0) : (y1 ? String(y1) : null));
+      addYearLabel(idx[placeName], label, y0 ?? y1);
+
+      const pid = r?.f_persone_id?.id ?? null;
+      const pname = r?.f_persone_id?.nome_e_cognome || "Anonimo";
+      const pkey = pid != null ? String(pid) : `name:${pname}`;
+
+      if (!idx[placeName].personsMap[pkey]) {
+        idx[placeName].personsMap[pkey] = {
+          key: pkey,
+          id: pid,
+          name: pname,
+          count: 0,
+          _years: new Map(),
+        };
+      }
+      idx[placeName].personsMap[pkey].count += 1;
+      addYearLabel(idx[placeName].personsMap[pkey], label, y0 ?? y1);
+    });
+
+    // finalize
+    Object.values(idx).forEach((p) => {
+      p.yearLabels = Array.from(p._years.entries())
+        .sort((a, b) => a[0].localeCompare(b[0]))
+        .map(([, v]) => v);
+
+      p.persons = Object.values(p.personsMap)
+        .map((per) => ({
+          ...per,
+          yearLabels: Array.from(per._years.entries())
+            .sort((a, b) => a[0].localeCompare(b[0]))
+            .map(([, v]) => v),
+        }))
+        .sort((a, b) => (b.count - a.count) || a.name.localeCompare(b.name));
+
+      p.peopleCount = p.persons.length;
+
+      delete p._years;
+      delete p.personsMap;
+    });
+
+    return idx;
+  }, [rawFilteredData]);
+
+  const openPlacesModal = useCallback((placeNames) => {
+    const uniq = Array.from(new Set(placeNames || [])).filter(Boolean);
+    const data = uniq
+      .map((n) => placeIndex[n])
+      .filter(Boolean)
+      .sort((a, b) => b.totalMovements - a.totalMovements);
+    setPlaceModalData(data);
+    setShowPlaceModal(true);
+  }, [placeIndex]);
+
+  // === stile markers (per luogo) ===
+  const placeCounts = useMemo(() => {
+    const counts = {};
+    rawFilteredData.forEach((r) => {
+      const p = r?.f_luoghi_id?.nome_localita;
+      if (!p) return;
+      counts[p] = (counts[p] || 0) + 1;
+    });
+    return counts;
+  }, [rawFilteredData]);
+
+  const getMarkerStyle = useCallback((placeName) => {
+    const c = placeCounts[placeName] || 1;
+    const st = getClusterStyle(c);
+    return {
+      ...st,
+      radius: Math.min(12, 6 + Math.sqrt(c) * 1.6),
+    };
+  }, [placeCounts]);
+
+  const getClusterIcon = useCallback((cluster) => {
+    const count = cluster.getChildCount();
+    const st = getClusterStyle(count);
+    const size = Math.max(26, Math.min(64, 20 + Math.sqrt(count) * 10));
+
+    // st.fillColor è "hsl(...)" -> lo convertiamo a "hsla(..., alpha)"
+    const hsla = (alpha) =>
+      String(st.fillColor)
+        .replace(/^hsl\(/, "hsla(")
+        .replace(/\)\s*$/, `, ${alpha})`);
+
+    return L.divIcon({
+      html: `<div style="
+        width:${size}px;
+        height:${size}px;
+        border-radius:50%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        border:2px solid rgba(255,255,255,0.70);
+        font-weight:bold;
+        color:rgba(255,255,255,0.95);
+
+        /* ✅ sfumato monocolore + trasparenza (senza highlight bianco) */
+        background: radial-gradient(circle at 50% 45%,
+          ${hsla(0.00)} 0%,
+          ${hsla(0.00)} 6%,
+          ${hsla(0.78)} 18%,
+          ${hsla(0.70)} 55%,
+          ${hsla(0.52)} 78%,
+          rgba(0,0,0,0.12) 100%
+        );
+
+        box-shadow:0 4px 14px rgba(0,0,0,0.16);
+      ">${count}</div>`,
+      className: "marker-cluster-custom",
+      iconSize: [size, size],
+    });
+  }, [getClusterStyle]);
+
+  // === download helpers ===
   const buildDownloadQuery = useCallback((range) => {
     const fields = [
       "f_persone_id.nome_e_cognome",
@@ -446,7 +787,6 @@ export default function MapWithFilter() {
     setShowDownload(true);
   };
 
-  // Mappa: path Directus -> chiave export (inglese)
   const EXPORT_FIELD_MAP = [
     { path: "f_persone_id.nome_e_cognome", key: "person_full_name" },
     { path: "f_persone_id.Pseudonimo", key: "person_pseudonym" },
@@ -629,7 +969,6 @@ export default function MapWithFilter() {
 
   const doughnutBaseColors = ["#8b4513", "#a0522d", "#cd853f", "#deb887", "#f5deb3"];
   const doughnutColors = cityDataForSidebar.labels.map((_, i) => doughnutBaseColors[i % doughnutBaseColors.length]);
-
   const peopleShownCount = groupedPersonEntries.length;
 
   return (
@@ -644,13 +983,14 @@ export default function MapWithFilter() {
         fontFamily: "'Georgia', serif",
       }}
     >
+      {/* HELP */}
       <div
         style={{
           position: "fixed",
           top: 120,
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: 3000,
+          zIndex: 1030,
           cursor: "pointer",
           backgroundColor: "rgba(255,255,255,0.9)",
           borderRadius: "50%",
@@ -680,6 +1020,7 @@ export default function MapWithFilter() {
 
       <TutorialModal show={showHelp} onClose={() => setShowHelp(false)} />
 
+      {/* MAP */}
       <div style={{ flex: 1, position: "relative" }}>
         <Button
           variant="light"
@@ -713,32 +1054,18 @@ export default function MapWithFilter() {
           baseLayers={["CartoDb"]}
           style={{ filter: "sepia(0.3) brightness(0.9) contrast(1.1)", borderRight: "1px solid #d4c9a8" }}
         >
-          <VectorLayer
-            name="Spostamenti"
-            source={{
-              dTable: "f_persone_f_luoghi",
-              dEndPoint: process.env.GATSBY_DIRECTUS_ENDPOINT,
-              dToken: process.env.GATSBY_DIRECTUS_TOKEN,
-              dQueryString: buildQuery(),
-              geoField: "f_luoghi_id.coordinate",
-            }}
-            cluster={true}
-            clusterOptions={{
-              showCoverageOnHover: false,
-              spiderfyOnMaxZoom: false,
-              disableClusteringAtZoom: 12,
-              maxClusterRadius: 40,
-            }}
-            pointToLayer={(feature, latlng) => L.circleMarker(latlng, getClusterStyle(1))}
-            clusterToLayer={(cluster) => {
-              const count = cluster.getChildCount();
-              return L.circleMarker(cluster.getLatLng(), getClusterStyle(count));
-            }}
+          {/* ✅ NUOVO layer cluster custom */}
+          <MovementsClusterLayer
+            rows={rawFilteredData}
+            getMarkerStyle={getMarkerStyle}
+            getClusterIcon={getClusterIcon}
+            onOpenPlaces={openPlacesModal}
           />
 
           <MapBoundsWatcher onChange={handleBoundsChange} />
         </MapLeaflet>
 
+        {/* TIMEBAR */}
         <div
           style={{
             position: "absolute",
@@ -850,6 +1177,7 @@ export default function MapWithFilter() {
         </div>
       </div>
 
+      {/* TOGGLE SIDEBAR */}
       <div
         style={{
           position: "absolute",
@@ -860,30 +1188,39 @@ export default function MapWithFilter() {
           transition: "right 0.3s ease",
         }}
       >
-        <Button
-          onClick={() => setIsPanelCollapsed(!isPanelCollapsed)}
-          variant="light"
-          style={{
-            backgroundColor: "rgba(245, 242, 233, 0.9)",
-            border: "1px solid #d4c9a8",
-            borderRadius: "50%",
-            width: "50px",
-            height: "50px",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            color: "#5a4a3a",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-            transition: "all 0.3s ease",
-            backgroundImage:
-              'url("data:images/svg+xml;utf8,<svg xmlns=\\"http://www.w3.org/2000/svg\\" viewBox=\\"0 0 24 24\\" fill=\\"%235a4a3a\\"><path d=\\"M15.41 16.59L10.83 12l4.58-4.59L14 6l-6 6 6 6 1.41-1.41z\\"/></svg>")',
-            backgroundPosition: "center",
-            backgroundRepeat: "no-repeat",
-            backgroundSize: "24px",
-          }}
-        />
+      <Button
+        onClick={() => setIsPanelCollapsed(!isPanelCollapsed)}
+        variant="light"
+        style={{
+          backgroundColor: "rgba(245, 242, 233, 0.95)", // pergamena
+          border: "2px solid #5a4a3a",                  // bordo evidente
+          borderRadius: "50%",
+          width: "52px",
+          height: "52px",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          color: "#5a4a3a",
+          boxShadow: "0 4px 14px rgba(0,0,0,0.18)",
+          transition: "all 0.2s ease",
+          padding: 0,
+        }}
+        onMouseEnter={(e) => (e.currentTarget.style.transform = "translateY(-1px)")}
+        onMouseLeave={(e) => (e.currentTarget.style.transform = "translateY(0px)")}
+      >
+        <svg width="22" height="22" viewBox="0 0 16 16" fill="none" stroke="#5a4a3a" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+          {isPanelCollapsed ? (
+            // chevron-left (apri)
+            <path d="M10.5 2.5 L5.5 8 L10.5 13.5" />
+          ) : (
+            // chevron-right (chiudi)
+            <path d="M5.5 2.5 L10.5 8 L5.5 13.5" />
+          )}
+        </svg>
+      </Button>
       </div>
 
+      {/* SIDEBAR */}
       <div
         style={{
           width: isPanelCollapsed ? "0" : "350px",
@@ -901,7 +1238,6 @@ export default function MapWithFilter() {
           flexDirection: "column",
         }}
       >
-        {/* Header semplice (se viene coperto dal layout, lo switch resta comunque visibile sotto grazie allo sticky) */}
         <div
           style={{
             padding: "20px",
@@ -918,7 +1254,7 @@ export default function MapWithFilter() {
         </div>
 
         <div style={{ flex: 1, overflowY: "auto", padding: "15px" }}>
-          {/* ✅ SWITCH STICKY: qui lo vedrai sempre */}
+          {/* SWITCH STICKY */}
           <div
             style={{
               position: "sticky",
@@ -1069,6 +1405,7 @@ export default function MapWithFilter() {
         </div>
       </div>
 
+      {/* MODALS */}
       <DownloadModal
         show={showDownload}
         onClose={() => setShowDownload(false)}
@@ -1076,6 +1413,12 @@ export default function MapWithFilter() {
         visibleCount={visibleCount}
         onDownload={handleDownload}
         downloading={downloading}
+      />
+
+      <PlaceClusterModal
+        show={showPlaceModal}
+        onClose={() => setShowPlaceModal(false)}
+        places={placeModalData}
       />
     </div>
   );
