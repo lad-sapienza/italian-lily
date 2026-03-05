@@ -713,21 +713,18 @@ export default function MapWithFilter() {
         display:flex;
         align-items:center;
         justify-content:center;
-        border:2px solid rgba(255,255,255,0.70);
+        border:2px solid rgba(255,255,255,0.95);
         font-weight:bold;
-        color:rgba(255,255,255,0.95);
+        color:white;
 
-        /* ✅ sfumato monocolore + trasparenza (senza highlight bianco) */
+        /* ✅ come prima, ma con trasparenza ~60% sul colore */
         background: radial-gradient(circle at 50% 45%,
-          ${hsla(0.00)} 0%,
-          ${hsla(0.00)} 6%,
-          ${hsla(0.78)} 18%,
-          ${hsla(0.70)} 55%,
-          ${hsla(0.52)} 78%,
-          rgba(0,0,0,0.12) 100%
+          ${hsla(0.60)} 0%,
+          ${hsla(0.60)} 55%,
+          rgba(0,0,0,0.18) 100%
         );
 
-        box-shadow:0 4px 14px rgba(0,0,0,0.16);
+        box-shadow:0 4px 14px rgba(0,0,0,0.18);
       ">${count}</div>`,
       className: "marker-cluster-custom",
       iconSize: [size, size],
