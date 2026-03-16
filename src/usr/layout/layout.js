@@ -7,7 +7,7 @@ import Footer from "./footer"
 import Header from "./header"
 import "./layout.scss"
 
-const Layout = ({ children }) => {
+const Layout = ({ children, embed = false }) => {
   const data = useStaticQuery(graphql`
     query SiteTitleQuery {
       site {
@@ -18,18 +18,18 @@ const Layout = ({ children }) => {
 
   const location = useLocation()
   const pathname = location.pathname.replace(/\/$/, "")
-  const isMapPage = pathname === "/map"
+  const isMapPage = pathname === "/map" || pathname === "/map/embed"
 
   return (
     <div className="d-flex flex-column min-vh-100">
-      <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />
-      <Header siteTitle={data.site.siteMetadata?.title || `Title`} />
-      
+      {!embed && <Navbar siteTitle={data.site.siteMetadata?.title || `Title`} />}
+      {!embed && <Header siteTitle={data.site.siteMetadata?.title || `Title`} />}
+
       <main className="flex-grow-1">
         {children}
       </main>
 
-      {!isMapPage && <Footer />}
+      {!embed && !isMapPage && <Footer />}
     </div>
   )
 }

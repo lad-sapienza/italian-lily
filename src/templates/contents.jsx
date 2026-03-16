@@ -6,11 +6,13 @@ import { MDXProvider } from "@mdx-js/react"
 import Seo from "../modules/seo"
 
 export default function PageTemplate({ data, children }) {
+  const { embed = false, fluid = false } = data.mdx.frontmatter || {}
+
+  const content = <MDXProvider>{children}</MDXProvider>
+
   return (
-    <Layout>
-      <Container>
-        <MDXProvider>{children}</MDXProvider>
-      </Container>
+    <Layout embed={embed}>
+      {fluid ? content : <Container>{content}</Container>}
     </Layout>
   )
 }
@@ -28,6 +30,8 @@ export const query = graphql`
       frontmatter {
         title
         description
+        embed
+        fluid
       }
     }
   }
