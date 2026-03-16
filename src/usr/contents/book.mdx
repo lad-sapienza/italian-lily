@@ -8,7 +8,6 @@ description: "Detailed bibliographic record"
 import { useState, useEffect } from "react"
 import { Record, RecordContext } from "../../modules/record/record"
 import { Row, Col, Card, Accordion, Stack } from "react-bootstrap"
-import { SwitchLayoutButton } from "../components/switcher"
 import BookRecordTutorialModal from "../components/BookRecordTutorialModal"
 
 export default function BookPage() {
@@ -57,9 +56,6 @@ export default function BookPage() {
             <line x1="12" y1="8" x2="12.01" y2="8" />
           </svg>
         </div>
-
-        {/* Switch layout */}
-        <SwitchLayoutButton currentLayout="book" />
 
         {/* Record content */}
         <Record search={{ tb: "libro" }}>

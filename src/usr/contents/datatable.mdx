@@ -171,14 +171,15 @@ export default function PeoplePage() {
           <DataTb
             source={{
               dTable: "f_persone",
-              dQueryString: [
-                "fields=id,nome_e_cognome,cognome_naturalizzato_o_coniuge,other_attested_names,anno_nascita,luogo_nascita,anno_morte,luogo_morte,",
-                "volumi_associati_alla_persona.id,volumi_associati_alla_persona.note_sul_rapporto_,",
-                "volumi_associati_alla_persona.tipo_di_rapporto,",
-                "volumi_associati_alla_persona.f_fonti_id.id,",
-                "volumi_associati_alla_persona.f_fonti_id.titolo_breve",
-                "&filter[progetto][_eq]=volumi&limit=-1"
-              ].join("")
+                dQueryString: [
+                  "fields=id,nome_e_cognome,cognome_naturalizzato_o_coniuge,other_attested_names,anno_nascita,luogo_nascita,anno_morte,luogo_morte,",
+                  "volumi_associati_alla_persona.id,volumi_associati_alla_persona.note_sul_rapporto_,",
+                  "volumi_associati_alla_persona.tipo_di_rapporto,",
+                  "volumi_associati_alla_persona.f_fonti_id.id,",
+                  "volumi_associati_alla_persona.f_fonti_id.titolo_breve,",
+                  "volumi_associati_alla_persona.f_fonti_id.titolo_esteso",
+                  "&filter[progetto][_eq]=volumi&limit=-1"
+                ].join("")
             }}
             noHeader
             noDataComponent={<div className="p-3">No figures found</div>}
@@ -213,8 +214,16 @@ export default function PeoplePage() {
 
                     <div className="mb-2 small text-muted">{formatLifeDates(item)}</div>
                   </div>
-
-                  <div className="p-3 d-flex flex-column" style={{ flex: '0 0 66.66%', height: '100%', overflowY: 'auto' }}>
+                  <div
+                    className="p-3 d-flex flex-column"
+                    style={{
+                      flex: "0 0 66.66%",
+                      height: "100%",
+                      minHeight: 0,
+                      overflow: "hidden",
+                      backgroundColor: "transparent",
+                    }}
+                  >
                     <MiniSchedina items={item.volumi_associati_alla_persona} type="volume" />
                   </div>
                 </div>
