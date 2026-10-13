@@ -3,6 +3,7 @@ import { MapContainer, TileLayer, Marker, Popup } from "react-leaflet";
 import L from "leaflet";
 import "leaflet/dist/leaflet.css";
 import { withPrefix } from "gatsby"
+import { defaultBaseLayers } from "../defaultBaseLayers";
 
 function createLilyIcon({ size, opacity, brightness, shadow, border }) {
   const inner  = size * 0.7
@@ -192,14 +193,17 @@ const handleNextMovement = (markerId, maxIndex) => {
   return (
     <div style={{ position: "relative", height: "100%" }}>
       <MapContainer style={{ height }} center={[45, 4]} zoom={5}>
-        {/* Base layers */}
-        {baseLayers.map((layer, index) => (
-          <TileLayer
-            key={index}
-            url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
-            attribution='&copy; <a href="https://carto.com/attributions">CARTO</a>'
-          />
-        ))}
+        {/* Base layers: usa davvero il layer richiesto (OSM nelle schede). */}
+        {(baseLayers?.length ? baseLayers : ["OSM"]).map((layer, index) => {
+          const base = defaultBaseLayers[layer] || defaultBaseLayers.OSM;
+          return (
+            <TileLayer
+              key={`${layer}-${index}`}
+              url={base.url}
+              attribution={base.attribution || ""}
+            />
+          );
+        })}
 
         {/* Markers and popups */}
         {filteredMarkers.map(marker => {

@@ -1048,7 +1048,7 @@ export default function MapWithFilter() {
         <MapLeaflet
           height="100%"
           center="48.8566,2.3522,5"
-          baseLayers={["CartoDb"]}
+          baseLayers={["OSM"]}
           style={{ filter: "sepia(0.3) brightness(0.9) contrast(1.1)", borderRight: "1px solid #d4c9a8" }}
         >
           {/* ✅ NUOVO layer cluster custom */}

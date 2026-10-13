@@ -9,7 +9,7 @@ const defaultBaseLayers = {
   },
   OSM: {
     name: "Open Street Map",
-    url: "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+    url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
     attribution:
       '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   },
@@ -49,9 +49,13 @@ const defaultBaseLayers = {
     name: "Google Hybrid",
     url: "https://mt1.google.com/vt/lyrs=y&x={x}&y={y}&z={z}",
   },
+  // Compatibilita' con vecchie pagine che richiedono "CartoDb":
+  // la chiave resta valida, ma i tasselli vengono caricati da OSM.
   CartoDb: {
-    name: "Carto DB",
-    url: "https://cartodb-basemaps-a.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png",
+    name: "OpenStreetMap",
+    url: "https://tile.openstreetmap.org/{z}/{x}/{y}.png",
+    attribution:
+      '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
   },
   StamenTerrain: {
     name: "Stamen Terrain",
